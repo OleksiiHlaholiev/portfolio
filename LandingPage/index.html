@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--<base href="https://oleksiihlaholiev.github.io">-->
+    <title>Landing site by Glalex</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!--Include Your Style Sheets next -->
+    <link rel="stylesheet" href="css/mainStyle.css">
+
+    <style type="text/css">
+        #preloader {
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 100500;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+            /*//cdnjs.cloudflare.com/ajax/libs/file-uploader/3.7.0/processing.gif'*/
+            /*https://cdnjs.cloudflare.com/ajax/libs/file-uploader/5.11.8/all.fine-uploader/loading.gif*/
+            background: #ffffff url('images/spinner.gif') no-repeat center center;
+        }
+    </style>
+
+</head>
+<body>
+    <!--PRELOADER!!! -->
+    <div id="preloader"></div>
+
+    <header id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <div class="logo-container">
+                        <a href="#home" class="logo-button">
+                            <img src="images/2_logo.png" alt="logoImg" class="logo-img">
+                        </a>
+                    </div>
+                </div>
+                <nav class="col-xs-9 col-sm-9 col-md-9 col-lg-9 top-menu">
+                    <ul>
+                        <li><a href="#home" class="active-section">home</a></li>
+                        <li><a href="#services">services</a></li>
+                        <li><a href="#portfolio">portfolio</a></li>
+                        <li><a href="#about">about</a></li>
+                        <li><a href="#news">news</a></li>
+                        <li><a href="#contacts">contacts</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- taxi-banner -->
+    <!--<div id="taxi-banner">
+        <a href="http://express-bus.kiev.ua/uslugi" target="_blank">
+            <img src="images/taxi_banner.jpg" alt="taxi_banner.jpg" class="taxi-banner-img" >
+            <p class="taxi-banner-text">
+                Пассажирские перевозки
+            </p>
+        </a>
+    </div>-->
+    <!-- taxi-banner end -->
+
+    <!-- ********   SECTION "HOME" STARTS   ********** -->
+    <section id="home">
+        <div class="container slider-cont-extern">
+            <!--This is HOME container!-->
+            <div class="slider-cont">
+                <span class="slider-text">
+                    We make websites
+                </span>
+                <button class="slider-button">Start tour</button>
+            </div>
+
+        </div>
+    </section>
+    <!-- ********   SECTION "HOME" ENDS   ********** -->
+
+
+    <!-- ********   SECTION "SERVICES" STARTS   ********** -->
+    <section id="services">
+        <div class="container service-cont-ext">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 service-icon-cont">
+                    <img src="images/service_icon_1.png" alt="icon_1.png" class="service-icon-img" data-service-number="0">
+                    <span class="service-icon-text"> Web design </span>
+                    <div class="service-icon-underline"></div>
+                    <div class="service-line-vertical service-active"></div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 service-icon-cont">
+                    <img src="images/service_icon_2.png" alt="icon_2.png" class="service-icon-img" data-service-number="1">
+                    <span class="service-icon-text"> Graphic design </span>
+                    <div class="service-icon-underline"></div>
+                    <div class="service-line-vertical"></div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 service-icon-cont">
+                    <img src="images/service_icon_3.png" alt="icon_3.png" class="service-icon-img" data-service-number="2">
+                    <span class="service-icon-text"> Programming </span>
+                    <div class="service-icon-underline"></div>
+                    <div class="service-line-vertical"></div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 service-icon-cont">
+                    <img src="images/service_icon_4.png" alt="icon_4.png" class="service-icon-img" data-service-number="3">
+                    <span class="service-icon-text"> Photography </span>
+                    <div class="service-icon-underline"></div>
+                    <div class="service-line-vertical"></div>
+                </div>
+            </div>
+            <div class="service-item-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+        </div>
+        <div class="grey-bg">
+            <div class="container">
+                <button class="start-tour"> start tour </button>
+                <button class="for-all-devices service-active-button"> for all devices </button>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <img src="images/3_service_phones.png" alt="service_phones.png" class="service-phone-img">
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <h3>Fully Responsive</h3>
+                        <span class="service-phone-description"> Eum cu tantas legere complectitur, hinc utamur ea eam. Lorem ipsum dolor sit amet, volumus temporibus definitionem id ius, vel ut magna timeam appareat, movet timeam maiorum an ius. <br>
+Sea libris dictas lucilius et. Ne cibo urbanitas pri, qui ad populo accusamus. Quod congue ea ius, nisl aperiri sit ut.</span>
+                        <button class="get-now"> get now </button>
+                    </div>
+                </div>
+                <div class="blank-space-cont">
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ********   SECTION "SERVICES" ENDS   ********** -->
+
+    <!-- ********   SECTION "PORTFOLIO" STARTS   ********** -->
+    <section id="portfolio">
+        <div class="container">
+            <h3 class="common-title">Our Portfolio</h3>
+            <hr class="separate-line">
+            <span class="common-text">
+                Eum cu tantas legere complectitur, hinc utamur ea eam. Eum patrioque mnesarchum eu, diam erant convenire et vis. Et essent evertitur sea, vis cu ubique referrentur, sed eu dicant expetendis.
+            </span>
+            <nav class="portfolio-menu">
+                <ul>
+                    <li>
+                        <button class="portfolio-menu-btn portfolio-all portfolio-menu-btn-active">
+                            all
+                        </button>
+                    </li>
+                    <li>
+                        <button class="portfolio-menu-btn portfolio-quadr">
+                            quadrocopter
+                        </button>
+                    </li>
+                    <li>
+                        <button class="portfolio-menu-btn portfolio-auto">
+                            auto
+                        </button>
+                    </li>
+                    <li>
+                        <button class="portfolio-menu-btn portfolio-nature">
+                            nature
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="portfolio-gallery clearfix">
+            <div class="portfolio-gallery-img quadr-img">
+                <img src="images/portfolio_img_1.jpg" alt="quadr-img">
+                <div class="portfolio-hover-layer">
+                    <span class="portfolio-img-name">img_1</span>
+                    <span class="portfolio-img-category">quadrocopter</span>
+                </div>
+            </div>
+            <div class="portfolio-gallery-img auto-img">
+                <img src="images/portfolio_img_5.jpg" alt="auto-img">
+                <div class="portfolio-hover-layer">
+                    <span class="portfolio-img-name">img_5</span>
+                    <span class="portfolio-img-category">auto</span>
+                </div>
+            </div>
+            <div class="portfolio-gallery-img nature-img">
+                <img src="images/portfolio_img_9.jpg" alt="nature-img">
+                <div class="portfolio-hover-layer">
+                    <span class="portfolio-img-name">img_9</span>
+                    <span class="portfolio-img-category">nature</span>
+                </div>
+            </div>
+            <div class="portfolio-gallery-img quadr-img">
+                <img src="images/portfolio_img_2.jpg" alt="quadr-img">
+                <div class="portfolio-hover-layer">
+                    <span class="portfolio-img-name">img_2</span>
+                    <span class="portfolio-img-category">quadrocopter</span>
+                </div>
+            </div>
+            <div class="portfolio-gallery-img auto-img">
+                <img src="images/portfolio_img_6.jpg" alt="auto-img">
+                <div class="portfolio-hover-layer">
+                    <span class="portfolio-img-name">img_6</span>
+                    <span class="portfolio-img-category">auto</span>
+                </div>
+            </div>
+            <div class="portfolio-gallery-img nature-img">
+                <img src="images/portfolio_img_10.jpg" alt="nature-img">
+                <div class="portfolio-hover-layer">
+                    <span class="portfolio-img-name">img_10</span>
+                    <span class="portfolio-img-category">nature</span>
+                </div>
+            </div>
+            <div class="portfolio-gallery-img quadr-img">
+                <img src="images/portfolio_img_3.jpg" alt="quadr-img">
+                <div class="portfolio-hover-layer">
+                    <span class="portfolio-img-name">img_3</span>
+                    <span class="portfolio-img-category">quadrocopter</span>
+                </div>
+            </div>
+            <div class="portfolio-gallery-img auto-img">
+                <img src="images/portfolio_img_7.jpg" alt="auto-img">
+                <div class="portfolio-hover-layer">
+                    <span class="portfolio-img-name">img_7</span>
+                    <span class="portfolio-img-category">auto</span>
+                </div>
+            </div>
+            <div class="portfolio-gallery-img nature-img">
+                <img src="images/portfolio_img_11.jpg" alt="nature-img">
+                <div class="portfolio-hover-layer">
+                    <span class="portfolio-img-name">img_11</span>
+                    <span class="portfolio-img-category">nature</span>
+                </div>
+            </div>
+            <div class="portfolio-gallery-img quadr-img">
+                <img src="images/portfolio_img_4.jpg" alt="quadr-img">
+                <div class="portfolio-hover-layer">
+                    <span class="portfolio-img-name">img_4</span>
+                    <span class="portfolio-img-category">quadrocopter</span>
+                </div>
+            </div>
+            <div class="portfolio-gallery-img auto-img">
+                <img src="images/portfolio_img_8.jpg" alt="auto-img">
+                <div class="portfolio-hover-layer">
+                    <span class="portfolio-img-name">img_8</span>
+                    <span class="portfolio-img-category">auto</span>
+                </div>
+            </div>
+            <div class="portfolio-gallery-img nature-img">
+                <img src="images/portfolio_img_12.jpg" alt="nature-img">
+                <div class="portfolio-hover-layer">
+                    <span class="portfolio-img-name">img_12</span>
+                    <span class="portfolio-img-category">nature</span>
+                </div>
+            </div>
+
+        </div>
+        <div class="dark-bg">
+            <div class="container">
+                <div class="portfolio-cont">
+                        <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 portfolio-icon-cont">
+                            <img src="images/portfolio_icon_1.png" alt="icon_1.png" class="portfolio-icon-img">
+                            <span class="portfolio-icon-counter" data-portfolio-number="3054">0</span>
+                            <span class="portfolio-icon-text">COMPLETED PROJECTS</span>
+
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 portfolio-icon-cont">
+                            <img src="images/portfolio_icon_2.png" alt="icon_2.png" class="portfolio-icon-img">
+                            <span class="portfolio-icon-counter" data-portfolio-number="7234873">0</span>
+                            <span class="portfolio-icon-text">CLICK PRESED</span>
+
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 portfolio-icon-cont">
+                            <img src="images/portfolio_icon_3.png" alt="icon_3.png" class="portfolio-icon-img">
+                            <span class="portfolio-icon-counter" data-portfolio-number="4670">0</span>
+                            <span class="portfolio-icon-text">MAILS SENTED & RECIVED</span>
+
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 portfolio-icon-cont">
+                            <img src="images/portfolio_icon_4.png" alt="icon_4.png" class="portfolio-icon-img">
+                            <span class="portfolio-icon-counter" data-portfolio-number="939">0</span>
+                            <span class="portfolio-icon-text">JOKES TOLDS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ********   SECTION "PORTFOLIO" ENDS   ********** -->
+
+
+    <!-- ********   SECTION "ABOUT" STARTS   ********** -->
+    <section id="about">
+        <div class="container">
+            <h3 class="common-title">We are the one</h3>
+            <hr class="separate-line">
+            <span class="common-text">
+                Eum cu tantas legere complectitur, hinc utamur ea eam. Eum patrioque mnesarchum eu, diam erant convenire et vis. Et essent evertitur sea, vis cu ubique referrentur, sed eu dicant expetendis.
+            </span>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                    <div class="about-icon-cont">
+                        <img src="images/about_img_1.jpg" alt="icon_1.jpg" class="about-icon-img">
+                        <div class="about-icon-info">
+                            <span class="about-icon-name">Jim Carrey</span>
+                            <span class="about-icon-text">actor</span>
+                        </div>
+                    </div>
+                    <div class="about-icon-bottom">
+                        <span class="about-icon-bottom-text">
+                            Eum cu tantas legere complectitur, hinc utamur ea eam. Eum patrioque mnesarchum eu.
+                        </span>
+                        <div class="about-icon-social-btns clearfix">
+                            <a href="https://facebook.com" class="icon-facebook">
+                                <img src="images/icon_facebook_1.png" alt="icon_FB">
+                            </a>
+                            <a href="https://twitter.com" class="icon-twitter">
+                                <img src="images/icon_twitter_1.png" alt="icon_FB">
+                            </a>
+                            <a href="https://google.com" class="icon-google">
+                                <img src="images/icon_google_1.png" alt="icon_FB">
+                            </a>
+                            <a href="https://dribble.com" class="icon-dribble">
+                                <img src="images/icon_dribble_1.png" alt="icon_FB">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                    <div class="about-icon-cont">
+                        <img src="images/about_img_2.jpg" alt="icon_2.jpg" class="about-icon-img">
+                        <div class="about-icon-info">
+                            <span class="about-icon-name">Jim Carrey</span>
+                            <span class="about-icon-text">actor</span>
+                        </div>
+                    </div>
+                    <div class="about-icon-bottom">
+                        <span class="about-icon-bottom-text">
+                            Eum cu tantas legere complectitur, hinc utamur ea eam. Eum patrioque mnesarchum eu.
+                        </span>
+                        <div class="about-icon-social-btns clearfix">
+                            <a href="https://facebook.com" class="icon-facebook">
+                                <img src="images/icon_facebook_1.png" alt="icon_FB">
+                            </a>
+                            <a href="https://twitter.com" class="icon-twitter">
+                                <img src="images/icon_twitter_1.png" alt="icon_FB">
+                            </a>
+                            <a href="https://google.com" class="icon-google">
+                                <img src="images/icon_google_1.png" alt="icon_FB">
+                            </a>
+                            <a href="https://dribble.com" class="icon-dribble">
+                                <img src="images/icon_dribble_1.png" alt="icon_FB">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                    <div class="about-icon-cont">
+                        <img src="images/about_img_3.jpg" alt="icon_3.jpg" class="about-icon-img">
+                        <div class="about-icon-info">
+                            <span class="about-icon-name">Jim Carrey</span>
+                            <span class="about-icon-text">actor</span>
+                        </div>
+                    </div>
+                    <div class="about-icon-bottom">
+                        <span class="about-icon-bottom-text">
+                            Eum cu tantas legere complectitur, hinc utamur ea eam. Eum patrioque mnesarchum eu.
+                        </span>
+                        <div class="about-icon-social-btns clearfix">
+                            <a href="https://facebook.com" class="icon-facebook">
+                                <img src="images/icon_facebook_1.png" alt="icon_FB">
+                            </a>
+                            <a href="https://twitter.com" class="icon-twitter">
+                                <img src="images/icon_twitter_1.png" alt="icon_FB">
+                            </a>
+                            <a href="https://google.com" class="icon-google">
+                                <img src="images/icon_google_1.png" alt="icon_FB">
+                            </a>
+                            <a href="https://dribble.com" class="icon-dribble">
+                                <img src="images/icon_dribble_1.png" alt="icon_FB">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                    <div class="about-icon-cont">
+                        <img src="images/about_img_4.jpg" alt="icon_4.jpg" class="about-icon-img">
+                        <div class="about-icon-info">
+                            <span class="about-icon-name">Jim Carrey</span>
+                            <span class="about-icon-text">actor</span>
+                        </div>
+                    </div>
+                    <div class="about-icon-bottom">
+                        <span class="about-icon-bottom-text">
+                            Eum cu tantas legere complectitur, hinc utamur ea eam. Eum patrioque mnesarchum eu.
+                        </span>
+                        <div class="about-icon-social-btns clearfix">
+                            <a href="https://facebook.com" class="icon-facebook">
+                                <img src="images/icon_facebook_1.png" alt="icon_FB">
+                            </a>
+                            <a href="https://twitter.com" class="icon-twitter">
+                                <img src="images/icon_twitter_1.png" alt="icon_FB">
+                            </a>
+                            <a href="https://google.com" class="icon-google">
+                                <img src="images/icon_google_1.png" alt="icon_FB">
+                            </a>
+                            <a href="https://dribble.com" class="icon-dribble">
+                                <img src="images/icon_dribble_1.png" alt="icon_FB">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- ********   SECTION "ABOUT" ENDS   ********** -->
+
+
+    <!-- ********   SECTION "NEWS" STARTS   ********** -->
+    <section id="news">
+        <div class="container">
+            <h3 class="common-title">Check our news</h3>
+            <hr class="separate-line">
+            <span class="common-text">
+                Eum cu tantas legere complectitur, hinc utamur ea eam. Eum patrioque mnesarchum eu, diam erant convenire et vis. Et essent evertitur sea, vis cu ubique referrentur, sed eu dicant expetendis.
+            </span>
+        </div>
+        <div class="container">
+            <div class="news-feed">
+                <div class="row news-template">
+                    <div class="col-xs-12 col-sm-12 col-md-2 offset-md-1 col-lg-2 offset-lg-1">
+                        <span class="news-number">25</span>
+                        <span class="news-month">September</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                        <span class="news-text">
+                            Eum cu tantas legere complectitur, hinc utamur ea eam. Eum patrioque mnesarchum eu, diam erant convenire et vis. Et essent evertitur sea, vis cu ubique referrentur, sed eu dicant expetendis.
+                        </span>
+                        <div class="control-cont">
+                            <!--target="_blank"-->
+                            <a href="news.html"  class="read-more-btn">Read more</a>
+                            <hr class="separate-line">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- ********   SECTION "NEWS" ENDS   ********** -->
+
+
+    <!-- ********   SECTION "CONTACTS" STARTS   ********** -->
+    <section id="contacts">
+        <div class="dark-bg">
+            <div class="container">
+                <h3 class="common-title">Contact Us</h3>
+                <hr class="separate-line">
+                <p class="common-text">
+                    Eum cu tantas legere complectitur, hinc utamur ea eam. Eum patrioque mnesarchum eu, diam erant convenire et vis. Et essent evertitur sea, vis cu ubique referrentur, sed eu dicant expetendis.
+                </p>
+            </div>
+        </div>
+        <div class="dark-bg">
+            <div class="container">
+                <form>
+                    <div class="input-content">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <input type="text" tabindex="1" name="name"  placeholder="Your name here" required="required" class="input-name">
+                                <p class="input-name-error"> Input-Name-Error </p>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <input type="email" tabindex="2" name="mail" placeholder="Your mail here" required="required" class="input-email">
+                                <p class="input-email-error"> Input-Email-Error </p>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <input type="text" tabindex="3" name="message"  placeholder="Your message here" required="required" class="input-text">
+                                <p class="input-text-error"> Input-Text-Error </p>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 submit-btn-cont">
+                                <input type="submit" tabindex="4" value="Send Message" disabled="disabled" class="input-submit-btn">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="dark-grey-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+                        <div class="contacts-info-cont">
+                            <p class="contacts-text">Awesome Address 432</p>
+                            <p class="contacts-text">ourmail@sometype.com</p>
+                            <p class="contacts-text">+321(0)32 123 343 49</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ********   SECTION "CONTACTS" ENDS   ********** -->
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="dark-bg">
+            <div class="container footer-container">
+                <a class="footer-btn" href="#home"></a>
+                <p class="footer-text">© 2016 - <span class="footer-text-spec">KET</span> All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src = "js/mainScript.js"></script>
+
+
+    <!--PRELOADER !!!-->
+    <!--http://ru.stackoverflow.com/questions/427668/%D0%9A%D0%B0%D0%BA-%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C-%D0%BF%D1%80%D0%B5%D0%BB%D0%BE%D0%B0%D0%B4%D0%B5%D1%80-%D0%BD%D0%B0-%D0%B2%D1%80%D0%B5%D0%BC%D1%8F-%D0%B7%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B8-js-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        jQuery(document).ready(function($) {
+            $(window).load(function() {
+                setTimeout(function() {
+                    $('#preloader').fadeOut('slow', function() {});
+                }, 2000);
+
+            });
+        });
+    </script>
+
+</body>
+</html>
