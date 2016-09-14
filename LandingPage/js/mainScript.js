@@ -499,7 +499,7 @@ window.addEventListener('load', function() {
     function inputSubmitBtnHandler(event) {
         event.preventDefault();
 
-        alert("Input is CORRECT!\nThe data will be sent to the server!");
+        alert("Input is CORRECT !\nThe data will be sent to the server !");
     }
 
     inputName.addEventListener('keyup', inputNameHandler);
