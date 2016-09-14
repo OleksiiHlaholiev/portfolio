@@ -2,7 +2,6 @@
 
 window.addEventListener('load', function() {
 
-
     var serviceIitemText0 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
     var serviceIitemText1 = "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
     var serviceIitemText2 = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.";
@@ -429,11 +428,6 @@ window.addEventListener('load', function() {
     }
 
     function inputNameHandler() {
-        // inputName.nextElementSibling.style.display = "none";
-         /*if (inputName.value[inputName.value.length - 1] != 5) {
-             var temp = inputName.value[inputName.value.length - 1];
-         }*/
-
          if (!inputName.value.length) {
              inputNameStatus = false;
              inputName.nextElementSibling.style.display = "block";
@@ -461,10 +455,6 @@ window.addEventListener('load', function() {
             inputEmail.nextElementSibling.innerText = "No email entered !"
         }
         else {
-
-            // if (inputEmail.value.indexOf("@") != -1)
-            // if ( (/^\w+@\w+\.\w{2,4}$/i.test(inputEmail.value)) )
-            // if ( (/^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/.test(inputEmail.value)) )
             if ( (/^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/.test(inputEmail.value)) ) {
                 inputEmailStatus = true;
                 inputEmail.nextElementSibling.style.display = "none";
