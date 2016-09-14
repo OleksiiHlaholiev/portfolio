@@ -440,7 +440,8 @@ window.addEventListener('load', function() {
              inputName.nextElementSibling.innerText = "No data entered !"
          }
          else {
-             if ( (/[a-zA-Z]/.test(inputName.value[inputName.value.length - 1])) ) {
+             // if ( (/[a-zA-Z]/.test(inputName.value[inputName.value.length - 1])) )
+             if ( (/[a-zA-Z]/.test(inputName.value)) ) {
                  inputNameStatus = true;
                  inputName.nextElementSibling.style.display = "none";
              }
@@ -463,7 +464,8 @@ window.addEventListener('load', function() {
 
             // if (inputEmail.value.indexOf("@") != -1)
             // if ( (/^\w+@\w+\.\w{2,4}$/i.test(inputEmail.value)) )
-            if (inputEmail.value.indexOf("@") != -1) {
+            // if ( (/^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/.test(inputEmail.value)) )
+            if ( (/^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/.test(inputEmail.value)) ) {
                 inputEmailStatus = true;
                 inputEmail.nextElementSibling.style.display = "none";
             }
@@ -510,7 +512,6 @@ window.addEventListener('load', function() {
     footerButton.addEventListener('click', footerButtonHandler);
 
     var portfolioFirstScroll = true;
-
 
     function scrollWindowHandler(event) {
         // alert("Scroll!!!");
@@ -561,8 +562,6 @@ window.addEventListener('load', function() {
                 portfolioIconCounterHandler();
             }
         }
-
-
     }
 
     window.addEventListener('scroll', scrollWindowHandler);
