@@ -793,7 +793,7 @@ input[type="text"], input[type="email"] {
     font-weight: 500;
     color: #ffffff;
     background-color: transparent;
-    /*outline: none;*/
+    outline: none;
     border: none;
     border-bottom: 2px solid #ffffff;
     color: #ffffff;
