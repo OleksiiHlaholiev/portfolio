@@ -332,7 +332,7 @@ window.addEventListener('load', function() {
      NewsAddFromFile();*/
 
     var httpRequest = new XMLHttpRequest();
-    httpRequest.open("GET", "../LandingPage/files/data.json", true);
+    httpRequest.open("GET", "../landing-page_ket/files/data.json", true);
     httpRequest.onreadystatechange = OnRequestStateChange;
     httpRequest.send(null);
 
@@ -518,32 +518,32 @@ window.addEventListener('load', function() {
         if ( (currentPosition > sectionHome.offsetTop) && (currentPosition < sectionHome.offsetTop + sectionHome.offsetHeight) ) {
             prevActiveItem.classList.remove("active-section");
             topMenu[0].classList.add("active-section");
-            window.location.hash = "/#home";
+            // window.location.hash = "/#home";
         }
         else if ( (currentPosition > sectionServices.offsetTop) && (currentPosition < sectionServices.offsetTop + sectionServices.offsetHeight) ) {
             prevActiveItem.classList.remove("active-section");
             topMenu[1].classList.add("active-section");
-            window.location.hash = "/#services";
+            // window.location.hash = "/#services";
         }
         else if ( (currentPosition > sectionPortfolio.offsetTop) && (currentPosition < sectionPortfolio.offsetTop + sectionPortfolio.offsetHeight) ) {
             prevActiveItem.classList.remove("active-section");
             topMenu[2].classList.add("active-section");
-            window.location.hash = "/#portfolio";
+            // window.location.hash = "/#portfolio";
         }
         else if ( (currentPosition > sectionAbout.offsetTop) && (currentPosition < sectionAbout.offsetTop + sectionAbout.offsetHeight) ) {
             prevActiveItem.classList.remove("active-section");
             topMenu[3].classList.add("active-section");
-            window.location.hash = "/#about";
+            // window.location.hash = "/#about";
         }
         else if ( (currentPosition > sectionNews.offsetTop) && (currentPosition < sectionNews.offsetTop + sectionNews.offsetHeight) ) {
             prevActiveItem.classList.remove("active-section");
             topMenu[4].classList.add("active-section");
-            window.location.hash = "/#news";
+            // window.location.hash = "/#news";
         }
         else if ( (currentPosition > sectionContacts.offsetTop)  ) {
             prevActiveItem.classList.remove("active-section");
             topMenu[5].classList.add("active-section");
-            window.location.hash = "/#contacts";
+            // window.location.hash = "/#contacts";
         }
 
         if ( (currentPosition > portfolioContainer.offsetTop) && (currentPosition < portfolioContainer.offsetTop + portfolioContainer.offsetHeight) ) {
