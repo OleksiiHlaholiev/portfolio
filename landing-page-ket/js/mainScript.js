@@ -332,7 +332,7 @@ window.addEventListener('load', function() {
      NewsAddFromFile();*/
 
     var httpRequest = new XMLHttpRequest();
-    httpRequest.open("GET", "../landing-page_ket/files/data.json", true);
+    httpRequest.open("GET", "../landing-page-ket/files/data.json", true);
     httpRequest.onreadystatechange = OnRequestStateChange;
     httpRequest.send(null);
 
