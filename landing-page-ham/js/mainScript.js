@@ -19,7 +19,18 @@ window.addEventListener('load', function() {
     var faBars = document.querySelector(".fa-bars");
 
 
-    topMenu.style.display = "none";
+    function windowResizeHandler() {
+        if (window.outerWidth < 992) {
+            topMenu.style.display = "none";
+        }
+        else {
+            topMenu.style.display = "inline-block";
+        }
+
+    }
+
+    window.addEventListener('resize', windowResizeHandler);
+
     function faBarsHandler() {
         if (topMenu.style.display != "none") {
             topMenu.style.display = "none";
