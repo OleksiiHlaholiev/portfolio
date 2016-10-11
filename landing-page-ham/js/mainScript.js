@@ -14,6 +14,23 @@ window.addEventListener('load', function() {
     var topMenu = document.querySelectorAll(".top-menu > ul > li > a");
     var sliderButton = document.querySelector(".slider-button");*/
 
+    var topMenu = document.querySelector(".top-menu");
+    var topMenuItems = document.querySelectorAll(".top-menu > ul > li > a");
+    var faBars = document.querySelector(".fa-bars");
+
+
+    topMenu.style.display = "none";
+    function faBarsHandler() {
+        if (topMenu.style.display != "none") {
+            topMenu.style.display = "none";
+        }
+        else {
+            topMenu.style.display = "inline-block";
+        }
+
+    }
+
+    faBars.addEventListener('click', faBarsHandler);
 
 
 });
