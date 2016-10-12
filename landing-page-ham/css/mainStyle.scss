@@ -311,13 +311,75 @@ h1, h2, h3, h4, h5, h6 {
         left: 0;
         width: 100%;
         height: 100%;
+    }
 
+    .home-gallery {
+        width: 100%;
+        height: auto;
 
+        .home-gallery-item {
+            float: left;
+            display: inline-block;
+            width: 100%;
+            height: 300px;
+            padding: 80px 10px;
+            text-align: center;
+
+            .home-gallery-img-cont {
+                width: 100%;
+                height: 100px;
+            }
+
+            p {
+                font-size: 20px;
+                font-weight: 700;
+                text-transform: uppercase;
+                padding: 2vh 0 0 0;
+                margin: 0px;
+            }
+            @media screen and (min-width: 550px) {
+                width: 50%;
+            }
+
+            @media screen and (min-width: 992px) {
+                //height: 350px;
+                width: 25%;
+            }
+
+        }
+        .home-gallery-item:nth-child(odd) {
+            color: $color_green_light;
+            background-color: #1c2a33;
+            border-top: 8px solid $color_green_light;
+        }
+        .home-gallery-item:nth-child(even) {
+            color: #ffffff;
+            background-color: $color_green_light;
+            border-top: 8px solid #ffffff;
+        }
     }
 }
-
 //----- HOME section ends -----
 
+//----- FOOTER starts -----
+#footer {
+    //position: relative;
+    width: 100%;
+    height: 100px;
+    background-color: #22353f;
+    z-index: 999;
+    
+    p {
+        color: #a5a6a7;
+        font-size: 14px;
+        font-weight: 300;
+        span {
+            color: $color_green_light;
+        }
+    }
+
+}
+//----- FOOTER ends -----
 
 /*.fa-laptop {
     font-size: 100px;
