@@ -19,7 +19,7 @@ window.addEventListener('load', function() {
     var faBars = document.querySelector(".fa-bars");
 
 
-    function windowResizeHandler() {
+    /*function windowResizeHandler() {
         if (window.outerWidth < 992) {
             topMenu.style.display = "none";
         }
@@ -29,10 +29,10 @@ window.addEventListener('load', function() {
 
     }
 
-    window.addEventListener('resize', windowResizeHandler);
+    window.addEventListener('resize', windowResizeHandler);*/
 
     function faBarsHandler() {
-        if (topMenu.style.display != "none") {
+        if (getComputedStyle(topMenu).display != "none") {
             topMenu.style.display = "none";
         }
         else {
