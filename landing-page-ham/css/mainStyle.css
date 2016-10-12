@@ -2,12 +2,16 @@
 /*font-family: 'Montserrat', sans-serif;*/
 @font-face {
   font-family: Montserrat;
+  font-weight: 300;
+  src: url("../fonts/montserrat/Montserrat-Light.otf"); }
+@font-face {
+  font-family: Montserrat;
   font-weight: 400;
-  src: url("../fonts/Montserrat/Montserrat-Regular.ttf"); }
+  src: url("../fonts/montserrat/Montserrat-Regular.ttf"); }
 @font-face {
   font-family: Montserrat;
   font-weight: 700;
-  src: url("../fonts/Montserrat/Montserrat-Bold.ttf"); }
+  src: url("../fonts/montserrat/Montserrat-Bold.ttf"); }
 /*************************************************************/
 * {
   box-sizing: border-box; }
@@ -121,6 +125,71 @@ h1, h2, h3, h4, h5, h6 {
         padding-left: 0px; }
       .top-menu ul li:last-child {
         padding-right: 0px; } }
+#home {
+  position: relative;
+  top: 100px;
+  width: 100%;
+  height: calc(100vh - 100px);
+  background-color: #3c3c3c; }
+  #home .slider {
+    text-align: center; }
+    #home .slider ul {
+      margin: 0px;
+      padding: 0px;
+      list-style-type: none; }
+      #home .slider ul li {
+        font-size: 40px; }
+        #home .slider ul li h1, #home .slider ul li h2, #home .slider ul li p {
+          color: #ffffff; }
+        #home .slider ul li h1 {
+          font-size: 1em;
+          font-weight: 700;
+          margin: 2vh; }
+        #home .slider ul li h2 {
+          font-size: 0.5em;
+          font-weight: 700;
+          padding: 10vh 0px 0px 0px;
+          margin-bottom: 0px; }
+          #home .slider ul li h2 span {
+            color: #18cfab; }
+        #home .slider ul li p {
+          font-size: 0.4em;
+          font-weight: 300; }
+        #home .slider ul li .btn-cont {
+          padding: 5px 0px; }
+          #home .slider ul li .btn-cont button {
+            color: #ffffff;
+            background-color: #18cfab;
+            width: 165px;
+            padding: 20px 0px;
+            margin: 10px 15px;
+            font-size: 13px;
+            font-weight: 700;
+            border: none;
+            border-radius: 4px;
+            box-shadow: 0px -5px  white; }
+          #home .slider ul li .btn-cont button:hover {
+            background-color: #00cbf6; }
+        @media screen and (min-width: 687px) {
+          #home .slider ul li {
+            font-size: 50px; }
+            #home .slider ul li h2 {
+              padding: 15vh 0px 0px 0px; }
+            #home .slider ul li .btn-cont {
+              padding: 20px 0px; } }
+        @media screen and (min-width: 992px) {
+          #home .slider ul li {
+            font-size: 60px; }
+            #home .slider ul li h2 {
+              padding: 20vh 0px 0px 0px; }
+            #home .slider ul li .btn-cont {
+              padding: 30px 0px; } }
+        @media screen and (min-width: 1200px) {
+          #home .slider ul li {
+            font-size: 80px; }
+            #home .slider ul li .btn-cont {
+              padding: 50px 0px; } }
+
 /*.fa-laptop {
     font-size: 100px;
     color: #ffffff;

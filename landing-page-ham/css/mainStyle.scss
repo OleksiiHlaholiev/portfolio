@@ -6,14 +6,20 @@ $color_blue_light: #00cbf6;
 
 @font-face {
     font-family: Montserrat;
+    font-weight: 300;
+    src: url("../fonts/montserrat/Montserrat-Light.otf");
+}
+
+@font-face {
+    font-family: Montserrat;
     font-weight: 400;
-    src: url("../fonts/Montserrat/Montserrat-Regular.ttf");
+    src: url("../fonts/montserrat/Montserrat-Regular.ttf");
 }
 
 @font-face {
     font-family: Montserrat;
     font-weight: 700;
-    src: url("../fonts/Montserrat/Montserrat-Bold.ttf");
+    src: url("../fonts/montserrat/Montserrat-Bold.ttf");
 }
 
 /*************************************************************/
@@ -168,6 +174,103 @@ h1, h2, h3, h4, h5, h6 {
         }
     }
 }
+
+//----- HOME section starts -----
+#home {
+    position: relative;
+    top: 100px;
+    width: 100%;
+    height: calc(100vh - 100px);
+
+    background-color: #3c3c3c;
+
+    .slider {
+        text-align: center;
+        ul {
+            margin: 0px;
+            padding: 0px;
+            list-style-type: none;
+            li {
+                font-size: 40px;
+                h1, h2, p {
+                    color: #ffffff;
+                }
+                h1 {
+                    //font-size: 79px;
+                    font-size: 1em;
+                    font-weight: 700;
+                    margin: 2vh;
+                }
+                h2 {
+                    //font-size: 35px;
+                    font-size: 0.5em;
+                    font-weight: 700;
+                    padding: 10vh 0px 0px 0px;
+                    margin-bottom: 0px;
+                    span {
+                        color: $color_green_light;
+                    }
+                }
+                p {
+                    //font-size: 32px;
+                    font-size: 0.4em;
+                    font-weight: 300;
+                }
+                .btn-cont {
+                    padding: 5px 0px;
+                    button {
+                        color: #ffffff;
+                        background-color: $color_green_light;
+                        width: 165px;
+                        padding: 20px 0px;
+                        margin: 10px 15px;
+                        font-size: 13px;
+                        font-weight: 700;
+                        border: none;
+                        border-radius: 4px;
+                        box-shadow: 0px -5px  white;
+
+
+                    }
+                    button:hover {
+                        background-color: $color_blue_light;
+                    }
+                }
+
+                @media screen and (min-width: 687px) {
+                    font-size: 50px;
+                    h2 {
+                        padding: 15vh 0px 0px 0px;
+                    }
+                    .btn-cont {
+                        padding: 20px 0px;
+                    }
+                }
+
+                @media screen and (min-width: 992px) {
+                    font-size: 60px;
+                    h2 {
+                        padding: 20vh 0px 0px 0px;
+                    }
+                    .btn-cont {
+                        padding: 30px 0px;
+                    }
+                }
+
+                @media screen and (min-width: 1200px) {
+                    font-size: 80px;
+                    .btn-cont {
+                        padding: 50px 0px;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+//----- HOME section ends -----
+
 
 /*.fa-laptop {
     font-size: 100px;
