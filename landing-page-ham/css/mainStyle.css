@@ -55,9 +55,9 @@ h1, h2, h3, h4, h5, h6 {
       padding: 16.5px 0px; }
 
 .fa-bars {
+  display: inline-block;
   color: #b8b8b8;
   font-size: 40px;
-  display: inline-block;
   text-align: center;
   padding: 30px 0px;
   cursor: pointer; }

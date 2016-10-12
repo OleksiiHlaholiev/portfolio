@@ -33,7 +33,7 @@ window.addEventListener('load', function() {
 
     function faBarsHandler() {
         if (getComputedStyle(topMenu).display != "none") {
-            topMenu.style.display = "none";
+            topMenu.style.display = "";
         }
         else {
             topMenu.style.display = "inline-block";
