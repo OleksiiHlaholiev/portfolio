@@ -50,15 +50,15 @@ h1, h2, h3, h4, h5, h6 {
 
 // ----- HEADER starts ------
 
-/*.verical-align {
+.verical-align {
     width: 100%;
     height: 100%;
     display: -webkit-flex;
     display: flex;
     flex-direction: row;
     align-items: center;
-    //justify-content: center;
-}*/
+    justify-content: center;
+}
 
 
 #header {
@@ -367,19 +367,50 @@ h1, h2, h3, h4, h5, h6 {
 //----- FOOTER starts -----
 #footer {
     width: 100%;
-    height: 100px;
+    min-height: 100px;
     background-color: #22353f;
     text-align: center;
-    
-    p {
-        color: #a5a6a7;
-        font-size: 14px;
-        font-weight: 300;
-        padding: 39.5px 0px;
-        margin: 0px;
-        span {
-            color: $color_green_light;
+
+    .footer-cont {
+        //padding: 20px;
+        p {
+            display: block;
+            color: #a5a6a7;
+            font-size: 14px;
+            font-weight: 300;
+            padding: 10px 0px;
+            padding-left: 10px;
+            margin: 0px;
+            span {
+                color: $color_green_light;
+            }
         }
+        a {
+            display: block;
+            //width: 40px;
+            //height: 40px;
+            margin: 25px;
+
+            .fa-angle-up {
+                display: inline-block;
+                color: #ffffff;
+                background-color: $color_green_light;
+                font-size: 32px;
+                padding: 5px 11px;
+                cursor: pointer;
+            }
+
+            .fa-angle-up:hover {
+                background-color: $color_blue_light;
+            }
+        }
+
+        @media screen and (min-width: 687px) {
+            p, a {
+                display: inline-block;
+            }
+        }
+
     }
 
 }
