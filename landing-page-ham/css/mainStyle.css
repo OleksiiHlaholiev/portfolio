@@ -18,14 +18,14 @@
 
 html, body {
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  width: 100%; }
 
 body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   font-size: 14px;
-  color: #000000;
-  width: 100%; }
+  color: #000000; }
 
 h1, h2, h3, h4, h5, h6 {
   text-align: center; }
@@ -126,43 +126,49 @@ h1, h2, h3, h4, h5, h6 {
       .top-menu ul li:last-child {
         padding-right: 0px; } }
 #home {
-  position: relative;
-  top: 100px;
-  width: 100%;
-  height: calc(100vh - 100px);
-  background-color: #3c3c3c; }
-  #home .slider {
+  padding-top: 100px;
+  width: 100%; }
+  #home .slider-cont {
     position: relative;
+    width: 100%;
     height: calc(100vh - 100px);
-    text-align: center;
-    z-index: 1; }
-    #home .slider ul {
+    background-color: #3c3c3c;
+    overflow-x: hidden; }
+    #home .slider-cont .slider {
+      position: relative;
+      width: 500%;
+      height: calc(100vh - 100px);
+      text-align: center;
       margin: 0px;
       padding: 0px;
       list-style-type: none; }
-      #home .slider ul li {
+      #home .slider-cont .slider li {
+        display: inline-block;
+        float: left;
+        width: 20%;
+        height: calc(100vh - 100px);
         font-size: 40px; }
-        #home .slider ul li h1, #home .slider ul li h2, #home .slider ul li p {
+        #home .slider-cont .slider li h1, #home .slider-cont .slider li h2, #home .slider-cont .slider li p {
           color: #ffffff; }
-        #home .slider ul li h1 {
+        #home .slider-cont .slider li h1 {
           font-size: 1em;
           font-weight: 700;
           margin: 2vh; }
-        #home .slider ul li h2 {
+        #home .slider-cont .slider li h2 {
           font-size: 0.5em;
           font-weight: 700;
           padding: 10vh 0px 0px 0px;
           margin-bottom: 0px; }
-          #home .slider ul li h2 span {
+          #home .slider-cont .slider li h2 span {
             color: #18cfab; }
-        #home .slider ul li p {
+        #home .slider-cont .slider li p {
           font-size: 0.4em;
           font-weight: 300;
           padding-bottom: 2vh; }
-        #home .slider ul li .btn-cont {
+        #home .slider-cont .slider li .btn-cont {
           padding-top: 5px;
           font-size: 0px; }
-          #home .slider ul li .btn-cont button {
+          #home .slider-cont .slider li .btn-cont button {
             color: #ffffff;
             background-color: #18cfab;
             width: 165px;
@@ -173,57 +179,50 @@ h1, h2, h3, h4, h5, h6 {
             border: none;
             border-radius: 4px;
             box-shadow: 0px -5px  white; }
-          #home .slider ul li .btn-cont button:hover {
+          #home .slider-cont .slider li .btn-cont button:hover {
             background-color: #00cbf6; }
         @media screen and (min-width: 687px) {
-          #home .slider ul li {
+          #home .slider-cont .slider li {
             font-size: 50px; }
-            #home .slider ul li h2 {
+            #home .slider-cont .slider li h2 {
               padding: 15vh 0px 0px 0px; }
-            #home .slider ul li .btn-cont {
+            #home .slider-cont .slider li .btn-cont {
               padding-top: 10px; } }
         @media screen and (min-width: 992px) {
-          #home .slider ul li {
+          #home .slider-cont .slider li {
             font-size: 60px; }
-            #home .slider ul li h2 {
+            #home .slider-cont .slider li h2 {
               padding: 20vh 0px 0px 0px; }
-            #home .slider ul li .btn-cont {
+            #home .slider-cont .slider li .btn-cont {
               padding-top: 20px; } }
         @media screen and (min-width: 1200px) {
-          #home .slider ul li {
+          #home .slider-cont .slider li {
             font-size: 80px; }
-            #home .slider ul li .btn-cont {
+            #home .slider-cont .slider li .btn-cont {
               padding-top: 20px; } }
-    #home .slider .fa-angle-left, #home .slider .fa-angle-right {
-      color: #878787;
-      background-color: #3c4140;
-      font-size: 40px;
-      padding: 10px 25px;
-      cursor: pointer; }
-    #home .slider .fa-angle-left {
-      position: absolute;
-      bottom: 2.5%;
-      left: 25%; }
-    #home .slider .fa-angle-right {
-      position: absolute;
-      bottom: 2.5%;
-      right: 25%; }
-    #home .slider .fa-angle-left:hover, #home .slider .fa-angle-right:hover {
-      color: #ffffff;
-      background-color: #00cbf6; }
-    @media screen and (min-width: 687px) {
-      #home .slider .fa-angle-left {
-        bottom: 50%;
-        left: 0%; }
-      #home .slider .fa-angle-right {
-        bottom: 50%;
-        right: 0%; } }
-  #home .slider-image {
+  #home .fa-angle-left, #home .fa-angle-right {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; }
+    color: #878787;
+    background-color: #3c4140;
+    font-size: 40px;
+    padding: 10px 25px;
+    cursor: pointer; }
+  #home .fa-angle-left {
+    bottom: 2.5%;
+    left: 25%; }
+  #home .fa-angle-right {
+    bottom: 2.5%;
+    right: 25%; }
+  #home .fa-angle-left:hover, #home .fa-angle-right:hover {
+    color: #ffffff;
+    background-color: #00cbf6; }
+  @media screen and (min-width: 687px) {
+    #home .fa-angle-left {
+      bottom: 50%;
+      left: 5%; }
+    #home .fa-angle-right {
+      bottom: 50%;
+      right: 5%; } }
   #home .home-gallery {
     width: 100%;
     height: auto; }
@@ -262,30 +261,14 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100px;
   background-color: #22353f;
-  z-index: 999; }
+  text-align: center; }
   #footer p {
     color: #a5a6a7;
     font-size: 14px;
-    font-weight: 300; }
+    font-weight: 300;
+    padding: 42px;
+    margin: 0px; }
     #footer p span {
       color: #18cfab; }
-
-/*.fa-laptop {
-    font-size: 100px;
-    color: #ffffff;
-}
-
-.fa-angle-left {
-    font-size: 100px;
-    color: #ffffff;
-}
-
-.fa-angle-right {
-    font-size: 100px;
-    color: #ffffff;
-    width: 100px;
-    height: 100px;
-    text-align: center;
-}*/
 
 /*# sourceMappingURL=mainStyle.css.map */
