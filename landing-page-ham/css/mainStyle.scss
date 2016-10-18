@@ -55,6 +55,19 @@ h3 {
     margin-bottom: 30px;
 }
 
+hr {
+    position: relative;
+    width: 75px;
+    border-top: 1px solid $color_green_light;
+    margin: 2px auto;
+}
+.left-hr {
+    left: -5px;
+}
+.right-hr {
+    left: 5px;
+}
+
 // ----- HEADER starts ------
 
 .verical-align {
@@ -191,13 +204,25 @@ h3 {
 //----- HOME section starts -----
 #home {
     padding-top: $header_height;
+    position: relative;
     width: 100%;
+
+    .slider-dark-mask {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(60,60,60,1);
+        //#3c3c3c
+        //z-index: 5;
+    }
 
     .slider-cont {
         position: relative;
         width: 100%;
         height: calc(100vh - 100px);
-        background-color: #3c3c3c;
+        background-color: #747474;
+        //z-index: 6;
         overflow-x: hidden;
 
         .slider {
@@ -300,6 +325,7 @@ h3 {
         font-size: 40px;
         padding: 10px 25px;
         cursor: pointer;
+        z-index: 10;
     }
     .fa-angle-left {
         bottom: 2.5%;
@@ -372,31 +398,25 @@ h3 {
     }
 }
 //----- HOME section ends -----
+
+//----- SERVICE section starts -----
 #service {
     position: relative;
-    padding-top: 110px;
+    padding: 110px 0px 150px 0px;
     width: 100%;
     text-align: center;
 
-    hr {
-        position: relative;
-        width: 75px;
-        border-top: 2px solid $color_green_light;
-        margin: 2px auto;
-    }
-    .left-hr {
-        left: -5px;
-    }
-    .right-hr {
-        left: 5px;
-    }
-
     .service-menu {
+        display: block;
         padding-top: 70px;
+        width: 100%;
+        height: 100%;
         ul {
+            display: block;
             text-align: center;
             padding: 0px;
             width: 100%;
+            height: 100%;
             /*one hint!*/
             font-size: 0px;
             li {
@@ -447,11 +467,222 @@ h3 {
 
         }
     }
-}
-//----- SERVICE section starts -----
+    .service-item-container {
+        display: none;
+        padding: 30px 0px;
 
+        img {
+            padding: 25px;
+        }
+
+        p {
+            padding: 10px 25px;
+            margin: 0px;
+            text-align: justify;
+            font-size: 14px;
+            font-weight: 400;
+            color: #777777;
+        }
+        @media screen and (min-width: 544px) {
+            img {
+                padding: 10px;
+            }
+            //p {
+            //    width: 50%;
+            //}
+        }
+    }
+    .active-service-item-cont {
+        display: block;
+    }
+}
 //----- SERVICE section ends -----
 
+//----- ABOUT section starts -----
+#about {
+    position: relative;
+    padding: 50px 0px;
+    width: 100%;
+    background-color: #090f14;
+
+    //.container {
+    //    padding-left: 0;
+    //    margin-left: 0;
+    //}
+
+    img {
+        display: inline-block;
+        float: left;
+        width: 100%;
+        padding: 0px;
+    }
+
+    .about-container {
+        display: inline-block;
+        float: left;
+        width: 100%;
+        padding: 5vh 5vw;
+
+        h3 {
+            color: #ffffff;
+            padding: 50px 0 0 10px;
+            text-align: center;
+
+            @media screen and (min-width: 687px) {
+                padding: 0 0 0 10px;
+                text-align: left;
+            }
+        }
+
+        .about-menu {
+            display: block;
+            text-align: center;
+            padding: 10vh 0 7vh 0;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            /*one hint!*/
+            font-size: 0px;
+
+            @media screen and (min-width: 687px) {
+                text-align: left;
+            }
+
+            li {
+                //float: left;
+                display: inline-block;
+                padding: 10px 0;
+                margin: 0px 7.5px;
+                //width: 33.33333333%;
+                text-decoration: none;
+                text-transform: uppercase;
+                font-size: 16px;
+                font-weight: 700;
+                color: #ffffff;
+                cursor: pointer;
+
+            }
+            li:hover, .active-about-item {
+                border-top: 2px solid $color_green_light;
+                color: $color_green_light;
+            }
+        }
+        .about-item-container{
+            display: none;
+            text-align: center;
+
+            p {
+                color: #bebebe;
+                font-size: 14px;
+                font-weight: 300;
+                text-align: center;
+
+
+                @media screen and (min-width: 687px) {
+                    text-align: left;
+                }
+            }
+
+            .about-history-list {
+                padding: 50px 0px;
+                margin: 0 ;
+                width: 100%;
+                text-align: center;
+                li {
+                    float: none;
+                    display: inline-block;
+                    width: 51%;
+                    margin: 0 auto;
+                    text-align: left;
+                    list-style: none;
+                    background: url("../images/li_marker_img.png") no-repeat left center;
+                    padding: 12px 10px 12px 40px;
+                    color: #bebebe;
+                    font-size: 14px;
+                    font-weight: 300;
+
+                    @media screen and (min-width: 687px) {
+                        width: 100%;
+                        float: left;
+                    }
+
+                    @media screen and (min-width: 1200px) {
+                        width: 50%;
+                        text-align: left;
+                    }
+                }
+                @media screen and (min-width: 992px) {
+                    text-align: left;
+                }
+            }
+
+            .skill-container {
+                width: 100%;
+                text-align: left;
+                border: 1px solid #959595;
+                border-radius: 5px;
+                margin: 15px 0px;
+                .skill-progress {
+                    padding: 15px 0 15px 15px;
+                    color: #ffffff;
+                    text-transform: uppercase;
+                    font-size: 13px;
+                    font-weight: 400;
+                    //border: 2px solid #9c5da5;
+                    border-radius: 4px;
+                    //transition: width 3s;
+                }
+
+            }
+            .skill-container:nth-child(1){
+                .skill-progress{
+                    width: 70%;
+                    background-color: #9c5da5;
+                }
+            }
+            .skill-container:nth-child(2){
+                .skill-progress{
+                    width: 80%;
+                    background-color: #11b0de;
+                }
+            }
+            .skill-container:nth-child(3){
+                .skill-progress{
+                    width: 60%;
+                    background-color: #d67f7f;
+                }
+            }
+            .skill-container:nth-child(4){
+                .skill-progress{
+                    width: 90%;
+                    background-color: #20bc9d;
+                }
+            }
+            .skill-container:nth-child(5){
+                .skill-progress{
+                    width: 80%;
+                    background-color: #bb8a36;
+                }
+            }
+
+        }
+        .active-about-item-cont {
+            display: block;
+        }
+    }
+
+    @media screen and (min-width: 687px) {
+        img {
+            width: 50%;
+        }
+        .about-container {
+            width: 50%;
+        }
+    }
+
+
+}
+//----- ABOUT section ends -----
 
 //----- FOOTER starts -----
 #footer {
