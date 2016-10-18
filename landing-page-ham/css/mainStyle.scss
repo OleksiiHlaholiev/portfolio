@@ -279,6 +279,7 @@ hr {
                         border: none;
                         border-radius: 4px;
                         box-shadow: 0px -5px  white;
+                        transition: background-color 0.7s;
 
 
                     }
@@ -326,6 +327,7 @@ hr {
         padding: 10px 25px;
         cursor: pointer;
         z-index: 10;
+        transition: all 0.7s;
     }
     .fa-angle-left {
         bottom: 2.5%;
@@ -432,6 +434,7 @@ hr {
                 border: 1px solid #eff0f1;
                 border-collapse: collapse;
                 background-color: #f8fcfe;
+                transition: all 0.7s;
 
                 @media screen and (min-width: 420px) {
                     width: 50%;
@@ -464,7 +467,6 @@ hr {
             .active-service-item:hover:before{
                 border-top-color: $color_blue_light;
             }
-
         }
     }
     .service-item-container {
@@ -684,6 +686,59 @@ hr {
 }
 //----- ABOUT section ends -----
 
+//----- WORK section starts -----
+#work {
+    padding: 110px 0px 150px 0px;
+    width: 100%;
+    text-align: center;
+    background-color: #f8fcfe;
+
+    .work-menu {
+        display: block;
+        text-align: center;
+        padding: 70px 0;
+        width: 100%;
+        height: 100%;
+        /*one hint!*/
+        font-size: 0px;
+        li {
+            float: left;
+            display: inline-block;
+            padding: 25px 0;
+            width: 100%;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 400;
+            color: #717171;
+            cursor: pointer;
+            border: 1px solid #eff0f1;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            transition: color 0.7s;
+
+            @media screen and (min-width: 420px) {
+                width: 50%;
+            }
+            @media screen and (min-width: 600px) {
+                width: calc(100% / 3);
+            }
+            @media screen and (min-width: 992px) {
+                width: calc(100% / 6);
+            }
+        }
+        li:hover {
+            color: $color_blue_light;
+            border-top: 3px solid $color_blue_light;
+        }
+        .active-work-item {
+            color: $color_green_light;
+            border-top: 3px solid $color_green_light;
+        }
+
+    }
+}
+//----- WORK section ends -----
+
 //----- FOOTER starts -----
 #footer {
     width: 100%;
@@ -718,6 +773,7 @@ hr {
                 font-size: 32px;
                 padding: 5px 11px;
                 cursor: pointer;
+                transition: all 0.7s;
             }
 
             .fa-angle-up:hover {

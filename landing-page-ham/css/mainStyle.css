@@ -205,7 +205,8 @@ hr {
             font-weight: 700;
             border: none;
             border-radius: 4px;
-            box-shadow: 0px -5px  white; }
+            box-shadow: 0px -5px  white;
+            transition: background-color 0.7s; }
           #home .slider-cont .slider li .btn-cont button:hover {
             background-color: #00cbf6; }
         @media screen and (min-width: 687px) {
@@ -234,7 +235,8 @@ hr {
     font-size: 40px;
     padding: 10px 25px;
     cursor: pointer;
-    z-index: 10; }
+    z-index: 10;
+    transition: all 0.7s; }
   #home .fa-angle-left {
     bottom: 2.5%;
     left: 25%; }
@@ -315,7 +317,8 @@ hr {
         cursor: pointer;
         border: 1px solid #eff0f1;
         border-collapse: collapse;
-        background-color: #f8fcfe; }
+        background-color: #f8fcfe;
+        transition: all 0.7s; }
         @media screen and (min-width: 420px) {
           #service .service-menu ul li {
             width: 50%; } }
@@ -483,6 +486,49 @@ hr {
     #about .about-container {
       width: 50%; } }
 
+#work {
+  padding: 110px 0px 150px 0px;
+  width: 100%;
+  text-align: center;
+  background-color: #f8fcfe; }
+  #work .work-menu {
+    display: block;
+    text-align: center;
+    padding: 70px 0;
+    width: 100%;
+    height: 100%;
+    /*one hint!*/
+    font-size: 0px; }
+    #work .work-menu li {
+      float: left;
+      display: inline-block;
+      padding: 25px 0;
+      width: 100%;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 400;
+      color: #717171;
+      cursor: pointer;
+      border: 1px solid #eff0f1;
+      border-collapse: collapse;
+      background-color: #ffffff;
+      transition: color 0.7s; }
+      @media screen and (min-width: 420px) {
+        #work .work-menu li {
+          width: 50%; } }
+      @media screen and (min-width: 600px) {
+        #work .work-menu li {
+          width: calc(100% / 3); } }
+      @media screen and (min-width: 992px) {
+        #work .work-menu li {
+          width: calc(100% / 6); } }
+    #work .work-menu li:hover {
+      color: #00cbf6;
+      border-top: 3px solid #00cbf6; }
+    #work .work-menu .active-work-item {
+      color: #18cfab;
+      border-top: 3px solid #18cfab; }
+
 #footer {
   width: 100%;
   min-height: 100px;
@@ -507,7 +553,8 @@ hr {
       background-color: #18cfab;
       font-size: 32px;
       padding: 5px 11px;
-      cursor: pointer; }
+      cursor: pointer;
+      transition: all 0.7s; }
     #footer .footer-cont a .fa-angle-up:hover {
       background-color: #00cbf6; }
   @media screen and (min-width: 687px) {
