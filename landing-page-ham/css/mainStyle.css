@@ -687,6 +687,64 @@ hr {
       background-color: #18cfab; }
       #team .team-members .team-member-cont:hover .team-member-bottom .team-member-text {
         color: #2e4a5b; }
+  #team .team-gallery {
+    width: 100%;
+    height: auto; }
+    #team .team-gallery .team-gallery-item {
+      float: left;
+      display: inline-block;
+      width: 100%;
+      padding: 50px 10px;
+      text-align: center; }
+      #team .team-gallery .team-gallery-item .extern-circle {
+        display: inline-block;
+        padding: 20px;
+        border-radius: 50%;
+        background-color: transparent; }
+        #team .team-gallery .team-gallery-item .extern-circle .fa {
+          color: #ffffff;
+          background-color: #18cfab;
+          font-size: 40px;
+          font-weight: 400;
+          padding: 25px;
+          border: none;
+          border-radius: 50%; }
+      #team .team-gallery .team-gallery-item .team-item-counter {
+        display: block;
+        font-size: 36px;
+        font-weight: 400;
+        color: #ffffff;
+        padding: 10px 0; }
+      #team .team-gallery .team-gallery-item .team-item-text {
+        display: block;
+        font-size: 18px;
+        font-weight: 300; }
+      @media screen and (min-width: 550px) {
+        #team .team-gallery .team-gallery-item {
+          width: 50%; } }
+      @media screen and (min-width: 992px) {
+        #team .team-gallery .team-gallery-item {
+          width: 25%; } }
+    #team .team-gallery .team-gallery-item:nth-child(odd) {
+      color: #18cfab;
+      background-color: #25333c;
+      border-top: 8px solid #18cfab; }
+      #team .team-gallery .team-gallery-item:nth-child(odd) .extern-circle {
+        border: 2px solid #18cfab; }
+        #team .team-gallery .team-gallery-item:nth-child(odd) .extern-circle .fa {
+          background-color: #18cfab; }
+      #team .team-gallery .team-gallery-item:nth-child(odd) .team-item-text {
+        color: #18cfab; }
+    #team .team-gallery .team-gallery-item:nth-child(even) {
+      color: #ffffff;
+      background-color: #18cfab;
+      border-top: 8px solid #25333c; }
+      #team .team-gallery .team-gallery-item:nth-child(even) .extern-circle {
+        border: 2px solid #25333c; }
+        #team .team-gallery .team-gallery-item:nth-child(even) .extern-circle .fa {
+          background-color: #25333c; }
+      #team .team-gallery .team-gallery-item:nth-child(even) .team-item-text {
+        color: #25333c; }
 
 #footer {
   width: 100%;

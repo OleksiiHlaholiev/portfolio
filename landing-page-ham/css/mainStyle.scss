@@ -969,8 +969,87 @@ hr {
                 }
             }
         }
+    }
+    .team-gallery {
+        width: 100%;
+        height: auto;
 
+        .team-gallery-item {
+            float: left;
+            display: inline-block;
+            width: 100%;
+            //height: 300px;
+            padding: 50px 10px;
+            text-align: center;
 
+            .extern-circle {
+                display: inline-block;
+                padding: 20px;
+                border-radius: 50%;
+                background-color: transparent;
+                .fa {
+                    color: #ffffff;
+                    background-color: $color_green_light;
+                    font-size: 40px;
+                    font-weight: 400;
+                    padding: 25px;
+                    border: none;
+                    border-radius: 50%;
+                }
+            }
+
+            .team-item-counter {
+                display: block;
+                font-size: 36px;
+                font-weight: 400;
+                color: #ffffff;
+                padding: 10px 0;
+            }
+            .team-item-text {
+                display: block;
+                font-size: 18px;
+                font-weight: 300;
+            }
+
+            @media screen and (min-width: 550px) {
+                width: 50%;
+            }
+
+            @media screen and (min-width: 992px) {
+                width: 25%;
+            }
+
+        }
+        .team-gallery-item:nth-child(odd) {
+            color: $color_green_light;
+            background-color: #25333c;
+            border-top: 8px solid $color_green_light;
+
+            .extern-circle {
+                border: 2px solid $color_green_light;
+                .fa {
+                    background-color: $color_green_light;
+                }
+            }
+            .team-item-text {
+                color: $color_green_light;
+            }
+        }
+        .team-gallery-item:nth-child(even) {
+            color: #ffffff;
+            background-color: $color_green_light;
+            border-top: 8px solid #25333c;
+
+            .extern-circle {
+                border: 2px solid #25333c;
+                .fa {
+                    background-color: #25333c;
+                }
+            }
+            .team-item-text {
+                color: #25333c;
+            }
+        }
     }
 }
 
