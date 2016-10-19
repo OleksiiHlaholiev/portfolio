@@ -368,6 +368,10 @@ hr {
   padding: 50px 0px;
   width: 100%;
   background-color: #090f14; }
+  #about .left-hr {
+    left: -5px; }
+  #about .right-hr {
+    left: 5px; }
   #about img {
     display: inline-block;
     float: left;
@@ -481,12 +485,17 @@ hr {
     #about .about-container .active-about-item-cont {
       display: block; }
   @media screen and (min-width: 687px) {
+    #about .left-hr {
+      left: -50px; }
+    #about .right-hr {
+      left: -45px; }
     #about img {
       width: 50%; }
     #about .about-container {
       width: 50%; } }
 
 #work {
+  position: relative;
   padding: 110px 0px 150px 0px;
   width: 100%;
   text-align: center;
@@ -552,7 +561,6 @@ hr {
     height: 100%;
     background-color: rgba(248, 252, 254, 0.9);
     /*z-index: 10;*/
-    cursor: pointer;
     opacity: 0;
     transition: opacity 0.7s; }
     #work .portfolio-hover-layer .portfolio-img-icons {
@@ -569,7 +577,7 @@ hr {
       cursor: pointer;
       border: 1px solid #18cfab;
       border-radius: 50%;
-      transition: all 0.7s; }
+      transition: color 0.7s, background-color 0.7s; }
     #work .portfolio-hover-layer .fa-link:hover, #work .portfolio-hover-layer .fa-search:hover {
       color: #f8fcfe;
       background-color: #18cfab; }
@@ -601,6 +609,84 @@ hr {
   @media screen and (min-width: 992px) {
     #work .portfolio-gallery-img {
       width: 25%; } }
+
+#team {
+  position: relative;
+  padding: 110px 0px 150px 0px;
+  width: 100%;
+  text-align: center;
+  background-color: #ffffff; }
+  #team .team-members {
+    padding: 70px 0 150px 0; }
+    #team .team-members .team-member-cont {
+      margin: 30px 0px; }
+      #team .team-members .team-member-cont .team-member-item {
+        position: relative; }
+        #team .team-members .team-member-cont .team-member-item .team-member-hover-layer {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(24, 207, 171, 0.3);
+          opacity: 0;
+          transition: opacity 0.7s; }
+          #team .team-members .team-member-cont .team-member-item .team-member-hover-layer .extern-circle {
+            display: inline-block;
+            margin-top: 20%;
+            cursor: pointer;
+            padding: 5px;
+            border: 2px solid #18cfab;
+            border-radius: 50%;
+            background-color: transparent; }
+            #team .team-members .team-member-cont .team-member-item .team-member-hover-layer .extern-circle .fa-plus {
+              color: #18cfab;
+              background-color: #ffffff;
+              font-size: 30px;
+              font-weight: 400;
+              padding: 20px;
+              border: none;
+              border-radius: 50%; }
+        #team .team-members .team-member-cont .team-member-item img {
+          width: 100%; }
+      #team .team-members .team-member-cont .team-member-bottom {
+        width: 100%;
+        background-color: #2e4a5b;
+        transition: background-color 0.7s; }
+        #team .team-members .team-member-cont .team-member-bottom .team-member-info .team-member-name {
+          display: block;
+          padding: 15px 0 3px 0;
+          color: #ffffff;
+          font-size: 16px;
+          font-weight: 700; }
+        #team .team-members .team-member-cont .team-member-bottom .team-member-info .team-member-text {
+          display: block;
+          padding: 3px 0 15px 0;
+          color: #00cbf6;
+          font-size: 13px;
+          font-weight: 300; }
+        #team .team-members .team-member-cont .team-member-bottom .team-member-social-btns a {
+          display: inline-block;
+          float: left;
+          width: 25%;
+          cursor: pointer;
+          border-top: 1px solid #d5dbde;
+          border-right: 1px solid #d5dbde; }
+        #team .team-members .team-member-cont .team-member-bottom .team-member-social-btns a:last-child {
+          border-right: none; }
+        #team .team-members .team-member-cont .team-member-bottom .team-member-social-btns .fa {
+          color: #ffffff;
+          background-color: transparent;
+          font-size: 20px;
+          font-weight: 400;
+          text-align: center;
+          padding: 20px 0px; }
+    #team .team-members .team-member-cont:hover .team-member-hover-layer {
+      opacity: 1.0; }
+    #team .team-members .team-member-cont:hover .team-member-bottom {
+      background-color: #18cfab; }
+      #team .team-members .team-member-cont:hover .team-member-bottom .team-member-text {
+        color: #2e4a5b; }
 
 #footer {
   width: 100%;

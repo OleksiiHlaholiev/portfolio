@@ -507,6 +507,13 @@ hr {
     width: 100%;
     background-color: #090f14;
 
+    .left-hr {
+        left: -5px;
+    }
+    .right-hr {
+        left: 5px;
+    }
+
     //.container {
     //    padding-left: 0;
     //    margin-left: 0;
@@ -674,6 +681,13 @@ hr {
     }
 
     @media screen and (min-width: 687px) {
+        .left-hr {
+            left: -50px;
+        }
+        .right-hr {
+            left: -45px;
+        }
+
         img {
             width: 50%;
         }
@@ -688,6 +702,7 @@ hr {
 
 //----- WORK section starts -----
 #work {
+    position: relative;
     padding: 110px 0px 150px 0px;
     width: 100%;
     text-align: center;
@@ -767,7 +782,7 @@ hr {
         background-color: rgba(248,252,254,0.9);
         //#f8fcfe
         /*z-index: 10;*/
-        cursor: pointer;
+        //cursor: pointer;
         opacity: 0;
         transition: opacity 0.7s;
 
@@ -791,7 +806,7 @@ hr {
             //z-index: 10;
             border: 1px solid $color_green_light;
             border-radius: 50%;
-            transition: all 0.7s;
+            transition: color 0.7s, background-color 0.7s;
         }
 
         .fa-link:hover, .fa-search:hover {
@@ -846,6 +861,124 @@ hr {
     // end - paste and modify a part of code from previous project
 }
 //----- WORK section ends -----
+
+//----- TEAM section starts -----
+#team {
+    position: relative;
+    padding: 110px 0px 150px 0px;
+    width: 100%;
+    text-align: center;
+    background-color: #ffffff;
+
+    .team-members {
+        padding: 70px 0 150px 0;
+
+        .team-member-cont {
+            margin: 30px 0px;
+            .team-member-item {
+                position: relative;
+
+                .team-member-hover-layer {
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(24,207,171,0.3);
+                    opacity: 0;
+                    transition: opacity 0.7s;
+
+                    .extern-circle {
+                        display: inline-block;
+                        margin-top: 20%;
+                        cursor: pointer;
+                        padding: 5px;
+                        border: 2px solid $color_green_light;
+                        border-radius: 50%;
+                        background-color: transparent;
+                        .fa-plus {
+                            color: $color_green_light;
+                            background-color: #ffffff;
+                            font-size: 30px;
+                            font-weight: 400;
+                            padding: 20px;
+                            border: none;
+                            border-radius: 50%;
+                        }
+                    }
+                }
+
+                img {
+                    width: 100%;
+                }
+            }
+
+
+            .team-member-bottom {
+                width: 100%;
+                background-color: #2e4a5b;
+                transition: background-color 0.7s;
+                .team-member-info {
+                    .team-member-name {
+                        display: block;
+                        padding: 15px 0 3px 0;
+                        color: #ffffff;
+                        font-size: 16px;
+                        font-weight: 700;
+                    }
+                    .team-member-text {
+                        display: block;
+                        padding: 3px 0 15px 0;
+                        color: $color_blue_light;
+                        font-size: 13px;
+                        font-weight: 300;
+                    }
+                }
+                .team-member-social-btns {
+                    a {
+                        display: inline-block;
+                        float: left;
+                        width: 25%;
+                        cursor: pointer;
+                        border-top: 1px solid #d5dbde;
+                        border-right: 1px solid #d5dbde;
+                    }
+                    a:last-child {
+                        border-right: none;
+                    }
+                    .fa {
+                        color: #ffffff;
+                        background-color: transparent;
+                        font-size: 20px;
+                        font-weight: 400;
+                        text-align: center;
+                        padding: 20px 0px;
+                    }
+                }
+            }
+        }
+        .team-member-cont:hover {
+            .team-member-hover-layer {
+                opacity: 1.0;
+
+            }
+            .team-member-bottom {
+                background-color: $color_green_light;
+                .team-member-text {
+                    color: #2e4a5b;
+                }
+            }
+        }
+
+
+    }
+}
+
+
+//----- TEAM section ends -----
+
+
+
 
 //----- FOOTER starts -----
 #footer {
