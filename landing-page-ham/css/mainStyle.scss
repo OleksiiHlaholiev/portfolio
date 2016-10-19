@@ -771,6 +771,14 @@ hr {
         opacity: 0;
         transition: opacity 0.7s;
 
+        .portfolio-img-icons {
+            margin-top: 10%;
+        }
+
+        .portfolio-img-icons > a {
+            display: inline-block;
+        }
+
         .fa-link, .fa-search {
             //position: absolute;
             color: $color_green_light;
@@ -800,7 +808,7 @@ hr {
 
     .portfolio-hover-layer > .portfolio-img-name{
         display: block;
-        margin-top: 25%;
+        margin-top: 5%;
         margin-bottom: 5px;
         font-size: 20px;
         font-weight: 700;

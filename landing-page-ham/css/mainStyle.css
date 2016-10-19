@@ -555,6 +555,10 @@ hr {
     cursor: pointer;
     opacity: 0;
     transition: opacity 0.7s; }
+    #work .portfolio-hover-layer .portfolio-img-icons {
+      margin-top: 10%; }
+    #work .portfolio-hover-layer .portfolio-img-icons > a {
+      display: inline-block; }
     #work .portfolio-hover-layer .fa-link, #work .portfolio-hover-layer .fa-search {
       color: #18cfab;
       background-color: #f8fcfe;
@@ -574,7 +578,7 @@ hr {
     border-top: 4px solid #18cfab; }
   #work .portfolio-hover-layer > .portfolio-img-name {
     display: block;
-    margin-top: 25%;
+    margin-top: 5%;
     margin-bottom: 5px;
     font-size: 20px;
     font-weight: 700;
