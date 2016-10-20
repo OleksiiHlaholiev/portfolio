@@ -1063,7 +1063,7 @@ hr {
 //----- NEWS section starts ----
 #news {
     position: relative;
-    padding: 100px 0px 150px 0px;
+    padding: 100px 0px 100px 0px;
     width: 100%;
     text-align: center;
     background-color: #ffffff;
@@ -1142,6 +1142,7 @@ hr {
             transition: background-color 0.7s;
 
             .fa-plus {
+                display: inline-block;
                 font-size: 20px;
                 font-weight: 400;
             }
@@ -1150,7 +1151,7 @@ hr {
                 display: inline-block;
                 font-size: 14px;
                 height: 20px;
-                line-height: 20px;
+                //line-height: 20px;
                 font-weight: 700;
                 padding-left: 15px;
             }
@@ -1161,6 +1162,61 @@ hr {
     }
 }
 //----- NEWS section ends ----
+
+//----- FEEDBACK section starts ----
+#feedback {
+    padding: 100px 0px 150px 0px;
+    width: 100%;
+    text-align: center;
+    background-color: #f8fcfe;
+
+    .feedback-cont {
+        padding: 10px 30px 30px 30px;
+        margin-top: 60px;
+        text-align: left;
+        border: 3px solid #c8d9d8;
+        min-height: 500px;
+
+        .msg-template {
+            position: relative;
+            margin-top: 20px;
+            .msg-title {
+                font-size: 18px;
+                font-weight: 400;
+                color: #4e4e4e;
+                background-color: #f7f7f7;
+                border: 1px solid #dedede;
+                border-radius: 7px 7px 0 0;
+                margin: 0;
+                padding: 10px 30px;
+            }
+            .msg-text {
+                font-size: 14px;
+                font-weight: 300;
+                color: #4e4e4e;
+                background-color: #ffffff;
+                border: 1px solid #dedede;
+                border-radius: 0 0 7px 7px;
+                margin: 0;
+                padding: 15px 15px;
+                text-align: justify;
+            }
+            .fa-times {
+                cursor: pointer;
+                position: absolute;
+                top: 0;
+                right: 0;
+                font-size: 20px;
+                font-weight: 400;
+                color: #333333;
+                padding: 15px;
+            }
+        }
+
+    }
+
+}
+//----- FEEDBACK section ends ----
 
 
 //----- FOOTER starts -----
