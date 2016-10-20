@@ -612,7 +612,7 @@ hr {
 
 #team {
   position: relative;
-  padding: 110px 0px 150px 0px;
+  padding: 110px 0px 10px 0px;
   width: 100%;
   text-align: center;
   background-color: #ffffff; }
@@ -747,6 +747,77 @@ hr {
           background-color: #25333c; }
       #team .team-gallery .team-gallery-item:nth-child(even) .team-item-text {
         color: #25333c; }
+
+#news {
+  position: relative;
+  padding: 100px 0px 150px 0px;
+  width: 100%;
+  text-align: center;
+  background-color: #ffffff; }
+  #news .news-cont {
+    padding: 50px 0; }
+    #news .news-cont .news-template {
+      margin: 15px 0px; }
+      #news .news-cont .news-template a {
+        text-decoration: none; }
+      #news .news-cont .news-template .news-item {
+        position: relative; }
+        #news .news-cont .news-template .news-item img {
+          width: 100%; }
+        #news .news-cont .news-template .news-item .news-date-cont {
+          position: absolute;
+          top: 0;
+          right: 0;
+          display: inline-block;
+          width: 70px;
+          height: 70px;
+          background-color: #203e38;
+          transition: background-color 0.7s; }
+          #news .news-cont .news-template .news-item .news-date-cont .news-date, #news .news-cont .news-template .news-item .news-date-cont .news-month {
+            display: block;
+            font-size: 18px;
+            font-weight: 400;
+            color: #ffffff; }
+          #news .news-cont .news-template .news-item .news-date-cont .news-date {
+            padding: 8px 0 6px 0; }
+      #news .news-cont .news-template .news-text {
+        display: block;
+        width: 100%;
+        color: #717171;
+        background-color: #f8fcfe;
+        font-size: 18px;
+        font-weight: 700;
+        padding: 20px 0px;
+        border: 1px solid #717171;
+        transition: all 0.7s; }
+    #news .news-cont .news-template:hover .news-date-cont {
+      background-color: #18cfab; }
+    #news .news-cont .news-template:hover .news-text {
+      color: #18cfab;
+      font-weight: 400; }
+  #news .btn-cont {
+    text-align: center; }
+    #news .btn-cont button {
+      outline: none;
+      width: 170px;
+      height: 60px;
+      color: #ffffff;
+      background-color: #18cfab;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.7s; }
+      #news .btn-cont button .fa-plus {
+        font-size: 20px;
+        font-weight: 400; }
+      #news .btn-cont button span {
+        display: inline-block;
+        font-size: 14px;
+        height: 20px;
+        line-height: 20px;
+        font-weight: 700;
+        padding-left: 15px; }
+    #news .btn-cont button:hover {
+      background-color: #00cbf6; }
 
 #footer {
   width: 100%;
