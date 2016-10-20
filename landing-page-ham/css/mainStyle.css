@@ -644,7 +644,8 @@ hr {
               background-color: #ffffff;
               font-size: 30px;
               font-weight: 400;
-              padding: 20px;
+              width: 70px;
+              height: 70px;
               border: none;
               border-radius: 50%; }
         #team .team-members .team-member-cont .team-member-item img {
@@ -694,7 +695,7 @@ hr {
       float: left;
       display: inline-block;
       width: 100%;
-      padding: 50px 10px;
+      padding: 40px 10px;
       text-align: center; }
       #team .team-gallery .team-gallery-item .extern-circle {
         display: inline-block;
@@ -706,7 +707,8 @@ hr {
           background-color: #18cfab;
           font-size: 40px;
           font-weight: 400;
-          padding: 25px;
+          width: 100px;
+          height: 100px;
           border: none;
           border-radius: 50%; }
       #team .team-gallery .team-gallery-item .team-item-counter {
@@ -714,7 +716,7 @@ hr {
         font-size: 36px;
         font-weight: 400;
         color: #ffffff;
-        padding: 10px 0; }
+        padding: 5px 0; }
       #team .team-gallery .team-gallery-item .team-item-text {
         display: block;
         font-size: 18px;
