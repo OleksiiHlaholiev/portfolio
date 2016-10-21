@@ -1141,19 +1141,22 @@ hr {
             border-radius: 5px;
             transition: background-color 0.7s;
 
-            .fa-plus {
-                display: inline-block;
-                font-size: 20px;
-                font-weight: 400;
-            }
+            .inner-btn-cont {
+                width: 100%;
+                .fa-plus {
+                    display: inline-block;
+                    font-size: 20px;
+                    font-weight: 400;
+                }
 
-            span {
-                display: inline-block;
-                font-size: 14px;
-                height: 20px;
-                //line-height: 20px;
-                font-weight: 700;
-                padding-left: 15px;
+                span {
+                    display: inline-block;
+                    font-size: 14px;
+                    height: 20px;
+                    //line-height: 20px;
+                    font-weight: 700;
+                    padding: 0px 0px 0px 15px;
+                }
             }
         }
         button:hover {
@@ -1165,7 +1168,7 @@ hr {
 
 //----- FEEDBACK section starts ----
 #feedback {
-    padding: 100px 0px 150px 0px;
+    padding: 100px 0px 0px 0px;
     width: 100%;
     text-align: center;
     background-color: #f8fcfe;
@@ -1214,10 +1217,105 @@ hr {
         }
 
     }
+    .input-content {
+        padding: 70px 0;
+
+
+        .input-title, .input-msg {
+            width: 100%;
+            font-size: 24px;
+            font-weight: 300;
+            color: #9fb9c6;
+            background-color: #ffffff;
+            outline: none;
+            border: 1px solid #cfdcda;
+            padding: 20px 15px;
+            margin: 10px 0px;
+
+        }
+        .submit-btn-cont {
+            padding: 10px 0;
+            text-align: center;
+
+            @media screen and (min-width: 768px) {
+                padding: 60px 0;
+                text-align: left;
+            }
+
+            p {
+                font-size: 24px;
+                font-weight: 400;
+                color: #4e4e4e;
+                margin-bottom: 20px;
+                //text-align: left;
+
+                @media screen and (min-width: 400px) {
+                    font-size: 30px;
+                }
+                @media screen and (min-width: 440px) {
+                    font-size: 36px;
+                }
+                @media screen and (min-width: 768px) {
+                    font-size: 24px;
+                }
+                @media screen and (min-width: 850px) {
+                    font-size: 30px;
+                }
+                @media screen and (min-width: 992px) {
+                    font-size: 32px;
+                }
+                @media screen and (min-width: 1200px) {
+                    font-size: 34px;
+                }
+            }
+
+
+            .input-add-btn {
+                outline: none;
+                width: 170px;
+                height: 60px;
+                color: #ffffff;
+                background-color: $color_green_light;
+                border: none;
+                border-radius: 5px;
+                transition: background-color 0.7s;
+
+                .inner-btn-cont {
+                    width: 100%;
+                    .fa-plus {
+                        display: inline-block;
+                        font-size: 20px;
+                        font-weight: 400;
+                    }
+
+                    span {
+                        display: inline-block;
+                        font-size: 14px;
+                        height: 20px;
+                        //line-height: 20px;
+                        font-weight: 700;
+                        padding-left: 15px;
+                    }
+                }
+            }
+            .input-add-btn:hover {
+                background-color: $color_blue_light;
+            }
+        }
+
+
+    }
 
 }
 //----- FEEDBACK section ends ----
 
+//----- FEEDBACK section starts ----
+#contact {
+    padding: 100px 0px 100px 0px;
+    width: 100%;
+    text-align: center;
+    background-color: #ffffff;
+}
 
 //----- FOOTER starts -----
 #footer {
