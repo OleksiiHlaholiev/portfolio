@@ -934,6 +934,46 @@ hr {
   width: 100%;
   text-align: center;
   background-color: #ffffff; }
+  #contact .map-cont {
+    padding-left: 0; }
+    #contact .map-cont iframe {
+      width: 100%;
+      height: calc(100vh - 100px); }
+  #contact .form-cont h3 {
+    text-align: center;
+    margin-top: 30px; }
+    @media screen and (min-width: 767px) {
+      #contact .form-cont h3 {
+        text-align: left;
+        margin-top: 0px; } }
+  #contact .form-cont .input-contact-content .inputs-container {
+    padding: 40px 0 0 0; }
+    @media screen and (min-width: 767px) {
+      #contact .form-cont .input-contact-content .inputs-container {
+        padding: 85px 0 0 0; } }
+    #contact .form-cont .input-contact-content .inputs-container .input-name, #contact .form-cont .input-contact-content .inputs-container .input-email, #contact .form-cont .input-contact-content .inputs-container .input-msg {
+      width: 100%;
+      font-size: 14px;
+      font-weight: 300;
+      color: #9fb9c6;
+      background-color: #ffffff;
+      outline: none;
+      border: 1px solid #cfdcda;
+      padding: 15px 10px;
+      margin: 10px 0px;
+      text-align: left; }
+    #contact .form-cont .input-contact-content .inputs-container .submit-btn {
+      outline: none;
+      width: 100%;
+      height: 60px;
+      color: #ffffff;
+      background-color: #18cfab;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.7s;
+      margin-top: 10px; }
+    #contact .form-cont .input-contact-content .inputs-container .submit-btn:hover {
+      background-color: #00cbf6; }
 
 #footer {
   width: 100%;
