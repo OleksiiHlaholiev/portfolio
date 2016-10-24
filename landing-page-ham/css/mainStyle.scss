@@ -239,7 +239,7 @@ hr {
                 float: left;
                 width: 20%;
                 height: calc(100vh - 100px);
-                font-size: 40px;
+                font-size: 35px;
                 h1, h2, p {
                     color: #ffffff;
                 }
@@ -253,11 +253,12 @@ hr {
                     //font-size: 35px;
                     font-size: 0.5em;
                     font-weight: 700;
-                    padding: 10vh 0px 0px 0px;
+                    padding-top: 5vh;
                     margin-bottom: 0px;
                     span {
                         color: $color_green_light;
                     }
+
                 }
                 p {
                     //font-size: 32px;
@@ -272,7 +273,7 @@ hr {
                         color: #ffffff;
                         background-color: $color_green_light;
                         width: 165px;
-                        padding: 20px 0px;
+                        padding: 5px 0px;
                         margin: 10px 15px;
                         font-size: 13px;
                         font-weight: 700;
@@ -281,17 +282,26 @@ hr {
                         box-shadow: 0px -5px  white;
                         transition: background-color 0.7s;
 
+                        @media screen and (min-height: 600px) {
+                            padding: 20px 0px;
+                        }
+
 
                     }
                     button:hover {
                         background-color: $color_blue_light;
                     }
                 }
+                @media screen and (min-width: 420px) {
+                    h2 {
+                        padding-top: 10vh;
+                    }
+                }
 
                 @media screen and (min-width: 687px) {
                     font-size: 50px;
                     h2 {
-                        padding: 15vh 0px 0px 0px;
+                        padding-top: 15vh;
                     }
                     .btn-cont {
                         padding-top: 10px;
@@ -301,7 +311,7 @@ hr {
                 @media screen and (min-width: 992px) {
                     font-size: 60px;
                     h2 {
-                        padding: 20vh 0px 0px 0px;
+                        padding-top: 20vh;
                     }
                     .btn-cont {
                         padding-top: 20px;
@@ -1429,4 +1439,3 @@ hr {
 
 }
 //----- FOOTER ends -----
-

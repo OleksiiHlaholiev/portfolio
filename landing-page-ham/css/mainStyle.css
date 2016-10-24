@@ -174,7 +174,7 @@ hr {
         float: left;
         width: 20%;
         height: calc(100vh - 100px);
-        font-size: 40px; }
+        font-size: 35px; }
         #home .slider-cont .slider li h1, #home .slider-cont .slider li h2, #home .slider-cont .slider li p {
           color: #ffffff; }
         #home .slider-cont .slider li h1 {
@@ -184,7 +184,7 @@ hr {
         #home .slider-cont .slider li h2 {
           font-size: 0.5em;
           font-weight: 700;
-          padding: 10vh 0px 0px 0px;
+          padding-top: 5vh;
           margin-bottom: 0px; }
           #home .slider-cont .slider li h2 span {
             color: #18cfab; }
@@ -199,7 +199,7 @@ hr {
             color: #ffffff;
             background-color: #18cfab;
             width: 165px;
-            padding: 20px 0px;
+            padding: 5px 0px;
             margin: 10px 15px;
             font-size: 13px;
             font-weight: 700;
@@ -207,20 +207,26 @@ hr {
             border-radius: 4px;
             box-shadow: 0px -5px  white;
             transition: background-color 0.7s; }
+            @media screen and (min-height: 600px) {
+              #home .slider-cont .slider li .btn-cont button {
+                padding: 20px 0px; } }
           #home .slider-cont .slider li .btn-cont button:hover {
             background-color: #00cbf6; }
+        @media screen and (min-width: 420px) {
+          #home .slider-cont .slider li h2 {
+            padding-top: 10vh; } }
         @media screen and (min-width: 687px) {
           #home .slider-cont .slider li {
             font-size: 50px; }
             #home .slider-cont .slider li h2 {
-              padding: 15vh 0px 0px 0px; }
+              padding-top: 15vh; }
             #home .slider-cont .slider li .btn-cont {
               padding-top: 10px; } }
         @media screen and (min-width: 992px) {
           #home .slider-cont .slider li {
             font-size: 60px; }
             #home .slider-cont .slider li h2 {
-              padding: 20vh 0px 0px 0px; }
+              padding-top: 20vh; }
             #home .slider-cont .slider li .btn-cont {
               padding-top: 20px; } }
         @media screen and (min-width: 1200px) {
