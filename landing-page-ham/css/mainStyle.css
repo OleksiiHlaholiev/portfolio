@@ -247,7 +247,7 @@ hr {
     cursor: pointer;
     z-index: 10;
     transition: all 0.7s; }
-    @media screen and (min-height: 550px) and (min-width: 400px) {
+    @media screen and (min-height: 550px) {
       #home .fa-angle-left, #home .fa-angle-right {
         font-size: 40px;
         padding: 10px 25px; } }
