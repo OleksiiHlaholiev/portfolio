@@ -191,7 +191,11 @@ hr {
         #home .slider-cont .slider li p {
           font-size: 0.4em;
           font-weight: 300;
+          margin: 0;
           padding-bottom: 2vh; }
+          @media screen and (min-height: 600px) {
+            #home .slider-cont .slider li p {
+              padding-bottom: 3vh; } }
         #home .slider-cont .slider li .btn-cont {
           padding-top: 5px;
           font-size: 0px; }
@@ -238,11 +242,15 @@ hr {
     position: absolute;
     color: #878787;
     background-color: #3c4140;
-    font-size: 40px;
-    padding: 10px 25px;
+    font-size: 30px;
+    padding: 5px 15px;
     cursor: pointer;
     z-index: 10;
     transition: all 0.7s; }
+    @media screen and (min-height: 550px) and (min-width: 400px) {
+      #home .fa-angle-left, #home .fa-angle-right {
+        font-size: 40px;
+        padding: 10px 25px; } }
   #home .fa-angle-left {
     bottom: 2.5%;
     left: 25%; }
