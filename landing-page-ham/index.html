@@ -62,8 +62,8 @@
                             <h1>WE ARE CREATIVE</h1>
                             <p>Nam varius accumsan elementum aliquam</p>
                             <div class="btn-cont">
-                                <button>EXPLORE NOW</button>
-                                <button>PURCHASE NOW</button>
+                                <button class="explore-button">EXPLORE NOW</button>
+                                <button class="purchase-button">PURCHASE NOW</button>
                             </div>
                         </div>
                     </li>
@@ -73,8 +73,8 @@
                             <h1>WE ARE CREATIVE</h1>
                             <p>Nam varius accumsan elementum aliquam</p>
                             <div class="btn-cont">
-                                <button>EXPLORE NOW</button>
-                                <button>PURCHASE NOW</button>
+                                <button class="explore-button">EXPLORE NOW</button>
+                                <button class="purchase-button">PURCHASE NOW</button>
                             </div>
                         </div>
                     </li>
@@ -84,8 +84,8 @@
                             <h1>WE ARE CREATIVE</h1>
                             <p>Nam varius accumsan elementum aliquam</p>
                             <div class="btn-cont">
-                                <button>EXPLORE NOW</button>
-                                <button>PURCHASE NOW</button>
+                                <button class="explore-button">EXPLORE NOW</button>
+                                <button class="purchase-button">PURCHASE NOW</button>
                             </div>
                         </div>
                     </li>
@@ -132,12 +132,12 @@
             <hr class="right-hr">
             <nav class="service-menu clearfix">
                 <ul>
-                    <li class="active-service-item">Web Design</li>
-                    <li>Graphic Design</li>
-                    <li>Online Support</li>
-                    <li>App Design</li>
-                    <li>Online Marketing</li>
-                    <li>Seo Service</li>
+                    <li class="active-service-item" data-service-number="0">Web Design</li>
+                    <li data-service-number="1">Graphic Design</li>
+                    <li data-service-number="2">Online Support</li>
+                    <li data-service-number="3">App Design</li>
+                    <li data-service-number="4">Online Marketing</li>
+                    <li data-service-number="5">Seo Service</li>
                 </ul>
             </nav>
             <div class="row service-item-container active-service-item-cont clearfix">
@@ -177,9 +177,9 @@
                 <hr class="left-hr">
                 <hr class="right-hr">
                 <ul class="about-menu clearfix">
-                    <li>our history</li>
-                    <li>our biography</li>
-                    <li class="active-about-item">our skills</li>
+                    <li data-about-number="0">our history</li>
+                    <li data-about-number="1">our biography</li>
+                    <li class="active-about-item" data-about-number="2">our skills</li>
                 </ul>
                 <div class="about-item-container">
                     <p>History. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua. <br> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -242,11 +242,11 @@
             <hr class="left-hr">
             <hr class="right-hr">
             <ul class="work-menu clearfix">
-                <li class="active-work-item">All</li>
-                <li>Graphic Design</li>
-                <li>Web Design</li>
-                <li>Landing Pages</li>
-                <li>Wordpress</li>
+                <li class="active-work-item portfolio-all">All</li>
+                <li class="portfolio-graphic">Graphic Design</li>
+                <li class="portfolio-web">Web Design</li>
+                <li class="portfolio-landing">Landing Pages</li>
+                <li class="portfolio-wordpress">Wordpress</li>
             </ul>
             <div class="portfolio-gallery clearfix">
                 <div class="portfolio-gallery-img graphic-img">
@@ -294,7 +294,7 @@
                         <span class="portfolio-img-category">Landing Pages</span>
                     </div>
                 </div>
-                <div class="portfolio-gallery-img graphic-img">
+                <div class="portfolio-gallery-img wordpress-img">
                     <img src="images/portfolio_img_11.jpg" alt="graphic-img">
                     <div class="portfolio-hover-layer">
                         <div class="portfolio-img-icons">
@@ -354,7 +354,7 @@
                         <span class="portfolio-img-category">Landing Pages</span>
                     </div>
                 </div>
-                <div class="portfolio-gallery-img graphic-img">
+                <div class="portfolio-gallery-img wordpress-img">
                     <img src="images/portfolio_img_12.jpg" alt="graphic-img">
                     <div class="portfolio-hover-layer">
                         <div class="portfolio-img-icons">
@@ -578,28 +578,28 @@
                 <div class="extern-circle">
                     <i class="fa fa-briefcase verical-align" aria-hidden="true"></i>
                 </div>
-                <span class="team-item-counter" data-team-number="4609">4609</span>
+                <span class="team-item-counter" data-team-number="4609">0</span>
                 <span class="team-item-text">Works</span>
             </div>
             <div class="team-gallery-item">
                 <div class="extern-circle">
                     <i class="fa fa-user verical-align" aria-hidden="true"></i>
                 </div>
-                <span class="team-item-counter" data-team-number="3470">3470</span>
+                <span class="team-item-counter" data-team-number="3470">0</span>
                 <span class="team-item-text">Customers</span>
             </div>
             <div class="team-gallery-item">
                 <div class="extern-circle">
                     <i class="fa fa-shopping-cart verical-align" aria-hidden="true"></i>
                 </div>
-                <span class="team-item-counter" data-team-number="2908">2908</span>
+                <span class="team-item-counter" data-team-number="2908">0</span>
                 <span class="team-item-text">Purchase</span>
             </div>
             <div class="team-gallery-item">
                 <div class="extern-circle">
                     <i class="fa fa-map-marker verical-align" aria-hidden="true"></i>
                 </div>
-                <span class="team-item-counter" data-team-number="1908">1908</span>
+                <span class="team-item-counter" data-team-number="1908">0</span>
                 <span class="team-item-text">Office</span>
             </div>
         </div>
@@ -840,7 +840,7 @@
     <footer id="footer" class="verical-align">
         <div class="footer-cont verical-align">
             <p>Copyright 2016 <span>theHam</span> | All Rights Reserved</p>
-            <a href="#home">
+            <a href="#home" class="footer-button">
                 <i class="fa fa-angle-up" aria-hidden="true"></i>
             </a>
         </div>
