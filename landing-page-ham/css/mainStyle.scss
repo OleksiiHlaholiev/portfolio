@@ -621,7 +621,7 @@ hr {
                 li {
                     float: none;
                     display: inline-block;
-                    width: 51%;
+                    width: 100%;
                     margin: 0 auto;
                     text-align: left;
                     list-style: none;
@@ -630,6 +630,11 @@ hr {
                     color: #bebebe;
                     font-size: 14px;
                     font-weight: 300;
+
+                    @media screen and (min-width: 500px) {
+                        width: 80%;
+                        float: left;
+                    }
 
                     @media screen and (min-width: 687px) {
                         width: 100%;
