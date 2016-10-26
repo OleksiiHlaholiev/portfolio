@@ -5,7 +5,10 @@ window.addEventListener('load', function() {
         scrollFuncTimer,
         busyFlag = false,
         teamGalleryFirstScroll = true,
-        teamGalleryCounterBusyFlag = false;
+        teamGalleryCounterBusyFlag = false,
+        JsonNews,
+        loadMoreBtnClickedCnt = 0,
+        numberNewsToLoad = 8;
 
     var sectionHeader = document.getElementById("header"),
         sectionHome = document.getElementById("home"),
@@ -37,9 +40,101 @@ window.addEventListener('load', function() {
     var teamGallery = document.querySelector(".team-gallery"),
         teamGalleryItemCounters = document.querySelectorAll(".team-item-counter");
 
+    var newsContainer = document.querySelector(".news-cont"),
+        newsTemplate = document.querySelector(".news-template"),
+        loadMoreBtn = document.querySelector(".load-more-btn");
+
     // --------------------------- MAIN CODE --------------------------------------
 
     scrollWindowHandler(); // initial call!!!
+
+    // ***************** !!! NEWS script!!! **************( //
+
+    var httpRequest = new XMLHttpRequest();
+    httpRequest.open("GET", "../landing-page-ham/files/data.json", true);
+    httpRequest.onreadystatechange = OnRequestStateChange;
+    httpRequest.send(null);
+
+    function OnRequestStateChange()
+    {
+        if (httpRequest.readyState != 4)
+            return;
+        if (httpRequest.status != 200)
+            return;
+        //alert(httpRequest.responseText);
+        JsonNews = JSON.parse(httpRequest.responseText);
+        NewsAddFromFile(0, numberNewsToLoad);
+        loadMoreBtnClickedCnt++;
+        newsTemplate.remove();
+    }
+
+
+    function monthDecoder(monthNumber) {
+        var monthString = "";
+
+        switch (monthNumber) {
+            case 0:
+                monthString = "Jan";
+                break;
+            case 1:
+                monthString = "Feb";
+                break;
+            case 2:
+                monthString = "Mar";
+                break;
+            case 3:
+                monthString = "Apr";
+                break;
+            case 4:
+                monthString = "May";
+                break;
+            case 5:
+                monthString = "Jun";
+                break;
+            case 6:
+                monthString = "Jul";
+                break;
+            case 7:
+                monthString = "Aug";
+                break;
+            case 8:
+                monthString = "Sep";
+                break;
+            case 9:
+                monthString = "Oct";
+                break;
+            case 10:
+                monthString = "Nov";
+                break;
+            case 11:
+                monthString = "Dec";
+                break;
+            default:
+                break;
+        }
+
+        return monthString;
+    }
+
+    function NewsAddFromFile(startIndex, stopIndex) {
+        var NewsArray = [];
+        var tempDate;
+
+        for (var i = startIndex; i < stopIndex; i++) {
+            if (i < JsonNews.length) {
+                tempDate = new Date(JsonNews[i].date);
+                NewsArray[i] = newsTemplate.cloneNode(true);
+                NewsArray[i].setAttribute("data-news-index", JsonNews[i].id);
+                NewsArray[i].querySelector(".news-date").innerText = tempDate.getDate();
+                NewsArray[i].querySelector(".news-month").innerText = monthDecoder(tempDate.getMonth());
+                NewsArray[i].querySelector(".news-text").innerText = "Amazing Post #" + JsonNews[i].id;
+                NewsArray[i].querySelector(".read-more-btn").setAttribute("href", "news.html?id=" + JsonNews[i].id);
+                newsContainer.appendChild(NewsArray[i]);
+            }
+        }
+    }
+
+    // -----------------------------------------------------------------------------
 
     function scrollFunc(startPos, stopPos, step) {
         var epsilon = 0.1,
@@ -70,7 +165,6 @@ window.addEventListener('load', function() {
 
     function activeSectionHandler(event){
         event.preventDefault();
-
         if (!busyFlag) {
             busyFlag = true;
             var prevActiveItem = document.querySelector(".active-section");
@@ -156,7 +250,6 @@ window.addEventListener('load', function() {
     function purchaseButtonsHandler(event) {
         if (!busyFlag) {
             busyFlag = true;
-            // this.offsetTop
             scrollFunc(
                 scrollY,
                 sectionContact.offsetTop - sectionHeader.clientHeight,
@@ -169,7 +262,6 @@ window.addEventListener('load', function() {
         event.preventDefault();
         if (!busyFlag) {
             busyFlag = true;
-            // this.offsetTop
             scrollFunc(
                 scrollY,
                 sectionHome.offsetTop,
@@ -224,31 +316,31 @@ window.addEventListener('load', function() {
         // now determine what to turn on
         if (this.classList.contains("portfolio-all")) {
             portfolioGalleryImgs = document.querySelectorAll(".portfolio-gallery-img");
-            for (var i = 0; i < portfolioGalleryImgs.length; i++ ) {
+            for (i = 0; i < portfolioGalleryImgs.length; i++ ) {
                 portfolioGalleryImgs[i].style.display = "inline-block";
             }
         }
         else if (this.classList.contains("portfolio-graphic")) {
             portfolioGalleryImgs = document.querySelectorAll(".graphic-img");
-            for (var i = 0; i < portfolioGalleryImgs.length; i++ ) {
+            for (i = 0; i < portfolioGalleryImgs.length; i++ ) {
                 portfolioGalleryImgs[i].style.display = "inline-block";
             }
         }
         else if (this.classList.contains("portfolio-web")) {
             portfolioGalleryImgs = document.querySelectorAll(".web-img");
-            for (var i = 0; i < portfolioGalleryImgs.length; i++ ) {
+            for (i = 0; i < portfolioGalleryImgs.length; i++ ) {
                 portfolioGalleryImgs[i].style.display = "inline-block";
             }
         }
         else if (this.classList.contains("portfolio-landing")) {
             portfolioGalleryImgs = document.querySelectorAll(".landing-img");
-            for (var i = 0; i < portfolioGalleryImgs.length; i++ ) {
+            for (i = 0; i < portfolioGalleryImgs.length; i++ ) {
                 portfolioGalleryImgs[i].style.display = "inline-block";
             }
         }
         else if (this.classList.contains("portfolio-wordpress")) {
             portfolioGalleryImgs = document.querySelectorAll(".wordpress-img");
-            for (var i = 0; i < portfolioGalleryImgs.length; i++ ) {
+            for (i = 0; i < portfolioGalleryImgs.length; i++ ) {
                 portfolioGalleryImgs[i].style.display = "inline-block";
             }
         }
@@ -286,6 +378,13 @@ window.addEventListener('load', function() {
                     );
                 })(i)
             }
+        }
+    }
+
+    function loadMoreBtnHandler() {
+        if (loadMoreBtnClickedCnt * numberNewsToLoad < JsonNews.length) {
+            NewsAddFromFile(loadMoreBtnClickedCnt * numberNewsToLoad, (loadMoreBtnClickedCnt + 1) * numberNewsToLoad);
+            loadMoreBtnClickedCnt++;
         }
     }
 
@@ -377,6 +476,8 @@ window.addEventListener('load', function() {
         item.addEventListener('click', workMenuHandler);
     });
     teamGallery.addEventListener('click', teamGalleryItemCounterHandler);
+    loadMoreBtn.addEventListener('click', loadMoreBtnHandler);
+
     window.addEventListener('scroll', scrollWindowHandler);
 
 });
