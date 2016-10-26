@@ -1,57 +1,58 @@
 'use strict';
 
 window.addEventListener('load', function() {
+    var SCROLL_STEP = 100,
+        scrollFuncTimer,
+        busyFlag = false,
+        teamGalleryFirstScroll = true,
+        teamGalleryCounterBusyFlag = false;
 
-    var sectionHeader = document.getElementById("header");
-    var sectionHome = document.getElementById("home");
-    var sectionService = document.getElementById("service");
-    var sectionAbout = document.getElementById("about");
-    var sectionWork = document.getElementById("work");
-    var sectionTeam = document.getElementById("team");
-    var sectionNews = document.getElementById("news");
-    var sectionFeedback = document.getElementById("feedback");
-    var sectionContact = document.getElementById("contact");
+    var sectionHeader = document.getElementById("header"),
+        sectionHome = document.getElementById("home"),
+        sectionService = document.getElementById("service"),
+        sectionAbout = document.getElementById("about"),
+        sectionWork = document.getElementById("work"),
+        sectionTeam = document.getElementById("team"),
+        sectionNews = document.getElementById("news"),
+        sectionFeedback = document.getElementById("feedback"),
+        sectionContact = document.getElementById("contact");
 
-    var topMenu = document.querySelector(".top-menu");
-    var topMenuItems = document.querySelectorAll(".top-menu > ul > li > a");
-    var faBars = document.querySelector(".fa-bars");
+    var topMenu = document.querySelector(".top-menu"),
+        topMenuItems = document.querySelectorAll(".top-menu > ul > li > a"),
+        faBars = document.querySelector(".fa-bars");
 
-    var logoButton = document.querySelector(".logo-button");
-    var exploreButtons = document.querySelectorAll(".explore-button");
-    var purchaseButtons = document.querySelectorAll(".purchase-button");
-    var footerButton = document.querySelector(".footer-button");
+    var logoButton = document.querySelector(".logo-button"),
+        exploreButtons = document.querySelectorAll(".explore-button"),
+        purchaseButtons = document.querySelectorAll(".purchase-button"),
+        footerButton = document.querySelector(".footer-button");
 
-    var serviceMenuItems = document.querySelectorAll(".service-menu > ul > li");
-    var serviceItemContainers = document.querySelectorAll(".service-item-container");
+    var serviceMenuItems = document.querySelectorAll(".service-menu > ul > li"),
+        serviceItemContainers = document.querySelectorAll(".service-item-container");
 
     var workMenuItems = document.querySelectorAll(".work-menu > li");
 
-    var aboutMenuItems = document.querySelectorAll(".about-menu > li");
-    var aboutItemContainers = document.querySelectorAll(".about-item-container");
+    var aboutMenuItems = document.querySelectorAll(".about-menu > li"),
+        aboutItemContainers = document.querySelectorAll(".about-item-container");
 
-    var teamGallery = document.querySelector(".team-gallery");
-    var teamGalleryItemCounters = document.querySelectorAll(".team-item-counter");
+    var teamGallery = document.querySelector(".team-gallery"),
+        teamGalleryItemCounters = document.querySelectorAll(".team-item-counter");
 
-
-    // --- main code ---
-
-    var scrollFuncTimer;
-    var busyFlag = false;
+    // --------------------------- MAIN CODE --------------------------------------
 
     scrollWindowHandler(); // initial call!!!
 
-
     function scrollFunc(startPos, stopPos, step) {
-        // var deltaScroll = (stopPos - Math.round(startPos)) / step;
-        var epsilon = 0.1;
-        var deltaScroll = (stopPos - startPos) / step;
+        var epsilon = 0.1,
+            step_ms = 10,
+            deltaScroll = (stopPos - startPos) / step;
 
         if (Math.abs(deltaScroll) > epsilon) {
             scrollFuncTimer = setInterval(
                 function () {
-
                     // document.body.scrollTop
-                    if (deltaScroll == 0 || (deltaScroll > 0 && pageYOffset >= stopPos) || (deltaScroll < 0 && pageYOffset <= stopPos)) {
+                    if (deltaScroll == 0 ||
+                        (deltaScroll > 0 && pageYOffset >= stopPos) ||
+                        (deltaScroll < 0 && pageYOffset <= stopPos)) {
                         clearInterval(scrollFuncTimer);
                         busyFlag = false;
                     }
@@ -59,15 +60,13 @@ window.addEventListener('load', function() {
                         scrollBy(0, deltaScroll);
                     }
                 },
-                10
+                step_ms
             );
         }
         else {
             busyFlag = false;
         }
     }
-
-    var SCROLL_STEP = 100;
 
     function activeSectionHandler(event){
         event.preventDefault();
@@ -179,31 +178,6 @@ window.addEventListener('load', function() {
         }
     }
 
-    for (var i = 0; i < topMenuItems.length; i++ ) {
-        topMenuItems[i].addEventListener('click', activeSectionHandler);
-    }
-
-    logoButton.addEventListener('click', logoButtonHandler);
-    for (var i = 0; i < exploreButtons.length; i++ ) {
-        exploreButtons[i].addEventListener('click', exploreButtonsHandler);
-    }
-    for (var i = 0; i < purchaseButtons.length; i++ ) {
-        purchaseButtons[i].addEventListener('click', purchaseButtonsHandler);
-    }
-    footerButton.addEventListener('click', footerButtonHandler);
-
-    /*function windowResizeHandler() {
-        if (window.outerWidth < 992) {
-            topMenu.style.display = "none";
-        }
-        else {
-            topMenu.style.display = "inline-block";
-        }
-
-    }
-
-    window.addEventListener('resize', windowResizeHandler);*/
-
     function faBarsHandler() {
         if (getComputedStyle(topMenu).display != "none") {
             topMenu.style.display = "";
@@ -213,10 +187,6 @@ window.addEventListener('load', function() {
         }
 
     }
-
-    faBars.addEventListener('click', faBarsHandler);
-
-    // **************************************************
 
     function activeServiceMenuHandler(event){
         var prevActiveService = document.querySelector(".active-service-item");
@@ -229,12 +199,6 @@ window.addEventListener('load', function() {
         serviceItemContainers[+event.target.dataset.serviceNumber].classList.add("active-service-item-cont");
     }
 
-    for (var i = 0; i < serviceMenuItems.length; i++ ) {
-        serviceMenuItems[i].addEventListener('click', activeServiceMenuHandler);
-    }
-
-    // **************************************************
-
     function activeAboutMenuHandler(event){
         var prevActiveAbout = document.querySelector(".active-about-item");
         prevActiveAbout.classList.remove("active-about-item");
@@ -245,12 +209,6 @@ window.addEventListener('load', function() {
         prevActiveAboutCont.classList.remove("active-about-item-cont");
         aboutItemContainers[+event.target.dataset.aboutNumber].classList.add("active-about-item-cont");
     }
-
-    for (var i = 0; i < aboutMenuItems.length; i++ ) {
-        aboutMenuItems[i].addEventListener('click', activeAboutMenuHandler);
-    }
-
-    // **************************************************
 
     function workMenuHandler(){
         var prevActiveItem = document.querySelector(".active-work-item");
@@ -296,23 +254,15 @@ window.addEventListener('load', function() {
         }
     }
 
-    for (var i = 0; i < workMenuItems.length; i++ ) {
-        workMenuItems[i].addEventListener('click', workMenuHandler);
-    }
-
-    // **************************************************
-
-    var teamGalleryCounterBusyFlag = false;
-
     // team gallery counters
     function teamGalleryItemCounterHandler() {
 
         if (teamGalleryCounterBusyFlag == false) {
             teamGalleryCounterBusyFlag = true;
 
-            var step = 30;
-            var timeStep = 100;
-            var countFuncTimer = [];
+            var step = 30,
+                timeStep = 100,
+                countFuncTimer = [];
 
             for (var i = 0; i < teamGalleryItemCounters.length; i++) {
                 (function (i) {
@@ -339,11 +289,6 @@ window.addEventListener('load', function() {
         }
     }
 
-    teamGallery.addEventListener('click', teamGalleryItemCounterHandler);
-
-    var teamGalleryFirstScroll = true;
-
-    // *************************************************************
     function scrollWindowHandler(event) {
         // alert("Scroll!!!");
 
@@ -352,35 +297,44 @@ window.addEventListener('load', function() {
         // this.style.textDecoration = "none";
         // document.documentElement.scrollTop - Mozilla works, Chrome - NO
         // document.body.scrollTop - Mozilla - NO, Chrome - Yes
-        var prevActiveItem = document.querySelector(".active-section");
-        var tempOffset = 2 * sectionHeader.clientHeight;
-        var currentPosition = document.body.scrollTop ? (document.body.scrollTop + tempOffset) : (document.documentElement.scrollTop  + tempOffset);
+        var prevActiveItem = document.querySelector(".active-section"),
+            tempOffset = 2 * sectionHeader.clientHeight,
+            currentPosition = document.body.scrollTop ?
+                (document.body.scrollTop + tempOffset) :
+                (document.documentElement.scrollTop + tempOffset);
 
-        if ( (currentPosition > sectionHome.offsetTop) && (currentPosition < sectionHome.offsetTop + sectionHome.offsetHeight) ) {
+        if ( (currentPosition > sectionHome.offsetTop) &&
+            (currentPosition < sectionHome.offsetTop + sectionHome.offsetHeight) ) {
             prevActiveItem.classList.remove("active-section");
             topMenuItems[0].classList.add("active-section");
         }
-        else if ( (currentPosition > sectionService.offsetTop) && (currentPosition < sectionService.offsetTop + sectionService.offsetHeight) ) {
+        else if ( (currentPosition > sectionService.offsetTop) &&
+            (currentPosition < sectionService.offsetTop + sectionService.offsetHeight) ) {
             prevActiveItem.classList.remove("active-section");
             topMenuItems[1].classList.add("active-section");
         }
-        else if ( (currentPosition > sectionAbout.offsetTop) && (currentPosition < sectionAbout.offsetTop + sectionAbout.offsetHeight) ) {
+        else if ( (currentPosition > sectionAbout.offsetTop) &&
+            (currentPosition < sectionAbout.offsetTop + sectionAbout.offsetHeight) ) {
             prevActiveItem.classList.remove("active-section");
             topMenuItems[2].classList.add("active-section");
         }
-        else if ( (currentPosition > sectionWork.offsetTop) && (currentPosition < sectionWork.offsetTop + sectionWork.offsetHeight) ) {
+        else if ( (currentPosition > sectionWork.offsetTop) &&
+            (currentPosition < sectionWork.offsetTop + sectionWork.offsetHeight) ) {
             prevActiveItem.classList.remove("active-section");
             topMenuItems[3].classList.add("active-section");
         }
-        else if ( (currentPosition > sectionTeam.offsetTop) && (currentPosition < sectionTeam.offsetTop + sectionTeam.offsetHeight) ) {
+        else if ( (currentPosition > sectionTeam.offsetTop) &&
+            (currentPosition < sectionTeam.offsetTop + sectionTeam.offsetHeight) ) {
             prevActiveItem.classList.remove("active-section");
             topMenuItems[4].classList.add("active-section");
         }
-        else if ( (currentPosition > sectionNews.offsetTop) && (currentPosition < sectionNews.offsetTop + sectionNews.offsetHeight) ) {
+        else if ( (currentPosition > sectionNews.offsetTop) &&
+            (currentPosition < sectionNews.offsetTop + sectionNews.offsetHeight) ) {
             prevActiveItem.classList.remove("active-section");
             topMenuItems[5].classList.add("active-section");
         }
-        else if ( (currentPosition > sectionFeedback.offsetTop) && (currentPosition < sectionFeedback.offsetTop + sectionFeedback.offsetHeight) ) {
+        else if ( (currentPosition > sectionFeedback.offsetTop) &&
+            (currentPosition < sectionFeedback.offsetTop + sectionFeedback.offsetHeight) ) {
             prevActiveItem.classList.remove("active-section");
             topMenuItems[6].classList.add("active-section");
         }
@@ -389,7 +343,8 @@ window.addEventListener('load', function() {
             topMenuItems[7].classList.add("active-section");
         }
 
-        if ( (currentPosition > sectionTeam.offsetTop + teamGallery.offsetTop) && (currentPosition <  sectionTeam.offsetTop + teamGallery.offsetTop + teamGallery.offsetHeight) ) {
+        if ( (currentPosition > sectionTeam.offsetTop + teamGallery.offsetTop) &&
+            (currentPosition <  sectionTeam.offsetTop + teamGallery.offsetTop + teamGallery.offsetHeight) ) {
             if (teamGalleryFirstScroll) {
                 teamGalleryFirstScroll = false;
                 teamGalleryItemCounterHandler();
@@ -397,6 +352,31 @@ window.addEventListener('load', function() {
         }
     }
 
+    /*for (var i = 0; i < topMenuItems.length; i++ ) {
+        topMenuItems[i].addEventListener('click', activeSectionHandler);
+    }*/
+    topMenuItems.forEach(function(item) {
+        item.addEventListener('click', activeSectionHandler);
+    });
+    logoButton.addEventListener('click', logoButtonHandler);
+    exploreButtons.forEach(function(item) {
+        item.addEventListener('click', exploreButtonsHandler);
+    });
+    purchaseButtons.forEach(function(item) {
+        item.addEventListener('click', purchaseButtonsHandler);
+    });
+    footerButton.addEventListener('click', footerButtonHandler);
+    faBars.addEventListener('click', faBarsHandler);
+    serviceMenuItems.forEach(function(item) {
+        item.addEventListener('click', activeServiceMenuHandler);
+    });
+    aboutMenuItems.forEach(function(item) {
+        item.addEventListener('click', activeAboutMenuHandler);
+    });
+    workMenuItems.forEach(function(item) {
+        item.addEventListener('click', workMenuHandler);
+    });
+    teamGallery.addEventListener('click', teamGalleryItemCounterHandler);
     window.addEventListener('scroll', scrollWindowHandler);
 
 });
