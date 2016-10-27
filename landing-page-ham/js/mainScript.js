@@ -12,6 +12,9 @@ window.addEventListener('load', function() {
         JsonNews,
         loadMoreBtnClickedCnt = 0,
         numberNewsToLoad = 8,
+        FeedbackArray = [],
+        inputTitleStatus = false,
+        inputMessageStatus = false,
         inputNameStatus = false,
         inputEmailStatus = false,
         inputTextStatus = false;
@@ -52,7 +55,14 @@ window.addEventListener('load', function() {
         newsTemplate = document.querySelector(".news-template"),
         loadMoreBtn = document.querySelector(".load-more-btn");
 
-    // var inputName = document.querySelector("input[type=\"text\"]");
+    var feedbackContainer = document.querySelector(".feedback-cont"),
+        msgTemplate = document.querySelector(".msg-template"),
+        deleteBtn = document.querySelector(".delete-btn"),
+        inputTitle = document.querySelector(".input-title"),
+        inputMessage = document.querySelector(".input-msg"),
+        inputAddBtn = document.querySelector(".input-add-btn"),
+        inputFeedbackContent = document.querySelector(".input-feedback-content");
+
     var inputName = document.querySelector(".input-name"),
         inputEmail = document.querySelector(".input-email"),
         inputText = document.querySelector(".input-text"),
@@ -191,8 +201,6 @@ window.addEventListener('load', function() {
             // this.style.textDecoration = "none";
 
             var stopPos = sectionHome.offsetTop;
-            // this.getAttribute("href") == "contacts"
-            // this.hash
 
             switch (this.getAttribute("href")) {
                 case "#home":
@@ -368,7 +376,6 @@ window.addEventListener('load', function() {
         }
     }
 
-    // team gallery counters
     function teamGalleryItemCounterHandler() {
 
         if (teamGalleryCounterBusyFlag == false) {
@@ -411,16 +418,61 @@ window.addEventListener('load', function() {
     }
 
     // ************************************************************************************
-
-    function isFormValidate() {
-        if (inputNameStatus && inputEmailStatus && inputTextStatus) {
-            inputSubmitBtn.removeAttribute("disabled");
+    function isFormValidate(inputButton, status1, status2, status3) {
+        if (status1 && status2 && status3) {
+            inputButton.removeAttribute("disabled");
         }
         else {
-            inputSubmitBtn.setAttribute("disabled", "disabled");
+            inputButton.setAttribute("disabled", "disabled");
             // alert("Input is INCORRECT! Please, check the input fields!");
         }
     }
+
+    function inputTitleHandler() {
+        if (!inputTitle.value.length) {
+            inputTitleStatus = false;
+            inputTitle.nextElementSibling.style.display = "block";
+            inputTitle.nextElementSibling.innerText = "No title entered !"
+        }
+        else {
+            inputTitleStatus = true;
+            inputTitle.nextElementSibling.style.display = "none";
+        }
+        isFormValidate(inputAddBtn, inputTitleStatus, inputMessageStatus, 1);
+    }
+
+    function inputMessageHandler() {
+        if (!inputMessage.value.length) {
+            inputMessageStatus = false;
+            inputMessage.nextElementSibling.style.display = "block";
+            inputMessage.nextElementSibling.innerText = "No message entered !"
+        }
+        else {
+            inputMessageStatus = true;
+            inputMessage.nextElementSibling.style.display = "none";
+        }
+        isFormValidate(inputAddBtn, inputTitleStatus, inputMessageStatus, 1);
+    }
+
+    function inputAddBtnHandler(event) {
+        event.preventDefault();
+        // alert("The data will be added to the feedback !");
+        var tempItem;
+
+        tempItem = msgTemplate.cloneNode(true);
+        tempItem.setAttribute("data-feedback-index", "1");
+        tempItem.querySelector(".msg-title").innerText = inputTitle.value;
+        tempItem.querySelector(".msg-text").innerText = inputMessage.value;
+        tempItem.querySelector(".delete-btn").addEventListener('click', deleteBtnHandler);
+        feedbackContainer.appendChild(tempItem);
+
+        inputFeedbackContent.reset();
+    }
+
+    function deleteBtnHandler(event) {
+        event.target.parentNode.remove();
+    }
+    // ************************************************************************************
 
     function inputNameHandler() {
         if (!inputName.value.length) {
@@ -440,7 +492,7 @@ window.addEventListener('load', function() {
                 inputName.nextElementSibling.innerText = "Invalid character(s), only English letters !"
             }
         }
-        isFormValidate();
+        isFormValidate(inputSubmitBtn, inputNameStatus, inputEmailStatus, inputTextStatus);
     }
 
     function inputEmailHandler() {
@@ -459,7 +511,7 @@ window.addEventListener('load', function() {
                 inputEmail.nextElementSibling.style.display = "block";
                 inputEmail.nextElementSibling.innerText = "Incorrect input of email !"
             }
-            isFormValidate();
+            isFormValidate(inputSubmitBtn, inputNameStatus, inputEmailStatus, inputTextStatus);
         }
     }
 
@@ -480,7 +532,7 @@ window.addEventListener('load', function() {
                 inputText.nextElementSibling.innerText = "Too short message (minimum 20 characters) !"
             }
         }
-        isFormValidate();
+        isFormValidate(inputSubmitBtn, inputNameStatus, inputEmailStatus, inputTextStatus);
     }
 
     function inputSubmitBtnHandler(event) {
@@ -588,6 +640,11 @@ window.addEventListener('load', function() {
     });
     teamGallery.addEventListener('click', teamGalleryItemCounterHandler);
     loadMoreBtn.addEventListener('click', loadMoreBtnHandler);
+
+    inputTitle.addEventListener('keyup', inputTitleHandler);
+    inputMessage.addEventListener('keyup', inputMessageHandler);
+    inputAddBtn.addEventListener('click', inputAddBtnHandler);
+    deleteBtn.addEventListener('click', deleteBtnHandler);
 
     inputName.addEventListener('keyup', inputNameHandler);
     inputEmail.addEventListener('keyup', inputEmailHandler);

@@ -1285,20 +1285,42 @@ hr {
             }
         }
     }
-    .input-content {
+    .input-feedback-content {
         padding: 70px 0;
 
         .input-title, .input-msg {
             width: 100%;
             font-size: 24px;
             font-weight: 300;
-            color: #9fb9c6;
+            color: #4e4e4e;
             background-color: #ffffff;
-            outline: none;
+            //outline: none;
             border: 1px solid #cfdcda;
             padding: 20px 15px;
             margin: 10px 0px;
 
+        }
+        input::-moz-placeholder {
+            color: #9fb9c6;
+        }
+
+        input::-webkit-input-placeholder{
+            color: #9fb9c6;
+        }
+
+        input:-ms-input-placeholder{
+            color: #9fb9c6;
+        }
+
+        .input-title-error, .input-msg-error {
+            display: none;
+            padding: 0px 20px;
+            margin: 0;
+            font-size: 14px;
+            font-weight: 400;
+            color: red;
+            background-color: transparent;
+            text-align: left;
         }
         .submit-btn-cont {
             padding: 10px 0;
@@ -1353,7 +1375,6 @@ hr {
                         font-size: 20px;
                         font-weight: 400;
                     }
-
                     span {
                         display: inline-block;
                         font-size: 14px;
@@ -1364,8 +1385,12 @@ hr {
                     }
                 }
             }
-            .input-add-btn:hover {
+            .input-add-btn:enabled:hover {
                 background-color: $color_blue_light;
+            }
+
+            .input-add-btn:disabled {
+                opacity: 0.7;
             }
         }
     }
@@ -1415,13 +1440,25 @@ hr {
                     width: 100%;
                     font-size: 14px;
                     font-weight: 300;
-                    color: #9fb9c6;
+                    color: #4e4e4e;
                     background-color: #ffffff;
-                    outline: none;
+                    //outline: none;
                     border: 1px solid #cfdcda;
                     padding: 15px 10px;
                     margin: 10px 0px;
                     text-align: left;
+                }
+
+                input::-moz-placeholder {
+                    color: #9fb9c6;
+                }
+
+                input::-webkit-input-placeholder{
+                    color: #9fb9c6;
+                }
+
+                input:-ms-input-placeholder{
+                    color: #9fb9c6;
                 }
 
                 .input-name-error, .input-email-error, .input-text-error {

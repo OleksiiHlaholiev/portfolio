@@ -919,49 +919,63 @@ hr {
         font-weight: 400;
         color: #333333;
         padding: 15px; }
-  #feedback .input-content {
+  #feedback .input-feedback-content {
     padding: 70px 0; }
-    #feedback .input-content .input-title, #feedback .input-content .input-msg {
+    #feedback .input-feedback-content .input-title, #feedback .input-feedback-content .input-msg {
       width: 100%;
       font-size: 24px;
       font-weight: 300;
-      color: #9fb9c6;
+      color: #4e4e4e;
       background-color: #ffffff;
-      outline: none;
       border: 1px solid #cfdcda;
       padding: 20px 15px;
       margin: 10px 0px; }
-    #feedback .input-content .submit-btn-cont {
+    #feedback .input-feedback-content input::-moz-placeholder {
+      color: #9fb9c6; }
+    #feedback .input-feedback-content input::-webkit-input-placeholder {
+      color: #9fb9c6; }
+    #feedback .input-feedback-content input:-ms-input-placeholder {
+      color: #9fb9c6; }
+    #feedback .input-feedback-content .input-title-error, #feedback .input-feedback-content .input-msg-error {
+      display: none;
+      padding: 0px 20px;
+      margin: 0;
+      font-size: 14px;
+      font-weight: 400;
+      color: red;
+      background-color: transparent;
+      text-align: left; }
+    #feedback .input-feedback-content .submit-btn-cont {
       padding: 10px 0;
       text-align: center; }
       @media screen and (min-width: 768px) {
-        #feedback .input-content .submit-btn-cont {
+        #feedback .input-feedback-content .submit-btn-cont {
           padding: 60px 0;
           text-align: left; } }
-      #feedback .input-content .submit-btn-cont p {
+      #feedback .input-feedback-content .submit-btn-cont p {
         font-size: 24px;
         font-weight: 400;
         color: #4e4e4e;
         margin-bottom: 20px; }
         @media screen and (min-width: 400px) {
-          #feedback .input-content .submit-btn-cont p {
+          #feedback .input-feedback-content .submit-btn-cont p {
             font-size: 30px; } }
         @media screen and (min-width: 440px) {
-          #feedback .input-content .submit-btn-cont p {
+          #feedback .input-feedback-content .submit-btn-cont p {
             font-size: 36px; } }
         @media screen and (min-width: 768px) {
-          #feedback .input-content .submit-btn-cont p {
+          #feedback .input-feedback-content .submit-btn-cont p {
             font-size: 24px; } }
         @media screen and (min-width: 850px) {
-          #feedback .input-content .submit-btn-cont p {
+          #feedback .input-feedback-content .submit-btn-cont p {
             font-size: 30px; } }
         @media screen and (min-width: 992px) {
-          #feedback .input-content .submit-btn-cont p {
+          #feedback .input-feedback-content .submit-btn-cont p {
             font-size: 32px; } }
         @media screen and (min-width: 1200px) {
-          #feedback .input-content .submit-btn-cont p {
+          #feedback .input-feedback-content .submit-btn-cont p {
             font-size: 34px; } }
-      #feedback .input-content .submit-btn-cont .input-add-btn {
+      #feedback .input-feedback-content .submit-btn-cont .input-add-btn {
         outline: none;
         width: 170px;
         height: 60px;
@@ -970,20 +984,22 @@ hr {
         border: none;
         border-radius: 5px;
         transition: background-color 0.7s; }
-        #feedback .input-content .submit-btn-cont .input-add-btn .inner-btn-cont {
+        #feedback .input-feedback-content .submit-btn-cont .input-add-btn .inner-btn-cont {
           width: 100%; }
-          #feedback .input-content .submit-btn-cont .input-add-btn .inner-btn-cont .fa-plus {
+          #feedback .input-feedback-content .submit-btn-cont .input-add-btn .inner-btn-cont .fa-plus {
             display: inline-block;
             font-size: 20px;
             font-weight: 400; }
-          #feedback .input-content .submit-btn-cont .input-add-btn .inner-btn-cont span {
+          #feedback .input-feedback-content .submit-btn-cont .input-add-btn .inner-btn-cont span {
             display: inline-block;
             font-size: 14px;
             height: 20px;
             font-weight: 700;
             padding-left: 15px; }
-      #feedback .input-content .submit-btn-cont .input-add-btn:hover {
+      #feedback .input-feedback-content .submit-btn-cont .input-add-btn:enabled:hover {
         background-color: #00cbf6; }
+      #feedback .input-feedback-content .submit-btn-cont .input-add-btn:disabled {
+        opacity: 0.7; }
 
 #contact {
   padding: 100px 0px 100px 0px;
@@ -1015,13 +1031,18 @@ hr {
       width: 100%;
       font-size: 14px;
       font-weight: 300;
-      color: #9fb9c6;
+      color: #4e4e4e;
       background-color: #ffffff;
-      outline: none;
       border: 1px solid #cfdcda;
       padding: 15px 10px;
       margin: 10px 0px;
       text-align: left; }
+    #contact .form-cont .input-contact-content .inputs-container input::-moz-placeholder {
+      color: #9fb9c6; }
+    #contact .form-cont .input-contact-content .inputs-container input::-webkit-input-placeholder {
+      color: #9fb9c6; }
+    #contact .form-cont .input-contact-content .inputs-container input:-ms-input-placeholder {
+      color: #9fb9c6; }
     #contact .form-cont .input-contact-content .inputs-container .input-name-error, #contact .form-cont .input-contact-content .inputs-container .input-email-error, #contact .form-cont .input-contact-content .inputs-container .input-text-error {
       display: none;
       padding: 0px 20px;
