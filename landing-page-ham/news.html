@@ -29,7 +29,8 @@
                             <p class="news-text">
                                 Eum cu tantas legere complectitur, hinc utamur ea eam.
                                 Eum patrioque mnesarchum eu, diam erant convenire et vis.
-                                Et essent evertitur sea, vis cu ubique referrentur, sed eu dicant expetendis.
+                                Et essent evertitur sea, vis cu ubique referrentur,
+                                sed eu dicant expetendis.
                             </p>
                         <div class="control-cont">
                             <hr class="separate-line">
@@ -76,7 +77,10 @@
                 tempDate = new Date(JsonNews[i].date);
                 NewsArray[i] = newsTemplate.cloneNode(true);
                 NewsArray[i].setAttribute("data-news-index", JsonNews[i].id );
-                NewsArray[i].querySelector(".news-date").innerText = tempDate.getMonth() + 1 + "/" + tempDate.getDate() + "/" + tempDate.getFullYear();
+                NewsArray[i].querySelector(".news-date").innerText =
+                        tempDate.getMonth() + 1 +
+                        "/" + tempDate.getDate() + "/" +
+                        tempDate.getFullYear();
                 NewsArray[i].querySelector(".news-text").innerText = JsonNews[i].text;
                 newsContainer.appendChild(NewsArray[i]);
 
