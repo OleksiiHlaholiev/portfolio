@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap 4 -->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <!--Include Your Style Sheets next -->
+    <link rel="stylesheet" href="css/mainStyle.css">
+
+</head>
+<body>
+    <section id="newsNewPage">
+        <h1>News!!!</h1>
+        <hr class="left-hr">
+        <hr class="right-hr">
+
+        <div class="container">
+            <div class="news-cont">
+                <div class="row news-template">
+                    <div class="col-xs-12">
+                        <span class="news-date">Date: 9/25/2016</span>
+                    </div>
+                    <div class="col-xs-12">
+                            <p class="news-text">
+                                Eum cu tantas legere complectitur, hinc utamur ea eam.
+                                Eum patrioque mnesarchum eu, diam erant convenire et vis.
+                                Et essent evertitur sea, vis cu ubique referrentur,
+                                sed eu dicant expetendis.
+                            </p>
+                        <div class="control-cont">
+                            <hr class="separate-line">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        'use strict';
+        window.addEventListener('load', function() {
+            var headerText = document.querySelector("h1"),
+                newsContainer = document.querySelector(".news-cont"),
+                newsTemplate = document.querySelector(".news-template"),
+                JsonNews;
+
+            var httpRequest = new XMLHttpRequest();
+            httpRequest.open("GET", "../landing-page-ham/files/data.json", true);
+            httpRequest.onreadystatechange = OnRequestStateChange;
+            httpRequest.send(null);
+
+            function OnRequestStateChange()
+            {
+                if (httpRequest.readyState != 4)
+                    return;
+                if (httpRequest.status != 200)
+                    return;
+                //alert(httpRequest.responseText);
+                JsonNews = JSON.parse(httpRequest.responseText);
+                NewsAddFromFile(indexId - 1);
+            }
+
+            var indexId = window.location.search.split("id=")[1];
+//            alert (indexId);
+
+            function NewsAddFromFile(i) {
+                var NewsArray = [];
+                var tempDate;
+
+                headerText.innerText = "Amazing post #" + JsonNews[i].id;
+
+                tempDate = new Date(JsonNews[i].date);
+                NewsArray[i] = newsTemplate.cloneNode(true);
+                NewsArray[i].setAttribute("data-news-index", JsonNews[i].id );
+                NewsArray[i].querySelector(".news-date").innerText =
+                        tempDate.getMonth() + 1 +
+                        "/" + tempDate.getDate() + "/" +
+                        tempDate.getFullYear();
+                NewsArray[i].querySelector(".news-text").innerText = JsonNews[i].text;
+                newsContainer.appendChild(NewsArray[i]);
+
+                newsTemplate.remove();
+            }
+        })
+    </script>
+</body>
+</html>
