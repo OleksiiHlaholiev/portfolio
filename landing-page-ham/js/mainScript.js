@@ -9,7 +9,10 @@ window.addEventListener('load', function() {
         teamGalleryCounterBusyFlag = false,
         JsonNews,
         loadMoreBtnClickedCnt = 0,
-        numberNewsToLoad = 8;
+        numberNewsToLoad = 8,
+        inputNameStatus = false,
+        inputEmailStatus = false,
+        inputTextStatus = false;
 
     var sectionHeader = document.getElementById("header"),
         sectionHome = document.getElementById("home"),
@@ -46,6 +49,14 @@ window.addEventListener('load', function() {
     var newsContainer = document.querySelector(".news-cont"),
         newsTemplate = document.querySelector(".news-template"),
         loadMoreBtn = document.querySelector(".load-more-btn");
+
+    // var inputName = document.querySelector("input[type=\"text\"]");
+    var inputName = document.querySelector(".input-name"),
+        inputEmail = document.querySelector(".input-email"),
+        inputText = document.querySelector(".input-text"),
+        inputSubmitBtn = document.querySelector(".submit-btn"),
+        inputContactContent = document.querySelector(".input-contact-content");
+
 
     // --------------------------- MAIN CODE --------------------------------------
 
@@ -397,6 +408,86 @@ window.addEventListener('load', function() {
         }
     }
 
+    // ************************************************************************************
+
+    function isFormValidate() {
+        if (inputNameStatus && inputEmailStatus && inputTextStatus) {
+            inputSubmitBtn.removeAttribute("disabled");
+        }
+        else {
+            inputSubmitBtn.setAttribute("disabled", "disabled");
+            // alert("Input is INCORRECT! Please, check the input fields!");
+        }
+    }
+
+    function inputNameHandler() {
+        if (!inputName.value.length) {
+            inputNameStatus = false;
+            inputName.nextElementSibling.style.display = "block";
+            inputName.nextElementSibling.innerText = "No data entered !"
+        }
+        else {
+            // if ( (/[a-zA-Z]/.test(inputName.value[inputName.value.length - 1])) )
+            if ( (/[a-zA-Z]/.test(inputName.value)) ) {
+                inputNameStatus = true;
+                inputName.nextElementSibling.style.display = "none";
+            }
+            else {
+                inputNameStatus = false;
+                inputName.nextElementSibling.style.display = "block";
+                inputName.nextElementSibling.innerText = "Invalid character(s), only English letters !"
+            }
+        }
+        isFormValidate();
+    }
+
+    function inputEmailHandler() {
+        if (!inputEmail.value.length) {
+            inputEmailStatus = false;
+            inputEmail.nextElementSibling.style.display = "block";
+            inputEmail.nextElementSibling.innerText = "No email entered !"
+        }
+        else {
+            if ( (/^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/.test(inputEmail.value)) ) {
+                inputEmailStatus = true;
+                inputEmail.nextElementSibling.style.display = "none";
+            }
+            else {
+                inputEmailStatus = false;
+                inputEmail.nextElementSibling.style.display = "block";
+                inputEmail.nextElementSibling.innerText = "Incorrect input of email !"
+            }
+            isFormValidate();
+        }
+    }
+
+    function inputTextHandler() {
+        if (!inputText.value.length) {
+            inputTextStatus = false;
+            inputText.nextElementSibling.style.display = "block";
+            inputText.nextElementSibling.innerText = "No text entered !"
+        }
+        else {
+            if ( inputText.value.length >= 20 ) {
+                inputTextStatus = true;
+                inputText.nextElementSibling.style.display = "none";
+            }
+            else {
+                inputTextStatus = false;
+                inputText.nextElementSibling.style.display = "block";
+                inputText.nextElementSibling.innerText = "Too short message (minimum 20 characters) !"
+            }
+        }
+        isFormValidate();
+    }
+
+    function inputSubmitBtnHandler(event) {
+        event.preventDefault();
+        alert("The data will be sent to the server !");
+        inputContactContent.reset();
+
+    }
+    // ************************************************************************************
     function scrollWindowHandler(event) {
         // alert("Scroll!!!");
 
@@ -495,6 +586,11 @@ window.addEventListener('load', function() {
     });
     teamGallery.addEventListener('click', teamGalleryItemCounterHandler);
     loadMoreBtn.addEventListener('click', loadMoreBtnHandler);
+
+    inputName.addEventListener('keyup', inputNameHandler);
+    inputEmail.addEventListener('keyup', inputEmailHandler);
+    inputText.addEventListener('keyup', inputTextHandler);
+    inputSubmitBtn.addEventListener('click', inputSubmitBtnHandler);
 
     window.addEventListener('scroll', scrollWindowHandler);
 

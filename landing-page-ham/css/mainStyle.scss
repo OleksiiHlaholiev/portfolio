@@ -1411,7 +1411,7 @@ hr {
                 @media screen and (min-width: 768px) {
                     padding: 85px 0 0 0;
                 }
-                .input-name, .input-email, .input-msg {
+                .input-name, .input-email, .input-text {
                     width: 100%;
                     font-size: 14px;
                     font-weight: 300;
@@ -1423,6 +1423,18 @@ hr {
                     margin: 10px 0px;
                     text-align: left;
                 }
+
+                .input-name-error, .input-email-error, .input-text-error {
+                    display: none;
+                    padding: 0px 20px;
+                    margin: 0;
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: red;
+                    background-color: transparent;
+                    text-align: left;
+                }
+
                 .submit-btn {
                     outline: none;
                     width: 100%;
@@ -1434,8 +1446,15 @@ hr {
                     transition: background-color 0.7s;
                     margin-top: 10px;
                 }
-                .submit-btn:hover {
+                //.submit-btn:hover {
+                //    background-color: $color_blue_light;
+                //}
+                .submit-btn:enabled:hover {
                     background-color: $color_blue_light;
+                }
+
+                .submit-btn:disabled {
+                    opacity: 0.7;
                 }
             }
         }
