@@ -5,6 +5,7 @@ window.addEventListener('load', function() {
         scrollFuncTimer,
         busyFlag = false,
         teamGalleryFirstScroll = true,
+        aboutSkillsFirstScroll = true,
         teamGalleryCounterBusyFlag = false,
         JsonNews,
         loadMoreBtnClickedCnt = 0,
@@ -32,10 +33,12 @@ window.addEventListener('load', function() {
     var serviceMenuItems = document.querySelectorAll(".service-menu > ul > li"),
         serviceItemContainers = document.querySelectorAll(".service-item-container");
 
-    var workMenuItems = document.querySelectorAll(".work-menu > li");
+    var aboutContainer = document.querySelector(".about-container"),
+        aboutMenuItems = document.querySelectorAll(".about-menu > li"),
+        aboutItemContainers = document.querySelectorAll(".about-item-container"),
+        skillProgressContainers = document.querySelectorAll(".skill-progress");
 
-    var aboutMenuItems = document.querySelectorAll(".about-menu > li"),
-        aboutItemContainers = document.querySelectorAll(".about-item-container");
+    var workMenuItems = document.querySelectorAll(".work-menu > li");
 
     var teamGallery = document.querySelector(".team-gallery"),
         teamGalleryItemCounters = document.querySelectorAll(".team-item-counter");
@@ -302,6 +305,12 @@ window.addEventListener('load', function() {
         aboutItemContainers[+event.target.dataset.aboutNumber].classList.add("active-about-item-cont");
     }
 
+    function aboutSkillsRunningHandler() {
+        skillProgressContainers.forEach(function(item) {
+            item.style.width = item.dataset.skillWidth + "%";
+        });
+    }
+
     function workMenuHandler(){
         var prevActiveItem = document.querySelector(".active-work-item");
 
@@ -449,6 +458,14 @@ window.addEventListener('load', function() {
                 teamGalleryItemCounterHandler();
             }
         }
+        // skillContainers
+        if ( (currentPosition > sectionAbout.offsetTop + aboutContainer.offsetTop) &&
+            (currentPosition <  sectionAbout.offsetTop + aboutContainer.offsetTop + aboutContainer.offsetHeight) ) {
+            if (aboutSkillsFirstScroll) {
+                aboutSkillsFirstScroll = false;
+                aboutSkillsRunningHandler();
+            }
+        }
     }
 
     /*for (var i = 0; i < topMenuItems.length; i++ ) {
@@ -469,6 +486,7 @@ window.addEventListener('load', function() {
     serviceMenuItems.forEach(function(item) {
         item.addEventListener('click', activeServiceMenuHandler);
     });
+    aboutContainer.addEventListener('click', aboutSkillsRunningHandler);
     aboutMenuItems.forEach(function(item) {
         item.addEventListener('click', activeAboutMenuHandler);
     });

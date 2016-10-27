@@ -473,32 +473,41 @@ hr {
           #about .about-container .about-item-container .about-history-list {
             text-align: left; } }
       #about .about-container .about-item-container .skill-container {
+        position: relative;
         width: 100%;
         text-align: left;
         border: 1px solid #959595;
         border-radius: 5px;
         margin: 15px 0px; }
-        #about .about-container .about-item-container .skill-container .skill-progress {
+        #about .about-container .about-item-container .skill-container .skill-name {
+          position: relative;
           padding: 15px 0 15px 15px;
           color: #ffffff;
           text-transform: uppercase;
           font-size: 13px;
           font-weight: 400;
-          border-radius: 4px; }
+          border-radius: 4px;
+          width: 100%;
+          z-index: 10; }
+        #about .about-container .about-item-container .skill-container .skill-progress {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0%;
+          height: 100%;
+          padding-left: 15px;
+          border-radius: 4px;
+          z-index: 5;
+          transition: width 3s; }
       #about .about-container .about-item-container .skill-container:nth-child(1) .skill-progress {
-        width: 70%;
         background-color: #9c5da5; }
       #about .about-container .about-item-container .skill-container:nth-child(2) .skill-progress {
-        width: 80%;
         background-color: #11b0de; }
       #about .about-container .about-item-container .skill-container:nth-child(3) .skill-progress {
-        width: 60%;
         background-color: #d67f7f; }
       #about .about-container .about-item-container .skill-container:nth-child(4) .skill-progress {
-        width: 90%;
         background-color: #20bc9d; }
       #about .about-container .about-item-container .skill-container:nth-child(5) .skill-progress {
-        width: 80%;
         background-color: #bb8a36; }
     #about .about-container .active-about-item-cont {
       display: block; }
@@ -982,20 +991,24 @@ hr {
   text-align: center;
   background-color: #ffffff; }
   #contact .map-cont {
-    padding-left: 0; }
+    padding-left: 0;
+    padding-right: 0; }
     #contact .map-cont iframe {
       width: 100%;
       height: calc(100vh - 100px); }
+    @media screen and (min-width: 768px) {
+      #contact .map-cont {
+        padding-right: 15px; } }
   #contact .form-cont h3 {
     text-align: center;
     margin-top: 30px; }
-    @media screen and (min-width: 767px) {
+    @media screen and (min-width: 768px) {
       #contact .form-cont h3 {
         text-align: left;
         margin-top: 0px; } }
   #contact .form-cont .input-contact-content .inputs-container {
     padding: 40px 0 0 0; }
-    @media screen and (min-width: 767px) {
+    @media screen and (min-width: 768px) {
       #contact .form-cont .input-contact-content .inputs-container {
         padding: 85px 0 0 0; } }
     #contact .form-cont .input-contact-content .inputs-container .input-name, #contact .form-cont .input-contact-content .inputs-container .input-email, #contact .form-cont .input-contact-content .inputs-container .input-msg {
