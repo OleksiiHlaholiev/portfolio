@@ -1,6 +1,8 @@
 'use strict';
 
 window.addEventListener('load', function() {
+    var forEach = Array.prototype.forEach;
+
     var SCROLL_STEP = 100,
         scrollFuncTimer,
         busyFlag = false,
@@ -317,7 +319,7 @@ window.addEventListener('load', function() {
     }
 
     function aboutSkillsRunningHandler() {
-        skillProgressContainers.forEach(function(item) {
+        forEach.call(skillProgressContainers, function(item) {
             item.style.width = item.dataset.skillWidth + "%";
         });
     }
@@ -562,26 +564,26 @@ window.addEventListener('load', function() {
     /*for (var i = 0; i < topMenuItems.length; i++ ) {
         topMenuItems[i].addEventListener('click', activeSectionHandler);
     }*/
-    topMenuItems.forEach(function(item) {
+    forEach.call(topMenuItems, function(item) {
         item.addEventListener('click', activeSectionHandler);
     });
     logoButton.addEventListener('click', logoButtonHandler);
-    exploreButtons.forEach(function(item) {
+    forEach.call(exploreButtons, function(item) {
         item.addEventListener('click', exploreButtonsHandler);
     });
-    purchaseButtons.forEach(function(item) {
+    forEach.call(purchaseButtons, function(item) {
         item.addEventListener('click', purchaseButtonsHandler);
     });
     footerButton.addEventListener('click', footerButtonHandler);
     faBars.addEventListener('click', faBarsHandler);
-    serviceMenuItems.forEach(function(item) {
+    forEach.call(serviceMenuItems, function(item) {
         item.addEventListener('click', activeServiceMenuHandler);
     });
     aboutContainer.addEventListener('click', aboutSkillsRunningHandler);
-    aboutMenuItems.forEach(function(item) {
+    forEach.call(aboutMenuItems, function(item) {
         item.addEventListener('click', activeAboutMenuHandler);
     });
-    workMenuItems.forEach(function(item) {
+    forEach.call(workMenuItems, function(item) {
         item.addEventListener('click', workMenuHandler);
     });
     teamGallery.addEventListener('click', teamGalleryItemCounterHandler);
