@@ -13,6 +13,7 @@ window.addEventListener('load', function() {
         loadMoreBtnClickedCnt = 0,
         numberNewsToLoad = 8,
         FeedbackArray = [],
+        feedbackIndex = 0,
         inputTitleStatus = false,
         inputMessageStatus = false,
         inputNameStatus = false,
@@ -56,7 +57,7 @@ window.addEventListener('load', function() {
         loadMoreBtn = document.querySelector(".load-more-btn");
 
     var feedbackContainer = document.querySelector(".feedback-cont"),
-        msgTemplate = document.querySelector(".msg-template"),
+        msgTemplate = document.querySelector(".msg-template").cloneNode(true),
         deleteBtn = document.querySelector(".delete-btn"),
         inputTitle = document.querySelector(".input-title"),
         inputMessage = document.querySelector(".input-msg"),
@@ -68,6 +69,8 @@ window.addEventListener('load', function() {
         inputText = document.querySelector(".input-text"),
         inputSubmitBtn = document.querySelector(".submit-btn"),
         inputContactContent = document.querySelector(".input-contact-content");
+
+    document.querySelector(".msg-template").remove();
 
 
     // --------------------------- MAIN CODE --------------------------------------
@@ -457,19 +460,30 @@ window.addEventListener('load', function() {
     function inputAddBtnHandler(event) {
         event.preventDefault();
         // alert("The data will be added to the feedback !");
-        var tempItem;
+        var tempItem,
+            tempObj = {};
 
+        feedbackIndex++;
         tempItem = msgTemplate.cloneNode(true);
-        tempItem.setAttribute("data-feedback-index", "1");
+        tempItem.setAttribute("data-feedback-index", feedbackIndex.toString());
         tempItem.querySelector(".msg-title").innerText = inputTitle.value;
         tempItem.querySelector(".msg-text").innerText = inputMessage.value;
         tempItem.querySelector(".delete-btn").addEventListener('click', deleteBtnHandler);
         feedbackContainer.appendChild(tempItem);
 
+        tempObj.id = feedbackIndex;
+        tempObj.title = inputTitle.value;
+        tempObj.text = inputMessage.value;
+        // FeedbackArray[feedbackIndex] = tempObj;
+        FeedbackArray.push(tempObj);
+
         inputFeedbackContent.reset();
+        inputTitleStatus = inputMessageStatus = false;
+        inputAddBtn.setAttribute("disabled", "disabled");
     }
 
     function deleteBtnHandler(event) {
+        FeedbackArray.splice(event.target.parentNode.dataset.feedbackIndex - 1, 1);
         event.target.parentNode.remove();
     }
     // ************************************************************************************
@@ -538,7 +552,10 @@ window.addEventListener('load', function() {
     function inputSubmitBtnHandler(event) {
         event.preventDefault();
         alert("The data will be sent to the server !");
+
         inputContactContent.reset();
+        inputNameStatus = inputEmailStatus = inputTextStatus = false;
+        inputSubmitBtn.setAttribute("disabled", "disabled");
 
     }
     // ************************************************************************************
