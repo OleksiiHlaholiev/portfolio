@@ -53,7 +53,7 @@ window.addEventListener('load', function() {
         teamGalleryItemCounters = document.querySelectorAll(".team-item-counter");
 
     var newsContainer = document.querySelector(".news-cont"),
-        newsTemplate = document.querySelector(".news-template"),
+        newsTemplate = document.querySelector(".news-template").cloneNode(true),
         loadMoreBtn = document.querySelector(".load-more-btn");
 
     var feedbackContainer = document.querySelector(".feedback-cont"),
@@ -71,6 +71,7 @@ window.addEventListener('load', function() {
         inputContactContent = document.querySelector(".input-contact-content");
 
     document.querySelector(".msg-template").remove();
+    document.querySelector(".news-template").remove();
 
 
     // --------------------------- MAIN CODE --------------------------------------
@@ -94,7 +95,6 @@ window.addEventListener('load', function() {
         JsonNews = JSON.parse(httpRequest.responseText);
         NewsAddFromFile(0, numberNewsToLoad);
         loadMoreBtnClickedCnt++;
-        newsTemplate.remove();
     }
 
 
@@ -158,6 +158,10 @@ window.addEventListener('load', function() {
                 NewsArray[i].querySelector(".news-month").innerText = monthDecoder(tempDate.getMonth());
                 NewsArray[i].querySelector(".news-text").innerText = "Amazing Post #" + JsonNews[i].id;
                 NewsArray[i].querySelector(".read-more-btn").setAttribute("href", "news.html?id=" + JsonNews[i].id);
+
+                NewsArray[i].style.opacity = "0";
+                myFadeIn(NewsArray[i], 7);
+
                 newsContainer.appendChild(NewsArray[i]);
             }
         }
@@ -300,11 +304,29 @@ window.addEventListener('load', function() {
     function faBarsHandler() {
         if (getComputedStyle(topMenu).display != "none") {
             topMenu.style.display = "";
+            // $(topMenu).slideToggle("slow");
         }
         else {
             topMenu.style.display = "inline-block";
+            // $(topMenu).slideToggle("slow");
         }
 
+    }
+
+    function myFadeIn(elementDOM, timeStep){
+        var tempOpacity = 0;
+        var localTimer = setInterval(
+            function() {
+                tempOpacity += 1;
+                if (tempOpacity <= 100) {
+                    elementDOM.style.opacity = String(tempOpacity / 100);
+                }
+                else {
+                    clearInterval(localTimer);
+                }
+            },
+            timeStep
+        );
     }
 
     function activeServiceMenuHandler(event){
@@ -312,10 +334,13 @@ window.addEventListener('load', function() {
         prevActiveService.classList.remove("active-service-item");
         event.target.classList.add("active-service-item");
 
-        // serviceItemContainers.dataset.serviceNumber
         var prevActiveServiceCont = document.querySelector(".active-service-item-cont");
         prevActiveServiceCont.classList.remove("active-service-item-cont");
         serviceItemContainers[+event.target.dataset.serviceNumber].classList.add("active-service-item-cont");
+
+        serviceItemContainers[+event.target.dataset.serviceNumber].style.opacity = "0";
+        myFadeIn(serviceItemContainers[+event.target.dataset.serviceNumber], 7);
+
     }
 
     function activeAboutMenuHandler(event){
@@ -323,16 +348,26 @@ window.addEventListener('load', function() {
         prevActiveAbout.classList.remove("active-about-item");
         event.target.classList.add("active-about-item");
 
-        // serviceItemContainers.dataset.serviceNumber
         var prevActiveAboutCont = document.querySelector(".active-about-item-cont");
         prevActiveAboutCont.classList.remove("active-about-item-cont");
         aboutItemContainers[+event.target.dataset.aboutNumber].classList.add("active-about-item-cont");
+
+        aboutItemContainers[+event.target.dataset.aboutNumber].style.opacity = "0";
+        myFadeIn(aboutItemContainers[+event.target.dataset.aboutNumber], 7);
     }
 
     function aboutSkillsRunningHandler() {
         forEach.call(skillProgressContainers, function(item) {
             item.style.width = item.dataset.skillWidth + "%";
         });
+    }
+
+    function changePortfolioGalleryImgsProperties(itemsArray) {
+        for (var i = 0; i < itemsArray.length; i++ ) {
+            itemsArray[i].style.display = "inline-block";
+            itemsArray[i].style.opacity = "0";
+            myFadeIn(itemsArray[i], 5);
+        }
     }
 
     function workMenuHandler(){
@@ -349,33 +384,28 @@ window.addEventListener('load', function() {
         // now determine what to turn on
         if (this.classList.contains("portfolio-all")) {
             portfolioGalleryImgs = document.querySelectorAll(".portfolio-gallery-img");
-            for (i = 0; i < portfolioGalleryImgs.length; i++ ) {
+            /*for (i = 0; i < portfolioGalleryImgs.length; i++ ) {
                 portfolioGalleryImgs[i].style.display = "inline-block";
-            }
+                portfolioGalleryImgs[i].style.opacity = "0";
+                myFadeIn(portfolioGalleryImgs[i], 5);
+            }*/
+            changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
         }
         else if (this.classList.contains("portfolio-graphic")) {
             portfolioGalleryImgs = document.querySelectorAll(".graphic-img");
-            for (i = 0; i < portfolioGalleryImgs.length; i++ ) {
-                portfolioGalleryImgs[i].style.display = "inline-block";
-            }
+            changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
         }
         else if (this.classList.contains("portfolio-web")) {
             portfolioGalleryImgs = document.querySelectorAll(".web-img");
-            for (i = 0; i < portfolioGalleryImgs.length; i++ ) {
-                portfolioGalleryImgs[i].style.display = "inline-block";
-            }
+            changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
         }
         else if (this.classList.contains("portfolio-landing")) {
             portfolioGalleryImgs = document.querySelectorAll(".landing-img");
-            for (i = 0; i < portfolioGalleryImgs.length; i++ ) {
-                portfolioGalleryImgs[i].style.display = "inline-block";
-            }
+            changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
         }
         else if (this.classList.contains("portfolio-wordpress")) {
             portfolioGalleryImgs = document.querySelectorAll(".wordpress-img");
-            for (i = 0; i < portfolioGalleryImgs.length; i++ ) {
-                portfolioGalleryImgs[i].style.display = "inline-block";
-            }
+            changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
         }
     }
 
@@ -474,7 +504,6 @@ window.addEventListener('load', function() {
         tempObj.id = feedbackIndex;
         tempObj.title = inputTitle.value;
         tempObj.text = inputMessage.value;
-        // FeedbackArray[feedbackIndex] = tempObj;
         FeedbackArray.push(tempObj);
 
         inputFeedbackContent.reset();
@@ -648,7 +677,7 @@ window.addEventListener('load', function() {
     forEach.call(serviceMenuItems, function(item) {
         item.addEventListener('click', activeServiceMenuHandler);
     });
-    aboutContainer.addEventListener('click', aboutSkillsRunningHandler);
+    // aboutContainer.addEventListener('click', aboutSkillsRunningHandler);
     forEach.call(aboutMenuItems, function(item) {
         item.addEventListener('click', activeAboutMenuHandler);
     });
