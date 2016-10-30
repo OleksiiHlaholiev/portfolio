@@ -330,30 +330,34 @@ window.addEventListener('load', function() {
     }
 
     function activeServiceMenuHandler(event){
-        var prevActiveService = document.querySelector(".active-service-item");
-        prevActiveService.classList.remove("active-service-item");
-        event.target.classList.add("active-service-item");
+        if (!event.target.classList.contains("active-service-item")) {
+            var prevActiveService = document.querySelector(".active-service-item");
+            prevActiveService.classList.remove("active-service-item");
+            event.target.classList.add("active-service-item");
 
-        var prevActiveServiceCont = document.querySelector(".active-service-item-cont");
-        prevActiveServiceCont.classList.remove("active-service-item-cont");
-        serviceItemContainers[+event.target.dataset.serviceNumber].classList.add("active-service-item-cont");
+            var prevActiveServiceCont = document.querySelector(".active-service-item-cont");
+            prevActiveServiceCont.classList.remove("active-service-item-cont");
+            serviceItemContainers[+event.target.dataset.serviceNumber].classList.add("active-service-item-cont");
 
-        serviceItemContainers[+event.target.dataset.serviceNumber].style.opacity = "0";
-        myFadeIn(serviceItemContainers[+event.target.dataset.serviceNumber], 7);
+            serviceItemContainers[+event.target.dataset.serviceNumber].style.opacity = "0";
+            myFadeIn(serviceItemContainers[+event.target.dataset.serviceNumber], 7);
+        }
 
     }
 
     function activeAboutMenuHandler(event){
-        var prevActiveAbout = document.querySelector(".active-about-item");
-        prevActiveAbout.classList.remove("active-about-item");
-        event.target.classList.add("active-about-item");
+        if (!event.target.classList.contains("active-about-item")) {
+            var prevActiveAbout = document.querySelector(".active-about-item");
+            prevActiveAbout.classList.remove("active-about-item");
+            event.target.classList.add("active-about-item");
 
-        var prevActiveAboutCont = document.querySelector(".active-about-item-cont");
-        prevActiveAboutCont.classList.remove("active-about-item-cont");
-        aboutItemContainers[+event.target.dataset.aboutNumber].classList.add("active-about-item-cont");
+            var prevActiveAboutCont = document.querySelector(".active-about-item-cont");
+            prevActiveAboutCont.classList.remove("active-about-item-cont");
+            aboutItemContainers[+event.target.dataset.aboutNumber].classList.add("active-about-item-cont");
 
-        aboutItemContainers[+event.target.dataset.aboutNumber].style.opacity = "0";
-        myFadeIn(aboutItemContainers[+event.target.dataset.aboutNumber], 7);
+            aboutItemContainers[+event.target.dataset.aboutNumber].style.opacity = "0";
+            myFadeIn(aboutItemContainers[+event.target.dataset.aboutNumber], 7);
+        }
     }
 
     function aboutSkillsRunningHandler() {
@@ -371,41 +375,43 @@ window.addEventListener('load', function() {
     }
 
     function workMenuHandler(){
-        var prevActiveItem = document.querySelector(".active-work-item");
+        if (!event.target.classList.contains("active-work-item")) {
+            var prevActiveItem = document.querySelector(".active-work-item");
 
-        prevActiveItem.classList.remove("active-work-item");
-        this.classList.add("active-work-item");
+            prevActiveItem.classList.remove("active-work-item");
+            this.classList.add("active-work-item");
 
-        var portfolioGalleryImgs = document.querySelectorAll(".portfolio-gallery-img");
-        // disable all first, then will turn on
-        for (var i = 0; i < portfolioGalleryImgs.length; i++ ) {
-            portfolioGalleryImgs[i].style.display = "none";
-        }
-        // now determine what to turn on
-        if (this.classList.contains("portfolio-all")) {
-            portfolioGalleryImgs = document.querySelectorAll(".portfolio-gallery-img");
-            /*for (i = 0; i < portfolioGalleryImgs.length; i++ ) {
-                portfolioGalleryImgs[i].style.display = "inline-block";
-                portfolioGalleryImgs[i].style.opacity = "0";
-                myFadeIn(portfolioGalleryImgs[i], 5);
-            }*/
-            changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
-        }
-        else if (this.classList.contains("portfolio-graphic")) {
-            portfolioGalleryImgs = document.querySelectorAll(".graphic-img");
-            changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
-        }
-        else if (this.classList.contains("portfolio-web")) {
-            portfolioGalleryImgs = document.querySelectorAll(".web-img");
-            changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
-        }
-        else if (this.classList.contains("portfolio-landing")) {
-            portfolioGalleryImgs = document.querySelectorAll(".landing-img");
-            changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
-        }
-        else if (this.classList.contains("portfolio-wordpress")) {
-            portfolioGalleryImgs = document.querySelectorAll(".wordpress-img");
-            changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
+            var portfolioGalleryImgs = document.querySelectorAll(".portfolio-gallery-img");
+            // disable all first, then will turn on
+            for (var i = 0; i < portfolioGalleryImgs.length; i++) {
+                portfolioGalleryImgs[i].style.display = "none";
+            }
+            // now determine what to turn on
+            if (this.classList.contains("portfolio-all")) {
+                portfolioGalleryImgs = document.querySelectorAll(".portfolio-gallery-img");
+                /*for (i = 0; i < portfolioGalleryImgs.length; i++ ) {
+                 portfolioGalleryImgs[i].style.display = "inline-block";
+                 portfolioGalleryImgs[i].style.opacity = "0";
+                 myFadeIn(portfolioGalleryImgs[i], 5);
+                 }*/
+                changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
+            }
+            else if (this.classList.contains("portfolio-graphic")) {
+                portfolioGalleryImgs = document.querySelectorAll(".graphic-img");
+                changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
+            }
+            else if (this.classList.contains("portfolio-web")) {
+                portfolioGalleryImgs = document.querySelectorAll(".web-img");
+                changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
+            }
+            else if (this.classList.contains("portfolio-landing")) {
+                portfolioGalleryImgs = document.querySelectorAll(".landing-img");
+                changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
+            }
+            else if (this.classList.contains("portfolio-wordpress")) {
+                portfolioGalleryImgs = document.querySelectorAll(".wordpress-img");
+                changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
+            }
         }
     }
 
