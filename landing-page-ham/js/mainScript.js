@@ -32,7 +32,12 @@ window.addEventListener('load', function() {
 
     var topMenu = document.querySelector(".top-menu"),
         topMenuItems = document.querySelectorAll(".top-menu > ul > li > a"),
-        faBars = document.querySelector(".fa-bars");
+        faBars = document.querySelector(".fa-bars"),
+        slider = document.querySelector(".slider"),
+        sliderBtnLeft = document.querySelector(".fa-angle-left"),
+        sliderBtnRight = document.querySelector(".fa-angle-right"),
+        sliderItems = document.querySelectorAll(".slider-item");
+
 
     var logoButton = document.querySelector(".logo-button"),
         exploreButtons = document.querySelectorAll(".explore-button"),
@@ -311,6 +316,38 @@ window.addEventListener('load', function() {
             // $(topMenu).slideToggle("slow");
         }
 
+    }
+
+    function sliderBtnLeftHandler() {
+        // var deltaX = -100 / 3,
+        //     sliderWidth = slider.clientWidth,
+        //     temp;
+        //
+        // for (var i = 0; i < sliderItems.length; i++){
+        //     temp = getComputedStyle(sliderItems[i]).left;
+        //     temp = Number(temp.replace("px", "")) * 100 / sliderWidth + deltaX;
+        //     if (temp < -100 / 3){
+        //         temp = 100 / 3;
+        //     }
+        //     temp += "%";
+        //     sliderItems[i].style.left = temp;
+        // }
+    }
+
+    function sliderBtnRightHandler() {
+        // var deltaX = 100 / 3,
+        //     sliderWidth = slider.clientWidth,
+        //     temp;
+        //
+        // for (var i = 0; i < sliderItems.length; i++){
+        //     temp = getComputedStyle(sliderItems[i]).left;
+        //     temp = Number(temp.replace("px", "")) * 100 / sliderWidth + deltaX;
+        //     if (temp > 100 / 3){
+        //         temp = - 100 / 3;
+        //     }
+        //     temp += "%";
+        //     sliderItems[i].style.left = temp;
+        // }
     }
 
     function myFadeIn(elementDOM, timeStep){
@@ -678,12 +715,13 @@ window.addEventListener('load', function() {
     forEach.call(purchaseButtons, function(item) {
         item.addEventListener('click', purchaseButtonsHandler);
     });
-    footerButton.addEventListener('click', footerButtonHandler);
     faBars.addEventListener('click', faBarsHandler);
+    sliderBtnLeft.addEventListener('click', sliderBtnLeftHandler);
+    sliderBtnRight.addEventListener('click', sliderBtnRightHandler);
+
     forEach.call(serviceMenuItems, function(item) {
         item.addEventListener('click', activeServiceMenuHandler);
     });
-    // aboutContainer.addEventListener('click', aboutSkillsRunningHandler);
     forEach.call(aboutMenuItems, function(item) {
         item.addEventListener('click', activeAboutMenuHandler);
     });
@@ -702,6 +740,8 @@ window.addEventListener('load', function() {
     inputEmail.addEventListener('keyup', inputEmailHandler);
     inputText.addEventListener('keyup', inputTextHandler);
     inputSubmitBtn.addEventListener('click', inputSubmitBtnHandler);
+
+    footerButton.addEventListener('click', footerButtonHandler);
 
     window.addEventListener('scroll', scrollWindowHandler);
 
