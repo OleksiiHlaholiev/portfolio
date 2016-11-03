@@ -5,10 +5,12 @@ window.addEventListener('load', function() {
 
     var SCROLL_STEP = 100,
         scrollFuncTimer,
+        userTimoutTimer,
         SLIDER_PROTECT_DELAY = 1000,
         SLIDER_AUTO_DELAY = 3000,
-        SLIDER_AUTO_TIMEOUT = 5000,
+        SLIDER_USER_TIMEOUT = 2000,
         sliderBusyFlag = false,
+        userActiveControlFlag = false,
         busyFlag = false,
         teamGalleryFirstScroll = true,
         aboutSkillsFirstScroll = true,
@@ -321,32 +323,28 @@ window.addEventListener('load', function() {
         }
     }
 
-    var launchSliderTimer = setInterval(
+    var launchAutoSliderTimer = setInterval(
         function () {
-            sliderBtnRightHandler();
+            sliderRotate("right");
         },
         SLIDER_AUTO_DELAY
     );
 
-    // var autoLaunchSliderTimer = setTimeout(
-    //     function () {
-    //         launchSliderTimer = setInterval(
-    //             function () {
-    //                 sliderBtnLeftHandler();
-    //             },
-    //             SLIDER_AUTO_DELAY
-    //         );
-    //     },
-    //     SLIDER_AUTO_TIMEOUT
-    // );
-
-    function sliderBtnLeftHandler() {
+    function sliderRotate(direction) {
         if (!sliderBusyFlag) {
             sliderBusyFlag = true;
-            var deltaX = 100 / 3,
+            var deltaX,
                 sliderWidth = slider.clientWidth,
                 temp,
                 localSliderProtectTimer;
+
+            if (direction == "left"){
+                deltaX = 100 / 3;
+            } else if (direction == "right"){
+                deltaX = -100 / 3;
+            } else {
+                deltaX = -100 / 3; // default: direction = "right"
+            }
 
             for (var i = 0; i < sliderItems.length; i++){
                 temp = getComputedStyle(sliderItems[i]).left;
@@ -355,10 +353,15 @@ window.addEventListener('load', function() {
                 if (!Math.round(temp)) {
                     temp = 0;
                 }
-                if (temp > 100 / 3){
+
+                if (direction == "left" && temp > 100 / 3){
                     temp = -100 / 3;
                     sliderItems[i].style.transition = "none";
+                } else if (direction == "right" && temp < -100 / 3) {
+                    temp = 100 / 3;
+                    sliderItems[i].style.transition = "none";
                 }
+
                 temp += "%";
                 sliderItems[i].style.left = temp;
             }
@@ -369,41 +372,47 @@ window.addEventListener('load', function() {
                 },
                 SLIDER_PROTECT_DELAY
             );
-
-            // userActiveControl
         }
     }
 
-    function sliderBtnRightHandler() {
-        if (!sliderBusyFlag) {
-            sliderBusyFlag = true;
-            var deltaX = -100 / 3,
-                sliderWidth = slider.clientWidth,
-                temp,
-                localSliderProtectTimer;
+    function sliderBtnLeftHandler() {
+        userActiveControlFlag = true;
+        clearTimeout(userTimoutTimer);
+        clearInterval(launchAutoSliderTimer);
+        sliderRotate("left");
 
-            for (var i = 0; i < sliderItems.length; i++) {
-                temp = getComputedStyle(sliderItems[i]).left;
-                temp = Number(temp.replace("px", "")) * 100 / sliderWidth + deltaX;
-                sliderItems[i].style.transition = "left 1s";
-                if (!Math.round(temp)) {
-                    temp = 0;
-                }
-                if (temp < -100 / 3) {
-                    temp = 100 / 3;
-                    sliderItems[i].style.transition = "none";
-                }
-                temp += "%";
-                sliderItems[i].style.left = temp;
-
-                localSliderProtectTimer = setTimeout(
+        userTimoutTimer = setTimeout(
+            function () {
+                launchAutoSliderTimer = setInterval(
                     function () {
-                        sliderBusyFlag = false;
+                        userActiveControlFlag = false;
+                        sliderRotate("right");
                     },
-                    SLIDER_PROTECT_DELAY
+                    SLIDER_AUTO_DELAY
                 );
-            }
-        }
+            },
+            SLIDER_USER_TIMEOUT
+        );
+    }
+
+    function sliderBtnRightHandler() {
+        userActiveControlFlag = true;
+        clearTimeout(userTimoutTimer);
+        clearInterval(launchAutoSliderTimer);
+        sliderRotate("right");
+
+        userTimoutTimer = setTimeout(
+            function () {
+                launchAutoSliderTimer = setInterval(
+                    function () {
+                        userActiveControlFlag = false;
+                        sliderRotate("right");
+                    },
+                    SLIDER_AUTO_DELAY
+                );
+            },
+            SLIDER_USER_TIMEOUT
+        );
     }
 
     function myFadeIn(elementDOM, timeStep){
