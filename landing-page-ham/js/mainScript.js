@@ -323,7 +323,7 @@ window.addEventListener('load', function() {
 
     var launchSliderTimer = setInterval(
         function () {
-            sliderBtnLeftHandler();
+            sliderBtnRightHandler();
         },
         SLIDER_AUTO_DELAY
     );
@@ -343,7 +343,7 @@ window.addEventListener('load', function() {
     function sliderBtnLeftHandler() {
         if (!sliderBusyFlag) {
             sliderBusyFlag = true;
-            var deltaX = -100 / 3,
+            var deltaX = 100 / 3,
                 sliderWidth = slider.clientWidth,
                 temp,
                 localSliderProtectTimer;
@@ -355,8 +355,8 @@ window.addEventListener('load', function() {
                 if (!Math.round(temp)) {
                     temp = 0;
                 }
-                if (temp < -100 / 3){
-                    temp = 100 / 3;
+                if (temp > 100 / 3){
+                    temp = -100 / 3;
                     sliderItems[i].style.transition = "none";
                 }
                 temp += "%";
@@ -377,7 +377,7 @@ window.addEventListener('load', function() {
     function sliderBtnRightHandler() {
         if (!sliderBusyFlag) {
             sliderBusyFlag = true;
-            var deltaX = 100 / 3,
+            var deltaX = -100 / 3,
                 sliderWidth = slider.clientWidth,
                 temp,
                 localSliderProtectTimer;
@@ -389,8 +389,8 @@ window.addEventListener('load', function() {
                 if (!Math.round(temp)) {
                     temp = 0;
                 }
-                if (temp > 100 / 3) {
-                    temp = -100 / 3;
+                if (temp < -100 / 3) {
+                    temp = 100 / 3;
                     sliderItems[i].style.transition = "none";
                 }
                 temp += "%";
