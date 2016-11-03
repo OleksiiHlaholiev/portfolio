@@ -5,6 +5,10 @@ window.addEventListener('load', function() {
 
     var SCROLL_STEP = 100,
         scrollFuncTimer,
+        SLIDER_PROTECT_DELAY = 1000,
+        SLIDER_AUTO_DELAY = 3000,
+        SLIDER_AUTO_TIMEOUT = 5000,
+        sliderBusyFlag = false,
         busyFlag = false,
         teamGalleryFirstScroll = true,
         aboutSkillsFirstScroll = true,
@@ -315,39 +319,91 @@ window.addEventListener('load', function() {
             topMenu.style.display = "inline-block";
             // $(topMenu).slideToggle("slow");
         }
-
     }
 
+    var launchSliderTimer = setInterval(
+        function () {
+            sliderBtnLeftHandler();
+        },
+        SLIDER_AUTO_DELAY
+    );
+
+    // var autoLaunchSliderTimer = setTimeout(
+    //     function () {
+    //         launchSliderTimer = setInterval(
+    //             function () {
+    //                 sliderBtnLeftHandler();
+    //             },
+    //             SLIDER_AUTO_DELAY
+    //         );
+    //     },
+    //     SLIDER_AUTO_TIMEOUT
+    // );
+
     function sliderBtnLeftHandler() {
-        // var deltaX = -100 / 3,
-        //     sliderWidth = slider.clientWidth,
-        //     temp;
-        //
-        // for (var i = 0; i < sliderItems.length; i++){
-        //     temp = getComputedStyle(sliderItems[i]).left;
-        //     temp = Number(temp.replace("px", "")) * 100 / sliderWidth + deltaX;
-        //     if (temp < -100 / 3){
-        //         temp = 100 / 3;
-        //     }
-        //     temp += "%";
-        //     sliderItems[i].style.left = temp;
-        // }
+        if (!sliderBusyFlag) {
+            sliderBusyFlag = true;
+            var deltaX = -100 / 3,
+                sliderWidth = slider.clientWidth,
+                temp,
+                localSliderProtectTimer;
+
+            for (var i = 0; i < sliderItems.length; i++){
+                temp = getComputedStyle(sliderItems[i]).left;
+                temp = Number(temp.replace("px", "")) * 100 / sliderWidth + deltaX;
+                sliderItems[i].style.transition = "left 1s";
+                if (!Math.round(temp)) {
+                    temp = 0;
+                }
+                if (temp < -100 / 3){
+                    temp = 100 / 3;
+                    sliderItems[i].style.transition = "none";
+                }
+                temp += "%";
+                sliderItems[i].style.left = temp;
+            }
+
+            localSliderProtectTimer = setTimeout(
+                function () {
+                    sliderBusyFlag = false;
+                },
+                SLIDER_PROTECT_DELAY
+            );
+
+            // userActiveControl
+        }
     }
 
     function sliderBtnRightHandler() {
-        // var deltaX = 100 / 3,
-        //     sliderWidth = slider.clientWidth,
-        //     temp;
-        //
-        // for (var i = 0; i < sliderItems.length; i++){
-        //     temp = getComputedStyle(sliderItems[i]).left;
-        //     temp = Number(temp.replace("px", "")) * 100 / sliderWidth + deltaX;
-        //     if (temp > 100 / 3){
-        //         temp = - 100 / 3;
-        //     }
-        //     temp += "%";
-        //     sliderItems[i].style.left = temp;
-        // }
+        if (!sliderBusyFlag) {
+            sliderBusyFlag = true;
+            var deltaX = 100 / 3,
+                sliderWidth = slider.clientWidth,
+                temp,
+                localSliderProtectTimer;
+
+            for (var i = 0; i < sliderItems.length; i++) {
+                temp = getComputedStyle(sliderItems[i]).left;
+                temp = Number(temp.replace("px", "")) * 100 / sliderWidth + deltaX;
+                sliderItems[i].style.transition = "left 1s";
+                if (!Math.round(temp)) {
+                    temp = 0;
+                }
+                if (temp > 100 / 3) {
+                    temp = -100 / 3;
+                    sliderItems[i].style.transition = "none";
+                }
+                temp += "%";
+                sliderItems[i].style.left = temp;
+
+                localSliderProtectTimer = setTimeout(
+                    function () {
+                        sliderBusyFlag = false;
+                    },
+                    SLIDER_PROTECT_DELAY
+                );
+            }
+        }
     }
 
     function myFadeIn(elementDOM, timeStep){
