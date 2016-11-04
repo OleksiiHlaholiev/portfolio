@@ -203,10 +203,10 @@ hr {
           #home .slider-cont .slider li .slider-dark-mask .btn-cont {
             padding-top: 5px;
             font-size: 0px; }
-            #home .slider-cont .slider li .slider-dark-mask .btn-cont button {
+            #home .slider-cont .slider li .slider-dark-mask .btn-cont .explore-button, #home .slider-cont .slider li .slider-dark-mask .btn-cont .purchase-button {
               color: #ffffff;
               background-color: #18cfab;
-              width: 165px;
+              width: 140px;
               padding: 5px 0px;
               margin: 10px 15px;
               font-size: 13px;
@@ -215,10 +215,13 @@ hr {
               border-radius: 4px;
               box-shadow: 0px -5px  white;
               transition: background-color 0.7s; }
+              @media screen and (min-height: 400px) {
+                #home .slider-cont .slider li .slider-dark-mask .btn-cont .explore-button, #home .slider-cont .slider li .slider-dark-mask .btn-cont .purchase-button {
+                  width: 165px; } }
               @media screen and (min-height: 600px) {
-                #home .slider-cont .slider li .slider-dark-mask .btn-cont button {
+                #home .slider-cont .slider li .slider-dark-mask .btn-cont .explore-button, #home .slider-cont .slider li .slider-dark-mask .btn-cont .purchase-button {
                   padding: 20px 0px; } }
-            #home .slider-cont .slider li .slider-dark-mask .btn-cont button:hover {
+            #home .slider-cont .slider li .slider-dark-mask .btn-cont .explore-button:hover, #home .slider-cont .slider li .slider-dark-mask .btn-cont .purchase-button:hover {
               background-color: #00cbf6; }
           @media screen and (min-width: 420px) {
             #home .slider-cont .slider li .slider-dark-mask h2 {
@@ -266,13 +269,20 @@ hr {
         padding: 10px 25px; } }
   #home .fa-angle-left {
     bottom: 2.5%;
-    left: 25%; }
+    left: 7.5%; }
   #home .fa-angle-right {
     bottom: 2.5%;
-    right: 25%; }
+    right: 7.5%; }
   #home .fa-angle-left:hover, #home .fa-angle-right:hover {
     color: #ffffff;
     background-color: #00cbf6; }
+  @media screen and (min-height: 400px) {
+    #home .fa-angle-left {
+      bottom: 2.5%;
+      left: 25%; }
+    #home .fa-angle-right {
+      bottom: 2.5%;
+      right: 25%; } }
   @media screen and (min-width: 687px) {
     #home .fa-angle-left {
       bottom: 50%;
