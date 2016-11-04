@@ -114,8 +114,7 @@ window.addEventListener('load', function() {
         NewsAddFromFile(0, numberNewsToLoad);
         loadMoreBtnClickedCnt++;
     }
-
-
+    
     function monthDecoder(monthNumber) {
         var monthString = "";
 
