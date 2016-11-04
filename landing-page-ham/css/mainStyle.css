@@ -215,7 +215,7 @@ hr {
               border-radius: 4px;
               box-shadow: 0px -5px  white;
               transition: background-color 0.7s; }
-              @media screen and (min-height: 400px) {
+              @media screen and (min-height: 480px) {
                 #home .slider-cont .slider li .slider-dark-mask .btn-cont .explore-button, #home .slider-cont .slider li .slider-dark-mask .btn-cont .purchase-button {
                   width: 165px; } }
               @media screen and (min-height: 600px) {
