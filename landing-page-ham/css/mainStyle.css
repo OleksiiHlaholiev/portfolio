@@ -276,7 +276,7 @@ hr {
   #home .fa-angle-left:hover, #home .fa-angle-right:hover {
     color: #ffffff;
     background-color: #00cbf6; }
-  @media screen and (min-height: 400px) {
+  @media screen and (min-height: 480px) {
     #home .fa-angle-left {
       bottom: 2.5%;
       left: 25%; }
