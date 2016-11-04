@@ -81,6 +81,13 @@ window.addEventListener('load', function() {
         inputSubmitBtn = document.querySelector(".submit-btn"),
         inputContactContent = document.querySelector(".input-contact-content");
 
+    var launchAutoSliderTimer = setInterval(
+        function () {
+            sliderRotate("right");
+        },
+        SLIDER_AUTO_DELAY
+    );
+
     document.querySelector(".msg-template").remove();
     document.querySelector(".news-template").remove();
 
@@ -218,6 +225,10 @@ window.addEventListener('load', function() {
             // event.target.classList.add("active-section");
             // this.style.textDecoration = "none";
 
+            if (window.innerWidth < 992) {
+                $(topMenu).slideToggle("fast");
+            }
+
             var stopPos = sectionHome.offsetTop;
 
             switch (this.getAttribute("href")) {
@@ -323,13 +334,6 @@ window.addEventListener('load', function() {
         //     // $(topMenu).slideToggle("slow");
         // }
     }
-
-    var launchAutoSliderTimer = setInterval(
-        function () {
-            sliderRotate("right");
-        },
-        SLIDER_AUTO_DELAY
-    );
 
     function sliderRotate(direction) {
         if (!sliderBusyFlag) {
@@ -768,6 +772,15 @@ window.addEventListener('load', function() {
         }
     }
 
+    function resizeWindowHandler() {
+        if (window.innerWidth >= 992) {
+            topMenu.style.display = "inline-block";
+        }
+        else {
+            topMenu.style.display = "none";
+        }
+    }
+
     /*for (var i = 0; i < topMenuItems.length; i++ ) {
         topMenuItems[i].addEventListener('click', activeSectionHandler);
     }*/
@@ -810,6 +823,12 @@ window.addEventListener('load', function() {
     footerButton.addEventListener('click', footerButtonHandler);
 
     window.addEventListener('scroll', scrollWindowHandler);
+    window.addEventListener('resize', resizeWindowHandler);
+
+    <!--PRELOADER !!!-->
+    setTimeout(function() {
+        $('#preloader').fadeOut('slow', function() {});
+    }, 2000);
 
 });
 
