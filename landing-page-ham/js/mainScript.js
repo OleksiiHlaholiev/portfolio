@@ -313,14 +313,15 @@ window.addEventListener('load', function() {
     }
 
     function faBarsHandler() {
-        if (getComputedStyle(topMenu).display != "none") {
-            topMenu.style.display = "";
-            // $(topMenu).slideToggle("slow");
-        }
-        else {
-            topMenu.style.display = "inline-block";
-            // $(topMenu).slideToggle("slow");
-        }
+        $(topMenu).slideToggle("slow");
+        // if (getComputedStyle(topMenu).display != "none") {
+        //     topMenu.style.display = "";
+        //     // $(topMenu).slideToggle("slow");
+        // }
+        // else {
+        //     topMenu.style.display = "inline-block";
+        //     // $(topMenu).slideToggle("slow");
+        // }
     }
 
     var launchAutoSliderTimer = setInterval(
@@ -354,11 +355,11 @@ window.addEventListener('load', function() {
                     temp = 0;
                 }
 
-                if (direction == "left" && temp > 100 / 3){
-                    temp = -100 / 3;
+                if (direction == "left" && temp > deltaX + 1){
+                    temp = -deltaX;
                     sliderItems[i].style.transition = "none";
-                } else if (direction == "right" && temp < -100 / 3) {
-                    temp = 100 / 3;
+                } else if (direction == "right" && temp < deltaX - 1) {
+                    temp = -deltaX;
                     sliderItems[i].style.transition = "none";
                 }
 
