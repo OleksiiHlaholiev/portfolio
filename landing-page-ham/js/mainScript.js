@@ -481,7 +481,7 @@ window.addEventListener('load', function() {
         }
     }
 
-    function workMenuHandler(){
+    function workMenuHandler(event){
         if (!event.target.classList.contains("active-work-item")) {
             var prevActiveItem = document.querySelector(".active-work-item");
 

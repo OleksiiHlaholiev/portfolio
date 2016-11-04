@@ -922,7 +922,7 @@ hr {
     margin-top: 60px;
     text-align: left;
     border: 3px solid #c8d9d8;
-    min-height: 500px; }
+    min-height: 300px; }
     #feedback .feedback-cont .msg-template {
       position: relative;
       margin-top: 20px; }
