@@ -934,7 +934,8 @@ hr {
         border: 1px solid #dedede;
         border-radius: 7px 7px 0 0;
         margin: 0;
-        padding: 10px 30px; }
+        padding: 10px 30px;
+        word-wrap: break-word; }
       #feedback .feedback-cont .msg-template .msg-text {
         font-size: 14px;
         font-weight: 300;
@@ -944,7 +945,8 @@ hr {
         border-radius: 0 0 7px 7px;
         margin: 0;
         padding: 15px 15px;
-        text-align: justify; }
+        text-align: justify;
+        word-wrap: break-word; }
       #feedback .feedback-cont .msg-template .fa-times {
         cursor: pointer;
         position: absolute;
