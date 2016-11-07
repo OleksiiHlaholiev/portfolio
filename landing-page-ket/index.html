@@ -17,21 +17,6 @@
     <!--Include Your Style Sheets next -->
     <link rel="stylesheet" href="css/mainStyle.css">
 
-    <style type="text/css">
-        #preloader {
-            position: fixed;
-            left: 0;
-            top: 0;
-            z-index: 100500;
-            width: 100%;
-            height: 100%;
-            overflow: visible;
-            /*//cdnjs.cloudflare.com/ajax/libs/file-uploader/3.7.0/processing.gif'*/
-            /*https://cdnjs.cloudflare.com/ajax/libs/file-uploader/5.11.8/all.fine-uploader/loading.gif*/
-            background: #ffffff url('images/spinner.gif') no-repeat center center;
-        }
-    </style>
-
 </head>
 <body>
     <!--PRELOADER!!! -->
@@ -57,17 +42,6 @@
                         <li><a href="#contacts">contacts</a></li>
                     </ul>
                 </nav>
-                <!--dropdown menu-->
-                <!--<div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-                        <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">HTML</a></li>
-                        <li><a href="#">CSS</a></li>
-                        <li><a href="#">JavaScript</a></li>
-                    </ul>
-                </div>-->
-
             </div>
         </div>
     </header>
@@ -533,31 +507,13 @@ Sea libris dictas lucilius et. Ne cibo urbanitas pri, qui ad populo accusamus. Q
             </div>
         </div>
     </footer>
+    <!-- Footer ENDS-->
 
-    <script src = "js/mainScript.js"></script>
-
-    <!-- Bootstrap for dropdown menu -->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
-    <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
-
-    <!-- Bootstrap 4 -->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>-->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>-->
-    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>-->
-
-    <!--PRELOADER !!!-->
-    <!--http://ru.stackoverflow.com/questions/427668/%D0%9A%D0%B0%D0%BA-%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C-%D0%BF%D1%80%D0%B5%D0%BB%D0%BE%D0%B0%D0%B4%D0%B5%D1%80-%D0%BD%D0%B0-%D0%B2%D1%80%D0%B5%D0%BC%D1%8F-%D0%B7%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B8-js-->
+    <!--include jQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script>
-        jQuery(document).ready(function($) {
-            $(window).load(function() {
-                setTimeout(function() {
-                    $('#preloader').fadeOut('slow', function() {});
-                }, 2000);
 
-            });
-        });
-    </script>
+    <!--include own JavaScript-->
+    <script src = "js/mainScript.js"></script>
 
 </body>
 </html>

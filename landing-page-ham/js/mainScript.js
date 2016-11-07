@@ -114,7 +114,7 @@ window.addEventListener('load', function() {
         NewsAddFromFile(0, numberNewsToLoad);
         loadMoreBtnClickedCnt++;
     }
-    
+
     function monthDecoder(monthNumber) {
         var monthString = "";
 
@@ -216,8 +216,10 @@ window.addEventListener('load', function() {
     function activeSectionHandler(event){
         event.preventDefault();
         if (!busyFlag) {
+            var prevActiveItem = document.querySelector(".active-section"),
+                stopPos = sectionHome.offsetTop;
+
             busyFlag = true;
-            var prevActiveItem = document.querySelector(".active-section");
             prevActiveItem.classList.remove("active-section");
             this.classList.add("active-section");
             this.style.textDecoration = "none";
@@ -227,8 +229,6 @@ window.addEventListener('load', function() {
             if (window.innerWidth < 992) {
                 $(topMenu).slideToggle("fast");
             }
-
-            var stopPos = sectionHome.offsetTop;
 
             switch (this.getAttribute("href")) {
                 case "#home":
@@ -437,11 +437,11 @@ window.addEventListener('load', function() {
 
     function activeServiceMenuHandler(event){
         if (!event.target.classList.contains("active-service-item")) {
-            var prevActiveService = document.querySelector(".active-service-item");
+            var prevActiveService = document.querySelector(".active-service-item"),
+                prevActiveServiceCont = document.querySelector(".active-service-item-cont");
+
             prevActiveService.classList.remove("active-service-item");
             event.target.classList.add("active-service-item");
-
-            var prevActiveServiceCont = document.querySelector(".active-service-item-cont");
             prevActiveServiceCont.classList.remove("active-service-item-cont");
             serviceItemContainers[+event.target.dataset.serviceNumber].classList.add("active-service-item-cont");
 
@@ -453,11 +453,11 @@ window.addEventListener('load', function() {
 
     function activeAboutMenuHandler(event){
         if (!event.target.classList.contains("active-about-item")) {
-            var prevActiveAbout = document.querySelector(".active-about-item");
+            var prevActiveAbout = document.querySelector(".active-about-item"),
+                prevActiveAboutCont = document.querySelector(".active-about-item-cont");
+
             prevActiveAbout.classList.remove("active-about-item");
             event.target.classList.add("active-about-item");
-
-            var prevActiveAboutCont = document.querySelector(".active-about-item-cont");
             prevActiveAboutCont.classList.remove("active-about-item-cont");
             aboutItemContainers[+event.target.dataset.aboutNumber].classList.add("active-about-item-cont");
 
@@ -482,12 +482,12 @@ window.addEventListener('load', function() {
 
     function workMenuHandler(event){
         if (!event.target.classList.contains("active-work-item")) {
-            var prevActiveItem = document.querySelector(".active-work-item");
+            var prevActiveItem = document.querySelector(".active-work-item"),
+                portfolioGalleryImgs = document.querySelectorAll(".portfolio-gallery-img");
 
             prevActiveItem.classList.remove("active-work-item");
             this.classList.add("active-work-item");
 
-            var portfolioGalleryImgs = document.querySelectorAll(".portfolio-gallery-img");
             // disable all first, then will turn on
             for (var i = 0; i < portfolioGalleryImgs.length; i++) {
                 portfolioGalleryImgs[i].style.display = "none";
@@ -703,8 +703,6 @@ window.addEventListener('load', function() {
     function scrollWindowHandler(event) {
         // alert("Scroll!!!");
 
-        // var prevActiveItem = document.querySelector(".active-section");
-        // prevActiveItem.classList.remove("active-section");
         // this.style.textDecoration = "none";
         // document.documentElement.scrollTop - Mozilla works, Chrome - NO
         // document.body.scrollTop - Mozilla - NO, Chrome - Yes

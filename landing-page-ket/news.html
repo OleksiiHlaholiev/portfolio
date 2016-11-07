@@ -39,9 +39,9 @@
         'use strict';
 
         window.addEventListener('load', function() {
-            var headerText = document.querySelector("h1");
-            var newsFeed = document.querySelector(".news-feed");
-            var newsTemplate = document.querySelector(".news-template");
+            var headerText = document.querySelector("h1"),
+            newsFeed = document.querySelector(".news-feed"),
+            newsTemplate = document.querySelector(".news-template");
 
             var JsonNews;
 
@@ -75,7 +75,6 @@
 
             var indexId = window.location.search.split("id=")[1];
 //            alert (indexId);
-
 
             function monthDecoder(monthNumber) {
                 var monthString = "";
@@ -125,8 +124,8 @@
             }
 
             function NewsAddFromFile(i) {
-                var NewsArray = [];
-                var tempDate;
+                var NewsArray = [],
+                    tempDate;
 
                 headerText.innerText = "News #" + JsonNews[i].id;
 
@@ -141,10 +140,7 @@
 
                 newsTemplate.remove();
             }
-
-
         })
-
     </script>
 </body>
 </html>
