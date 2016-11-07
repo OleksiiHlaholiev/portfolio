@@ -321,7 +321,7 @@ window.addEventListener('load', function() {
         }
     }
 
-    function portfolioMenuHandler(){
+    function portfolioMenuHandler(event){
         if (!event.target.classList.contains("portfolio-menu-btn-active")) {
             var prevActiveItem = document.querySelector(".portfolio-menu-btn-active"),
                 portfolioGalleryImgs = document.querySelectorAll(".portfolio-gallery-img");
