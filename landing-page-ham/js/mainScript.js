@@ -340,14 +340,16 @@ window.addEventListener('load', function() {
             var deltaX,
                 sliderWidth = slider.clientWidth,
                 temp,
-                localSliderProtectTimer;
+                localSliderProtectTimer,
+                sliderBorderLeft = -25,
+                sliderBorderRight = 25;
 
             if (direction == "left"){
-                deltaX = 100 / 3;
+                deltaX = 100 / 4;
             } else if (direction == "right"){
-                deltaX = -100 / 3;
+                deltaX = -100 / 4;
             } else {
-                deltaX = -100 / 3; // default: direction = "right"
+                deltaX = -100 / 4; // default: direction = "right"
             }
 
             for (var i = 0; i < sliderItems.length; i++){
@@ -358,11 +360,11 @@ window.addEventListener('load', function() {
                     temp = 0;
                 }
 
-                if (direction == "left" && temp > deltaX + 1){
-                    temp = -deltaX;
+                if (direction == "left" && temp > sliderBorderRight){
+                    temp = sliderBorderLeft;
                     sliderItems[i].style.transition = "none";
-                } else if (direction == "right" && temp < deltaX - 1) {
-                    temp = -deltaX;
+                } else if (direction == "right" && temp < sliderBorderLeft) {
+                    temp = sliderBorderRight;
                     sliderItems[i].style.transition = "none";
                 }
 
