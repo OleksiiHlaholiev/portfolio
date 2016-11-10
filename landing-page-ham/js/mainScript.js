@@ -546,7 +546,8 @@ window.addEventListener('load', function() {
                                 localCount += deltaCount;
                             }
                             localCount = Math.round(localCount);
-                            teamGalleryItemCounters[i].innerText = String(localCount);
+                            // teamGalleryItemCounters[i].innerText = String(localCount);
+                            teamGalleryItemCounters[i].innerText = localCount.toLocaleString();
                         },
                         timeStep
                     );

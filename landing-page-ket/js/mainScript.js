@@ -378,7 +378,8 @@ window.addEventListener('load', function() {
                                 localCount += deltaCount;
                             }
                             localCount = Math.round(localCount);
-                            portfolioIconCounters[i].innerText = String(localCount);
+                            // portfolioIconCounters[i].innerText = String(localCount);
+                            portfolioIconCounters[i].innerText = localCount.toLocaleString();
                         },
                         timeStep
                     );
