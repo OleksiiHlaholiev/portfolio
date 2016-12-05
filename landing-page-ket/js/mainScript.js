@@ -1,5 +1,15 @@
 'use strict';
 
+// **** polyfills for IE
+if (!('remove' in Element.prototype)) {
+    Element.prototype.remove = function() {
+        if (this.parentNode) {
+            this.parentNode.removeChild(this);
+        }
+    };
+}
+// ****************************************
+
 window.addEventListener('load', function() {
     // global variables - statuses
     var scrollFuncTimer,
@@ -226,13 +236,13 @@ window.addEventListener('load', function() {
 
             if (stopPos == sectionHome.offsetTop)
                 scrollFunc(
-                    scrollY,
+					pageYOffset,
                     stopPos,
                     SCROLL_STEP
                 );
             else
                 scrollFunc(
-                    scrollY,
+					pageYOffset,
                     stopPos - sectionHeader.clientHeight,
                     SCROLL_STEP
                 );
@@ -244,7 +254,7 @@ window.addEventListener('load', function() {
         if (!busyFlag) {
             busyFlag = true;
             scrollFunc(
-                scrollY,
+				pageYOffset,
                 sectionHome.offsetTop,
                 SCROLL_STEP
             )
@@ -256,7 +266,7 @@ window.addEventListener('load', function() {
             busyFlag = true;
             // this.offsetTop
             scrollFunc(
-                scrollY,
+				pageYOffset,
                 sectionContacts.offsetTop - sectionHeader.clientHeight,
                 SCROLL_STEP
             )
@@ -268,7 +278,7 @@ window.addEventListener('load', function() {
             busyFlag = true;
             // this.offsetTop
             scrollFunc(
-                scrollY,
+				pageYOffset,
                 sectionPortfolio.offsetTop - sectionHeader.clientHeight,
                 SCROLL_STEP
             )
@@ -281,7 +291,7 @@ window.addEventListener('load', function() {
             busyFlag = true;
             // this.offsetTop
             scrollFunc(
-                scrollY,
+				pageYOffset,
                 sectionHome.offsetTop,
                 SCROLL_STEP
             )
