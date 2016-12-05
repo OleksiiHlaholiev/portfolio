@@ -1,6 +1,17 @@
 'use strict';
 
+// **** polyfills for IE
+if (!('remove' in Element.prototype)) {
+    Element.prototype.remove = function() {
+        if (this.parentNode) {
+            this.parentNode.removeChild(this);
+        }
+    };
+}
+// ****************************************
+
 window.addEventListener('load', function() {
+
     var forEach = Array.prototype.forEach;
 
     var SCROLL_STEP = 100,
@@ -259,16 +270,19 @@ window.addEventListener('load', function() {
                     stopPos = sectionHome.offsetTop;
                     break;
             }
-
-            if (stopPos == sectionHome.offsetTop)
+			// The pageYOffset property is an alias for the scrollY property:
+			// window.pageYOffset == window.scrollY; // always true
+			// For cross-browser compatibility, use window.pageYOffset instead of window.scrollY.
+			// Additionally, older versions of Internet Explorer (< 9) do not support either property
+			if (stopPos == sectionHome.offsetTop)
                 scrollFunc(
-                    scrollY,
+					pageYOffset,
                     stopPos,
                     SCROLL_STEP
                 );
             else
                 scrollFunc(
-                    scrollY,
+					pageYOffset,
                     stopPos - sectionHeader.clientHeight,
                     SCROLL_STEP
                 );
@@ -280,7 +294,7 @@ window.addEventListener('load', function() {
         if (!busyFlag) {
             busyFlag = true;
             scrollFunc(
-                scrollY,
+				pageYOffset,
                 sectionHome.offsetTop,
                 SCROLL_STEP
             )
@@ -292,7 +306,7 @@ window.addEventListener('load', function() {
             busyFlag = true;
             // this.offsetTop
             scrollFunc(
-                scrollY,
+				pageYOffset,
                 sectionWork.offsetTop - sectionHeader.clientHeight,
                 SCROLL_STEP
             )
@@ -303,7 +317,7 @@ window.addEventListener('load', function() {
         if (!busyFlag) {
             busyFlag = true;
             scrollFunc(
-                scrollY,
+				pageYOffset,
                 sectionContact.offsetTop - sectionHeader.clientHeight,
                 SCROLL_STEP
             )
@@ -315,7 +329,7 @@ window.addEventListener('load', function() {
         if (!busyFlag) {
             busyFlag = true;
             scrollFunc(
-                scrollY,
+				pageYOffset,
                 sectionHome.offsetTop,
                 SCROLL_STEP
             )
