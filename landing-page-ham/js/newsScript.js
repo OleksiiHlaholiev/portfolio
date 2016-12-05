@@ -3,6 +3,16 @@
  */
 'use strict';
 
+// **** polyfills for IE
+if (!('remove' in Element.prototype)) {
+	Element.prototype.remove = function() {
+		if (this.parentNode) {
+			this.parentNode.removeChild(this);
+		}
+	};
+}
+// ****************************************
+
 window.addEventListener('load', function() {
 	var headerText = document.querySelector("h1"),
 		newsContainer = document.querySelector(".news-cont"),
