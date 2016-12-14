@@ -92,9 +92,17 @@ window.addEventListener('load', function() {
         inputSubmitBtn = document.querySelector(".submit-btn"),
         inputContactContent = document.querySelector(".input-contact-content");
 
-    var launchAutoSliderTimer = setInterval(
+    /*var launchAutoSliderTimer = setInterval(
         function () {
             sliderRotate("right");
+        },
+        SLIDER_AUTO_DELAY
+    );*/
+
+    var launchAutoSliderTimer = setTimeout(
+        function readyGo() {
+            sliderRotate("right");
+			launchAutoSliderTimer = setTimeout(readyGo, SLIDER_AUTO_DELAY);
         },
         SLIDER_AUTO_DELAY
     );
@@ -403,13 +411,21 @@ window.addEventListener('load', function() {
 
         userTimoutTimer = setTimeout(
             function () {
-                launchAutoSliderTimer = setInterval(
+                /*launchAutoSliderTimer = setInterval(
                     function () {
                         userActiveControlFlag = false;
                         sliderRotate("right");
                     },
                     SLIDER_AUTO_DELAY
-                );
+                );*/
+				launchAutoSliderTimer = setTimeout(
+					function readyGo() {
+						userActiveControlFlag = false;
+						sliderRotate("right");
+						launchAutoSliderTimer = setTimeout(readyGo, SLIDER_AUTO_DELAY);
+					},
+					SLIDER_AUTO_DELAY
+				);
             },
             SLIDER_USER_TIMEOUT
         );
@@ -423,13 +439,21 @@ window.addEventListener('load', function() {
 
         userTimoutTimer = setTimeout(
             function () {
-                launchAutoSliderTimer = setInterval(
+                /*launchAutoSliderTimer = setInterval(
                     function () {
                         userActiveControlFlag = false;
                         sliderRotate("right");
                     },
                     SLIDER_AUTO_DELAY
-                );
+                );*/
+				launchAutoSliderTimer = setTimeout(
+					function readyGo() {
+						userActiveControlFlag = false;
+						sliderRotate("right");
+						launchAutoSliderTimer = setTimeout(readyGo, SLIDER_AUTO_DELAY);
+					},
+					SLIDER_AUTO_DELAY
+				);
             },
             SLIDER_USER_TIMEOUT
         );
