@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Online Auction</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap 4 -->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <!--CDN: font-awesome icon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">-->
+
+    <!--Include Your Style Sheets next -->
+    <link rel="stylesheet" href="css/mainStyle.css">
+
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <a href="#header" id="logo-link">
+                        <i class="fa fa-star fa-3x" aria-hidden="true"></i>
+                        <span>Auction</span>
+                    </a>
+                </div>
+                <div class="col-md-7">
+                    <div id="social-btns">
+                        <a href="https://vk.com" target="_blank">
+                            <i class="fa fa-vk fa-2x" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://facebook.com" target="_blank">
+                            <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank">
+                            <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://google.com" target="_blank">
+                            <i class="fa fa-google-plus fa-2x" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://skype.com" target="_blank">
+                            <i class="fa fa-skype fa-2x" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://vimeo.com" target="_blank">
+                            <i class="fa fa-vimeo fa-2x" aria-hidden="true"></i>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+            <hr id="header-hr">
+            <div class="row">
+                <div class="col-xs-12">
+                    <nav id="navigation">
+                        <ul>
+                            <li><a href="#header" class="active-section">home</a></li>
+                            <li><a href="#auction">auction</a></li>
+                            <li><a href="#contact">contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="log-in-div">
+        <div class="container">
+            <div class="row">
+                <p class="col-md-6">
+                    Check out our work
+                </p>
+                <div class="col-md-6">
+                    <form id="log-in-form">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <input type="text" name="username" placeholder="Username" id="log-in-username">
+                            </div>
+                            <div class="col-lg-4">
+                                <input type="text" name="password" placeholder="Password" id="log-in-password">
+                            </div>
+                            <div class="col-lg-4">
+                                <button type="submit" id="log-in-btn">
+                                    Log In
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--include jQuery-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
+
+    <!--ES5-shim: library with polyfills for IE-->
+    <!--<script src = "js/es5-shim.js"></script>-->
+    <!--<script src = "js/es5-sham.js"></script>-->
+
+    <!--include own JavaScript-->
+    <script src = "js/mainScript.js"></script>
+</body>
+</html>
