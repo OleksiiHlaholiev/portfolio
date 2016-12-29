@@ -296,4 +296,73 @@ h1, h2, h3, h4, h5, h6 {
       bottom: 50%;
       right: 5%; } }
 
+#contact {
+  padding: 0px 0px 100px 0px;
+  width: 100%;
+  text-align: center;
+  background-color: #ffffff; }
+  #contact #contact-header {
+    background-color: #2ecc71; }
+    #contact #contact-header h3 {
+      text-align: center;
+      text-transform: uppercase;
+      padding: 35px 0;
+      margin: 0;
+      font-size: 30px;
+      font-weight: 400;
+      color: #fff; }
+  #contact .map-cont {
+    padding-left: 0;
+    padding-right: 0; }
+    #contact .map-cont iframe {
+      width: 100%;
+      height: calc(100vh - 100px); }
+    @media screen and (min-width: 768px) {
+      #contact .map-cont {
+        padding-right: 15px; } }
+  #contact .form-cont .input-contact-content .inputs-container {
+    padding: 40px 0 0 0; }
+    @media screen and (min-width: 768px) {
+      #contact .form-cont .input-contact-content .inputs-container {
+        padding: 85px 0 0 0; } }
+    #contact .form-cont .input-contact-content .inputs-container .input-name, #contact .form-cont .input-contact-content .inputs-container .input-email, #contact .form-cont .input-contact-content .inputs-container .input-text {
+      width: 100%;
+      font-size: 14px;
+      font-weight: 300;
+      color: #4e4e4e;
+      background-color: #ffffff;
+      border: 1px solid #cfdcda;
+      padding: 15px 10px;
+      margin: 10px 0px;
+      text-align: left; }
+    #contact .form-cont .input-contact-content .inputs-container input::-moz-placeholder {
+      color: #9fb9c6; }
+    #contact .form-cont .input-contact-content .inputs-container input::-webkit-input-placeholder {
+      color: #9fb9c6; }
+    #contact .form-cont .input-contact-content .inputs-container input:-ms-input-placeholder {
+      color: #9fb9c6; }
+    #contact .form-cont .input-contact-content .inputs-container .input-name-error, #contact .form-cont .input-contact-content .inputs-container .input-email-error, #contact .form-cont .input-contact-content .inputs-container .input-text-error {
+      display: none;
+      padding: 0px 20px;
+      margin: 0;
+      font-size: 14px;
+      font-weight: 400;
+      color: red;
+      background-color: transparent;
+      text-align: left; }
+    #contact .form-cont .input-contact-content .inputs-container .submit-btn {
+      outline: none;
+      width: 100%;
+      height: 60px;
+      color: #ffffff;
+      background-color: #2ecc71;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.7s;
+      margin-top: 10px; }
+    #contact .form-cont .input-contact-content .inputs-container .submit-btn:enabled:hover {
+      background-color: #00bbf5; }
+    #contact .form-cont .input-contact-content .inputs-container .submit-btn:disabled {
+      opacity: 0.7; }
+
 /*# sourceMappingURL=mainStyle.css.map */

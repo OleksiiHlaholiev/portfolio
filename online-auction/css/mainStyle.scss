@@ -417,3 +417,113 @@ h1, h2, h3, h4, h5, h6 {
 }
 //----- HOME section ends -----
 
+//----- CONTACT section starts ----
+#contact {
+	padding: 0px 0px 100px 0px;
+	width: 100%;
+	text-align: center;
+	background-color: #ffffff;
+
+	#contact-header {
+		background-color: $color_green_light;
+		h3 {
+			text-align: center;
+			text-transform: uppercase;
+			padding: 35px 0;
+			margin: 0;
+			font-size: 30px;
+			font-weight: 400;
+			color: #fff;
+
+			//@media screen and (min-width: 768px) {
+			//	text-align: left;
+			//	margin-top: 0px;
+			//}
+		}
+	}
+
+
+	.map-cont {
+		padding-left: 0;
+		padding-right: 0;
+		iframe {
+			width: 100%;
+			height: calc(100vh - 100px);
+		}
+		@media screen and (min-width: 768px) {
+			padding-right: 15px;
+		}
+	}
+
+	.form-cont {
+		//text-align: left;
+
+		.input-contact-content {
+			.inputs-container {
+				padding: 40px 0 0 0;
+
+				@media screen and (min-width: 768px) {
+					padding: 85px 0 0 0;
+				}
+				.input-name, .input-email, .input-text {
+					width: 100%;
+					font-size: 14px;
+					font-weight: 300;
+					color: #4e4e4e;
+					background-color: #ffffff;
+					//outline: none;
+					border: 1px solid #cfdcda;
+					padding: 15px 10px;
+					margin: 10px 0px;
+					text-align: left;
+				}
+
+				input::-moz-placeholder {
+					color: #9fb9c6;
+				}
+
+				input::-webkit-input-placeholder{
+					color: #9fb9c6;
+				}
+
+				input:-ms-input-placeholder{
+					color: #9fb9c6;
+				}
+
+				.input-name-error, .input-email-error, .input-text-error {
+					display: none;
+					padding: 0px 20px;
+					margin: 0;
+					font-size: 14px;
+					font-weight: 400;
+					color: red;
+					background-color: transparent;
+					text-align: left;
+				}
+
+				.submit-btn {
+					outline: none;
+					width: 100%;
+					height: 60px;
+					color: #ffffff;
+					background-color: $color_green_light;
+					border: none;
+					border-radius: 5px;
+					transition: background-color 0.7s;
+					margin-top: 10px;
+				}
+				//.submit-btn:hover {
+				//    background-color: $color_blue_light;
+				//}
+				.submit-btn:enabled:hover {
+					background-color: $color_blue_light;
+				}
+
+				.submit-btn:disabled {
+					opacity: 0.7;
+				}
+			}
+		}
+	}
+}
+
