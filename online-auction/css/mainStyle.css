@@ -280,7 +280,7 @@ h1, h2, h3, h4, h5, h6 {
     right: 7.5%; }
   #home .fa-angle-left:hover, #home .fa-angle-right:hover {
     color: #ffffff;
-    background-color: #00bbf5; }
+    background-color: #2ecc71; }
   @media screen and (min-height: 480px) {
     #home .fa-angle-left {
       bottom: 2.5%;
