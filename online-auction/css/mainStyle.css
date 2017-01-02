@@ -130,7 +130,7 @@ h1, h2, h3, h4, h5, h6 {
     @media screen and (min-width: 768px) {
       #log-in-div p {
         text-align: left; } }
-  #log-in-div input[type="text"] {
+  #log-in-div input[type="text"], #log-in-div input[type="password"] {
     display: block;
     width: 50%;
     margin: 10px auto;
@@ -141,10 +141,10 @@ h1, h2, h3, h4, h5, h6 {
     border-bottom: 2px solid white;
     text-align: center; }
     @media screen and (min-width: 768px) {
-      #log-in-div input[type="text"] {
+      #log-in-div input[type="text"], #log-in-div input[type="password"] {
         width: 50%; } }
     @media screen and (min-width: 992px) {
-      #log-in-div input[type="text"] {
+      #log-in-div input[type="text"], #log-in-div input[type="password"] {
         width: 100%; } }
   #log-in-div input::-moz-placeholder {
     color: #ffffff;
@@ -313,8 +313,17 @@ h1, h2, h3, h4, h5, h6 {
       color: #fff; }
   #contact .map-cont {
     padding-left: 0;
-    padding-right: 0; }
+    padding-right: 0;
+    /*.overlay {
+    	background:transparent;
+    	position:relative;
+    	width:100%;
+    	height:calc(100vh - 100px);
+    	top:calc(100vh - 100px);
+    	margin-top:calc(100px - 100vh);
+    }*/ }
     #contact .map-cont iframe {
+      pointer-events: none;
       width: 100%;
       height: calc(100vh - 100px); }
     @media screen and (min-width: 768px) {
@@ -325,13 +334,17 @@ h1, h2, h3, h4, h5, h6 {
     @media screen and (min-width: 768px) {
       #contact .form-cont .input-contact-content .inputs-container {
         padding: 85px 0 0 0; } }
+    #contact .form-cont .input-contact-content .inputs-container h3 {
+      font-size: 24px;
+      color: #8a8888; }
     #contact .form-cont .input-contact-content .inputs-container .input-name, #contact .form-cont .input-contact-content .inputs-container .input-email, #contact .form-cont .input-contact-content .inputs-container .input-text {
       width: 100%;
       font-size: 14px;
-      font-weight: 300;
-      color: #4e4e4e;
+      font-weight: 400;
+      color: #8a8888;
       background-color: #ffffff;
-      border: 1px solid #cfdcda;
+      border: 2px solid #8a8888;
+      outline: none;
       padding: 15px 10px;
       margin: 10px 0px;
       text-align: left; }
