@@ -420,6 +420,7 @@ h1, h2, h3, h4, h5, h6 {
 //********   SECTION "AUCTION" STARTS   **********
 #auction {
 	padding-bottom: 30px;
+	background-color: #f8fcfe;
 
 	.auction-header {
 		background-color: $color_green_light;
@@ -437,13 +438,17 @@ h1, h2, h3, h4, h5, h6 {
 	}
 
 	.auction-nav {
-		border: 1px solid grey;
+		//border: 1px solid grey;
+		padding: 0;
 
 		h4 {
-			color: #8a8888;
+			color: #fff;
+			background-color: $color_blue_light;
 			text-transform: uppercase;
 			padding: 10px 0;
 			margin: 0;
+			border: 1px solid #eff0f1;
+			border-top: none;
 		}
 
 		ul {
@@ -454,6 +459,17 @@ h1, h2, h3, h4, h5, h6 {
 				list-style: none;
 				font-size: 16px;
 				text-transform: uppercase;
+				padding: 5px 10px;
+				border: 1px solid #eff0f1;
+				cursor: pointer;
+				color: #717171;
+				background-color: #fff;
+				transition: all 0.7s;
+			}
+
+			li:hover {
+				color: #fff;
+				background-color: $color_green_light;
 			}
 		}
 	}
@@ -461,6 +477,11 @@ h1, h2, h3, h4, h5, h6 {
 	.auction-container {
 		.auction-search {
 			position: relative;
+			margin-top: 20px;
+
+			@media screen and (min-width: 768px) {
+					margin-top: 0;
+			}
 
 			input {
 				display: inline-block;
@@ -468,7 +489,8 @@ h1, h2, h3, h4, h5, h6 {
 				height: 40px;
 				padding-left: 5px;
 				color: #8a8888;
-				outline: 0;
+				border: 1px solid #8a8888;
+				outline: none;
 				margin-bottom: 20px;
 			}
 
@@ -503,19 +525,30 @@ h1, h2, h3, h4, h5, h6 {
 		.auction-item-cont {
 
 			.auction-item {
-				margin: 10px 0;
+				margin: 15px 0;
 				border: 1px solid #00bbf5;
 
 				.auction-img {
 					width: 100%;
+					//height: 30%;
 				}
 
 				.auction-title {
+					padding: 10px;
+					margin: 0;
 					text-align: center;
+					//color: #717171;
+					color: #fff;
+					background-color: $color_green_light;
+					font-size: 18px;
 				}
 
 				.auction-price {
+					margin: 0;
 					text-align: center;
+					font-size: 24px;
+					color: #000;
+					background-color: #ba1e1e;
 				}
 			}
 		}

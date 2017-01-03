@@ -297,7 +297,8 @@ h1, h2, h3, h4, h5, h6 {
       right: 5%; } }
 
 #auction {
-  padding-bottom: 30px; }
+  padding-bottom: 30px;
+  background-color: #f8fcfe; }
   #auction .auction-header {
     background-color: #2ecc71;
     margin-bottom: 30px; }
@@ -310,28 +311,45 @@ h1, h2, h3, h4, h5, h6 {
       font-weight: 400;
       color: #fff; }
   #auction .auction-nav {
-    border: 1px solid grey; }
+    padding: 0; }
     #auction .auction-nav h4 {
-      color: #8a8888;
+      color: #fff;
+      background-color: #00bbf5;
       text-transform: uppercase;
       padding: 10px 0;
-      margin: 0; }
+      margin: 0;
+      border: 1px solid #eff0f1;
+      border-top: none; }
     #auction .auction-nav ul {
       padding: 0;
       margin: 0; }
       #auction .auction-nav ul li {
         list-style: none;
         font-size: 16px;
-        text-transform: uppercase; }
+        text-transform: uppercase;
+        padding: 5px 10px;
+        border: 1px solid #eff0f1;
+        cursor: pointer;
+        color: #717171;
+        background-color: #fff;
+        transition: all 0.7s; }
+      #auction .auction-nav ul li:hover {
+        color: #fff;
+        background-color: #2ecc71; }
   #auction .auction-container .auction-search {
-    position: relative; }
+    position: relative;
+    margin-top: 20px; }
+    @media screen and (min-width: 768px) {
+      #auction .auction-container .auction-search {
+        margin-top: 0; } }
     #auction .auction-container .auction-search input {
       display: inline-block;
       width: 100%;
       height: 40px;
       padding-left: 5px;
       color: #8a8888;
-      outline: 0;
+      border: 1px solid #8a8888;
+      outline: none;
       margin-bottom: 20px; }
     #auction .auction-container .auction-search input::-moz-placeholder {
       color: #9fb9c6; }
@@ -351,14 +369,23 @@ h1, h2, h3, h4, h5, h6 {
     #auction .auction-container .auction-search .fa-search:hover {
       background-color: #2ecc71; }
   #auction .auction-container .auction-item-cont .auction-item {
-    margin: 10px 0;
+    margin: 15px 0;
     border: 1px solid #00bbf5; }
     #auction .auction-container .auction-item-cont .auction-item .auction-img {
       width: 100%; }
     #auction .auction-container .auction-item-cont .auction-item .auction-title {
-      text-align: center; }
+      padding: 10px;
+      margin: 0;
+      text-align: center;
+      color: #fff;
+      background-color: #2ecc71;
+      font-size: 18px; }
     #auction .auction-container .auction-item-cont .auction-item .auction-price {
-      text-align: center; }
+      margin: 0;
+      text-align: center;
+      font-size: 24px;
+      color: #000;
+      background-color: #ba1e1e; }
 
 #contact {
   padding: 0px 0px 100px 0px;
