@@ -417,6 +417,114 @@ h1, h2, h3, h4, h5, h6 {
 }
 //----- HOME section ends -----
 
+//********   SECTION "AUCTION" STARTS   **********
+#auction {
+	padding-bottom: 30px;
+
+	.auction-header {
+		background-color: $color_green_light;
+		margin-bottom: 30px;
+
+		h3 {
+			text-align: center;
+			text-transform: uppercase;
+			padding: 35px 0;
+			margin: 0;
+			font-size: 30px;
+			font-weight: 400;
+			color: #fff;
+		}
+	}
+
+	.auction-nav {
+		border: 1px solid grey;
+
+		h4 {
+			color: #8a8888;
+			text-transform: uppercase;
+			padding: 10px 0;
+			margin: 0;
+		}
+
+		ul {
+			padding: 0;
+			margin: 0;
+			li {
+				//color: #8a8888;
+				list-style: none;
+				font-size: 16px;
+				text-transform: uppercase;
+			}
+		}
+	}
+
+	.auction-container {
+		.auction-search {
+			position: relative;
+
+			input {
+				display: inline-block;
+				width: 100%;
+				height: 40px;
+				padding-left: 5px;
+				color: #8a8888;
+				outline: 0;
+				margin-bottom: 20px;
+			}
+
+			input::-moz-placeholder {
+				color: #9fb9c6;
+			}
+
+			input::-webkit-input-placeholder{
+				color: #9fb9c6;
+			}
+
+			input:-ms-input-placeholder{
+				color: #9fb9c6;
+			}
+
+			.fa-search {
+				position: absolute;
+				top: 0%;
+				right: 0%;
+				padding: 6px 10px;
+				cursor: pointer;
+				color: #fff;
+				background-color: $color_blue_light;
+				transition: all 0.7s;
+			}
+
+			.fa-search:hover {
+				background-color: $color_green_light;
+			}
+		}
+
+		.auction-item-cont {
+
+			.auction-item {
+				margin: 10px 0;
+				border: 1px solid #00bbf5;
+
+				.auction-img {
+					width: 100%;
+				}
+
+				.auction-title {
+					text-align: center;
+				}
+
+				.auction-price {
+					text-align: center;
+				}
+			}
+		}
+	}
+}
+
+
+//********   SECTION "AUCTION" ENDS   **********
+
 //----- CONTACT section starts ----
 #contact {
 	padding: 0px 0px 100px 0px;

@@ -296,6 +296,70 @@ h1, h2, h3, h4, h5, h6 {
       bottom: 50%;
       right: 5%; } }
 
+#auction {
+  padding-bottom: 30px; }
+  #auction .auction-header {
+    background-color: #2ecc71;
+    margin-bottom: 30px; }
+    #auction .auction-header h3 {
+      text-align: center;
+      text-transform: uppercase;
+      padding: 35px 0;
+      margin: 0;
+      font-size: 30px;
+      font-weight: 400;
+      color: #fff; }
+  #auction .auction-nav {
+    border: 1px solid grey; }
+    #auction .auction-nav h4 {
+      color: #8a8888;
+      text-transform: uppercase;
+      padding: 10px 0;
+      margin: 0; }
+    #auction .auction-nav ul {
+      padding: 0;
+      margin: 0; }
+      #auction .auction-nav ul li {
+        list-style: none;
+        font-size: 16px;
+        text-transform: uppercase; }
+  #auction .auction-container .auction-search {
+    position: relative; }
+    #auction .auction-container .auction-search input {
+      display: inline-block;
+      width: 100%;
+      height: 40px;
+      padding-left: 5px;
+      color: #8a8888;
+      outline: 0;
+      margin-bottom: 20px; }
+    #auction .auction-container .auction-search input::-moz-placeholder {
+      color: #9fb9c6; }
+    #auction .auction-container .auction-search input::-webkit-input-placeholder {
+      color: #9fb9c6; }
+    #auction .auction-container .auction-search input:-ms-input-placeholder {
+      color: #9fb9c6; }
+    #auction .auction-container .auction-search .fa-search {
+      position: absolute;
+      top: 0%;
+      right: 0%;
+      padding: 6px 10px;
+      cursor: pointer;
+      color: #fff;
+      background-color: #00bbf5;
+      transition: all 0.7s; }
+    #auction .auction-container .auction-search .fa-search:hover {
+      background-color: #2ecc71; }
+  #auction .auction-container .auction-item-cont .auction-item {
+    margin: 10px 0;
+    border: 1px solid #00bbf5; }
+    #auction .auction-container .auction-item-cont .auction-item .auction-img {
+      width: 100%; }
+    #auction .auction-container .auction-item-cont .auction-item .auction-title {
+      text-align: center; }
+    #auction .auction-container .auction-item-cont .auction-item .auction-price {
+      text-align: center; }
+
 #contact {
   padding: 0px 0px 100px 0px;
   width: 100%;

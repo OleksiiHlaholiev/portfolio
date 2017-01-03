@@ -1,0 +1,4 @@
+[{"id":1,"title":"Lot # 1","category":"auto","price":100,"timeToSell":10,"srcImage":"..//images/lot_1.img"},
+{"id":2,"title":"Lot # 2","category":"moto","price":101,"timeToSell":11,"srcImage":"..//images/lot_2.img"},
+{"id":3,"title":"Lot # 3","category":"boat","price":102,"timeToSell":12,"srcImage":"..//images/lot_3.img"}
+]
