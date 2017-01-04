@@ -370,7 +370,8 @@ h1, h2, h3, h4, h5, h6 {
       background-color: #2ecc71; }
   #auction .auction-container .auction-item-cont .auction-item {
     margin: 15px 0;
-    border: 1px solid #00bbf5; }
+    border: 1px solid #00bbf5;
+    cursor: pointer; }
     #auction .auction-container .auction-item-cont .auction-item .auction-img {
       width: 100%; }
     #auction .auction-container .auction-item-cont .auction-item .auction-title {
@@ -386,6 +387,89 @@ h1, h2, h3, h4, h5, h6 {
       font-size: 24px;
       color: #000;
       background-color: #ba1e1e; }
+  #auction .auction-container .pagination {
+    text-align: center; }
+  #auction .auction-item-viewer-cont {
+    display: block;
+    position: fixed;
+    z-index: 100;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(16, 155, 230, 0.5);
+    text-align: center; }
+    #auction .auction-item-viewer-cont .auction-item-viewer {
+      position: relative;
+      top: 5%;
+      left: 5%;
+      width: 90%;
+      height: 90%;
+      background-color: #f9ebeb;
+      border: 2px solid grey;
+      border-radius: 15px; }
+      #auction .auction-item-viewer-cont .auction-item-viewer .close-btn {
+        position: absolute;
+        top: 0%;
+        right: 0%;
+        padding: 10px;
+        cursor: pointer;
+        color: grey;
+        transition: all 0.7s; }
+      #auction .auction-item-viewer-cont .auction-item-viewer .close-btn:hover {
+        color: #000; }
+      #auction .auction-item-viewer-cont .auction-item-viewer .left-side {
+        position: absolute;
+        top: 10%;
+        left: 5%;
+        width: 80%; }
+        #auction .auction-item-viewer-cont .auction-item-viewer .left-side img {
+          width: 100%;
+          border: 1px solid #00bbf5; }
+        @media screen and (min-width: 768px) {
+          #auction .auction-item-viewer-cont .auction-item-viewer .left-side {
+            top: 20%;
+            left: 10%;
+            width: 40%; }
+            #auction .auction-item-viewer-cont .auction-item-viewer .left-side img {
+              width: 100%; } }
+      #auction .auction-item-viewer-cont .auction-item-viewer .right-side {
+        position: absolute;
+        bottom: 20%;
+        right: 5%;
+        width: 80%; }
+        @media screen and (min-width: 768px) {
+          #auction .auction-item-viewer-cont .auction-item-viewer .right-side {
+            top: 20%;
+            right: 5%;
+            width: 40%; } }
+        #auction .auction-item-viewer-cont .auction-item-viewer .right-side .item-id, #auction .auction-item-viewer-cont .auction-item-viewer .right-side .item-title, #auction .auction-item-viewer-cont .auction-item-viewer .right-side .item-price, #auction .auction-item-viewer-cont .auction-item-viewer .right-side .item-date-sell {
+          font-size: 18px;
+          color: #000; }
+        #auction .auction-item-viewer-cont .auction-item-viewer .right-side .item-price .value {
+          padding-left: 10px;
+          font-size: 24px;
+          color: red; }
+        #auction .auction-item-viewer-cont .auction-item-viewer .right-side .item-date-sell .value {
+          padding-left: 10px;
+          color: green; }
+        #auction .auction-item-viewer-cont .auction-item-viewer .right-side .auction-form {
+          margin-top: 20px; }
+          #auction .auction-item-viewer-cont .auction-item-viewer .right-side .auction-form .input-name, #auction .auction-item-viewer-cont .auction-item-viewer .right-side .auction-form .input-phone, #auction .auction-item-viewer-cont .auction-item-viewer .right-side .auction-form .input-price {
+            display: block;
+            width: 200px;
+            margin: 10px auto;
+            padding: 5px 10px;
+            border: 1px solid #8a8888;
+            outline: none; }
+          #auction .auction-item-viewer-cont .auction-item-viewer .right-side .auction-form .buy-btn {
+            margin-top: 5px;
+            padding: 10px 25px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #00bbf5;
+            border: none;
+            border-radius: 5px; }
 
 #contact {
   padding: 0px 0px 100px 0px;
@@ -432,7 +516,7 @@ h1, h2, h3, h4, h5, h6 {
       width: 100%;
       font-size: 14px;
       font-weight: 400;
-      color: #8a8888;
+      color: #000;
       background-color: #ffffff;
       border: 2px solid #8a8888;
       outline: none;

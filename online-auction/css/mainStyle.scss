@@ -527,6 +527,7 @@ h1, h2, h3, h4, h5, h6 {
 			.auction-item {
 				margin: 15px 0;
 				border: 1px solid #00bbf5;
+				cursor: pointer;
 
 				.auction-img {
 					width: 100%;
@@ -549,6 +550,119 @@ h1, h2, h3, h4, h5, h6 {
 					font-size: 24px;
 					color: #000;
 					background-color: #ba1e1e;
+				}
+			}
+		}
+
+		.pagination {
+			text-align: center;
+		}
+	}
+
+	.auction-item-viewer-cont {
+		display: block;
+		position: fixed;
+		z-index: 100;
+		top: 0%;
+		left: 0%;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(16, 155, 230, 0.5);
+		text-align: center;
+
+		.auction-item-viewer {
+			position: relative;
+			top: 5%;
+			left: 5%;
+			width: 90%;
+			height: 90%;
+			background-color: #f9ebeb;
+			border: 2px solid $color_grey;
+			border-radius: 15px;
+
+			.close-btn {
+				position: absolute;
+				top: 0%;
+				right: 0%;
+				padding: 10px;
+				cursor: pointer;
+				color: $color_grey;
+				transition: all 0.7s;
+			}
+			.close-btn:hover {
+				color: #000;
+			}
+
+			.left-side {
+				position: absolute;
+				top: 10%;
+				left: 5%;
+				width: 80%;
+
+				img {
+					width: 100%;
+					border: 1px solid #00bbf5;
+				}
+
+				@media screen and (min-width: 768px) {
+					top: 20%;
+					left: 10%;
+					width: 40%;
+
+					img {
+						width: 100%;
+					}
+				}
+			}
+
+			.right-side {
+				position: absolute;
+				bottom: 20%;
+				right: 5%;
+				width: 80%;
+
+				@media screen and (min-width: 768px) {
+					top: 20%;
+					right: 5%;
+					width: 40%;
+				}
+
+				.item-id, .item-title, .item-price, .item-date-sell {
+					font-size: 18px;
+					color: #000;
+				}
+
+				.item-price .value {
+					padding-left: 10px;
+					font-size: 24px;
+					color: red;
+				}
+
+				.item-date-sell .value {
+					padding-left: 10px;
+					color: green;
+				}
+
+				.auction-form {
+					margin-top: 20px;
+					.input-name, .input-phone, .input-price {
+						display: block;
+						width: 200px;
+						margin: 10px auto;
+						padding: 5px 10px;
+						border: 1px solid #8a8888;
+						outline: none;
+					}
+
+					.buy-btn {
+						margin-top: 5px;
+						padding: 10px 25px;
+						font-size: 16px;
+						color: #fff;
+						background-color: $color_blue_light;
+						border: none;
+						border-radius: 5px;
+					}
 				}
 			}
 		}
@@ -628,7 +742,8 @@ h1, h2, h3, h4, h5, h6 {
 					width: 100%;
 					font-size: 14px;
 					font-weight: 400;
-					color: #8a8888;
+					//color: #8a8888;
+					color: #000;
 					background-color: #ffffff;
 					//outline: none;
 					border: 2px solid #8a8888;
