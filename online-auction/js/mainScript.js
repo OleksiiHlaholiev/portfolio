@@ -12,11 +12,10 @@
 
 window.addEventListener('load', function() {
 
+	var auctionItemContainers = document.querySelectorAll(".auction-item-cont"),
+		auctionItemViewerCont = document.querySelector(".auction-item-viewer-cont"),
+		closeAuctionViewerBtn = document.querySelector(".auction-item-viewer-cont .close-btn");
 
-    <!--PRELOADER !!!-->
-    /*setTimeout(function() {
-        $('#preloader').fadeOut('slow', function() {});
-    }, 2000);*/
     /*var overlayDiv = document.getElementsByClassName("overlay");
 
     function overlayDivHandler() {
@@ -29,7 +28,7 @@ window.addEventListener('load', function() {
 
     // ****************************************************************
 	// Disable scroll zooming and bind back the click event
-	function onMapMouseleaveHandler (event) {
+	function onMapMouseleaveHandler () {
 		var that = this;
 
 		that.addEventListener('click', onMapClickHandler);
@@ -37,7 +36,7 @@ window.addEventListener('load', function() {
 		that.querySelector('iframe').style.pointerEvents = "none";
 	}
 
-	function onMapClickHandler (event) {
+	function onMapClickHandler () {
 		var that = this;
 
 		// Disable the click handler until the user leaves the map area
@@ -50,10 +49,34 @@ window.addEventListener('load', function() {
 		that.addEventListener('mouseleave', onMapMouseleaveHandler);
 	}
 
+	// *****************  EVENT HANDLERS *******************
+
+	function auctionItemContainersHandler() {
+		auctionItemViewerCont.style.display = "block";
+	}
+
+	function closeAuctionViewerBtnHandler () {
+		auctionItemViewerCont.style.display = "none";
+	}
+
+
+	// ***************** REGISTER EVENT HANDLERS *******************
+	var i;
+
+	for (i = 0; i < auctionItemContainers.length; i++) {
+		auctionItemContainers[i].addEventListener('click', auctionItemContainersHandler)
+	}
+
+	closeAuctionViewerBtn.addEventListener('click', closeAuctionViewerBtnHandler);
+
+
 	// Enable map zooming with mouse scroll when the user clicks the map
 	$('.map-cont')[0].addEventListener('click', onMapClickHandler);
 
-
+	<!--PRELOADER !!!-->
+	/*setTimeout(function() {
+	 $('#preloader').fadeOut('slow', function() {});
+	 }, 2000);*/
 
 });
 
