@@ -321,10 +321,10 @@ h1, h2, h3, h4, h5, h6 {
       margin: 0;
       border: 1px solid #eff0f1;
       border-top: none; }
-    #auction .auction-nav ul {
+    #auction .auction-nav .main-menu {
       padding: 0;
       margin: 0; }
-      #auction .auction-nav ul li {
+      #auction .auction-nav .main-menu li {
         list-style: none;
         font-size: 16px;
         text-transform: uppercase;
@@ -334,7 +334,7 @@ h1, h2, h3, h4, h5, h6 {
         color: #717171;
         background-color: #fff;
         transition: all 0.7s; }
-      #auction .auction-nav ul li:hover {
+      #auction .auction-nav .main-menu li:hover, #auction .auction-nav .main-menu .active-category {
         color: #fff;
         background-color: #2ecc71; }
   #auction .auction-container .auction-search {
@@ -391,7 +391,8 @@ h1, h2, h3, h4, h5, h6 {
         color: #000;
         background-color: #ba1e1e; }
   #auction .auction-container .pagination {
-    text-align: center; }
+    text-align: center;
+    margin-bottom: 30px; }
     #auction .auction-container .pagination .pagination-btn {
       font-size: 16px;
       font-weight: 300;
@@ -499,6 +500,56 @@ h1, h2, h3, h4, h5, h6 {
             transition: all 0.5s; }
           #auction .auction-item-viewer-cont .auction-item-viewer .right-side .auction-form .buy-btn:hover {
             background-color: #2ecc71; }
+  #auction .add-new-lot {
+    width: 250px;
+    height: 200px;
+    margin: 0 auto;
+    background-color: #00bbf5;
+    cursor: pointer;
+    text-align: center; }
+    #auction .add-new-lot .my-plus {
+      display: inline-block;
+      color: #fff;
+      margin: 30px;
+      transition: all 0.5s; }
+    @media screen and (min-width: 400px) {
+      #auction .add-new-lot {
+        width: 300px;
+        height: 250px; }
+        #auction .add-new-lot .my-plus {
+          margin: 55px; } }
+  #auction .add-new-lot:hover .my-plus {
+    color: yellow; }
+  #auction .add-item-viewer-cont {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(16, 155, 230, 0.5);
+    text-align: center; }
+    #auction .add-item-viewer-cont .add-item-viewer {
+      position: relative;
+      top: 5%;
+      left: 5%;
+      width: 90%;
+      height: 90%;
+      background-color: #f9ebeb;
+      border: 2px solid grey;
+      border-radius: 15px; }
+      #auction .add-item-viewer-cont .add-item-viewer .close-btn {
+        position: absolute;
+        z-index: 101;
+        top: 0%;
+        right: 0%;
+        padding: 10px;
+        cursor: pointer;
+        color: grey;
+        transition: all 0.7s; }
+      #auction .add-item-viewer-cont .add-item-viewer .close-btn:hover {
+        color: #000; }
 
 #contact {
   padding: 0px 0px 100px 0px;

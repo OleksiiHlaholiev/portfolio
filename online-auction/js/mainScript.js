@@ -14,7 +14,10 @@ window.addEventListener('load', function() {
 
 	var auctionItemContainers = document.querySelectorAll(".auction-item-cont"),
 		auctionItemViewerCont = document.querySelector(".auction-item-viewer-cont"),
-		closeAuctionViewerBtn = document.querySelector(".auction-item-viewer-cont .close-btn");
+		closeAuctionViewerBtn = document.querySelector(".auction-item-viewer-cont .close-btn"),
+		addNewLotBtn = document.querySelector(".add-new-lot"),
+		addItemViewerContainer = document.querySelector(".add-item-viewer-cont"),
+		closeAddItemViewerBtn = document.querySelector(".add-item-viewer-cont .close-btn");
 
     /*var overlayDiv = document.getElementsByClassName("overlay");
 
@@ -59,6 +62,14 @@ window.addEventListener('load', function() {
 		auctionItemViewerCont.style.display = "none";
 	}
 
+	function addNewLotBtnHandler() {
+		addItemViewerContainer.style.display = "block";
+	}
+
+	function closeAddItemViewerBtnHandler () {
+		addItemViewerContainer.style.display = "none";
+	}
+
 
 	// ***************** REGISTER EVENT HANDLERS *******************
 	var i;
@@ -68,6 +79,8 @@ window.addEventListener('load', function() {
 	}
 
 	closeAuctionViewerBtn.addEventListener('click', closeAuctionViewerBtnHandler);
+	addNewLotBtn.addEventListener('click', addNewLotBtnHandler);
+	closeAddItemViewerBtn.addEventListener('click', closeAddItemViewerBtnHandler);
 
 
 	// Enable map zooming with mouse scroll when the user clicks the map

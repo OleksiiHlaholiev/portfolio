@@ -16,6 +16,10 @@
     <!--Include Your Style Sheets next -->
     <link rel="stylesheet" href="css/mainStyle.css">
 
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <![endif]-->
 </head>
 <body>
     <header id="header">
@@ -144,7 +148,7 @@
                 <nav class="auction-nav col-md-4 col-lg-3">
                     <h4>Categories</h4>
                     <ul class="main-menu">
-                        <li>All</li>
+                        <li class="active-category">All</li>
                         <li>Auto</li>
                         <li>Moto</li>
                         <li>Boat</li>
@@ -215,11 +219,44 @@
                                        required="required" class="input-name">
                                 <input type="number" tabindex="2" name="buyer-phone"  placeholder="Phone"
                                        required="required" class="input-phone">
-                                <input type="number" tabindex="3" name="buyer-price"  placeholder="Your price, $"
-                                       required="required" class="input-price">
+                                <input type="number" tabindex="3" min="0" name="buyer-price"
+                                       placeholder="Your price, $" required="required" class="input-price">
                                 <input type="submit" class="buy-btn" value="BUY NOW">
                             </form>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="auction-header">
+            <div class="container">
+                <h3>ADD NEW LOT</h3>
+            </div>
+        </div>
+        <div class="container">
+            <div class="add-new-lot">
+                <span class="fa-stack fa-5x my-plus">
+                    <i class="fa fa-circle-thin fa-stack-2x"></i>
+                    <i class="fa fa-plus fa-stack-1x"></i>
+                </span>
+                <div class="add-item-viewer-cont">
+                    <div class="add-item-viewer">
+                        <i class="fa fa-times-circle-o fa-3x close-btn" aria-hidden="true"></i>
+                        <form class="add-item-form">
+                            <input type="text" name="add-item-title" placeholder="Title" required
+                                class="item-title">
+                            <input type="text" name="add-item-category" placeholder="Category" required
+                                   class="item-category">
+                            <input type="number" min="0" name="add-item-price" placeholder="Start price" required
+                                   class="item-price">
+                            <input type="number" name="add-item-time" placeholder="Days to sell" required
+                                   class="item-time">
+                            <textarea name="add-item-description"  rows="3"  placeholder="Description"
+                                      required class="item-description"></textarea>
+                            <input type="submit" value="ADD">
+
+
+                        </form>
                     </div>
                 </div>
             </div>

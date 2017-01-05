@@ -452,7 +452,7 @@ h1, h2, h3, h4, h5, h6 {
 			border-top: none;
 		}
 
-		ul {
+		.main-menu {
 			padding: 0;
 			margin: 0;
 			li {
@@ -467,8 +467,7 @@ h1, h2, h3, h4, h5, h6 {
 				background-color: #fff;
 				transition: all 0.7s;
 			}
-
-			li:hover {
+			li:hover, .active-category  {
 				color: #fff;
 				background-color: $color_green_light;
 			}
@@ -558,6 +557,7 @@ h1, h2, h3, h4, h5, h6 {
 
 		.pagination {
 			text-align: center;
+			margin-bottom: 30px;
 
 			.pagination-btn {
 				font-size: 16px;
@@ -702,6 +702,75 @@ h1, h2, h3, h4, h5, h6 {
 				}
 			}
 		}
+	}
+
+	.add-new-lot {
+		width: 250px;
+		height: 200px;
+		margin: 0 auto;
+		background-color: $color_blue_light;
+		cursor: pointer;
+		text-align: center;
+
+		.my-plus {
+			display: inline-block;
+			color: #fff;
+			margin: 30px;
+			transition: all 0.5s;
+		}
+
+		@media screen and (min-width: 400px) {
+			width: 300px;
+			height: 250px;
+
+			.my-plus {
+				margin: 55px;
+			}
+		}
+	}
+	.add-new-lot:hover {
+		.my-plus {
+			color: yellow;
+		}
+	}
+
+	.add-item-viewer-cont {
+		display: none;
+		position: fixed;
+		z-index: 100;
+		top: 0%;
+		left: 0%;
+		width: 100%;
+		height: 100%;
+		//overflow: auto;
+		background-color: rgba(16, 155, 230, 0.5);
+		text-align: center;
+
+		.add-item-viewer {
+			position: relative;
+			top: 5%;
+			left: 5%;
+			width: 90%;
+			height: 90%;
+			background-color: #f9ebeb;
+			border: 2px solid $color_grey;
+			border-radius: 15px;
+
+			.close-btn {
+				position: absolute;
+				z-index: 101;
+				top: 0%;
+				right: 0%;
+				padding: 10px;
+				cursor: pointer;
+				color: $color_grey;
+				transition: all 0.7s;
+			}
+			.close-btn:hover {
+				color: #000;
+			}
+		}
+
 	}
 }
 
