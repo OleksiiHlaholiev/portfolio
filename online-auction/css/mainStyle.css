@@ -297,6 +297,37 @@ h1, h2, h3, h4, h5, h6 {
       bottom: 50%;
       right: 5%; } }
 
+.extend-item-viewer-cont, #auction .auction-item-viewer-cont, #auction .add-item-viewer-cont {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(16, 155, 230, 0.5);
+  text-align: center; }
+
+.extend-item-viewer, #auction .auction-item-viewer-cont .auction-item-viewer, #auction .add-item-viewer-cont .add-item-viewer {
+  position: relative;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  background-color: #f9ebeb;
+  border: 2px solid grey;
+  border-radius: 15px; }
+
+.extend-close-btn, #auction .auction-item-viewer-cont .auction-item-viewer .close-btn, #auction .add-item-viewer-cont .add-item-viewer .close-btn {
+  position: absolute;
+  z-index: 101;
+  top: 0%;
+  right: 0%;
+  padding: 10px;
+  cursor: pointer;
+  color: grey;
+  transition: all 0.7s; }
+
 #auction {
   padding-bottom: 30px;
   background-color: #f8fcfe; }
@@ -406,100 +437,72 @@ h1, h2, h3, h4, h5, h6 {
       background-color: #2ecc71; }
     #auction .auction-container .pagination .pagination-btn:hover {
       background-color: #2ecc71; }
-  #auction .auction-item-viewer-cont {
-    display: none;
-    position: fixed;
-    z-index: 100;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(16, 155, 230, 0.5);
-    text-align: center; }
-    #auction .auction-item-viewer-cont .auction-item-viewer {
-      position: relative;
-      top: 5%;
-      left: 5%;
-      width: 90%;
-      height: 90%;
-      background-color: #f9ebeb;
-      border: 2px solid grey;
-      border-radius: 15px; }
-      #auction .auction-item-viewer-cont .auction-item-viewer .close-btn {
-        position: absolute;
-        z-index: 101;
-        top: 0%;
-        right: 0%;
-        padding: 10px;
-        cursor: pointer;
-        color: grey;
-        transition: all 0.7s; }
-      #auction .auction-item-viewer-cont .auction-item-viewer .close-btn:hover {
-        color: #000; }
+  #auction .auction-item-viewer-cont .auction-item-viewer .close-btn:hover {
+    color: #000; }
+  #auction .auction-item-viewer-cont .auction-item-viewer .left-side {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 90%; }
+    #auction .auction-item-viewer-cont .auction-item-viewer .left-side img {
+      display: none;
+      width: 100%;
+      border: 1px solid #00bbf5; }
+    @media screen and (min-width: 700px) {
       #auction .auction-item-viewer-cont .auction-item-viewer .left-side {
-        position: absolute;
-        top: 10%;
-        left: 5%;
-        width: 90%; }
+        top: 15%;
+        left: 10%;
+        width: 40%; }
         #auction .auction-item-viewer-cont .auction-item-viewer .left-side img {
-          display: none;
-          width: 100%;
-          border: 1px solid #00bbf5; }
-        @media screen and (min-width: 700px) {
-          #auction .auction-item-viewer-cont .auction-item-viewer .left-side {
-            top: 15%;
-            left: 10%;
-            width: 40%; }
-            #auction .auction-item-viewer-cont .auction-item-viewer .left-side img {
-              display: block; } }
+          display: block; } }
+  #auction .auction-item-viewer-cont .auction-item-viewer .right-side {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: 90%; }
+    @media screen and (min-width: 700px) {
       #auction .auction-item-viewer-cont .auction-item-viewer .right-side {
-        position: absolute;
-        top: 5%;
+        top: 15%;
         right: 5%;
-        width: 90%; }
-        @media screen and (min-width: 700px) {
-          #auction .auction-item-viewer-cont .auction-item-viewer .right-side {
-            top: 15%;
-            right: 5%;
-            width: 40%; } }
+        width: 40%; } }
+    #auction .auction-item-viewer-cont .auction-item-viewer .right-side .item-id, #auction .auction-item-viewer-cont .auction-item-viewer .right-side .item-title, #auction .auction-item-viewer-cont .auction-item-viewer .right-side .item-price, #auction .auction-item-viewer-cont .auction-item-viewer .right-side .item-date-sell {
+      font-size: 16px;
+      color: #000;
+      margin-bottom: 5px; }
+      @media screen and (min-width: 700px) {
         #auction .auction-item-viewer-cont .auction-item-viewer .right-side .item-id, #auction .auction-item-viewer-cont .auction-item-viewer .right-side .item-title, #auction .auction-item-viewer-cont .auction-item-viewer .right-side .item-price, #auction .auction-item-viewer-cont .auction-item-viewer .right-side .item-date-sell {
-          font-size: 16px;
-          color: #000;
-          margin-bottom: 5px; }
-          @media screen and (min-width: 700px) {
-            #auction .auction-item-viewer-cont .auction-item-viewer .right-side .item-id, #auction .auction-item-viewer-cont .auction-item-viewer .right-side .item-title, #auction .auction-item-viewer-cont .auction-item-viewer .right-side .item-price, #auction .auction-item-viewer-cont .auction-item-viewer .right-side .item-date-sell {
-              font-size: 18px;
-              margin-bottom: 15px; } }
+          font-size: 18px;
+          margin-bottom: 15px; } }
+    #auction .auction-item-viewer-cont .auction-item-viewer .right-side .item-price .value {
+      padding-left: 10px;
+      font-size: 20px;
+      color: red; }
+      @media screen and (min-width: 700px) {
         #auction .auction-item-viewer-cont .auction-item-viewer .right-side .item-price .value {
-          padding-left: 10px;
-          font-size: 20px;
-          color: red; }
-          @media screen and (min-width: 700px) {
-            #auction .auction-item-viewer-cont .auction-item-viewer .right-side .item-price .value {
-              font-size: 24px; } }
-        #auction .auction-item-viewer-cont .auction-item-viewer .right-side .item-date-sell .value {
-          padding-left: 10px;
-          color: green; }
-        #auction .auction-item-viewer-cont .auction-item-viewer .right-side .auction-form {
-          margin-top: 20px; }
-          #auction .auction-item-viewer-cont .auction-item-viewer .right-side .auction-form .input-name, #auction .auction-item-viewer-cont .auction-item-viewer .right-side .auction-form .input-phone, #auction .auction-item-viewer-cont .auction-item-viewer .right-side .auction-form .input-price {
-            display: block;
-            width: 200px;
-            margin: 10px auto;
-            padding: 5px 10px;
-            border: 1px solid #8a8888;
-            outline: none; }
-          #auction .auction-item-viewer-cont .auction-item-viewer .right-side .auction-form .buy-btn {
-            margin-top: 5px;
-            padding: 10px 25px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #00bbf5;
-            border: none;
-            border-radius: 5px;
-            transition: all 0.5s; }
-          #auction .auction-item-viewer-cont .auction-item-viewer .right-side .auction-form .buy-btn:hover {
-            background-color: #2ecc71; }
+          font-size: 24px; } }
+    #auction .auction-item-viewer-cont .auction-item-viewer .right-side .item-date-sell .value {
+      padding-left: 10px;
+      color: green; }
+    #auction .auction-item-viewer-cont .auction-item-viewer .right-side .auction-form {
+      margin-top: 20px; }
+      #auction .auction-item-viewer-cont .auction-item-viewer .right-side .auction-form .input-name, #auction .auction-item-viewer-cont .auction-item-viewer .right-side .auction-form .input-phone, #auction .auction-item-viewer-cont .auction-item-viewer .right-side .auction-form .input-price {
+        display: block;
+        width: 200px;
+        margin: 10px auto;
+        padding: 5px 10px;
+        border: 1px solid #8a8888;
+        outline: none; }
+      #auction .auction-item-viewer-cont .auction-item-viewer .right-side .auction-form .buy-btn {
+        margin-top: 5px;
+        padding: 10px 25px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #00bbf5;
+        border: none;
+        border-radius: 5px;
+        transition: all 0.5s; }
+      #auction .auction-item-viewer-cont .auction-item-viewer .right-side .auction-form .buy-btn:hover {
+        background-color: #2ecc71; }
   #auction .add-new-lot {
     width: 250px;
     height: 200px;
@@ -520,36 +523,12 @@ h1, h2, h3, h4, h5, h6 {
           margin: 55px; } }
   #auction .add-new-lot:hover .my-plus {
     color: yellow; }
-  #auction .add-item-viewer-cont {
-    display: none;
-    position: fixed;
-    z-index: 100;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(16, 155, 230, 0.5);
-    text-align: center; }
-    #auction .add-item-viewer-cont .add-item-viewer {
-      position: relative;
-      top: 5%;
-      left: 5%;
-      width: 90%;
-      height: 90%;
-      background-color: #f9ebeb;
-      border: 2px solid grey;
-      border-radius: 15px; }
-      #auction .add-item-viewer-cont .add-item-viewer .close-btn {
-        position: absolute;
-        z-index: 101;
-        top: 0%;
-        right: 0%;
-        padding: 10px;
-        cursor: pointer;
-        color: grey;
-        transition: all 0.7s; }
-      #auction .add-item-viewer-cont .add-item-viewer .close-btn:hover {
-        color: #000; }
+  #auction .add-item-viewer-cont .add-item-viewer .close-btn:hover {
+    color: #000; }
+  #auction .add-item-viewer-cont .add-item-viewer .add-item-form {
+    width: 50%; }
+    #auction .add-item-viewer-cont .add-item-viewer .add-item-form input[type="text"], #auction .add-item-viewer-cont .add-item-viewer .add-item-form input[type="number"] {
+      display: block; }
 
 #contact {
   padding: 0px 0px 100px 0px;

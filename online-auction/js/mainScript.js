@@ -17,7 +17,7 @@ window.addEventListener('load', function() {
 		closeAuctionViewerBtn = document.querySelector(".auction-item-viewer-cont .close-btn"),
 		addNewLotBtn = document.querySelector(".add-new-lot"),
 		addItemViewerContainer = document.querySelector(".add-item-viewer-cont"),
-		closeAddItemViewerBtn = document.querySelector(".add-item-viewer-cont .close-btn");
+		closeAddItemViewerBtn = document.querySelector(".add-item-viewer .close-btn");
 
     /*var overlayDiv = document.getElementsByClassName("overlay");
 
@@ -58,16 +58,18 @@ window.addEventListener('load', function() {
 		auctionItemViewerCont.style.display = "block";
 	}
 
-	function closeAuctionViewerBtnHandler () {
+	function closeAuctionViewerBtnHandler (event) {
 		auctionItemViewerCont.style.display = "none";
+		event.stopPropagation(); // to avoid inherit click events
 	}
 
 	function addNewLotBtnHandler() {
 		addItemViewerContainer.style.display = "block";
 	}
 
-	function closeAddItemViewerBtnHandler () {
+	function closeAddItemViewerBtnHandler (event) {
 		addItemViewerContainer.style.display = "none";
+		event.stopPropagation(); // to avoid inherit click events
 	}
 
 

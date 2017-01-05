@@ -419,6 +419,42 @@ h1, h2, h3, h4, h5, h6 {
 //----- HOME section ends -----
 
 //********   SECTION "AUCTION" STARTS   **********
+//  simulated classes: used in @extend
+.extend-item-viewer-cont {
+	display: none;
+	position: fixed;
+	z-index: 100;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(16, 155, 230, 0.5);
+	text-align: center;
+}
+
+.extend-item-viewer {
+	position: relative;
+	top: 5%;
+	left: 5%;
+	width: 90%;
+	height: 90%;
+	background-color: #f9ebeb;
+	border: 2px solid $color_grey;
+	border-radius: 15px;
+}
+
+.extend-close-btn {
+	position: absolute;
+	z-index: 101;
+	top: 0%;
+	right: 0%;
+	padding: 10px;
+	cursor: pointer;
+	color: $color_grey;
+	transition: all 0.7s;
+}
+
+// main part of section
 #auction {
 	padding-bottom: 30px;
 	background-color: #f8fcfe;
@@ -579,36 +615,13 @@ h1, h2, h3, h4, h5, h6 {
 	}
 
 	.auction-item-viewer-cont {
-		display: none;
-		position: fixed;
-		z-index: 100;
-		top: 0%;
-		left: 0%;
-		width: 100%;
-		height: 100%;
-		//overflow: auto;
-		background-color: rgba(16, 155, 230, 0.5);
-		text-align: center;
+		@extend .extend-item-viewer-cont;
 
 		.auction-item-viewer {
-			position: relative;
-			top: 5%;
-			left: 5%;
-			width: 90%;
-			height: 90%;
-			background-color: #f9ebeb;
-			border: 2px solid $color_grey;
-			border-radius: 15px;
+			@extend .extend-item-viewer;
 
 			.close-btn {
-				position: absolute;
-				z-index: 101;
-				top: 0%;
-				right: 0%;
-				padding: 10px;
-				cursor: pointer;
-				color: $color_grey;
-				transition: all 0.7s;
+				@extend .extend-close-btn;
 			}
 			.close-btn:hover {
 				color: #000;
@@ -735,42 +748,26 @@ h1, h2, h3, h4, h5, h6 {
 	}
 
 	.add-item-viewer-cont {
-		display: none;
-		position: fixed;
-		z-index: 100;
-		top: 0%;
-		left: 0%;
-		width: 100%;
-		height: 100%;
-		//overflow: auto;
-		background-color: rgba(16, 155, 230, 0.5);
-		text-align: center;
+		@extend .extend-item-viewer-cont;
 
 		.add-item-viewer {
-			position: relative;
-			top: 5%;
-			left: 5%;
-			width: 90%;
-			height: 90%;
-			background-color: #f9ebeb;
-			border: 2px solid $color_grey;
-			border-radius: 15px;
+			@extend .extend-item-viewer;
 
 			.close-btn {
-				position: absolute;
-				z-index: 101;
-				top: 0%;
-				right: 0%;
-				padding: 10px;
-				cursor: pointer;
-				color: $color_grey;
-				transition: all 0.7s;
+				@extend .extend-close-btn;
 			}
 			.close-btn:hover {
 				color: #000;
 			}
-		}
 
+			.add-item-form {
+				width: 50%;
+
+				input[type="text"], input[type="number"] {
+					display: block;
+				}
+			}
+		}
 	}
 }
 
