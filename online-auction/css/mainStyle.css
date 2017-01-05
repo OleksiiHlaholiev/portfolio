@@ -328,6 +328,16 @@ h1, h2, h3, h4, h5, h6 {
   color: grey;
   transition: all 0.7s; }
 
+.extend-submit-btn, #auction .auction-item-viewer-cont .auction-item-viewer .right-side .auction-form .buy-btn, #auction .add-item-viewer-cont .add-item-viewer .add-item-form .add-btn {
+  margin-top: 5px;
+  padding: 10px 25px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #00bbf5;
+  border: none;
+  border-radius: 5px;
+  transition: all 0.5s; }
+
 #auction {
   padding-bottom: 30px;
   background-color: #f8fcfe; }
@@ -492,15 +502,6 @@ h1, h2, h3, h4, h5, h6 {
         padding: 5px 10px;
         border: 1px solid #8a8888;
         outline: none; }
-      #auction .auction-item-viewer-cont .auction-item-viewer .right-side .auction-form .buy-btn {
-        margin-top: 5px;
-        padding: 10px 25px;
-        font-size: 16px;
-        color: #fff;
-        background-color: #00bbf5;
-        border: none;
-        border-radius: 5px;
-        transition: all 0.5s; }
       #auction .auction-item-viewer-cont .auction-item-viewer .right-side .auction-form .buy-btn:hover {
         background-color: #2ecc71; }
   #auction .add-new-lot {
@@ -526,9 +527,21 @@ h1, h2, h3, h4, h5, h6 {
   #auction .add-item-viewer-cont .add-item-viewer .close-btn:hover {
     color: #000; }
   #auction .add-item-viewer-cont .add-item-viewer .add-item-form {
-    width: 50%; }
-    #auction .add-item-viewer-cont .add-item-viewer .add-item-form input[type="text"], #auction .add-item-viewer-cont .add-item-viewer .add-item-form input[type="number"] {
-      display: block; }
+    width: 50%;
+    position: relative;
+    top: 10%;
+    left: 25%;
+    text-align: center; }
+    #auction .add-item-viewer-cont .add-item-viewer .add-item-form input[type="text"], #auction .add-item-viewer-cont .add-item-viewer .add-item-form input[type="number"], #auction .add-item-viewer-cont .add-item-viewer .add-item-form textarea {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px 15px;
+      text-align: center; }
+    #auction .add-item-viewer-cont .add-item-viewer .add-item-form input[type="file"] {
+      color: red; }
+    #auction .add-item-viewer-cont .add-item-viewer .add-item-form .add-btn:hover {
+      background-color: #2ecc71; }
 
 #contact {
   padding: 0px 0px 100px 0px;

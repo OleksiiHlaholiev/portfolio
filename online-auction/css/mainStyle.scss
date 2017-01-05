@@ -454,6 +454,17 @@ h1, h2, h3, h4, h5, h6 {
 	transition: all 0.7s;
 }
 
+.extend-submit-btn {
+	margin-top: 5px;
+	padding: 10px 25px;
+	font-size: 16px;
+	color: #fff;
+	background-color: $color_blue_light;
+	border: none;
+	border-radius: 5px;
+	transition: all 0.5s;
+}
+
 // main part of section
 #auction {
 	padding-bottom: 30px;
@@ -700,14 +711,7 @@ h1, h2, h3, h4, h5, h6 {
 					}
 
 					.buy-btn {
-						margin-top: 5px;
-						padding: 10px 25px;
-						font-size: 16px;
-						color: #fff;
-						background-color: $color_blue_light;
-						border: none;
-						border-radius: 5px;
-						transition: all 0.5s;
+						@extend .extend-submit-btn;
 					}
 					.buy-btn:hover {
 						background-color: $color_green_light;
@@ -749,6 +753,7 @@ h1, h2, h3, h4, h5, h6 {
 
 	.add-item-viewer-cont {
 		@extend .extend-item-viewer-cont;
+		//display: block;
 
 		.add-item-viewer {
 			@extend .extend-item-viewer;
@@ -762,9 +767,28 @@ h1, h2, h3, h4, h5, h6 {
 
 			.add-item-form {
 				width: 50%;
+				position: relative;
+				top: 10%;
+				left: 25%;
+				text-align: center;
 
-				input[type="text"], input[type="number"] {
+				input[type="text"], input[type="number"], textarea {
 					display: block;
+					width: 100%;
+					margin: 10px 0;
+					padding: 10px 15px;
+					text-align: center;
+				}
+
+				input[type="file"] {
+					color: red;
+				}
+
+				.add-btn {
+					@extend .extend-submit-btn;
+				}
+				.add-btn:hover {
+					background-color: $color_green_light;
 				}
 			}
 		}
