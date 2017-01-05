@@ -766,18 +766,43 @@ h1, h2, h3, h4, h5, h6 {
 			}
 
 			.add-item-form {
-				width: 50%;
+				width: 90%;
 				position: relative;
 				top: 10%;
-				left: 25%;
+				left: 5%;
 				text-align: center;
 
-				input[type="text"], input[type="number"], textarea {
+				@media screen and (min-width: 600px) {
+					width: 50%;
+					left: 25%;
+				}
+
+				input[type="text"], input[type="number"], textarea, .item-category {
 					display: block;
 					width: 100%;
-					margin: 10px 0;
-					padding: 10px 15px;
+					margin: 5px 0;
+					padding: 5px;
 					text-align: center;
+					font-size: 16px;
+
+					@media screen and (min-width: 600px) {
+						font-size: 18px;
+						margin: 10px 0;
+						padding: 10px 15px;
+					}
+				}
+
+				.item-category {
+					color: #000;
+					padding-left: 30%;
+
+					option {
+
+					}
+
+					@media screen and (min-width: 600px) {
+						padding-left: 45%;
+					}
 				}
 
 				input[type="file"] {

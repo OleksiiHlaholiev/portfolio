@@ -527,17 +527,33 @@ h1, h2, h3, h4, h5, h6 {
   #auction .add-item-viewer-cont .add-item-viewer .close-btn:hover {
     color: #000; }
   #auction .add-item-viewer-cont .add-item-viewer .add-item-form {
-    width: 50%;
+    width: 90%;
     position: relative;
     top: 10%;
-    left: 25%;
+    left: 5%;
     text-align: center; }
-    #auction .add-item-viewer-cont .add-item-viewer .add-item-form input[type="text"], #auction .add-item-viewer-cont .add-item-viewer .add-item-form input[type="number"], #auction .add-item-viewer-cont .add-item-viewer .add-item-form textarea {
+    @media screen and (min-width: 600px) {
+      #auction .add-item-viewer-cont .add-item-viewer .add-item-form {
+        width: 50%;
+        left: 25%; } }
+    #auction .add-item-viewer-cont .add-item-viewer .add-item-form input[type="text"], #auction .add-item-viewer-cont .add-item-viewer .add-item-form input[type="number"], #auction .add-item-viewer-cont .add-item-viewer .add-item-form textarea, #auction .add-item-viewer-cont .add-item-viewer .add-item-form .item-category {
       display: block;
       width: 100%;
-      margin: 10px 0;
-      padding: 10px 15px;
-      text-align: center; }
+      margin: 5px 0;
+      padding: 5px;
+      text-align: center;
+      font-size: 16px; }
+      @media screen and (min-width: 600px) {
+        #auction .add-item-viewer-cont .add-item-viewer .add-item-form input[type="text"], #auction .add-item-viewer-cont .add-item-viewer .add-item-form input[type="number"], #auction .add-item-viewer-cont .add-item-viewer .add-item-form textarea, #auction .add-item-viewer-cont .add-item-viewer .add-item-form .item-category {
+          font-size: 18px;
+          margin: 10px 0;
+          padding: 10px 15px; } }
+    #auction .add-item-viewer-cont .add-item-viewer .add-item-form .item-category {
+      color: #000;
+      padding-left: 30%; }
+      @media screen and (min-width: 600px) {
+        #auction .add-item-viewer-cont .add-item-viewer .add-item-form .item-category {
+          padding-left: 45%; } }
     #auction .add-item-viewer-cont .add-item-viewer .add-item-form input[type="file"] {
       color: red; }
     #auction .add-item-viewer-cont .add-item-viewer .add-item-form .add-btn:hover {

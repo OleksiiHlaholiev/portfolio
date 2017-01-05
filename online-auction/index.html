@@ -245,13 +245,20 @@
                         <form class="add-item-form">
                             <input type="text" name="add-item-title" placeholder="Title" required
                                 class="item-title">
-                            <input type="text" name="add-item-category" placeholder="Category" required
-                                   class="item-category">
+                            <!--<input type="text" name="add-item-category" placeholder="Category" required-->
+                                   <!--class="item-category">-->
+                            <select size="1" name="add-item-category" required class="item-category">
+                                <option disabled>Select category</option>
+                                <option selected value="auto">auto</option>
+                                <option value="moto">moto</option>
+                                <option value="boat">boat</option>
+                                <option value="painting">painting</option>
+                            </select>
                             <input type="number" min="0" name="add-item-price" placeholder="Start price, $" required
                                    class="item-price">
                             <input type="number" name="add-item-time" placeholder="Days to sell" required
                                    class="item-time">
-                            <textarea name="add-item-description"  rows="3"  placeholder="Description"
+                            <textarea maxlength="100" name="add-item-description"  rows="3"  placeholder="Description"
                                       required class="item-description"></textarea>
                             <input type="file">
                             <input type="submit" value="ADD LOT" class="add-btn">
