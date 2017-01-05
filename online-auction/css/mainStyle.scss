@@ -694,6 +694,10 @@ h1, h2, h3, h4, h5, h6 {
 						background-color: $color_blue_light;
 						border: none;
 						border-radius: 5px;
+						transition: all 0.5s;
+					}
+					.buy-btn:hover {
+						background-color: $color_green_light;
 					}
 				}
 			}
@@ -832,5 +836,55 @@ h1, h2, h3, h4, h5, h6 {
 			}
 		}
 	}
+}
+
+//----- FOOTER starts -----
+#footer {
+	width: 100%;
+	min-height: 100px;
+	background-color: #22353f;
+	text-align: center;
+
+	.footer-cont {
+		//padding: 20px;
+		p {
+			display: block;
+			color: #a5a6a7;
+			font-size: 14px;
+			font-weight: 300;
+			padding: 10px 0px;
+			padding-left: 10px;
+			margin: 0px;
+			span {
+				color: $color_green_light;
+			}
+		}
+		a {
+			display: block;
+			//width: 40px;
+			//height: 40px;
+			margin: 25px;
+
+			.fa-angle-up {
+				display: inline-block;
+				color: #ffffff;
+				background-color: $color_green_light;
+				font-size: 32px;
+				padding: 5px 11px;
+				cursor: pointer;
+				transition: all 0.7s;
+			}
+
+			.fa-angle-up:hover {
+				background-color: $color_blue_light;
+			}
+		}
+		@media screen and (min-width: 687px) {
+			p, a {
+				display: inline-block;
+			}
+		}
+	}
+
 }
 
