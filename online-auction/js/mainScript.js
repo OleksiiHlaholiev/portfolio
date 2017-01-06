@@ -19,15 +19,6 @@ window.addEventListener('load', function() {
 		addItemViewerContainer = document.querySelector(".add-item-viewer-cont"),
 		closeAddItemViewerBtn = document.querySelector(".add-item-viewer .close-btn");
 
-    /*var overlayDiv = document.getElementsByClassName("overlay");
-
-    function overlayDivHandler() {
-		//onClick="style.pointerEvents='none'">
-		this.style.pointerEvents='none';
-	}
-
-
-	overlayDiv[0].addEventListener("click", overlayDivHandler);*/
 
     // ****************************************************************
 	// Disable scroll zooming and bind back the click event

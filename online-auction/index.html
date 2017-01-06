@@ -133,12 +133,115 @@
             <i class="fa fa-angle-right" aria-hidden="true"></i>
         </div>
 
+        <!--PHOTO GALLERY-->
+        <div class="portfolio">
+            <div class="section-header">
+                <div class="container">
+                    <h3>OUR AMAZING LOTS</h3>
+                </div>
+            </div>
+            <div class="container">
+                <ul class="portfolio-navigation clearfix">
+                    <li class="active-category portfolio-all">All</li>
+                    <li class="portfolio-graphic">Graphic Design</li>
+                    <li class="portfolio-web">Web Design</li>
+                    <li class="portfolio-landing">Landing Pages</li>
+                    <li class="portfolio-wordpress">Wordpress</li>
+                </ul>
+                <div class="portfolio-gallery clearfix">
+                    <div class="portfolio-gallery-item graphic-img">
+                        <img src="images/portfolio_img_1.jpg" alt="graphic-img">
+                        <div class="portfolio-hover-layer">
+                            <span class="portfolio-img-name">img_1</span>
+                            <span class="portfolio-img-category">Graphic Design</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-gallery-item web-img">
+                        <img src="images/portfolio_img_5.jpg" alt="web-img">
+                        <div class="portfolio-hover-layer">
+                            <span class="portfolio-img-name">img_5</span>
+                            <span class="portfolio-img-category">Web Design</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-gallery-item landing-img">
+                        <img src="images/portfolio_img_9.jpg" alt="landing-img">
+                        <div class="portfolio-hover-layer">
+                            <span class="portfolio-img-name">img_9</span>
+                            <span class="portfolio-img-category">Landing Pages</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-gallery-item wordpress-img">
+                        <img src="images/portfolio_img_11.jpg" alt="graphic-img">
+                        <div class="portfolio-hover-layer">
+                            <span class="portfolio-img-name">img_11</span>
+                            <span class="portfolio-img-category">Wordpress</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-gallery-item graphic-img">
+                        <img src="images/portfolio_img_2.jpg" alt="graphic-img">
+                        <div class="portfolio-hover-layer">
+                            <span class="portfolio-img-name">img_2</span>
+                            <span class="portfolio-img-category">Graphic Design</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-gallery-item web-img">
+                        <img src="images/portfolio_img_6.jpg" alt="web-img">
+                        <div class="portfolio-hover-layer">
+                            <span class="portfolio-img-name">img_6</span>
+                            <span class="portfolio-img-category">Web Design</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-gallery-item landing-img">
+                        <img src="images/portfolio_img_10.jpg" alt="landing-img">
+                        <div class="portfolio-hover-layer">
+                            <span class="portfolio-img-name">img_10</span>
+                            <span class="portfolio-img-category">Landing Pages</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-gallery-item wordpress-img">
+                        <img src="images/portfolio_img_12.jpg" alt="graphic-img">
+                        <div class="portfolio-hover-layer">
+                            <span class="portfolio-img-name">img_12</span>
+                            <span class="portfolio-img-category">Wordpress</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-gallery-item graphic-img">
+                        <img src="images/portfolio_img_3.jpg" alt="graphic-img">
+                        <div class="portfolio-hover-layer">
+                            <span class="portfolio-img-name">img_3</span>
+                            <span class="portfolio-img-category">Graphic Design</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-gallery-item web-img">
+                        <img src="images/portfolio_img_7.jpg" alt="web-img">
+                        <div class="portfolio-hover-layer">
+                            <span class="portfolio-img-name">img_7</span>
+                            <span class="portfolio-img-category">Web Design</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-gallery-item graphic-img">
+                        <img src="images/portfolio_img_4.jpg" alt="graphic-img">
+                        <div class="portfolio-hover-layer">
+                            <span class="portfolio-img-name">img_4</span>
+                            <span class="portfolio-img-category">Graphic Design</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-gallery-item web-img">
+                        <img src="images/portfolio_img_8.jpg" alt="web-img">
+                        <div class="portfolio-hover-layer">
+                            <span class="portfolio-img-name">img_8</span>
+                            <span class="portfolio-img-category">Web Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     <!-- ********   SECTION "HOME" ENDS   ********** -->
 
     <!-- ********   SECTION "AUCTION" STARTS   ********** -->
     <section id="auction">
-        <div class="auction-header">
+        <div class="section-header">
             <div class="container">
                 <h3>BUY HERE !</h3>
             </div>
@@ -228,7 +331,7 @@
                 </div>
             </div>
         </div>
-        <div class="auction-header">
+        <div class="section-header">
             <div class="container">
                 <h3>ADD NEW LOT</h3>
             </div>
@@ -248,7 +351,7 @@
                             <!--<input type="text" name="add-item-category" placeholder="Category" required-->
                                    <!--class="item-category">-->
                             <select size="1" name="add-item-category" required class="item-category">
-                                <option disabled>Select category</option>
+                                <option disabled value="">Select category</option>
                                 <option selected value="auto">auto</option>
                                 <option value="moto">moto</option>
                                 <option value="boat">boat</option>
@@ -263,8 +366,6 @@
                             <textarea maxlength="100" name="add-item-description"  rows="3"  placeholder="Description"
                                       required class="item-description"></textarea>
                             <input type="submit" value="ADD LOT" class="add-btn">
-
-
                         </form>
                     </div>
                 </div>
@@ -276,7 +377,7 @@
 
     <!-- ********   SECTION "CONTACT" STARTS   ********** -->
     <section id="contact">
-        <div id="contact-header">
+        <div class="section-header">
             <div class="container">
                 <h3>Got a Question or Inquiry?</h3>
             </div>
@@ -284,9 +385,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 map-cont">
-                    <!--overlay div used to disable scroll-->
-                    <!--<div class="overlay"></div>-->
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8532.143874328916!2d30.796419248346066!3d50.522608103369905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4d90b72c5461f%3A0x43fcf663467b47c6!2zItCi0LXRgNC80LjQvdCw0LsiLCDQkdGA0L7QstCw0YDQuCwg0JrQuNGX0LLRgdGM0LrQsCDQvtCx0LvQsNGB0YLRjA!5e0!3m2!1sru!2sua!4v1477045770418" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8532.143874328916!2d30.796419248346066!3d50.522608103369905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4d90b72c5461f%3A0x43fcf663467b47c6!2zItCi0LXRgNC80LjQvdCw0LsiLCDQkdGA0L7QstCw0YDQuCwg0JrQuNGX0LLRgdGM0LrQsCDQvtCx0LvQsNGB0YLRjA!5e0!3m2!1sru!2sua!4v1477045770418"></iframe>
                 </div>
                 <div class="col-sm-6 offset-sm-3 form-cont">
                     <form class="input-contact-content">
