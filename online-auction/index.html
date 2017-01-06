@@ -26,13 +26,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
-                    <a href="#header" id="logo-link">
+                    <a href="#header" class="logo-link">
                         <i class="fa fa-star fa-3x" aria-hidden="true"></i>
                         <span>Auction</span>
                     </a>
                 </div>
                 <div class="col-md-7">
-                    <div id="social-btns">
+                    <div class="social-btns-cont">
                         <a href="https://vk.com" target="_blank">
                             <i class="fa fa-vk fa-2x" aria-hidden="true"></i>
                         </a>
@@ -51,14 +51,13 @@
                         <a href="https://dribbble.com" target="_blank">
                             <i class="fa fa-dribbble fa-2x" aria-hidden="true"></i>
                         </a>
-
                     </div>
                 </div>
             </div>
-            <hr id="header-hr">
+            <hr class="header-hr">
             <div class="row">
                 <div class="col-xs-12">
-                    <nav id="navigation">
+                    <nav class="site-navigation">
                         <ul>
                             <li><a href="#header" class="active-section">home</a></li>
                             <li><a href="#auction">auction</a></li>
@@ -74,21 +73,28 @@
         <div class="container">
             <div class="row">
                 <p class="col-md-6">
-                    Check out our work
+                    Join our auction !
                 </p>
                 <div class="col-md-6">
-                    <form id="log-in-form">
+                    <form class="log-in-form">
                         <div class="row">
                             <div class="col-lg-4">
-                                <input type="text" name="username" placeholder="Username" id="log-in-username">
+                                <input type="text" name="username" placeholder="Username" required
+                                       class="log-in-username">
                             </div>
                             <div class="col-lg-4">
-                                <input type="password" name="password" placeholder="Password" id="log-in-password">
+                                <input type="password" name="password" placeholder="Password" required
+                                       class="log-in-password">
                             </div>
                             <div class="col-lg-4">
-                                <button type="submit" id="log-in-btn">
-                                    Log In
-                                </button>
+                                <div class="log-in-controls">
+                                    <button type="submit" class="log-in-btn">
+                                        Log In
+                                    </button>
+                                    <button type="button" class="log-in-btn">
+                                        Register
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -137,7 +143,7 @@
         <div class="portfolio">
             <div class="section-header">
                 <div class="container">
-                    <h3>OUR AMAZING LOTS</h3>
+                    <h3>SEE OUR AMAZING LOTS</h3>
                 </div>
             </div>
             <div class="container">
