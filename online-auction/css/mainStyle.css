@@ -131,6 +131,7 @@ h1, h2, h3, h4, h5, h6 {
   #log-in-div p {
     display: block;
     margin-bottom: 0;
+    padding-top: 0;
     font-size: 30px;
     font-weight: normal;
     text-transform: uppercase;
@@ -138,49 +139,55 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center; }
     @media screen and (min-width: 768px) {
       #log-in-div p {
-        text-align: left; } }
-  #log-in-div .log-in-form input[type="text"], #log-in-div .log-in-form input[type="password"] {
-    display: block;
-    width: 50%;
-    margin: 10px auto;
-    background-color: transparent;
-    color: #ffffff;
-    border: none;
-    outline: none;
-    border-bottom: 2px solid white;
-    text-align: center; }
-    @media screen and (min-width: 768px) {
-      #log-in-div .log-in-form input[type="text"], #log-in-div .log-in-form input[type="password"] {
-        width: 50%; } }
+        text-align: left;
+        padding-top: 50px; } }
     @media screen and (min-width: 992px) {
-      #log-in-div .log-in-form input[type="text"], #log-in-div .log-in-form input[type="password"] {
-        width: 100%; } }
-  #log-in-div .log-in-form input::-moz-placeholder {
-    color: #ffffff;
-    opacity: 1; }
-  #log-in-div .log-in-form input::-webkit-input-placeholder {
-    color: #ffffff;
-    opacity: 1; }
-  #log-in-div .log-in-form input:-ms-input-placeholder {
-    color: #ffffff;
-    opacity: 1; }
-  #log-in-div .log-in-form .log-in-controls {
-    text-align: center; }
-    #log-in-div .log-in-form .log-in-controls .log-in-btn {
-      display: inline-block;
-      margin: 15px;
-      width: 100px;
-      padding: 10px 0;
-      font-size: 14px;
-      font-weight: bold;
-      text-transform: uppercase;
-      background-color: #ffffff;
-      color: #2ecc71;
+      #log-in-div p {
+        padding-top: 35px; } }
+  #log-in-div .log-in-form {
+    display: block; }
+    #log-in-div .log-in-form input[type="text"], #log-in-div .log-in-form input[type="password"] {
+      display: block;
+      width: 50%;
+      margin: 10px auto;
+      background-color: transparent;
+      color: #ffffff;
       border: none;
-      transition: all 0.7s; }
-    #log-in-div .log-in-form .log-in-controls .log-in-btn:hover {
-      background-color: #00bbf5;
-      color: #ffffff; }
+      outline: none;
+      border-bottom: 2px solid white;
+      text-align: center; }
+      @media screen and (min-width: 768px) {
+        #log-in-div .log-in-form input[type="text"], #log-in-div .log-in-form input[type="password"] {
+          width: 50%; } }
+      @media screen and (min-width: 992px) {
+        #log-in-div .log-in-form input[type="text"], #log-in-div .log-in-form input[type="password"] {
+          width: 100%; } }
+    #log-in-div .log-in-form input::-moz-placeholder {
+      color: #ffffff;
+      opacity: 1; }
+    #log-in-div .log-in-form input::-webkit-input-placeholder {
+      color: #ffffff;
+      opacity: 1; }
+    #log-in-div .log-in-form input:-ms-input-placeholder {
+      color: #ffffff;
+      opacity: 1; }
+    #log-in-div .log-in-form .log-in-controls {
+      text-align: center; }
+      #log-in-div .log-in-form .log-in-controls .log-in-btn {
+        display: inline-block;
+        margin: 15px;
+        width: 100px;
+        padding: 10px 0;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        background-color: #ffffff;
+        color: #2ecc71;
+        border: none;
+        transition: all 0.7s; }
+      #log-in-div .log-in-form .log-in-controls .log-in-btn:hover {
+        background-color: #00bbf5;
+        color: #ffffff; }
 
 #home {
   padding-top: 0px;

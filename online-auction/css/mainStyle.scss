@@ -186,6 +186,7 @@ h1, h2, h3, h4, h5, h6 {
 	p {
 		display: block;
 		margin-bottom: 0;
+		padding-top: 0;
 		font-size: 30px;
 		font-weight: normal;
 		text-transform: uppercase;
@@ -194,10 +195,15 @@ h1, h2, h3, h4, h5, h6 {
 
 		@media screen and (min-width: 768px) {
 			text-align: left;
+			padding-top: 50px;
+		}
+		@media screen and (min-width: 992px) {
+			padding-top: 35px;
 		}
 	}
 
 	.log-in-form {
+		display: block;
 		input[type="text"], input[type="password"] {
 			display: block;
 			width: 50%;
@@ -856,6 +862,7 @@ h1, h2, h3, h4, h5, h6 {
 		height: 200px;
 		margin: 0 auto;
 		background-color: $color_blue_light;
+		//background-image: url("..//images/lot_0.jpg");
 		cursor: pointer;
 		text-align: center;
 		//border: 5px solid #ccb7b7;
