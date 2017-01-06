@@ -455,6 +455,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .extend-submit-btn {
+	display: inline-block;
 	margin-top: 5px;
 	padding: 10px 25px;
 	font-size: 16px;
@@ -728,6 +729,7 @@ h1, h2, h3, h4, h5, h6 {
 		background-color: $color_blue_light;
 		cursor: pointer;
 		text-align: center;
+		//border: 5px solid #ccb7b7;
 
 		.my-plus {
 			display: inline-block;
@@ -753,7 +755,7 @@ h1, h2, h3, h4, h5, h6 {
 
 	.add-item-viewer-cont {
 		@extend .extend-item-viewer-cont;
-		//display: block;
+		display: block;
 
 		.add-item-viewer {
 			@extend .extend-item-viewer;
@@ -768,7 +770,7 @@ h1, h2, h3, h4, h5, h6 {
 			.add-item-form {
 				width: 90%;
 				position: relative;
-				top: 10%;
+				top: 12%;
 				left: 5%;
 				text-align: center;
 
@@ -777,7 +779,7 @@ h1, h2, h3, h4, h5, h6 {
 					left: 25%;
 				}
 
-				input[type="text"], input[type="number"], textarea, .item-category {
+				input[type="text"], input[type="number"], textarea, .item-category, .item-image-url {
 					display: block;
 					width: 100%;
 					margin: 5px 0;
@@ -794,20 +796,21 @@ h1, h2, h3, h4, h5, h6 {
 
 				.item-category {
 					color: #000;
-					padding-left: 30%;
-
-					option {
-
-					}
+					//padding-left: 30%;
+					text-align-last: center;
 
 					@media screen and (min-width: 600px) {
-						padding-left: 45%;
+						//padding-left: 45%;
 					}
 				}
 
-				input[type="file"] {
+				/*input[type="file"] {
+					display: block;
+					width: 100%;
+					margin: 10px 0;
 					color: red;
-				}
+					font-size: 16px;
+				}*/
 
 				.add-btn {
 					@extend .extend-submit-btn;
