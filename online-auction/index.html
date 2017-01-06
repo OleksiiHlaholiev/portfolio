@@ -25,88 +25,62 @@
     <header id="header">
         <div class="container">
             <div class="row">
-                <div class="col-md-5">
+                <div class="col-xs-10 col-md-4">
                     <a href="#header" class="logo-link">
                         <i class="fa fa-star fa-3x" aria-hidden="true"></i>
                         <span>Auction</span>
                     </a>
                 </div>
-                <div class="col-md-7">
-                    <div class="social-btns-cont">
-                        <a href="https://vk.com" target="_blank">
-                            <i class="fa fa-vk fa-2x" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://facebook.com" target="_blank">
-                            <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://twitter.com" target="_blank">
-                            <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://google.com" target="_blank">
-                            <i class="fa fa-google-plus fa-2x" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://skype.com" target="_blank">
-                            <i class="fa fa-skype fa-2x" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://dribbble.com" target="_blank">
-                            <i class="fa fa-dribbble fa-2x" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <hr class="header-hr">
-            <div class="row">
-                <div class="col-xs-12">
-                    <nav class="site-navigation">
-                        <ul>
-                            <li><a href="#header" class="active-section">home</a></li>
-                            <li><a href="#auction">auction</a></li>
-                            <li><a href="#contact">contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
+                <i class="fa fa-bars col-xs-2 offset-md-6" aria-hidden="true"></i>
+                <nav class="col-xs-12 col-md-8 site-navigation">
+                    <ul>
+                        <li><a href="#header" class="active-section">home</a></li>
+                        <li><a href="#auction">auction</a></li>
+                        <li><a href="#contact">contact</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </header>
 
-    <div id="log-in-div">
-        <div class="container">
-            <div class="row">
-                <p class="col-md-6">
-                    Join our auction !
-                </p>
-                <div class="col-md-6">
-                    <form class="log-in-form">
-                        <div class="row">
-                            <div class="col-lg-4 offset-lg-4">
-                                <input type="text" name="username" placeholder="Username" required
-                                       class="log-in-username">
-                            </div>
-                            <div class="col-lg-4">
-                                <input type="password" name="password" placeholder="Password" required
-                                       class="log-in-password">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-8 offset-lg-4">
-                                <div class="log-in-controls">
-                                    <button type="submit" class="log-in-btn">
-                                        Log In
-                                    </button>
-                                    <button type="button" class="log-in-btn">
-                                        Register
-                                    </button>
+    <!-- ********   SECTION "HOME" STARTS   ********** -->
+    <section id="home">
+        <div class="log-in-div">
+            <div class="container">
+                <div class="row">
+                    <p class="col-md-6">
+                        Join our auction !
+                    </p>
+                    <div class="col-md-6">
+                        <form class="log-in-form">
+                            <div class="row">
+                                <div class="col-lg-4 offset-lg-4">
+                                    <input type="text" name="username" placeholder="Username" required
+                                           class="log-in-username">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="password" name="password" placeholder="Password" required
+                                           class="log-in-password">
                                 </div>
                             </div>
-                        </div>
-                    </form>
+                            <div class="row">
+                                <div class="col-lg-8 offset-lg-4">
+                                    <div class="log-in-controls">
+                                        <button type="submit" class="log-in-btn">
+                                            Log In
+                                        </button>
+                                        <button type="button" class="log-in-btn">
+                                            Register
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- ********   SECTION "HOME" STARTS   ********** -->
-    <section id="home">
+        <!--**************** SLIDER **********************-->
         <div class="slider-cont">
             <ul class="slider">
                 <li class="slider-item active-slide-item">
@@ -151,10 +125,10 @@
             <div class="container">
                 <ul class="portfolio-navigation clearfix">
                     <li class="active-category portfolio-all">All</li>
-                    <li class="portfolio-graphic">Graphic Design</li>
-                    <li class="portfolio-web">Web Design</li>
-                    <li class="portfolio-landing">Landing Pages</li>
-                    <li class="portfolio-wordpress">Wordpress</li>
+                    <li class="portfolio-auto">Auto</li>
+                    <li class="portfolio-moto">Moto</li>
+                    <li class="portfolio-boat">Boat</li>
+                    <li class="portfolio-painting">Paintings</li>
                 </ul>
                 <div class="portfolio-gallery clearfix">
                     <div class="portfolio-gallery-item graphic-img">
@@ -392,6 +366,30 @@
         </div>
         <div class="container">
             <div class="row">
+                <div class="col-xs-12">
+                    <div class="social-btns-cont">
+                        <a href="https://vk.com" target="_blank">
+                            <i class="fa fa-vk fa-2x" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://facebook.com" target="_blank">
+                            <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank">
+                            <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://google.com" target="_blank">
+                            <i class="fa fa-google-plus fa-2x" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://skype.com" target="_blank">
+                            <i class="fa fa-skype fa-2x" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://dribbble.com" target="_blank">
+                            <i class="fa fa-dribbble fa-2x" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-xs-12 map-cont">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8532.143874328916!2d30.796419248346066!3d50.522608103369905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4d90b72c5461f%3A0x43fcf663467b47c6!2zItCi0LXRgNC80LjQvdCw0LsiLCDQkdGA0L7QstCw0YDQuCwg0JrQuNGX0LLRgdGM0LrQsCDQvtCx0LvQsNGB0YLRjA!5e0!3m2!1sru!2sua!4v1477045770418"></iframe>
                 </div>
@@ -437,7 +435,6 @@
                 <i class="fa fa-angle-up" aria-hidden="true"></i>
             </a>
         </div>
-
     </footer>
     <!-- ********   FOOTER END   ********** -->
 

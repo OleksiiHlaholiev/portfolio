@@ -2,7 +2,7 @@ $color_green_light: #2ecc71;
 $color_blue_light: #00bbf5;
 $color_grey: grey;
 
-$offset_height: 0px;
+$header_height: 80px;
 
 /* ---------------------- FONTS ------------------------------*/
 
@@ -75,11 +75,23 @@ h1, h2, h3, h4, h5, h6 {
 
 //**************** SECTION HEADER starts *****************
 #header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 50;
+	width: 100%;
+	height: $header_height;
+	background-color: #d2edf5;
+
 	.logo-link {
 		display: inline-block;
 		position: relative;
-		padding: 15px 0;
+		padding: 9px 0;
 		text-decoration: none;
+
+		@media screen and (min-width: 768px) {
+			//padding: 30px 0;
+		}
 
 		.fa-star {
 			background-color: #737373;
@@ -96,192 +108,213 @@ h1, h2, h3, h4, h5, h6 {
 			color: #737373;
 			padding-left: 10px;
 		}
-
-		@media screen and (min-width: 768px) {
-			padding: 30px 0;
-		}
 	}
 
-	.social-btns-cont {
-		padding: 0 0 15px 0;
+	.fa-bars {
+		display: inline-block;
+		color: #000;
+		font-size: 40px;
 		text-align: center;
-		a {
-			display: inline-block;
-			border: 5px solid $color_grey;
-			border-radius: 50%;
-			color: $color_grey;
-			margin: 5px;
-			text-align: center;
-			text-decoration: none;
-
-			transition: all 0.7s;
-
-			.fa {
-				@extend .verical-align;
-				width: 40px;
-				height: 40px;
-			}
-		}
-		a:hover {
-			border: 5px solid $color_blue_light;
-			color: $color_blue_light;
-		}
-
+		padding: 20px 0px;
+		cursor: pointer;
+	}
 		@media screen and (min-width: 768px) {
-			padding: 30px 0;
-		}
+			.fa-bars {
+				display: none;
+			}
 	}
-
-	.header-hr {
-		margin: 1px 0;
-		width: 100%;
-		border: none;
-		border-top: 1px solid $color_grey;
-	}
-
+	// ************** mobile view of navigation ***************
 	.site-navigation {
-		margin: 20px 0;
+		display: block;
+
 		ul {
-			padding: 0;
 			margin: 0;
+			padding: 0;
+			float: right;
+			//background-color: #44433e;
+			background-color: #d2edf5;
+			/*one hint!*/
+			font-size: 0px;
 			li {
-				display: inline-block;
-				padding: 0px 10px;
-				border-right: 1px solid $color_grey;
+				display: block;
+				padding: 5px 30px;
+				text-align: center;
 				a {
+					display: inline-block;
+					//font-weight: 700;
+					font-size: 16px;
+					//width: 100%;
+					height: 100%;
 					text-decoration: none;
 					text-transform: uppercase;
-					font-size: 16px;
 					color: $color_grey;
-					transition: all 0.7s;
-
-					@media screen and (min-width: 400px) {
-						font-size: 18px;
-					}
-				}
-				a:hover {
-					color: $color_green_light;
 				}
 				.active-section {
 					color: $color_green_light;
 				}
-			}
-			li:first-child {
-				padding-left: 0;
-			}
-			li:last-child {
-				border-right: none;
+
+				a:hover {
+					color: $color_green_light;
+				}
 			}
 		}
 	}
+	// ************** end of mobile view of navigation ***************
+
+	// ************** desktop view of navigation ***************
+	@media screen and (min-width: 768px) {
+		.site-navigation {
+			margin: 26.5px 0;
+			text-align: center;
+			ul {
+				background-color: transparent;
+				padding: 0;
+				margin: 0;
+				float: none;
+				//line-height: $header_height;
+				li {
+					display: inline-block;
+					padding: 0;
+					border-right: 1px solid $color_grey;
+					a {
+						display: inline-block;
+						padding: 0 20px;
+						text-decoration: none;
+						text-transform: uppercase;
+						font-size: 18px;
+						color: $color_grey;
+						transition: all 0.7s;
+
+						//@media screen and (min-width: 400px) {
+						//	font-size: 18px;
+						//}
+					}
+					a:hover {
+						color: $color_green_light;
+					}
+					.active-section {
+						color: $color_green_light;
+					}
+				}
+				li:first-child {
+					padding-left: 0;
+				}
+				li:last-child {
+					border-right: none;
+				}
+			}
+		}
+	}
+	// ************** end of desktop view of navigation ***************
 }
 //**************** SECTION HEADER ends *****************
 
-//**************** SECTION REGISTRATION starts *****************
-#log-in-div {
-	min-height: 100px;
-	background-color: $color_green_light;
-	padding: 30px 0px;
-
-	p {
-		display: block;
-		margin-bottom: 0;
-		padding-top: 0;
-		font-size: 30px;
-		font-weight: normal;
-		text-transform: uppercase;
-		color: #ffffff;
-		text-align: center;
-
-		@media screen and (min-width: 768px) {
-			text-align: left;
-			padding-top: 50px;
-		}
-		@media screen and (min-width: 992px) {
-			padding-top: 35px;
-		}
-	}
-
-	.log-in-form {
-		display: block;
-		input[type="text"], input[type="password"] {
-			display: block;
-			width: 50%;
-			margin: 10px auto;
-			background-color: transparent;
-			color: #ffffff;
-			border: none;
-			outline: none;
-			border-bottom: 2px solid white;
-			text-align: center;
-
-			@media screen and (min-width: 768px) {
-				width: 50%;
-			}
-
-			@media screen and (min-width: 992px) {
-				width: 100%;
-			}
-		}
-
-		input::-moz-placeholder {
-			color: #ffffff;
-			opacity: 1;
-		}
-		input::-webkit-input-placeholder{
-			color: #ffffff;
-			opacity: 1;
-		}
-		input:-ms-input-placeholder{
-			color: #ffffff;
-			opacity: 1;
-		}
-
-		.log-in-controls {
-			text-align: center;
-			.log-in-btn {
-				display: inline-block;
-				margin: 15px;
-				width: 100px;
-				padding: 10px 0;
-				font-size: 14px;
-				font-weight: bold;
-				text-transform: uppercase;
-				background-color: #ffffff;
-				color: $color_green_light;
-				border: none;
-				transition: all 0.7s;
-
-				@media screen and (min-width: 992px) {
-					//margin: 0 auto;
-				}
-			}
-			.log-in-btn:hover {
-				background-color: $color_blue_light;
-				color: #ffffff;
-			}
-		}
-	}
-}
-//**************** SECTION REGISTRATION ends *****************
 
 //----- HOME section starts -----
 #home {
-	padding-top: $offset_height;
+	padding-top: $header_height;
 	position: relative;
 	width: 100%;
+
+	//**************** SECTION REGISTRATION starts *****************
+	.log-in-div {
+		//min-height: 100px;
+		background-color: $color_green_light;
+		padding: 42px 0px;
+
+		p {
+			display: block;
+			margin-bottom: 0;
+			padding-top: 0;
+			font-size: 30px;
+			font-weight: normal;
+			text-transform: uppercase;
+			color: #ffffff;
+			text-align: center;
+
+			@media screen and (min-width: 768px) {
+				text-align: left;
+				padding-top: 50px;
+			}
+			@media screen and (min-width: 992px) {
+				padding-top: 35px;
+			}
+		}
+
+		.log-in-form {
+			display: block;
+			input[type="text"], input[type="password"] {
+				display: block;
+				width: 50%;
+				margin: 10px auto;
+				background-color: transparent;
+				color: #ffffff;
+				border: none;
+				outline: none;
+				border-bottom: 2px solid white;
+				text-align: center;
+
+				@media screen and (min-width: 768px) {
+					width: 50%;
+				}
+
+				@media screen and (min-width: 992px) {
+					width: 100%;
+				}
+			}
+
+			input::-moz-placeholder {
+				color: #ffffff;
+				opacity: 1;
+			}
+			input::-webkit-input-placeholder{
+				color: #ffffff;
+				opacity: 1;
+			}
+			input:-ms-input-placeholder{
+				color: #ffffff;
+				opacity: 1;
+			}
+
+			.log-in-controls {
+				text-align: center;
+				.log-in-btn {
+					display: inline-block;
+					margin: 15px;
+					width: 100px;
+					padding: 10px 0;
+					font-size: 14px;
+					font-weight: bold;
+					text-transform: uppercase;
+					background-color: #ffffff;
+					color: $color_green_light;
+					border: none;
+					transition: all 0.7s;
+
+					@media screen and (min-width: 992px) {
+						//margin: 0 auto;
+					}
+				}
+				.log-in-btn:hover {
+					background-color: $color_blue_light;
+					color: #ffffff;
+				}
+			}
+		}
+	}
+	//**************** SECTION REGISTRATION ends *****************
 
 	.slider-cont {
 		position: relative;
 		width: 100%;
-		height: calc(100vh - 100px);
+		height: calc(100vh - 80px);
 		background-color: #747474;
 		overflow-x: hidden;
 
 		.slider {
 			position: relative;
 			width: 400%;
-			height: calc(100vh - 100px);
+			height: calc(100vh - 80px);
 			text-align: center;
 
 			margin: 0px;
@@ -295,7 +328,7 @@ h1, h2, h3, h4, h5, h6 {
 				display: inline-block;
 				float: left;
 				width: calc(100% / 4);
-				height: calc(100vh - 100px);
+				height: calc(100vh - 80px);
 				font-size: 35px;
 				//transition: left 1s;
 				//transition: none;
@@ -967,7 +1000,7 @@ h1, h2, h3, h4, h5, h6 {
 	padding: 0px 0px 100px 0px;
 	width: 100%;
 	text-align: center;
-	background-color: #ffffff;
+	background-color: #f8fcfe;
 
 	.map-cont {
 		padding-left: 0;
@@ -982,6 +1015,36 @@ h1, h2, h3, h4, h5, h6 {
 		}
 		@media screen and (min-width: 768px) {
 			padding-right: 15px;
+		}
+	}
+
+	.social-btns-cont {
+		padding: 15px 0;
+		text-align: center;
+		a {
+			display: inline-block;
+			border: 5px solid $color_grey;
+			border-radius: 50%;
+			color: $color_grey;
+			margin: 5px;
+			text-align: center;
+			text-decoration: none;
+
+			transition: all 0.7s;
+
+			.fa {
+				@extend .verical-align;
+				width: 40px;
+				height: 40px;
+			}
+		}
+		a:hover {
+			border: 5px solid $color_blue_light;
+			color: $color_blue_light;
+		}
+
+		@media screen and (min-width: 768px) {
+			padding: 30px 0;
 		}
 	}
 

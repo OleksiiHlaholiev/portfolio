@@ -30,7 +30,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   text-align: center; }
 
-.verical-align, #header .social-btns-cont a .fa {
+.verical-align, #contact .social-btns-cont a .fa {
   width: 100%;
   height: 100%;
   display: -webkit-flex;
@@ -50,159 +50,173 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
     color: #fff; }
 
-#header .logo-link {
-  display: inline-block;
-  position: relative;
-  padding: 15px 0;
-  text-decoration: none; }
-  #header .logo-link .fa-star {
-    background-color: #737373;
-    color: #fffa29;
-    padding: 10px; }
-  #header .logo-link span {
-    position: relative;
-    top: -5px;
-    display: inline-block;
-    font-weight: 400;
-    font-size: 24px;
-    text-transform: uppercase;
-    color: #737373;
-    padding-left: 10px; }
-  @media screen and (min-width: 768px) {
-    #header .logo-link {
-      padding: 30px 0; } }
-#header .social-btns-cont {
-  padding: 0 0 15px 0;
-  text-align: center; }
-  #header .social-btns-cont a {
-    display: inline-block;
-    border: 5px solid grey;
-    border-radius: 50%;
-    color: grey;
-    margin: 5px;
-    text-align: center;
-    text-decoration: none;
-    transition: all 0.7s; }
-    #header .social-btns-cont a .fa {
-      width: 40px;
-      height: 40px; }
-  #header .social-btns-cont a:hover {
-    border: 5px solid #00bbf5;
-    color: #00bbf5; }
-  @media screen and (min-width: 768px) {
-    #header .social-btns-cont {
-      padding: 30px 0; } }
-#header .header-hr {
-  margin: 1px 0;
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
   width: 100%;
-  border: none;
-  border-top: 1px solid grey; }
-#header .site-navigation {
-  margin: 20px 0; }
-  #header .site-navigation ul {
-    padding: 0;
-    margin: 0; }
-    #header .site-navigation ul li {
+  height: 80px;
+  background-color: #d2edf5; }
+  #header .logo-link {
+    display: inline-block;
+    position: relative;
+    padding: 9px 0;
+    text-decoration: none; }
+    #header .logo-link .fa-star {
+      background-color: #737373;
+      color: #fffa29;
+      padding: 10px; }
+    #header .logo-link span {
+      position: relative;
+      top: -5px;
       display: inline-block;
-      padding: 0px 10px;
-      border-right: 1px solid grey; }
-      #header .site-navigation ul li a {
-        text-decoration: none;
-        text-transform: uppercase;
-        font-size: 16px;
-        color: grey;
-        transition: all 0.7s; }
-        @media screen and (min-width: 400px) {
-          #header .site-navigation ul li a {
-            font-size: 18px; } }
-      #header .site-navigation ul li a:hover {
-        color: #2ecc71; }
-      #header .site-navigation ul li .active-section {
-        color: #2ecc71; }
-    #header .site-navigation ul li:first-child {
-      padding-left: 0; }
-    #header .site-navigation ul li:last-child {
-      border-right: none; }
-
-#log-in-div {
-  min-height: 100px;
-  background-color: #2ecc71;
-  padding: 30px 0px; }
-  #log-in-div p {
-    display: block;
-    margin-bottom: 0;
-    padding-top: 0;
-    font-size: 30px;
-    font-weight: normal;
-    text-transform: uppercase;
-    color: #ffffff;
-    text-align: center; }
-    @media screen and (min-width: 768px) {
-      #log-in-div p {
-        text-align: left;
-        padding-top: 50px; } }
-    @media screen and (min-width: 992px) {
-      #log-in-div p {
-        padding-top: 35px; } }
-  #log-in-div .log-in-form {
+      font-weight: 400;
+      font-size: 24px;
+      text-transform: uppercase;
+      color: #737373;
+      padding-left: 10px; }
+  #header .fa-bars {
+    display: inline-block;
+    color: #000;
+    font-size: 40px;
+    text-align: center;
+    padding: 20px 0px;
+    cursor: pointer; }
+  @media screen and (min-width: 768px) {
+    #header .fa-bars {
+      display: none; } }
+  #header .site-navigation {
     display: block; }
-    #log-in-div .log-in-form input[type="text"], #log-in-div .log-in-form input[type="password"] {
-      display: block;
-      width: 50%;
-      margin: 10px auto;
-      background-color: transparent;
-      color: #ffffff;
-      border: none;
-      outline: none;
-      border-bottom: 2px solid white;
+    #header .site-navigation ul {
+      margin: 0;
+      padding: 0;
+      float: right;
+      background-color: #d2edf5;
+      /*one hint!*/
+      font-size: 0px; }
+      #header .site-navigation ul li {
+        display: block;
+        padding: 5px 30px;
+        text-align: center; }
+        #header .site-navigation ul li a {
+          display: inline-block;
+          font-size: 16px;
+          height: 100%;
+          text-decoration: none;
+          text-transform: uppercase;
+          color: grey; }
+        #header .site-navigation ul li .active-section {
+          color: #2ecc71; }
+        #header .site-navigation ul li a:hover {
+          color: #2ecc71; }
+  @media screen and (min-width: 768px) {
+    #header .site-navigation {
+      margin: 26.5px 0;
       text-align: center; }
-      @media screen and (min-width: 768px) {
-        #log-in-div .log-in-form input[type="text"], #log-in-div .log-in-form input[type="password"] {
-          width: 50%; } }
-      @media screen and (min-width: 992px) {
-        #log-in-div .log-in-form input[type="text"], #log-in-div .log-in-form input[type="password"] {
-          width: 100%; } }
-    #log-in-div .log-in-form input::-moz-placeholder {
-      color: #ffffff;
-      opacity: 1; }
-    #log-in-div .log-in-form input::-webkit-input-placeholder {
-      color: #ffffff;
-      opacity: 1; }
-    #log-in-div .log-in-form input:-ms-input-placeholder {
-      color: #ffffff;
-      opacity: 1; }
-    #log-in-div .log-in-form .log-in-controls {
-      text-align: center; }
-      #log-in-div .log-in-form .log-in-controls .log-in-btn {
-        display: inline-block;
-        margin: 15px;
-        width: 100px;
-        padding: 10px 0;
-        font-size: 14px;
-        font-weight: bold;
-        text-transform: uppercase;
-        background-color: #ffffff;
-        color: #2ecc71;
-        border: none;
-        transition: all 0.7s; }
-      #log-in-div .log-in-form .log-in-controls .log-in-btn:hover {
-        background-color: #00bbf5;
-        color: #ffffff; }
+      #header .site-navigation ul {
+        background-color: transparent;
+        padding: 0;
+        margin: 0;
+        float: none; }
+        #header .site-navigation ul li {
+          display: inline-block;
+          padding: 0;
+          border-right: 1px solid grey; }
+          #header .site-navigation ul li a {
+            display: inline-block;
+            padding: 0 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 18px;
+            color: grey;
+            transition: all 0.7s; }
+          #header .site-navigation ul li a:hover {
+            color: #2ecc71; }
+          #header .site-navigation ul li .active-section {
+            color: #2ecc71; }
+        #header .site-navigation ul li:first-child {
+          padding-left: 0; }
+        #header .site-navigation ul li:last-child {
+          border-right: none; } }
 
 #home {
-  padding-top: 0px;
+  padding-top: 80px;
   position: relative;
   width: 100%; }
+  #home .log-in-div {
+    background-color: #2ecc71;
+    padding: 42px 0px; }
+    #home .log-in-div p {
+      display: block;
+      margin-bottom: 0;
+      padding-top: 0;
+      font-size: 30px;
+      font-weight: normal;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-align: center; }
+      @media screen and (min-width: 768px) {
+        #home .log-in-div p {
+          text-align: left;
+          padding-top: 50px; } }
+      @media screen and (min-width: 992px) {
+        #home .log-in-div p {
+          padding-top: 35px; } }
+    #home .log-in-div .log-in-form {
+      display: block; }
+      #home .log-in-div .log-in-form input[type="text"], #home .log-in-div .log-in-form input[type="password"] {
+        display: block;
+        width: 50%;
+        margin: 10px auto;
+        background-color: transparent;
+        color: #ffffff;
+        border: none;
+        outline: none;
+        border-bottom: 2px solid white;
+        text-align: center; }
+        @media screen and (min-width: 768px) {
+          #home .log-in-div .log-in-form input[type="text"], #home .log-in-div .log-in-form input[type="password"] {
+            width: 50%; } }
+        @media screen and (min-width: 992px) {
+          #home .log-in-div .log-in-form input[type="text"], #home .log-in-div .log-in-form input[type="password"] {
+            width: 100%; } }
+      #home .log-in-div .log-in-form input::-moz-placeholder {
+        color: #ffffff;
+        opacity: 1; }
+      #home .log-in-div .log-in-form input::-webkit-input-placeholder {
+        color: #ffffff;
+        opacity: 1; }
+      #home .log-in-div .log-in-form input:-ms-input-placeholder {
+        color: #ffffff;
+        opacity: 1; }
+      #home .log-in-div .log-in-form .log-in-controls {
+        text-align: center; }
+        #home .log-in-div .log-in-form .log-in-controls .log-in-btn {
+          display: inline-block;
+          margin: 15px;
+          width: 100px;
+          padding: 10px 0;
+          font-size: 14px;
+          font-weight: bold;
+          text-transform: uppercase;
+          background-color: #ffffff;
+          color: #2ecc71;
+          border: none;
+          transition: all 0.7s; }
+        #home .log-in-div .log-in-form .log-in-controls .log-in-btn:hover {
+          background-color: #00bbf5;
+          color: #ffffff; }
   #home .slider-cont {
     position: relative;
     width: 100%;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 80px);
     background-color: #747474;
     overflow-x: hidden; }
     #home .slider-cont .slider {
       position: relative;
       width: 400%;
-      height: calc(100vh - 100px);
+      height: calc(100vh - 80px);
       text-align: center;
       margin: 0px;
       padding: 0px;
@@ -213,7 +227,7 @@ h1, h2, h3, h4, h5, h6 {
         display: inline-block;
         float: left;
         width: calc(100% / 4);
-        height: calc(100vh - 100px);
+        height: calc(100vh - 80px);
         font-size: 35px;
         background-repeat: no-repeat;
         background-position: center top;
@@ -660,7 +674,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0px 0px 100px 0px;
   width: 100%;
   text-align: center;
-  background-color: #ffffff; }
+  background-color: #f8fcfe; }
   #contact .map-cont {
     padding-left: 0;
     padding-right: 0; }
@@ -673,6 +687,27 @@ h1, h2, h3, h4, h5, h6 {
     @media screen and (min-width: 768px) {
       #contact .map-cont {
         padding-right: 15px; } }
+  #contact .social-btns-cont {
+    padding: 15px 0;
+    text-align: center; }
+    #contact .social-btns-cont a {
+      display: inline-block;
+      border: 5px solid grey;
+      border-radius: 50%;
+      color: grey;
+      margin: 5px;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.7s; }
+      #contact .social-btns-cont a .fa {
+        width: 40px;
+        height: 40px; }
+    #contact .social-btns-cont a:hover {
+      border: 5px solid #00bbf5;
+      color: #00bbf5; }
+    @media screen and (min-width: 768px) {
+      #contact .social-btns-cont {
+        padding: 30px 0; } }
   #contact .form-cont .input-contact-content .inputs-container {
     padding: 40px 0 0 0; }
     @media screen and (min-width: 768px) {
