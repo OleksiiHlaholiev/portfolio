@@ -398,8 +398,7 @@ h1, h2, h3, h4, h5, h6 {
           text-align: center;
           color: #8a8a8a; }
       #home .portfolio .portfolio-gallery .portfolio-gallery-item .portfolio-hover-layer:hover {
-        opacity: 1;
-        border-top: 4px solid #2ecc71; }
+        opacity: 1; }
 
 .extend-item-viewer-cont, #auction .auction-item-viewer-cont, #auction .add-item-viewer-cont {
   display: none;
