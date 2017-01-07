@@ -26,6 +26,8 @@ window.addEventListener('load', function() {
 		sliderBtnRight = document.querySelector(".fa-angle-right"),
 		sliderItems = document.querySelectorAll(".slider-item");
 
+	var portfolioNavigationItems = document.querySelectorAll(".portfolio-navigation > li");
+
 
 	var auctionItemContainers = document.querySelectorAll(".auction-item-cont"),
 		auctionItemViewerCont = document.querySelector(".auction-item-viewer-cont"),
@@ -161,6 +163,68 @@ window.addEventListener('load', function() {
 		);
 	}
 
+	// PORTFOLIO SWITCHES
+
+	function myFadeIn(elementDOM, timeStep){
+		var tempOpacity = 0;
+		var localTimer = setInterval(
+			function() {
+				tempOpacity += 1;
+				if (tempOpacity <= 100) {
+					elementDOM.style.opacity = String(tempOpacity / 100);
+				}
+				else {
+					clearInterval(localTimer);
+				}
+			},
+			timeStep
+		);
+	}
+
+	function changePortfolioGalleryImgsProperties(itemsArray) {
+		for (var i = 0; i < itemsArray.length; i++ ) {
+			itemsArray[i].style.display = "inline-block";
+			itemsArray[i].style.opacity = "0";
+			myFadeIn(itemsArray[i], 5);
+		}
+	}
+
+	function portfolioNavigationHandler(event){
+		if (!event.target.classList.contains("active-category")) {
+			var prevActiveItem = document.querySelector(".active-category"),
+				portfolioGalleryImgs = document.querySelectorAll(".portfolio-gallery-item");
+
+			prevActiveItem.classList.remove("active-category");
+			this.classList.add("active-category");
+
+			// disable all first, then will turn on
+			for (var i = 0; i < portfolioGalleryImgs.length; i++) {
+				portfolioGalleryImgs[i].style.display = "none";
+			}
+			// now determine what to turn on
+			if (this.classList.contains("portfolio-all")) {
+				portfolioGalleryImgs = document.querySelectorAll(".portfolio-gallery-item");
+				changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
+			}
+			else if (this.classList.contains("portfolio-auto")) {
+				portfolioGalleryImgs = document.querySelectorAll(".auto-img");
+				changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
+			}
+			else if (this.classList.contains("portfolio-moto")) {
+				portfolioGalleryImgs = document.querySelectorAll(".moto-img");
+				changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
+			}
+			else if (this.classList.contains("portfolio-boat")) {
+				portfolioGalleryImgs = document.querySelectorAll(".boat-img");
+				changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
+			}
+			else if (this.classList.contains("portfolio-painting")) {
+				portfolioGalleryImgs = document.querySelectorAll(".painting-img");
+				changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
+			}
+		}
+	}
+
 
 	// ****************************************************************
 	// Disable scroll zooming and bind back the click event
@@ -211,6 +275,10 @@ window.addEventListener('load', function() {
 
 	sliderBtnLeft.addEventListener('click', sliderBtnLeftHandler);
 	sliderBtnRight.addEventListener('click', sliderBtnRightHandler);
+
+	for (i = 0; i < portfolioNavigationItems.length; i++) {
+		portfolioNavigationItems[i].addEventListener('click', portfolioNavigationHandler);
+	}
 
 	for (i = 0; i < auctionItemContainers.length; i++) {
 		auctionItemContainers[i].addEventListener('click', auctionItemContainersHandler)
