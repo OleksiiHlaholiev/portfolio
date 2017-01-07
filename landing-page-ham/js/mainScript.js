@@ -394,6 +394,30 @@ window.addEventListener('load', function() {
                 sliderItems[i].style.left = temp;
             }
 
+            // try to catch slider bug !!!
+            /*try {
+                if ( sliderItems[0].style.left == sliderItems[1].style.left ||
+                    sliderItems[0].style.left == sliderItems[2].style.left ||
+                    sliderItems[1].style.left == sliderItems[2].style.left
+                ) {
+                    alert ("This is slider bug!!!");
+                }
+            } catch (error) {
+				// do smth
+				alert ("This is slider bug 2!!!");
+			}*/
+
+			// try to fix slider bug !!!
+			if ( sliderItems[0].style.left == sliderItems[1].style.left ||
+				sliderItems[0].style.left == sliderItems[2].style.left ||
+				sliderItems[1].style.left == sliderItems[2].style.left ) {
+				// set initial positions
+				// alert("This is slider bug!!!");
+				sliderItems[0].style.left = "-25%";
+				sliderItems[1].style.left = "0%";
+				sliderItems[2].style.left = "25%";
+			}
+
             localSliderProtectTimer = setTimeout(
                 function () {
                     sliderBusyFlag = false;
@@ -483,10 +507,16 @@ window.addEventListener('load', function() {
             prevActiveService.classList.remove("active-service-item");
             event.target.classList.add("active-service-item");
             prevActiveServiceCont.classList.remove("active-service-item-cont");
-            serviceItemContainers[+event.target.dataset.serviceNumber].classList.add("active-service-item-cont");
+            // serviceItemContainers[+event.target.dataset.serviceNumber].classList.add("active-service-item-cont");
+			//
+            // serviceItemContainers[+event.target.dataset.serviceNumber].style.opacity = "0";
+            // myFadeIn(serviceItemContainers[+event.target.dataset.serviceNumber], 7);
 
-            serviceItemContainers[+event.target.dataset.serviceNumber].style.opacity = "0";
-            myFadeIn(serviceItemContainers[+event.target.dataset.serviceNumber], 7);
+			// !!! USE getAttribute (cross-browser) INSTEAD dataset !!!
+			serviceItemContainers[+event.target.getAttribute("data-service-number")].classList.add("active-service-item-cont");
+
+			serviceItemContainers[+event.target.getAttribute("data-service-number")].style.opacity = "0";
+			myFadeIn(serviceItemContainers[+event.target.getAttribute("data-service-number")], 7);
         }
 
     }
