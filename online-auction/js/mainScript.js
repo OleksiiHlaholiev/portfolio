@@ -19,7 +19,10 @@ window.addEventListener('load', function() {
 		SLIDER_AUTO_DELAY = 3000,
 		SLIDER_USER_TIMEOUT = 2000,
 		sliderBusyFlag = false,
-		userActiveControlFlag = false;
+		userActiveControlFlag = false,
+		inputNameStatus = false,
+		inputEmailStatus = false,
+		inputTextStatus = false;
 
 	var slider = document.querySelector(".slider"),
 		sliderBtnLeft = document.querySelector(".fa-angle-left"),
@@ -35,6 +38,12 @@ window.addEventListener('load', function() {
 		addNewLotBtn = document.querySelector(".add-new-lot"),
 		addItemViewerContainer = document.querySelector(".add-item-viewer-cont"),
 		closeAddItemViewerBtn = document.querySelector(".add-item-viewer .close-btn");
+
+	var inputName = document.querySelector(".inputs-container .input-name"),
+		inputEmail = document.querySelector(".input-email"),
+		inputText = document.querySelector(".input-text"),
+		inputSubmitBtn = document.querySelector(".submit-btn"),
+		inputContactContent = document.querySelector(".input-contact-content");
 
 	// initial call
 	var launchAutoSliderTimer = setTimeout(
@@ -86,7 +95,7 @@ window.addEventListener('load', function() {
 				sliderItems[i].style.left = temp;
 			}
 
-			// try to catch slider bug !!!
+			// try to fix slider bug !!!
 			if ( sliderItems[0].style.left == sliderItems[1].style.left ||
 				sliderItems[0].style.left == sliderItems[2].style.left ||
 				sliderItems[1].style.left == sliderItems[2].style.left ) {
@@ -269,6 +278,88 @@ window.addEventListener('load', function() {
 		event.stopPropagation(); // to avoid inherit click events
 	}
 
+	// ************************************************************************************
+	function isFormValidate(inputButton, status1, status2, status3) {
+		if (status1 && status2 && status3) {
+			inputButton.removeAttribute("disabled");
+		}
+		else {
+			inputButton.setAttribute("disabled", "disabled");
+			// alert("Input is INCORRECT! Please, check the input fields!");
+		}
+	}
+
+	function inputNameHandler() {
+		if (!inputName.value.length) {
+			inputNameStatus = false;
+			inputName.nextElementSibling.style.display = "block";
+			inputName.nextElementSibling.innerText = "No data entered !"
+		}
+		else {
+			// if ( (/[a-zA-Z]/.test(inputName.value[inputName.value.length - 1])) )
+			if ( (/[a-zA-Z]/.test(inputName.value)) ) {
+				inputNameStatus = true;
+				inputName.nextElementSibling.style.display = "none";
+			}
+			else {
+				inputNameStatus = false;
+				inputName.nextElementSibling.style.display = "block";
+				inputName.nextElementSibling.innerText = "Invalid character(s), only English letters !"
+			}
+		}
+		isFormValidate(inputSubmitBtn, inputNameStatus, inputEmailStatus, inputTextStatus);
+	}
+
+	function inputEmailHandler() {
+		if (!inputEmail.value.length) {
+			inputEmailStatus = false;
+			inputEmail.nextElementSibling.style.display = "block";
+			inputEmail.nextElementSibling.innerText = "No email entered !"
+		}
+		else {
+			if ( (/^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/.test(inputEmail.value)) ) {
+				inputEmailStatus = true;
+				inputEmail.nextElementSibling.style.display = "none";
+			}
+			else {
+				inputEmailStatus = false;
+				inputEmail.nextElementSibling.style.display = "block";
+				inputEmail.nextElementSibling.innerText = "Incorrect input of email !"
+			}
+			isFormValidate(inputSubmitBtn, inputNameStatus, inputEmailStatus, inputTextStatus);
+		}
+	}
+
+	function inputTextHandler() {
+		if (!inputText.value.length) {
+			inputTextStatus = false;
+			inputText.nextElementSibling.style.display = "block";
+			inputText.nextElementSibling.innerText = "No text entered !"
+		}
+		else {
+			if ( inputText.value.length >= 20 ) {
+				inputTextStatus = true;
+				inputText.nextElementSibling.style.display = "none";
+			}
+			else {
+				inputTextStatus = false;
+				inputText.nextElementSibling.style.display = "block";
+				inputText.nextElementSibling.innerText = "Too short message (minimum 20 characters) !"
+			}
+		}
+		isFormValidate(inputSubmitBtn, inputNameStatus, inputEmailStatus, inputTextStatus);
+	}
+
+	function inputSubmitBtnHandler(event) {
+		event.preventDefault();
+		alert("The data will be sent to the server !");
+
+		inputContactContent.reset();
+		inputNameStatus = inputEmailStatus = inputTextStatus = false;
+		inputSubmitBtn.setAttribute("disabled", "disabled");
+
+	}
+	// ************************************************************************************
 
 	// ***************** REGISTER EVENT HANDLERS *******************
 	var i;
@@ -287,6 +378,11 @@ window.addEventListener('load', function() {
 	closeAuctionViewerBtn.addEventListener('click', closeAuctionViewerBtnHandler);
 	addNewLotBtn.addEventListener('click', addNewLotBtnHandler);
 	closeAddItemViewerBtn.addEventListener('click', closeAddItemViewerBtnHandler);
+
+	inputName.addEventListener('keyup', inputNameHandler);
+	inputEmail.addEventListener('keyup', inputEmailHandler);
+	inputText.addEventListener('keyup', inputTextHandler);
+	inputSubmitBtn.addEventListener('click', inputSubmitBtnHandler);
 
 
 	// Enable map zooming with mouse scroll when the user clicks the map
