@@ -203,6 +203,7 @@ h1, h2, h3, h4, h5, h6 {
           background-color: #ffffff;
           color: #2ecc71;
           border: none;
+          outline: none;
           transition: all 0.7s; }
         #home .log-in-div .log-in-form .log-in-controls .log-in-btn:hover {
           background-color: #00bbf5;
@@ -328,7 +329,8 @@ h1, h2, h3, h4, h5, h6 {
   #home .portfolio .portfolio-navigation {
     display: block;
     text-align: center;
-    padding: 70px 0 0 0;
+    padding: 50px 0 0 0;
+    margin: 0;
     width: 100%;
     height: 100%;
     /*one hint!*/
