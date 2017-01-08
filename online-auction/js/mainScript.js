@@ -22,9 +22,22 @@ $(function() {
 		SLIDER_USER_TIMEOUT = 2000,
 		sliderBusyFlag = false,
 		userActiveControlFlag = false,
+		busyFlag = false,
 		inputNameStatus = false,
 		inputEmailStatus = false,
 		inputTextStatus = false;
+
+	var sectionHeader = document.getElementById("header"),
+		sectionHome = document.getElementById("home"),
+		sectionAuction = document.getElementById("auction"),
+		sectionContact = document.getElementById("contact"),
+		sectionFooter = document.getElementById("footer");
+
+	var siteNavigation = document.querySelector(".site-navigation"),
+		siteNavigationItems = document.querySelectorAll(".site-navigation > ul > li > a"),
+		dropdownList = document.querySelector(".site-navigation > ul > li .dropdown-list"),
+		dropdownListItems = document.querySelectorAll(".site-navigation > ul > li .dropdown-list a"),
+		faBars = document.querySelector("#header .fa-bars");
 
 	var slider = document.querySelector(".slider"),
 		sliderBtnLeft = document.querySelector(".fa-angle-left"),
@@ -49,6 +62,10 @@ $(function() {
 
 	// *********************************************************************
 
+	// --------------------------- MAIN CODE --------------------------------------
+
+	scrollWindowHandler(); // initial call!!!
+
 	// initial call
 	var launchAutoSliderTimer = setTimeout(
 		function readyGo() {
@@ -60,6 +77,33 @@ $(function() {
     // ****************************************************************
 
 	// ************************* FUNCTIONS ***************************
+
+	function scrollFunc(startPos, stopPos, step) {
+		var epsilon = 0.1,
+			step_ms = 10,
+			deltaScroll = (stopPos - startPos) / step;
+
+		if (Math.abs(deltaScroll) > epsilon) {
+			scrollFuncTimer = setInterval(
+				function () {
+					// document.body.scrollTop
+					if (deltaScroll == 0 ||
+						(deltaScroll > 0 && pageYOffset >= stopPos) ||
+						(deltaScroll < 0 && pageYOffset <= stopPos)) {
+						clearInterval(scrollFuncTimer);
+						busyFlag = false;
+					} else {
+						scrollBy(0, deltaScroll);
+					}
+				},
+				step_ms
+			);
+		}
+		else {
+			busyFlag = false;
+		}
+	}
+
 	function sliderRotate(direction) {
 		if (!sliderBusyFlag) {
 			sliderBusyFlag = true;
@@ -154,6 +198,61 @@ $(function() {
 	// ****************************************************************
 
 	// **********************  EVENT HANDLERS *************************
+
+	function activeSectionHandler(event){
+		event.preventDefault();
+		if (!busyFlag) {
+			var prevActiveItem = document.querySelector(".active-section"),
+				stopPos = sectionHome.offsetTop;
+
+			busyFlag = true;
+			prevActiveItem.classList.remove("active-section");
+			this.classList.add("active-section");
+			this.style.textDecoration = "none";
+			// event.target.classList.add("active-section");
+			// this.style.textDecoration = "none";
+
+			if (window.innerWidth < 768) {
+				$(siteNavigation).slideToggle("fast");
+			}
+
+			switch (this.getAttribute("href")) {
+				case "#home":
+					stopPos = sectionHome.offsetTop;
+					break;
+				case "#auction":
+					stopPos = sectionAuction.offsetTop;
+					break;
+				case "#contact":
+					stopPos = sectionContact.offsetTop;
+					break;
+				default:
+					stopPos = sectionHome.offsetTop;
+					break;
+			}
+			// The pageYOffset property is an alias for the scrollY property:
+			// window.pageYOffset == window.scrollY; // always true
+			// For cross-browser compatibility, use window.pageYOffset instead of window.scrollY.
+			// Additionally, older versions of Internet Explorer (< 9) do not support either property
+			if (stopPos == sectionHome.offsetTop) {
+				scrollFunc(
+					pageYOffset,
+					stopPos,
+					SCROLL_STEP
+				);
+			} else {
+				scrollFunc(
+					pageYOffset,
+					stopPos - sectionHeader.clientHeight,
+					SCROLL_STEP
+				);
+			}
+		}
+	}
+
+	function faBarsHandler() {
+		$(siteNavigation).slideToggle("slow");
+	}
 
 	function sliderBtnLeftHandler() {
 		userActiveControlFlag = true;
@@ -337,10 +436,50 @@ $(function() {
 		inputSubmitBtn.setAttribute("disabled", "disabled");
 
 	}
+
+	function scrollWindowHandler(event) {
+		// alert("Scroll!!!");
+
+		// this.style.textDecoration = "none";
+		// document.documentElement.scrollTop - Mozilla works, Chrome - NO
+		// document.body.scrollTop - Mozilla - NO, Chrome - Yes
+		var prevActiveItem = document.querySelector(".active-section"),
+			tempOffset = 2 * sectionHeader.clientHeight,
+			currentPosition = document.body.scrollTop ?
+				(document.body.scrollTop + tempOffset) :
+				(document.documentElement.scrollTop + tempOffset);
+
+		if ( (currentPosition > sectionHome.offsetTop) &&
+			(currentPosition < sectionHome.offsetTop + sectionHome.offsetHeight) ) {
+			prevActiveItem.classList.remove("active-section");
+			siteNavigationItems[0].classList.add("active-section");
+		} else if ( (currentPosition > sectionAuction.offsetTop) &&
+					(currentPosition < sectionAuction.offsetTop + sectionAuction.offsetHeight) ) {
+			prevActiveItem.classList.remove("active-section");
+			siteNavigationItems[1].classList.add("active-section");
+		} else if ( (currentPosition > sectionContact.offsetTop)  ) {
+			prevActiveItem.classList.remove("active-section");
+			siteNavigationItems[2].classList.add("active-section");
+		}
+
+	}
+
+	function resizeWindowHandler() {
+		if (window.innerWidth >= 768) {
+			siteNavigation.style.display = "block";
+		} else {
+			siteNavigation.style.display = "none";
+		}
+	}
 	// ************************************************************************************
 
 	// ***************** REGISTER EVENT HANDLERS *******************
 	var i;
+
+	for (var i = 0; i < siteNavigationItems.length; i++ ) {
+		siteNavigationItems[i].addEventListener('click', activeSectionHandler);
+ 	}
+	faBars.addEventListener('click', faBarsHandler);
 
 	sliderBtnLeft.addEventListener('click', sliderBtnLeftHandler);
 	sliderBtnRight.addEventListener('click', sliderBtnRightHandler);
@@ -362,9 +501,11 @@ $(function() {
 	inputText.addEventListener('keyup', inputTextHandler);
 	inputSubmitBtn.addEventListener('click', inputSubmitBtnHandler);
 
-
 	// Enable map zooming with mouse scroll when the user clicks the map
-	$('.map-cont')[0].addEventListener('click', onMapClickHandler);
+	$('.map-cont')[0].click(onMapClickHandler);
+
+	window.addEventListener('scroll', scrollWindowHandler);
+	window.addEventListener('resize', resizeWindowHandler);
 
 	<!--PRELOADER !!!-->
 	/*setTimeout(function() {

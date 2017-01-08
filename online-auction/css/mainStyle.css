@@ -87,7 +87,7 @@ h1, h2, h3, h4, h5, h6 {
     #header .fa-bars {
       display: none; } }
   #header .site-navigation {
-    display: block; }
+    display: none; }
     #header .site-navigation ul {
       margin: 0;
       padding: 0;
@@ -97,6 +97,7 @@ h1, h2, h3, h4, h5, h6 {
       font-size: 0px; }
       #header .site-navigation ul li {
         display: block;
+        position: relative;
         padding: 5px 30px;
         text-align: center; }
         #header .site-navigation ul li a {
@@ -106,12 +107,28 @@ h1, h2, h3, h4, h5, h6 {
           text-decoration: none;
           text-transform: uppercase;
           color: grey; }
-        #header .site-navigation ul li .active-section {
+        #header .site-navigation ul li a:hover, #header .site-navigation ul li .active-section {
           color: #2ecc71; }
-        #header .site-navigation ul li a:hover {
-          color: #2ecc71; }
+        #header .site-navigation ul li .dropdown-list {
+          display: block;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          right: 100%;
+          background-color: #d2edf5; }
+          #header .site-navigation ul li .dropdown-list li {
+            display: block;
+            border: none; }
+            #header .site-navigation ul li .dropdown-list li a {
+              text-transform: capitalize;
+              font-size: 16px;
+              padding-top: 5px;
+              padding-bottom: 5px; }
+            #header .site-navigation ul li .dropdown-list li a:hover, #header .site-navigation ul li .dropdown-list li .active-sub-menu {
+              color: #fd0200; }
   @media screen and (min-width: 768px) {
     #header .site-navigation {
+      display: block;
       margin: 26.5px 0;
       text-align: center; }
       #header .site-navigation ul {
@@ -131,10 +148,12 @@ h1, h2, h3, h4, h5, h6 {
             font-size: 18px;
             color: grey;
             transition: all 0.7s; }
-          #header .site-navigation ul li a:hover {
+          #header .site-navigation ul li a:hover, #header .site-navigation ul li .active-section {
             color: #2ecc71; }
-          #header .site-navigation ul li .active-section {
-            color: #2ecc71; }
+          #header .site-navigation ul li .dropdown-list {
+            width: 100%;
+            top: 100%;
+            left: 0; }
         #header .site-navigation ul li:first-child {
           padding-left: 0; }
         #header .site-navigation ul li:last-child {
@@ -438,7 +457,8 @@ h1, h2, h3, h4, h5, h6 {
   height: 90%;
   background-color: #f9ebeb;
   border: 2px solid grey;
-  border-radius: 15px; }
+  border-radius: 15px;
+  overflow-y: auto; }
 
 .extend-close-btn, #auction .auction-item-viewer-cont .auction-item-viewer .close-btn, #auction .add-item-viewer-cont .add-item-viewer .close-btn {
   position: absolute;

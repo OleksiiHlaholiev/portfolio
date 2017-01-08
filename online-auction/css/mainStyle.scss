@@ -125,7 +125,7 @@ h1, h2, h3, h4, h5, h6 {
 	}
 	// ************** mobile view of navigation ***************
 	.site-navigation {
-		display: block;
+		display: none;
 
 		ul {
 			margin: 0;
@@ -137,6 +137,7 @@ h1, h2, h3, h4, h5, h6 {
 			font-size: 0px;
 			li {
 				display: block;
+				position: relative;
 				padding: 5px 30px;
 				text-align: center;
 				a {
@@ -149,12 +150,32 @@ h1, h2, h3, h4, h5, h6 {
 					text-transform: uppercase;
 					color: $color_grey;
 				}
-				.active-section {
+				a:hover, .active-section {
 					color: $color_green_light;
 				}
 
-				a:hover {
-					color: $color_green_light;
+				.dropdown-list {
+					display: block;
+					width: 100%;
+					position: absolute;
+					top: 0;
+					right: 100%;
+					background-color: #d2edf5;
+
+					li {
+						display: block;
+						border: none;
+
+						a {
+							text-transform: capitalize;
+							font-size: 16px;
+							padding-top: 5px;
+							padding-bottom: 5px;
+						}
+						a:hover, .active-sub-menu {
+							color: #fd0200;
+						}
+					}
 				}
 			}
 		}
@@ -164,6 +185,7 @@ h1, h2, h3, h4, h5, h6 {
 	// ************** desktop view of navigation ***************
 	@media screen and (min-width: 768px) {
 		.site-navigation {
+			display: block;
 			margin: 26.5px 0;
 			text-align: center;
 			ul {
@@ -189,12 +211,16 @@ h1, h2, h3, h4, h5, h6 {
 						//	font-size: 18px;
 						//}
 					}
-					a:hover {
+					a:hover, .active-section {
 						color: $color_green_light;
 					}
-					.active-section {
-						color: $color_green_light;
+
+					.dropdown-list {
+						width: 100%;
+						top: 100%;
+						left: 0;
 					}
+
 				}
 				li:first-child {
 					padding-left: 0;
@@ -623,6 +649,7 @@ h1, h2, h3, h4, h5, h6 {
 	background-color: #f9ebeb;
 	border: 2px solid $color_grey;
 	border-radius: 15px;
+	overflow-y: auto;
 }
 
 .extend-close-btn {
