@@ -34,9 +34,10 @@ $(function() {
 		sectionFooter = document.getElementById("footer");
 
 	var siteNavigation = document.querySelector(".site-navigation"),
-		siteNavigationItems = document.querySelectorAll(".site-navigation > ul > li > a"),
-		dropdownList = document.querySelector(".site-navigation > ul > li .dropdown-list"),
-		dropdownListItems = document.querySelectorAll(".site-navigation > ul > li .dropdown-list a"),
+		siteNavigationItems = document.querySelectorAll(".site-navigation .main-list > li > a"),
+		dropdownListCont = document.querySelector(".site-navigation .main-list .dropdown-list-cont"),
+		dropdownList = document.querySelector(".site-navigation .main-list > li .dropdown-list"),
+		dropdownListItems = document.querySelectorAll(".site-navigation .main-list > li .dropdown-list a"),
 		faBars = document.querySelector("#header .fa-bars");
 
 	var slider = document.querySelector(".slider"),
@@ -254,6 +255,14 @@ $(function() {
 		$(siteNavigation).slideToggle("slow");
 	}
 
+	function dropdownListContOverHandler() {
+		$(this.querySelector(".dropdown-list")).slideDown("slow");
+	}
+
+	function dropdownListContLeaveHandler() {
+		$(this.querySelector(".dropdown-list")).slideUp("slow");
+	}
+
 	function sliderBtnLeftHandler() {
 		userActiveControlFlag = true;
 		clearTimeout(userTimoutTimer);
@@ -467,8 +476,14 @@ $(function() {
 	function resizeWindowHandler() {
 		if (window.innerWidth >= 768) {
 			siteNavigation.style.display = "block";
+			dropdownListCont.addEventListener("mouseover", dropdownListContOverHandler);
+			dropdownListCont.addEventListener("mouseleave", dropdownListContLeaveHandler);
 		} else {
-			siteNavigation.style.display = "none";
+			// siteNavigation.style.display = "none";
+			dropdownList.style.display = "block";
+			dropdownListCont.removeEventListener("mouseover", dropdownListContOverHandler);
+			dropdownListCont.removeEventListener("mouseleave", dropdownListContLeaveHandler);
+
 		}
 	}
 	// ************************************************************************************
@@ -480,6 +495,12 @@ $(function() {
 		siteNavigationItems[i].addEventListener('click', activeSectionHandler);
  	}
 	faBars.addEventListener('click', faBarsHandler);
+
+	if (window.innerWidth >= 768) {
+		dropdownListCont.addEventListener("mouseover", dropdownListContOverHandler);
+		dropdownListCont.addEventListener("mouseleave", dropdownListContLeaveHandler);
+	}
+
 
 	sliderBtnLeft.addEventListener('click', sliderBtnLeftHandler);
 	sliderBtnRight.addEventListener('click', sliderBtnRightHandler);

@@ -126,11 +126,22 @@ h1, h2, h3, h4, h5, h6 {
 	// ************** mobile view of navigation ***************
 	.site-navigation {
 		display: none;
+		position: fixed;
+		z-index: 50;
+		top: $header_height;
+		left: 0;
+		width: 100%;
+		height: calc(100vh - 80px);
+		background-color: #d2edf5;
 
-		ul {
+		//overflow-y: auto;
+		//background: rgba(210, 237, 245, 0.9) url(../images/lot_0.jpg) no-repeat left center;
+		//background-size: contain;
+
+
+		.main-list {
 			margin: 0;
-			padding: 0;
-			float: right;
+			padding: 50px 0 0 20%;
 			//background-color: #44433e;
 			background-color: #d2edf5;
 			/*one hint!*/
@@ -141,14 +152,17 @@ h1, h2, h3, h4, h5, h6 {
 				padding: 5px 30px;
 				text-align: center;
 				a {
-					display: inline-block;
+					display: block;
 					//font-weight: 700;
-					font-size: 16px;
-					//width: 100%;
+					font-size: 24px;
+					width: 100%;
 					height: 100%;
+					padding: 10px 0;
+					//margin: 0 auto;
 					text-decoration: none;
 					text-transform: uppercase;
-					color: $color_grey;
+					text-align: left;
+					color: #000;
 				}
 				a:hover, .active-section {
 					color: $color_green_light;
@@ -157,20 +171,23 @@ h1, h2, h3, h4, h5, h6 {
 				.dropdown-list {
 					display: block;
 					width: 100%;
-					position: absolute;
-					top: 0;
-					right: 100%;
 					background-color: #d2edf5;
+					padding-left: 10px;
+					list-style-type: circle;
+					color: #000;
 
 					li {
 						display: block;
 						border: none;
+						padding-left: 20px;
 
 						a {
+							display: block;
+							width: 100%;
 							text-transform: capitalize;
-							font-size: 16px;
-							padding-top: 5px;
-							padding-bottom: 5px;
+							font-size: 18px;
+							padding-top: 10px;
+							padding-bottom: 10px;
 						}
 						a:hover, .active-sub-menu {
 							color: #fd0200;
@@ -186,16 +203,21 @@ h1, h2, h3, h4, h5, h6 {
 	@media screen and (min-width: 768px) {
 		.site-navigation {
 			display: block;
+			position: relative;
+			top: 0;
+			left: 0;
+			height: 100%;
 			margin: 26.5px 0;
 			text-align: center;
-			ul {
+
+			.main-list {
 				background-color: transparent;
 				padding: 0;
 				margin: 0;
-				float: none;
 				//line-height: $header_height;
 				li {
 					display: inline-block;
+					position: relative;
 					padding: 0;
 					border-right: 1px solid $color_grey;
 					a {
@@ -215,12 +237,26 @@ h1, h2, h3, h4, h5, h6 {
 						color: $color_green_light;
 					}
 
+				}
+				.dropdown-list-cont {
 					.dropdown-list {
+						display: none;
+						position: absolute;
 						width: 100%;
 						top: 100%;
 						left: 0;
-					}
+						padding: 0;
 
+						li {
+							padding: 0;
+							a {
+								padding: 5px 0;
+								margin: 0;
+								text-align: center;
+								font-size: 16px;
+							}
+						}
+					}
 				}
 				li:first-child {
 					padding-left: 0;
