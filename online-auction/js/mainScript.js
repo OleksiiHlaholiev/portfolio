@@ -33,7 +33,8 @@ $(function() {
 		sectionContact = document.getElementById("contact"),
 		sectionFooter = document.getElementById("footer");
 
-	var siteNavigation = document.querySelector(".site-navigation"),
+	var logoButton = document.querySelector(".logo-link"),
+		siteNavigation = document.querySelector(".site-navigation"),
 		siteNavigationItems = document.querySelectorAll(".site-navigation .main-list > li > a"),
 		dropdownListCont = document.querySelector(".site-navigation .main-list .dropdown-list-cont"),
 		dropdownList = document.querySelector(".site-navigation .main-list > li .dropdown-list"),
@@ -47,7 +48,6 @@ $(function() {
 
 	var portfolioNavigationItems = document.querySelectorAll(".portfolio-navigation > li");
 
-
 	var auctionItemContainers = document.querySelectorAll(".auction-item-cont"),
 		auctionItemViewerCont = document.querySelector(".auction-item-viewer-cont"),
 		closeAuctionViewerBtn = document.querySelector(".auction-item-viewer-cont .close-btn"),
@@ -60,6 +60,8 @@ $(function() {
 		inputText = document.querySelector(".input-text"),
 		inputSubmitBtn = document.querySelector(".submit-btn"),
 		inputContactContent = document.querySelector(".input-contact-content");
+
+	var footerButton = document.querySelector(".footer-button");
 
 	// *********************************************************************
 
@@ -199,6 +201,29 @@ $(function() {
 	// ****************************************************************
 
 	// **********************  EVENT HANDLERS *************************
+	function logoButtonHandler(event) {
+		event.preventDefault();
+		if (!busyFlag) {
+			busyFlag = true;
+			scrollFunc(
+				pageYOffset,
+				sectionHome.offsetTop,
+				SCROLL_STEP
+			)
+		}
+	}
+
+	function footerButtonHandler(event) {
+		event.preventDefault();
+		if (!busyFlag) {
+			busyFlag = true;
+			scrollFunc(
+				pageYOffset,
+				sectionHome.offsetTop,
+				SCROLL_STEP
+			)
+		}
+	}
 
 	function activeSectionHandler(event){
 		event.preventDefault();
@@ -476,10 +501,11 @@ $(function() {
 	function resizeWindowHandler() {
 		if (window.innerWidth >= 768) {
 			siteNavigation.style.display = "block";
+			dropdownList.style.display = "none";
 			dropdownListCont.addEventListener("mouseover", dropdownListContOverHandler);
 			dropdownListCont.addEventListener("mouseleave", dropdownListContLeaveHandler);
 		} else {
-			// siteNavigation.style.display = "none";
+			siteNavigation.style.display = "none";
 			dropdownList.style.display = "block";
 			dropdownListCont.removeEventListener("mouseover", dropdownListContOverHandler);
 			dropdownListCont.removeEventListener("mouseleave", dropdownListContLeaveHandler);
@@ -491,16 +517,18 @@ $(function() {
 	// ***************** REGISTER EVENT HANDLERS *******************
 	var i;
 
+	logoButton.addEventListener('click', logoButtonHandler);
+
 	for (var i = 0; i < siteNavigationItems.length; i++ ) {
 		siteNavigationItems[i].addEventListener('click', activeSectionHandler);
  	}
+
 	faBars.addEventListener('click', faBarsHandler);
 
 	if (window.innerWidth >= 768) {
 		dropdownListCont.addEventListener("mouseover", dropdownListContOverHandler);
 		dropdownListCont.addEventListener("mouseleave", dropdownListContLeaveHandler);
 	}
-
 
 	sliderBtnLeft.addEventListener('click', sliderBtnLeftHandler);
 	sliderBtnRight.addEventListener('click', sliderBtnRightHandler);
@@ -524,6 +552,8 @@ $(function() {
 
 	// Enable map zooming with mouse scroll when the user clicks the map
 	$('.map-cont')[0].click(onMapClickHandler);
+
+	footerButton.addEventListener('click', footerButtonHandler);
 
 	window.addEventListener('scroll', scrollWindowHandler);
 	window.addEventListener('resize', resizeWindowHandler);

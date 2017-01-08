@@ -94,11 +94,11 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: calc(100vh - 80px);
-    background-color: #d2edf5; }
+    background: #d2edf5 url(../images/lot_0_modify.png) no-repeat left center;
+    background-size: cover; }
     #header .site-navigation .main-list {
       margin: 0;
       padding: 50px 0 0 20%;
-      background-color: #d2edf5;
       /*one hint!*/
       font-size: 0px; }
       #header .site-navigation .main-list li {
@@ -121,10 +121,7 @@ h1, h2, h3, h4, h5, h6 {
         #header .site-navigation .main-list li .dropdown-list {
           display: block;
           width: 100%;
-          background-color: #d2edf5;
-          padding-left: 10px;
-          list-style-type: circle;
-          color: #000; }
+          padding-left: 10px; }
           #header .site-navigation .main-list li .dropdown-list li {
             display: block;
             border: none;
@@ -146,7 +143,8 @@ h1, h2, h3, h4, h5, h6 {
       left: 0;
       height: 100%;
       margin: 26.5px 0;
-      text-align: center; }
+      text-align: center;
+      background: transparent; }
       #header .site-navigation .main-list {
         background-color: transparent;
         padding: 0;
@@ -172,7 +170,8 @@ h1, h2, h3, h4, h5, h6 {
           width: 100%;
           top: 100%;
           left: 0;
-          padding: 0; }
+          padding: 0;
+          background-color: #d2edf5; }
           #header .site-navigation .main-list .dropdown-list-cont .dropdown-list li {
             padding: 0; }
             #header .site-navigation .main-list .dropdown-list-cont .dropdown-list li a {
