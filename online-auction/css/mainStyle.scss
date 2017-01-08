@@ -161,6 +161,7 @@ h1, h2, h3, h4, h5, h6 {
 					text-transform: uppercase;
 					text-align: left;
 					color: #000;
+					transition: all 0.5s;
 				}
 				a:hover, .active-section {
 					color: $color_green_light;
@@ -176,7 +177,6 @@ h1, h2, h3, h4, h5, h6 {
 						border: none;
 						padding-left: 20px;
 
-
 						a {
 							display: block;
 							width: 100%;
@@ -184,6 +184,7 @@ h1, h2, h3, h4, h5, h6 {
 							font-size: 18px;
 							padding-top: 10px;
 							padding-bottom: 10px;
+							transition: all 0.5s;
 						}
 						a:hover, .active-sub-menu {
 							color: #fd0200;
@@ -224,7 +225,6 @@ h1, h2, h3, h4, h5, h6 {
 						text-transform: uppercase;
 						font-size: 18px;
 						color: $color_grey;
-						transition: all 0.7s;
 
 						//@media screen and (min-width: 400px) {
 						//	font-size: 18px;

@@ -115,7 +115,8 @@ h1, h2, h3, h4, h5, h6 {
           text-decoration: none;
           text-transform: uppercase;
           text-align: left;
-          color: #000; }
+          color: #000;
+          transition: all 0.5s; }
         #header .site-navigation .main-list li a:hover, #header .site-navigation .main-list li .active-section {
           color: #2ecc71; }
         #header .site-navigation .main-list li .dropdown-list {
@@ -132,7 +133,8 @@ h1, h2, h3, h4, h5, h6 {
               text-transform: capitalize;
               font-size: 18px;
               padding-top: 10px;
-              padding-bottom: 10px; }
+              padding-bottom: 10px;
+              transition: all 0.5s; }
             #header .site-navigation .main-list li .dropdown-list li a:hover, #header .site-navigation .main-list li .dropdown-list li .active-sub-menu {
               color: #fd0200; }
   @media screen and (min-width: 768px) {
@@ -160,8 +162,7 @@ h1, h2, h3, h4, h5, h6 {
             text-decoration: none;
             text-transform: uppercase;
             font-size: 18px;
-            color: grey;
-            transition: all 0.7s; }
+            color: grey; }
           #header .site-navigation .main-list li a:hover, #header .site-navigation .main-list li .active-section {
             color: #2ecc71; }
         #header .site-navigation .main-list .dropdown-list-cont .dropdown-list {
