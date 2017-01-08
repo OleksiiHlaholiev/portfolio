@@ -1,6 +1,7 @@
 'use strict';
 
 // **** polyfills for IE
+
 /*if (!('remove' in Element.prototype)) {
     Element.prototype.remove = function() {
         if (this.parentNode) {
@@ -10,8 +11,9 @@
 }*/
 // ****************************************
 
-window.addEventListener('load', function() {
-
+// window.addEventListener('load', function() {
+$(function() {
+	// ******************** GLOBAL VARIABLES ****************************
 	var SCROLL_STEP = 100,
 		scrollFuncTimer,
 		userTimoutTimer,
@@ -45,6 +47,8 @@ window.addEventListener('load', function() {
 		inputSubmitBtn = document.querySelector(".submit-btn"),
 		inputContactContent = document.querySelector(".input-contact-content");
 
+	// *********************************************************************
+
 	// initial call
 	var launchAutoSliderTimer = setTimeout(
 		function readyGo() {
@@ -53,10 +57,9 @@ window.addEventListener('load', function() {
 		},
 		SLIDER_AUTO_DELAY
 	);
-
-
     // ****************************************************************
 
+	// ************************* FUNCTIONS ***************************
 	function sliderRotate(direction) {
 		if (!sliderBusyFlag) {
 			sliderBusyFlag = true;
@@ -116,64 +119,6 @@ window.addEventListener('load', function() {
 		}
 	}
 
-	function sliderBtnLeftHandler() {
-		userActiveControlFlag = true;
-		clearTimeout(userTimoutTimer);
-		clearInterval(launchAutoSliderTimer);
-		sliderRotate("left");
-
-		userTimoutTimer = setTimeout(
-			function () {
-				/*launchAutoSliderTimer = setInterval(
-				 function () {
-				 userActiveControlFlag = false;
-				 sliderRotate("right");
-				 },
-				 SLIDER_AUTO_DELAY
-				 );*/
-				launchAutoSliderTimer = setTimeout(
-					function readyGo() {
-						userActiveControlFlag = false;
-						sliderRotate("right");
-						launchAutoSliderTimer = setTimeout(readyGo, SLIDER_AUTO_DELAY);
-					},
-					SLIDER_AUTO_DELAY
-				);
-			},
-			SLIDER_USER_TIMEOUT
-		);
-	}
-
-	function sliderBtnRightHandler() {
-		userActiveControlFlag = true;
-		clearTimeout(userTimoutTimer);
-		clearInterval(launchAutoSliderTimer);
-		sliderRotate("right");
-
-		userTimoutTimer = setTimeout(
-			function () {
-				/*launchAutoSliderTimer = setInterval(
-				 function () {
-				 userActiveControlFlag = false;
-				 sliderRotate("right");
-				 },
-				 SLIDER_AUTO_DELAY
-				 );*/
-				launchAutoSliderTimer = setTimeout(
-					function readyGo() {
-						userActiveControlFlag = false;
-						sliderRotate("right");
-						launchAutoSliderTimer = setTimeout(readyGo, SLIDER_AUTO_DELAY);
-					},
-					SLIDER_AUTO_DELAY
-				);
-			},
-			SLIDER_USER_TIMEOUT
-		);
-	}
-
-	// PORTFOLIO SWITCHES
-
 	function myFadeIn(elementDOM, timeStep){
 		var tempOpacity = 0;
 		var localTimer = setInterval(
@@ -196,6 +141,62 @@ window.addEventListener('load', function() {
 			itemsArray[i].style.opacity = "0";
 			myFadeIn(itemsArray[i], 5);
 		}
+	}
+
+	function isFormValidate(inputButton, status1, status2, status3) {
+		if (status1 && status2 && status3) {
+			inputButton.removeAttribute("disabled");
+		}
+		else {
+			inputButton.setAttribute("disabled", "disabled");
+			// alert("Input is INCORRECT! Please, check the input fields!");
+		}
+	}
+
+	// ****************************************************************
+
+	// **********************  EVENT HANDLERS *************************
+
+	function sliderBtnLeftHandler() {
+		userActiveControlFlag = true;
+		clearTimeout(userTimoutTimer);
+		clearInterval(launchAutoSliderTimer);
+		sliderRotate("left");
+
+		userTimoutTimer = setTimeout(
+			function () {
+				launchAutoSliderTimer = setTimeout(
+					function readyGo() {
+						userActiveControlFlag = false;
+						sliderRotate("right");
+						launchAutoSliderTimer = setTimeout(readyGo, SLIDER_AUTO_DELAY);
+					},
+					SLIDER_AUTO_DELAY
+				);
+			},
+			SLIDER_USER_TIMEOUT
+		);
+	}
+
+	function sliderBtnRightHandler() {
+		userActiveControlFlag = true;
+		clearTimeout(userTimoutTimer);
+		clearInterval(launchAutoSliderTimer);
+		sliderRotate("right");
+
+		userTimoutTimer = setTimeout(
+			function () {
+				launchAutoSliderTimer = setTimeout(
+					function readyGo() {
+						userActiveControlFlag = false;
+						sliderRotate("right");
+						launchAutoSliderTimer = setTimeout(readyGo, SLIDER_AUTO_DELAY);
+					},
+					SLIDER_AUTO_DELAY
+				);
+			},
+			SLIDER_USER_TIMEOUT
+		);
 	}
 
 	function portfolioNavigationHandler(event){
@@ -234,6 +235,23 @@ window.addEventListener('load', function() {
 		}
 	}
 
+	function auctionItemContainersHandler() {
+		auctionItemViewerCont.style.display = "block";
+	}
+
+	function closeAuctionViewerBtnHandler (event) {
+		auctionItemViewerCont.style.display = "none";
+		event.stopPropagation(); // to avoid inherit click events
+	}
+
+	function addNewLotBtnHandler() {
+		addItemViewerContainer.style.display = "block";
+	}
+
+	function closeAddItemViewerBtnHandler (event) {
+		addItemViewerContainer.style.display = "none";
+		event.stopPropagation(); // to avoid inherit click events
+	}
 
 	// ****************************************************************
 	// Disable scroll zooming and bind back the click event
@@ -257,37 +275,7 @@ window.addEventListener('load', function() {
 		// Handle the mouse leave event
 		that.addEventListener('mouseleave', onMapMouseleaveHandler);
 	}
-
-	// *****************  EVENT HANDLERS *******************
-
-	function auctionItemContainersHandler() {
-		auctionItemViewerCont.style.display = "block";
-	}
-
-	function closeAuctionViewerBtnHandler (event) {
-		auctionItemViewerCont.style.display = "none";
-		event.stopPropagation(); // to avoid inherit click events
-	}
-
-	function addNewLotBtnHandler() {
-		addItemViewerContainer.style.display = "block";
-	}
-
-	function closeAddItemViewerBtnHandler (event) {
-		addItemViewerContainer.style.display = "none";
-		event.stopPropagation(); // to avoid inherit click events
-	}
-
-	// ************************************************************************************
-	function isFormValidate(inputButton, status1, status2, status3) {
-		if (status1 && status2 && status3) {
-			inputButton.removeAttribute("disabled");
-		}
-		else {
-			inputButton.setAttribute("disabled", "disabled");
-			// alert("Input is INCORRECT! Please, check the input fields!");
-		}
-	}
+	// ****************************************************************
 
 	function inputNameHandler() {
 		if (!inputName.value.length) {

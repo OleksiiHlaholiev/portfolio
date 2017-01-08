@@ -17,9 +17,30 @@
     <link rel="stylesheet" href="css/mainStyle.css">
 
 
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <!--&lt;!&ndash;[if lt IE 9]>-->
+    <!--<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>-->
+    <!--<![endif]&ndash;&gt;-->
+
+    <!--ES5-shim: library with polyfills for IE-->
+    <!--<script src = "js_libraries/es5-shim.js"></script>-->
+    <!--<script src = "js_libraries/es5-sham.js"></script>-->
+
+    <!--*************** html5 elements ******************-->
+    <!--&lt;!&ndash;[if lt IE 9]>-->
+    <!--<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>-->
+    <!--<![endif]&ndash;&gt;-->
+
+    <!-- ************ media queries *********************-->
+    <!--&lt;!&ndash;[if lt IE 9]>-->
+    <!--<script src="js_libraries/respond_mediaqueries.js"></script>-->
+    <!--<![endif]&ndash;&gt;-->
+
+    <!--[if lt IE 10]>
+    <script src="js_libraries/placeholders.min.js"></script>
+    <script src="js_libraries/classList_polyfill.js"></script>
     <![endif]-->
+
+
 </head>
 <body>
     <header id="header">
@@ -437,10 +458,6 @@
         </div>
     </footer>
     <!-- ********   FOOTER END   ********** -->
-
-    <!--ES5-shim: library with polyfills for IE-->
-    <!--<script src = "js/es5-shim.js"></script>-->
-    <!--<script src = "js/es5-sham.js"></script>-->
 
     <!--include jQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

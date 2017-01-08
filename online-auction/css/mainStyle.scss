@@ -550,7 +550,10 @@ h1, h2, h3, h4, h5, h6 {
 				}
 
 				img {
-					width: 100%;
+					//width: 100%;
+					max-width: 100%;
+					height: auto;
+					width: auto\9; /* ie8 */
 				}
 
 				.portfolio-hover-layer{
@@ -1035,7 +1038,8 @@ h1, h2, h3, h4, h5, h6 {
 			transition: all 0.7s;
 
 			.fa {
-				@extend .verical-align;
+				//@extend .verical-align;
+				padding: 5px 2px;
 				width: 40px;
 				height: 40px;
 			}
