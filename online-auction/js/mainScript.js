@@ -126,8 +126,7 @@ $(function() {
 				tempOpacity += 1;
 				if (tempOpacity <= 100) {
 					elementDOM.style.opacity = String(tempOpacity / 100);
-				}
-				else {
+				} else {
 					clearInterval(localTimer);
 				}
 			},
@@ -146,8 +145,7 @@ $(function() {
 	function isFormValidate(inputButton, status1, status2, status3) {
 		if (status1 && status2 && status3) {
 			inputButton.removeAttribute("disabled");
-		}
-		else {
+		} else {
 			inputButton.setAttribute("disabled", "disabled");
 			// alert("Input is INCORRECT! Please, check the input fields!");
 		}
@@ -215,20 +213,16 @@ $(function() {
 			if (this.classList.contains("portfolio-all")) {
 				portfolioGalleryImgs = document.querySelectorAll(".portfolio-gallery-item");
 				changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
-			}
-			else if (this.classList.contains("portfolio-auto")) {
+			} else if (this.classList.contains("portfolio-auto")) {
 				portfolioGalleryImgs = document.querySelectorAll(".auto-img");
 				changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
-			}
-			else if (this.classList.contains("portfolio-moto")) {
+			} else if (this.classList.contains("portfolio-moto")) {
 				portfolioGalleryImgs = document.querySelectorAll(".moto-img");
 				changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
-			}
-			else if (this.classList.contains("portfolio-boat")) {
+			} else if (this.classList.contains("portfolio-boat")) {
 				portfolioGalleryImgs = document.querySelectorAll(".boat-img");
 				changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
-			}
-			else if (this.classList.contains("portfolio-painting")) {
+			} else if (this.classList.contains("portfolio-painting")) {
 				portfolioGalleryImgs = document.querySelectorAll(".painting-img");
 				changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
 			}
@@ -288,8 +282,7 @@ $(function() {
 			if ( (/[a-zA-Z]/.test(inputName.value)) ) {
 				inputNameStatus = true;
 				inputName.nextElementSibling.style.display = "none";
-			}
-			else {
+			} else {
 				inputNameStatus = false;
 				inputName.nextElementSibling.style.display = "block";
 				inputName.nextElementSibling.innerText = "Invalid character(s), only English letters !"
@@ -303,13 +296,11 @@ $(function() {
 			inputEmailStatus = false;
 			inputEmail.nextElementSibling.style.display = "block";
 			inputEmail.nextElementSibling.innerText = "No email entered !"
-		}
-		else {
+		} else {
 			if ( (/^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/.test(inputEmail.value)) ) {
 				inputEmailStatus = true;
 				inputEmail.nextElementSibling.style.display = "none";
-			}
-			else {
+			} else {
 				inputEmailStatus = false;
 				inputEmail.nextElementSibling.style.display = "block";
 				inputEmail.nextElementSibling.innerText = "Incorrect input of email !"
@@ -328,8 +319,7 @@ $(function() {
 			if ( inputText.value.length >= 20 ) {
 				inputTextStatus = true;
 				inputText.nextElementSibling.style.display = "none";
-			}
-			else {
+			} else {
 				inputTextStatus = false;
 				inputText.nextElementSibling.style.display = "block";
 				inputText.nextElementSibling.innerText = "Too short message (minimum 20 characters) !"
