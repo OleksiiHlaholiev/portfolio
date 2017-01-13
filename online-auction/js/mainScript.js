@@ -221,7 +221,6 @@ $(function() {
 			return;
 		if (httpRequest.status != 200)
 			return;
-		// alert(httpRequest.responseText);
 		JsonLotsArray = JSON.parse(httpRequest.responseText);
 
 		viewLots("all", 0);
@@ -251,7 +250,7 @@ $(function() {
 			tempItem.addEventListener('click', auctionItemContainersHandler);
 
 			tempItem.style.opacity = "0";
-			myFadeIn(tempItem, 7);
+			myFadeIn(tempItem, 5);
 
 			auctionLotsContainer.appendChild(tempItem);
 		}
