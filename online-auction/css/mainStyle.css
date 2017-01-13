@@ -402,12 +402,9 @@ h1, h2, h3, h4, h5, h6 {
       @media screen and (min-width: 992px) {
         #home .portfolio .portfolio-navigation li {
           width: calc(100% / 6); } }
-    #home .portfolio .portfolio-navigation li:hover {
+    #home .portfolio .portfolio-navigation li:hover, #home .portfolio .portfolio-navigation .active-portfolio-category {
       color: #00bbf5;
       border-top: 3px solid #00bbf5; }
-    #home .portfolio .portfolio-navigation .active-category {
-      color: #2ecc71;
-      border-top: 3px solid #2ecc71; }
   #home .portfolio .portfolio-gallery {
     width: 100%;
     padding-top: 50px; }
@@ -535,7 +532,7 @@ h1, h2, h3, h4, h5, h6 {
         color: #717171;
         background-color: #fff;
         transition: all 0.7s; }
-      #auction .auction-nav .main-menu li:hover, #auction .auction-nav .main-menu .active-category {
+      #auction .auction-nav .main-menu li:hover, #auction .auction-nav .main-menu .active-auction-category {
         color: #fff;
         background-color: #2ecc71; }
   #auction .auction-container .auction-search {

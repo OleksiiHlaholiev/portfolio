@@ -2,13 +2,13 @@
 
 // **** polyfills for IE
 
-/*if (!('remove' in Element.prototype)) {
+if (!('remove' in Element.prototype)) {
     Element.prototype.remove = function() {
         if (this.parentNode) {
             this.parentNode.removeChild(this);
         }
     };
-}*/
+}
 // ****************************************
 
 // window.addEventListener('load', function() {
@@ -23,6 +23,7 @@ $(function() {
 		sliderBusyFlag = false,
 		userActiveControlFlag = false,
 		busyFlag = false,
+		JsonLotsArray,
 		inputNameStatus = false,
 		inputEmailStatus = false,
 		inputTextStatus = false;
@@ -49,7 +50,9 @@ $(function() {
 
 	var portfolioNavigationItems = document.querySelectorAll(".portfolio-navigation > li");
 
-	var auctionItemContainers = document.querySelectorAll(".auction-item-cont"),
+	var auctionMenuItems = document.querySelectorAll(".auction-nav .main-menu > li"),
+		auctionLotsContainer = document.querySelector(".auction-lots-container"),
+		auctionItemTemplate = document.querySelector(".auction-item-cont").cloneNode(true),
 		auctionItemViewerCont = document.querySelector(".auction-item-viewer-cont"),
 		closeAuctionViewerBtn = document.querySelector(".auction-item-viewer-cont .close-btn"),
 		addNewLotBtn = document.querySelector(".add-new-lot"),
@@ -79,6 +82,10 @@ $(function() {
 		},
 		SLIDER_AUTO_DELAY
 	);
+
+	// remove template container
+	document.querySelector(".auction-item-cont").remove();
+
     // ****************************************************************
 
 	// ************************* FUNCTIONS ***************************
@@ -199,6 +206,96 @@ $(function() {
 		}
 	}
 
+	// ******************** LOAD JSON DATA WITH LOTS **********************
+
+	var httpRequest = new XMLHttpRequest();
+	httpRequest.open("GET", "../online-auction/files/dataAuction.json", true);
+	httpRequest.onreadystatechange = OnRequestStateChange;
+	httpRequest.send(null);
+
+	function OnRequestStateChange()
+	{
+		if (httpRequest.readyState != 4)
+			return;
+		if (httpRequest.status != 200)
+			return;
+		// alert(httpRequest.responseText);
+		JsonLotsArray = JSON.parse(httpRequest.responseText);
+
+		viewLots("all", 100500);
+	}
+	
+	function fillItem(itemObj) {
+		var tempItem = auctionItemTemplate.cloneNode(true);
+
+		tempItem.setAttribute("data-lot-id", itemObj.id);
+		tempItem.querySelector(".auction-img").src = itemObj.srcImage;
+		tempItem.querySelector(".auction-title").innerText = itemObj.title;
+		tempItem.querySelector(".auction-price").innerText = itemObj.price + " $";
+		tempItem.addEventListener('click', auctionItemContainersHandler);
+
+		tempItem.style.opacity = "0";
+		myFadeIn(tempItem, 7);
+
+		auctionLotsContainer.appendChild(tempItem);
+
+	}
+
+	function fillItemViewer(itemObj) {
+		// this function is used in event handler "auctionItemContainersHandler"
+		auctionItemViewerCont.querySelector(".item-img").src = itemObj.srcImage;
+		auctionItemViewerCont.querySelector(".item-id").innerText = itemObj.id;
+		auctionItemViewerCont.querySelector(".item-title").innerText = itemObj.title;
+		auctionItemViewerCont.querySelector(".item-price .value").innerText = itemObj.price + " $";
+		auctionItemViewerCont.querySelector(".item-date-sell .value").innerText = itemObj.timeToSell;
+		auctionItemViewerCont.querySelector(".item-description").innerText = itemObj.description;
+	}
+	
+	function viewLots(category, quantity) {
+		var auctionItems = auctionLotsContainer.querySelectorAll(".auction-item-cont"),
+			i;
+
+		// firstly remove previous items
+		var tempLength = auctionItems.length;
+		if (tempLength) {
+			for (i = 0; i < tempLength; i++) {
+				auctionItems[0].remove();
+			}
+		}
+
+		switch (category) {
+			case "all":
+				for (i = 0; i < JsonLotsArray.length; i++) {
+					fillItem(JsonLotsArray[i]);
+				}
+				break;
+			case "auto":
+				for (i = 0; i < JsonLotsArray.length; i++) {
+					if (JsonLotsArray[i].category == "auto") {
+						fillItem(JsonLotsArray[i]);
+					}
+				}
+				break;
+			case "moto":
+				for (i = 0; i < JsonLotsArray.length; i++) {
+					if (JsonLotsArray[i].category == "moto") {
+						fillItem(JsonLotsArray[i]);
+					}
+				}
+				break;
+			case "painting":
+				for (i = 0; i < JsonLotsArray.length; i++) {
+					if (JsonLotsArray[i].category == "painting") {
+						fillItem(JsonLotsArray[i]);
+					}
+				}
+				break;
+			default:
+				break;
+		}
+
+	}
+
 	// ****************************************************************
 
 	// **********************  EVENT HANDLERS *************************
@@ -275,8 +372,8 @@ $(function() {
 				this.classList.add("active-sub-menu");
 				this.style.textDecoration = "none";
 
-				// dropdownListItems
 				switch (this.getAttribute("href")) {
+					// dropdownListItems
 					case "#auction":
 						stopPos = sectionAuction.offsetTop;
 						break;
@@ -368,12 +465,12 @@ $(function() {
 	}
 
 	function portfolioNavigationHandler(event){
-		if (!event.target.classList.contains("active-category")) {
-			var prevActiveItem = document.querySelector(".active-category"),
+		if (!event.target.classList.contains("active-portfolio-category")) {
+			var prevActiveItem = document.querySelector(".active-portfolio-category"),
 				portfolioGalleryImgs = document.querySelectorAll(".portfolio-gallery-item");
 
-			prevActiveItem.classList.remove("active-category");
-			this.classList.add("active-category");
+			prevActiveItem.classList.remove("active-portfolio-category");
+			this.classList.add("active-portfolio-category");
 
 			// disable all first, then will turn on
 			for (var i = 0; i < portfolioGalleryImgs.length; i++) {
@@ -399,8 +496,44 @@ $(function() {
 		}
 	}
 
+	function auctionMenuHandler() {
+		if (!event.target.classList.contains("active-auction-category")) {
+			var prevActiveItem = document.querySelector(".active-auction-category");
+
+			prevActiveItem.classList.remove("active-auction-category");
+			this.classList.add("active-auction-category");
+
+			// disable all first, then will turn on
+
+			// now determine what to turn on
+			switch (this.getAttribute("data-lot-category")) {
+				case "all":
+					viewLots("all", 1);
+					break;
+				case "auto":
+					viewLots("auto", 1);
+					break;
+				case "moto":
+					viewLots("moto", 1);
+					break;
+				case "boat":
+					viewLots("boat", 1);
+					break;
+				case "painting":
+					viewLots("painting", 1);
+					break;
+				default:
+					viewLots("all", 1);
+					break;
+			}
+		}
+	}
+
 	function auctionItemContainersHandler() {
 		auctionItemViewerCont.style.display = "block";
+
+		// JsonLotsArray[i]
+		fillItemViewer(JsonLotsArray[+this.getAttribute("data-lot-id") - 1]);
 	}
 
 	function closeAuctionViewerBtnHandler (event) {
@@ -589,8 +722,13 @@ $(function() {
 		portfolioNavigationItems[i].addEventListener('click', portfolioNavigationHandler);
 	}
 
-	for (i = 0; i < auctionItemContainers.length; i++) {
-		auctionItemContainers[i].addEventListener('click', auctionItemContainersHandler)
+	// this event handlers are registered in the function above
+	// for (i = 0; i < auctionItemContainers.length; i++) {
+	// 	auctionItemContainers[i].addEventListener('click', auctionItemContainersHandler)
+	// }
+
+	for (i = 0; i < auctionMenuItems.length; i++) {
+		auctionMenuItems[i].addEventListener('click', auctionMenuHandler);
 	}
 
 	closeAuctionViewerBtn.addEventListener('click', closeAuctionViewerBtnHandler);

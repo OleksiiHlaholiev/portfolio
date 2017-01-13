@@ -154,7 +154,7 @@
             </div>
             <div class="container">
                 <ul class="portfolio-navigation clearfix">
-                    <li class="active-category portfolio-all">All</li>
+                    <li class="active-portfolio-category portfolio-all">All</li>
                     <li class="portfolio-auto">Auto</li>
                     <li class="portfolio-moto">Moto</li>
                     <li class="portfolio-boat">Boat</li>
@@ -263,11 +263,11 @@
                 <nav class="auction-nav col-md-4 col-lg-3">
                     <h4>Categories</h4>
                     <ul class="main-menu">
-                        <li class="active-category">All</li>
-                        <li>Auto</li>
-                        <li>Moto</li>
-                        <li>Boat</li>
-                        <li>Painting</li>
+                        <li data-lot-category="all" class="active-auction-category">All</li>
+                        <li data-lot-category="auto">Auto</li>
+                        <li data-lot-category="moto">Moto</li>
+                        <li data-lot-category="boat">Boat</li>
+                        <li data-lot-category="painting">Painting</li>
                     </ul>
                 </nav>
                 <article class="auction-container col-md-8 col-lg-9">
@@ -275,32 +275,13 @@
                         <input type="text" name="search-text" placeholder="Enter a key word">
                         <i class="fa fa-search fa-2x" aria-hidden="true"></i>
                     </div>
-                    <div class="auction-item-cont col-md-6 col-lg-4">
-                        <div class="auction-item">
-                            <img src="images/lot_0.jpg" alt="Lot img" class="auction-img">
-                            <h5 class="auction-title">Title LOT # 1</h5>
-                            <p class="auction-price">price - 100 $</p>
-                        </div>
-                    </div>
-                    <div class="auction-item-cont col-md-6 col-lg-4">
-                        <div class="auction-item">
-                            <img src="images/lot_0.jpg" alt="Lot img" class="auction-img">
-                            <h5 class="auction-title">Title LOT # 2</h5>
-                            <p class="auction-price">price - 100 $</p>
-                        </div>
-                    </div>
-                    <div class="auction-item-cont col-md-6 col-lg-4">
-                        <div class="auction-item">
-                            <img src="images/lot_0.jpg" alt="Lot img" class="auction-img">
-                            <h5 class="auction-title">Title LOT # 3</h5>
-                            <p class="auction-price">price - 100 $</p>
-                        </div>
-                    </div>
-                    <div class="auction-item-cont col-md-6 col-lg-4">
-                        <div class="auction-item">
-                            <img src="images/lot_0.jpg" alt="Lot img" class="auction-img">
-                            <h5 class="auction-title">Title LOT # 4</h5>
-                            <p class="auction-price">price - 100 $</p>
+                    <div class="auction-lots-container">
+                        <div class="auction-item-cont col-md-6 col-lg-4">
+                            <div class="auction-item">
+                                <img src="images/lot_0.jpg" alt="Lot img" class="auction-img">
+                                <h5 class="auction-title">Title LOT # 1</h5>
+                                <p class="auction-price">price - 100 $</p>
+                            </div>
                         </div>
                     </div>
                     <div class="pagination col-xs-12">
