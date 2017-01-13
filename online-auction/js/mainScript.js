@@ -244,7 +244,7 @@ $(function() {
 	function fillItemViewer(itemObj) {
 		// this function is used in event handler "auctionItemContainersHandler"
 		auctionItemViewerCont.querySelector(".item-img").src = itemObj.srcImage;
-		auctionItemViewerCont.querySelector(".item-id").innerText = itemObj.id;
+		auctionItemViewerCont.querySelector(".item-id").innerText = "Lot # " + itemObj.id;
 		auctionItemViewerCont.querySelector(".item-title").innerText = itemObj.title;
 		auctionItemViewerCont.querySelector(".item-price .value").innerText = itemObj.price + " $";
 		auctionItemViewerCont.querySelector(".item-date-sell .value").innerText = itemObj.timeToSell;
@@ -259,7 +259,7 @@ $(function() {
 		var tempLength = auctionItems.length;
 		if (tempLength) {
 			for (i = 0; i < tempLength; i++) {
-				auctionItems[0].remove();
+				auctionItems[i].remove();
 			}
 		}
 
@@ -279,6 +279,13 @@ $(function() {
 			case "moto":
 				for (i = 0; i < JsonLotsArray.length; i++) {
 					if (JsonLotsArray[i].category == "moto") {
+						fillItem(JsonLotsArray[i]);
+					}
+				}
+				break;
+			case "boat":
+				for (i = 0; i < JsonLotsArray.length; i++) {
+					if (JsonLotsArray[i].category == "boat") {
 						fillItem(JsonLotsArray[i]);
 					}
 				}
