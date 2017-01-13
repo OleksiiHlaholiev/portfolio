@@ -600,7 +600,7 @@ $(function() {
 	}
 
 	function paginationBtnHandler() {
-		if (!this.classList.contains(".active-pagination")) {
+		if (!this.classList.contains("active-pagination")) {
 			var prevActiveItem = document.querySelector(".active-pagination");
 
 			prevActiveItem.classList.remove("active-pagination");
