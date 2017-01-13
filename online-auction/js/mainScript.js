@@ -568,7 +568,7 @@ $(function() {
 		}
 	}
 
-	function auctionMenuHandler() {
+	function auctionMenuHandler(event) {
 		if (!event.target.classList.contains("active-auction-category")) {
 			var prevActiveItem = document.querySelector(".active-auction-category");
 

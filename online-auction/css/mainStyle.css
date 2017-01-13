@@ -603,7 +603,7 @@ h1, h2, h3, h4, h5, h6 {
       transition: all 0.7s; }
     #auction .auction-container .pagination .active-pagination {
       background-color: #2ecc71;
-      margin: 0 2px; }
+      margin: 0 3px; }
     #auction .auction-container .pagination .pagination-btn:hover {
       background-color: #2ecc71; }
   #auction .auction-item-viewer-cont .auction-item-viewer .close-btn:hover {
