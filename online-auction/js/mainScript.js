@@ -51,6 +51,7 @@ $(function() {
 	var portfolioNavigationItems = document.querySelectorAll(".portfolio-navigation > li");
 
 	var auctionMenuItems = document.querySelectorAll(".auction-nav .main-menu > li"),
+		auctionWrapperContainer = document.querySelector(".auction-container"),
 		auctionLotsContainer = document.querySelector(".auction-lots-container"),
 		auctionItemTemplate = document.querySelector(".auction-item-cont").cloneNode(true),
 		auctionSearch = document.querySelector(".auction-container .auction-search"),
@@ -221,6 +222,7 @@ $(function() {
 			return;
 		if (httpRequest.status != 200)
 			return;
+		// alert(httpRequest.responseText);
 		JsonLotsArray = JSON.parse(httpRequest.responseText);
 
 		viewLots("all", 0);
@@ -609,9 +611,15 @@ $(function() {
 
 			if (!busyFlag) {
 				busyFlag = true;
+
+				var stopPos = sectionAuction.offsetTop;
+				if (window.innerWidth < 768) {
+					stopPos = auctionWrapperContainer.offsetTop - sectionHeader.clientHeight;
+				}
+
 				scrollFunc(
 					pageYOffset,
-					sectionAuction.offsetTop,
+					stopPos,
 					SCROLL_STEP
 				)
 			}
