@@ -53,6 +53,8 @@ $(function() {
 	var auctionMenuItems = document.querySelectorAll(".auction-nav .main-menu > li"),
 		auctionLotsContainer = document.querySelector(".auction-lots-container"),
 		auctionItemTemplate = document.querySelector(".auction-item-cont").cloneNode(true),
+		auctionSearch = document.querySelector(".auction-container .auction-search"),
+		auctionPagination = document.querySelector(".auction-container .pagination"),
 		auctionItemViewerCont = document.querySelector(".auction-item-viewer-cont"),
 		closeAuctionViewerBtn = document.querySelector(".auction-item-viewer-cont .close-btn"),
 		addNewLotBtn = document.querySelector(".add-new-lot"),
@@ -222,23 +224,37 @@ $(function() {
 		// alert(httpRequest.responseText);
 		JsonLotsArray = JSON.parse(httpRequest.responseText);
 
-		viewLots("all", 100500);
+		viewLots("all", 0);
+	}
+
+	function addPaginationBtn(value) {
+		var paginationBtnTemplate = auctionPagination.querySelector(".pagination-btn").cloneNode(true);
+
+		if (paginationBtnTemplate.classList.contains("active-pagination")) {
+			paginationBtnTemplate.classList.remove("active-pagination");
+		}
+
+		paginationBtnTemplate.innerText = value;
+		paginationBtnTemplate.addEventListener('click', paginationBtnHandler);
+
+		auctionPagination.appendChild(paginationBtnTemplate);
 	}
 	
-	function fillItem(itemObj) {
-		var tempItem = auctionItemTemplate.cloneNode(true);
+	function addItem(itemObj) {
+		if (itemObj) {
+			var tempItem = auctionItemTemplate.cloneNode(true);
 
-		tempItem.setAttribute("data-lot-id", itemObj.id);
-		tempItem.querySelector(".auction-img").src = itemObj.srcImage;
-		tempItem.querySelector(".auction-title").innerText = itemObj.title;
-		tempItem.querySelector(".auction-price").innerText = itemObj.price + " $";
-		tempItem.addEventListener('click', auctionItemContainersHandler);
+			tempItem.setAttribute("data-lot-id", itemObj.id);
+			tempItem.querySelector(".auction-img").src = itemObj.srcImage;
+			tempItem.querySelector(".auction-title").innerText = itemObj.title;
+			tempItem.querySelector(".auction-price").innerText = itemObj.price + " $";
+			tempItem.addEventListener('click', auctionItemContainersHandler);
 
-		tempItem.style.opacity = "0";
-		myFadeIn(tempItem, 7);
+			tempItem.style.opacity = "0";
+			myFadeIn(tempItem, 7);
 
-		auctionLotsContainer.appendChild(tempItem);
-
+			auctionLotsContainer.appendChild(tempItem);
+		}
 	}
 
 	function fillItemViewer(itemObj) {
@@ -250,54 +266,102 @@ $(function() {
 		auctionItemViewerCont.querySelector(".item-date-sell .value").innerText = itemObj.timeToSell;
 		auctionItemViewerCont.querySelector(".item-description").innerText = itemObj.description;
 	}
-	
-	function viewLots(category, quantity) {
-		var auctionItems = auctionLotsContainer.querySelectorAll(".auction-item-cont"),
+
+	// additional fucntion: used to add several items
+	function addSeveralItems(LotsArray, pageNumber, itemsPerPage) {
+		if (currentCategoryGlobal != previousCategoryGlobal) {
+			if ((LotsArray.length / itemsPerPage) > 1) {
+				for (i = 2; i <= Math.ceil(LotsArray.length / itemsPerPage); i++) {
+					addPaginationBtn(i);
+				}
+			}
+		}
+
+		for (i = pageNumber * itemsPerPage; i < pageNumber * itemsPerPage + itemsPerPage; i++) {
+			addItem(LotsArray[i]);
+		}
+	}
+
+	var previousCategoryGlobal = "";
+	var currentCategoryGlobal = "all";
+
+	function viewLots(category, pageNumber) {
+		var auctionPaginationBtns = auctionPagination.querySelectorAll(".pagination-btn"),
+			auctionItems = auctionLotsContainer.querySelectorAll(".auction-item-cont"),
+			tempLength,
+			itemsPerPage = 10,
+			tempLotsArray = [],
 			i;
 
-		// firstly remove previous items
-		var tempLength = auctionItems.length;
+		if (category != previousCategoryGlobal) {
+			// firstly remove previous items
+			tempLength = auctionPaginationBtns.length;
+			if (tempLength > 1) {
+				for (i = 2; i <= tempLength; i++) {
+					auctionPaginationBtns[i - 1].remove();
+				}
+			}
+			auctionPaginationBtns[0].classList.add("active-pagination");
+		}
+
+		tempLength = auctionItems.length;
 		if (tempLength) {
 			for (i = 0; i < tempLength; i++) {
 				auctionItems[i].remove();
 			}
 		}
 
+
 		switch (category) {
 			case "all":
 				for (i = 0; i < JsonLotsArray.length; i++) {
-					fillItem(JsonLotsArray[i]);
+					tempLotsArray.push(JsonLotsArray[i]);
 				}
+				addSeveralItems(tempLotsArray, pageNumber, itemsPerPage);
+				previousCategoryGlobal = "all";
 				break;
 			case "auto":
 				for (i = 0; i < JsonLotsArray.length; i++) {
 					if (JsonLotsArray[i].category == "auto") {
-						fillItem(JsonLotsArray[i]);
+						tempLotsArray.push(JsonLotsArray[i]);
 					}
 				}
+				addSeveralItems(tempLotsArray, pageNumber, itemsPerPage);
+				previousCategoryGlobal = "auto";
 				break;
 			case "moto":
 				for (i = 0; i < JsonLotsArray.length; i++) {
 					if (JsonLotsArray[i].category == "moto") {
-						fillItem(JsonLotsArray[i]);
+						tempLotsArray.push(JsonLotsArray[i]);
 					}
 				}
+				addSeveralItems(tempLotsArray, pageNumber, itemsPerPage);
+				previousCategoryGlobal = "moto";
 				break;
 			case "boat":
 				for (i = 0; i < JsonLotsArray.length; i++) {
 					if (JsonLotsArray[i].category == "boat") {
-						fillItem(JsonLotsArray[i]);
+						tempLotsArray.push(JsonLotsArray[i]);
 					}
 				}
+				addSeveralItems(tempLotsArray, pageNumber, itemsPerPage);
+				previousCategoryGlobal = "boat";
 				break;
 			case "painting":
 				for (i = 0; i < JsonLotsArray.length; i++) {
 					if (JsonLotsArray[i].category == "painting") {
-						fillItem(JsonLotsArray[i]);
+						tempLotsArray.push(JsonLotsArray[i]);
 					}
 				}
+				addSeveralItems(tempLotsArray, pageNumber, itemsPerPage);
+				previousCategoryGlobal = "painting";
 				break;
 			default:
+				for (i = 0; i < JsonLotsArray.length; i++) {
+					tempLotsArray.push(JsonLotsArray[i]);
+				}
+				addSeveralItems(tempLotsArray, pageNumber, itemsPerPage);
+				previousCategoryGlobal = "all";
 				break;
 		}
 
@@ -510,28 +574,47 @@ $(function() {
 			prevActiveItem.classList.remove("active-auction-category");
 			this.classList.add("active-auction-category");
 
-			// disable all first, then will turn on
-
 			// now determine what to turn on
 			switch (this.getAttribute("data-lot-category")) {
 				case "all":
-					viewLots("all", 1);
+					currentCategoryGlobal = "all";
 					break;
 				case "auto":
-					viewLots("auto", 1);
+					currentCategoryGlobal = "auto";
 					break;
 				case "moto":
-					viewLots("moto", 1);
+					currentCategoryGlobal = "moto";
 					break;
 				case "boat":
-					viewLots("boat", 1);
+					currentCategoryGlobal = "boat";
 					break;
 				case "painting":
-					viewLots("painting", 1);
+					currentCategoryGlobal = "painting";
 					break;
 				default:
-					viewLots("all", 1);
+					currentCategoryGlobal = "all";
 					break;
+			}
+			viewLots(currentCategoryGlobal, 0);
+		}
+	}
+
+	function paginationBtnHandler() {
+		if (!this.classList.contains(".active-pagination")) {
+			var prevActiveItem = document.querySelector(".active-pagination");
+
+			prevActiveItem.classList.remove("active-pagination");
+			this.classList.add("active-pagination");
+
+			viewLots(currentCategoryGlobal, +this.innerText - 1);
+
+			if (!busyFlag) {
+				busyFlag = true;
+				scrollFunc(
+					pageYOffset,
+					sectionAuction.offsetTop,
+					SCROLL_STEP
+				)
 			}
 		}
 	}
@@ -737,6 +820,8 @@ $(function() {
 	for (i = 0; i < auctionMenuItems.length; i++) {
 		auctionMenuItems[i].addEventListener('click', auctionMenuHandler);
 	}
+
+	auctionPagination.querySelector(".pagination-btn").addEventListener('click', paginationBtnHandler);
 
 	closeAuctionViewerBtn.addEventListener('click', closeAuctionViewerBtnHandler);
 	addNewLotBtn.addEventListener('click', addNewLotBtnHandler);
