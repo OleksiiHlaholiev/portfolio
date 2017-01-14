@@ -589,6 +589,7 @@ h1, h2, h3, h4, h5, h6 {
         color: #000;
         background-color: #ba1e1e; }
   #auction .auction-container .pagination {
+    display: block;
     text-align: center;
     margin-bottom: 30px; }
     #auction .auction-container .pagination .pagination-btn {
@@ -597,13 +598,13 @@ h1, h2, h3, h4, h5, h6 {
       color: #fff;
       background-color: #00bbf5;
       outline: none;
-      border: 1px solid #b7d4d3;
+      border: none;
       padding: 5px 10px;
-      margin: 0 1px;
-      transition: all 0.7s; }
+      margin: 0 2px;
+      transition: all 0.5s; }
     #auction .auction-container .pagination .active-pagination {
       background-color: #2ecc71;
-      margin: 0 3px; }
+      margin: 0 4px; }
     #auction .auction-container .pagination .pagination-btn:hover {
       background-color: #2ecc71; }
   #auction .auction-item-viewer-cont .auction-item-viewer .close-btn:hover {

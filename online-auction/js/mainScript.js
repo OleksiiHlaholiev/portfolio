@@ -56,6 +56,7 @@ $(function() {
 		auctionItemTemplate = document.querySelector(".auction-item-cont").cloneNode(true),
 		auctionSearch = document.querySelector(".auction-container .auction-search"),
 		auctionPagination = document.querySelector(".auction-container .pagination"),
+		paginationBtnTemplate = document.querySelector(".pagination .pagination-btn").cloneNode(true),
 		auctionItemViewerCont = document.querySelector(".auction-item-viewer-cont"),
 		closeAuctionViewerBtn = document.querySelector(".auction-item-viewer-cont .close-btn"),
 		addNewLotBtn = document.querySelector(".add-new-lot"),
@@ -88,6 +89,7 @@ $(function() {
 
 	// remove template container
 	document.querySelector(".auction-item-cont").remove();
+	document.querySelector(".pagination .pagination-btn").remove();
 
     // ****************************************************************
 
@@ -229,16 +231,16 @@ $(function() {
 	}
 
 	function addPaginationBtn(value) {
-		var paginationBtnTemplate = auctionPagination.querySelector(".pagination-btn").cloneNode(true);
+		var tempPaginationBtn = paginationBtnTemplate.cloneNode(true);
 
-		if (paginationBtnTemplate.classList.contains("active-pagination")) {
-			paginationBtnTemplate.classList.remove("active-pagination");
+		if (tempPaginationBtn.classList.contains("active-pagination") && value != 1) {
+			tempPaginationBtn.classList.remove("active-pagination");
 		}
 
-		paginationBtnTemplate.innerText = value;
-		paginationBtnTemplate.addEventListener('click', paginationBtnHandler);
+		tempPaginationBtn.innerText = value;
+		tempPaginationBtn.addEventListener('click', paginationBtnHandler);
 
-		auctionPagination.appendChild(paginationBtnTemplate);
+		auctionPagination.appendChild(tempPaginationBtn);
 	}
 	
 	function addItem(itemObj) {
@@ -272,7 +274,7 @@ $(function() {
 	function addSeveralItems(LotsArray, pageNumber, itemsPerPage) {
 		if (currentCategoryGlobal != previousCategoryGlobal) {
 			if ((LotsArray.length / itemsPerPage) > 1) {
-				for (i = 2; i <= Math.ceil(LotsArray.length / itemsPerPage); i++) {
+				for (i = 1; i <= Math.ceil(LotsArray.length / itemsPerPage); i++) {
 					addPaginationBtn(i);
 				}
 			}
@@ -297,12 +299,12 @@ $(function() {
 		if (category != previousCategoryGlobal) {
 			// firstly remove previous items
 			tempLength = auctionPaginationBtns.length;
-			if (tempLength > 1) {
-				for (i = 2; i <= tempLength; i++) {
+			if (tempLength) {
+				for (i = 1; i <= tempLength; i++) {
 					auctionPaginationBtns[i - 1].remove();
 				}
 			}
-			auctionPaginationBtns[0].classList.add("active-pagination");
+			// auctionPaginationBtns[0].classList.add("active-pagination");
 		}
 
 		tempLength = auctionItems.length;
@@ -828,7 +830,7 @@ $(function() {
 		auctionMenuItems[i].addEventListener('click', auctionMenuHandler);
 	}
 
-	auctionPagination.querySelector(".pagination-btn").addEventListener('click', paginationBtnHandler);
+	// auctionPagination.querySelector(".pagination-btn").addEventListener('click', paginationBtnHandler);
 
 	closeAuctionViewerBtn.addEventListener('click', closeAuctionViewerBtnHandler);
 	addNewLotBtn.addEventListener('click', addNewLotBtnHandler);
