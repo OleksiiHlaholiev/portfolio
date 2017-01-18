@@ -430,7 +430,7 @@ h1, h2, h3, h4, h5, h6 {
       #home .portfolio .portfolio-gallery .portfolio-gallery-item img {
         max-width: 100%;
         height: auto;
-        width: auto\9;
+        width: auto \9 ;
         /* ie8 */ }
       #home .portfolio .portfolio-gallery .portfolio-gallery-item .portfolio-hover-layer {
         position: absolute;

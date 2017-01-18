@@ -3,16 +3,16 @@
 // **** polyfills for IE
 
 if (!('remove' in Element.prototype)) {
-    Element.prototype.remove = function() {
-        if (this.parentNode) {
-            this.parentNode.removeChild(this);
-        }
-    };
+	Element.prototype.remove = function () {
+		if (this.parentNode) {
+			this.parentNode.removeChild(this);
+		}
+	};
 }
 // ****************************************
 
 // window.addEventListener('load', function() {
-$(function() {
+$(function () {
 	// ******************** GLOBAL VARIABLES ****************************
 	var SCROLL_STEP = 100,
 		scrollFuncTimer,
@@ -91,7 +91,7 @@ $(function() {
 	document.querySelector(".auction-item-cont").remove();
 	document.querySelector(".pagination .pagination-btn").remove();
 
-    // ****************************************************************
+	// ****************************************************************
 
 	// ************************* FUNCTIONS ***************************
 
@@ -131,15 +131,15 @@ $(function() {
 				sliderBorderLeft = -25,
 				sliderBorderRight = 25;
 
-			if (direction == "left"){
+			if (direction == "left") {
 				deltaX = 100 / 4;
-			} else if (direction == "right"){
+			} else if (direction == "right") {
 				deltaX = -100 / 4;
 			} else {
 				deltaX = -100 / 4; // default: direction = "right"
 			}
 
-			for (var i = 0; i < sliderItems.length; i++){
+			for (var i = 0; i < sliderItems.length; i++) {
 				temp = getComputedStyle(sliderItems[i]).left;
 				temp = Number(temp.replace("px", "")) * 100 / sliderWidth + deltaX;
 				sliderItems[i].style.transition = "left 1s";
@@ -147,7 +147,7 @@ $(function() {
 					temp = 0;
 				}
 
-				if (direction == "left" && temp > sliderBorderRight){
+				if (direction == "left" && temp > sliderBorderRight) {
 					temp = sliderBorderLeft;
 					sliderItems[i].style.transition = "none";
 				} else if (direction == "right" && temp < sliderBorderLeft) {
@@ -160,9 +160,9 @@ $(function() {
 			}
 
 			// try to fix slider bug !!!
-			if ( sliderItems[0].style.left == sliderItems[1].style.left ||
+			if (sliderItems[0].style.left == sliderItems[1].style.left ||
 				sliderItems[0].style.left == sliderItems[2].style.left ||
-				sliderItems[1].style.left == sliderItems[2].style.left ) {
+				sliderItems[1].style.left == sliderItems[2].style.left) {
 				// set initial positions
 				// alert("This is slider bug!!!");
 				sliderItems[0].style.left = "-25%";
@@ -179,10 +179,10 @@ $(function() {
 		}
 	}
 
-	function myFadeIn(elementDOM, timeStep){
+	function myFadeIn(elementDOM, timeStep) {
 		var tempOpacity = 0;
 		var localTimer = setInterval(
-			function() {
+			function () {
 				tempOpacity += 1;
 				if (tempOpacity <= 100) {
 					elementDOM.style.opacity = String(tempOpacity / 100);
@@ -195,7 +195,7 @@ $(function() {
 	}
 
 	function changePortfolioGalleryImgsProperties(itemsArray) {
-		for (var i = 0; i < itemsArray.length; i++ ) {
+		for (var i = 0; i < itemsArray.length; i++) {
 			itemsArray[i].style.display = "inline-block";
 			itemsArray[i].style.opacity = "0";
 			myFadeIn(itemsArray[i], 5);
@@ -218,8 +218,7 @@ $(function() {
 	httpRequest.onreadystatechange = OnRequestStateChange;
 	httpRequest.send(null);
 
-	function OnRequestStateChange()
-	{
+	function OnRequestStateChange() {
 		if (httpRequest.readyState != 4)
 			return;
 		if (httpRequest.status != 200)
@@ -242,7 +241,7 @@ $(function() {
 
 		auctionPagination.appendChild(tempPaginationBtn);
 	}
-	
+
 	function addItem(itemObj) {
 		if (itemObj) {
 			var tempItem = auctionItemTemplate.cloneNode(true);
@@ -397,7 +396,7 @@ $(function() {
 		}
 	}
 
-	function activeSectionHandler(event){
+	function activeSectionHandler(event) {
 		event.preventDefault();
 		if (!busyFlag) {
 
@@ -538,7 +537,7 @@ $(function() {
 		);
 	}
 
-	function portfolioNavigationHandler(event){
+	function portfolioNavigationHandler(event) {
 		if (!event.target.classList.contains("active-portfolio-category")) {
 			var prevActiveItem = document.querySelector(".active-portfolio-category"),
 				portfolioGalleryImgs = document.querySelectorAll(".portfolio-gallery-item");
@@ -635,7 +634,7 @@ $(function() {
 		fillItemViewer(JsonLotsArray[+this.getAttribute("data-lot-id") - 1]);
 	}
 
-	function closeAuctionViewerBtnHandler (event) {
+	function closeAuctionViewerBtnHandler(event) {
 		auctionItemViewerCont.style.display = "none";
 		event.stopPropagation(); // to avoid inherit click events
 	}
@@ -644,21 +643,21 @@ $(function() {
 		addItemViewerContainer.style.display = "block";
 	}
 
-	function closeAddItemViewerBtnHandler (event) {
+	function closeAddItemViewerBtnHandler(event) {
 		addItemViewerContainer.style.display = "none";
 		event.stopPropagation(); // to avoid inherit click events
 	}
 
 	// ****************************************************************
 	// Disable scroll zooming and bind back the click event
-	function onMapMouseleaveHandler () {
+	function onMapMouseleaveHandler() {
 
 		this.addEventListener('click', onMapClickHandler);
 		this.removeEventListener('mouseleave', onMapMouseleaveHandler);
 		this.querySelector('iframe').style.pointerEvents = "none";
 	}
 
-	function onMapClickHandler () {
+	function onMapClickHandler() {
 
 		// Disable the click handler until the user leaves the map area
 		this.removeEventListener('click', onMapClickHandler);
@@ -669,6 +668,7 @@ $(function() {
 		// Handle the mouse leave event
 		this.addEventListener('mouseleave', onMapMouseleaveHandler);
 	}
+
 	// ****************************************************************
 
 	function inputNameHandler() {
@@ -679,7 +679,7 @@ $(function() {
 		}
 		else {
 			// if ( (/[a-zA-Z]/.test(inputName.value[inputName.value.length - 1])) )
-			if ( (/[a-zA-Z]/.test(inputName.value)) ) {
+			if ((/[a-zA-Z]/.test(inputName.value))) {
 				inputNameStatus = true;
 				inputName.nextElementSibling.style.display = "none";
 			} else {
@@ -697,7 +697,7 @@ $(function() {
 			inputEmail.nextElementSibling.style.display = "block";
 			inputEmail.nextElementSibling.innerText = "No email entered !"
 		} else {
-			if ( (/^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/.test(inputEmail.value)) ) {
+			if ((/^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/.test(inputEmail.value))) {
 				inputEmailStatus = true;
 				inputEmail.nextElementSibling.style.display = "none";
 			} else {
@@ -716,7 +716,7 @@ $(function() {
 			inputText.nextElementSibling.innerText = "No text entered !"
 		}
 		else {
-			if ( inputText.value.length >= 20 ) {
+			if (inputText.value.length >= 20) {
 				inputTextStatus = true;
 				inputText.nextElementSibling.style.display = "none";
 			} else {
@@ -751,25 +751,25 @@ $(function() {
 				(document.body.scrollTop + tempOffset) :
 				(document.documentElement.scrollTop + tempOffset);
 
-			if (prevActiveItem) {
-				prevActiveItem.classList.remove("active-section");
-			}
-			if (prevActiveSubItem) {
-				prevActiveSubItem.classList.remove("active-sub-menu");
-			}
+		if (prevActiveItem) {
+			prevActiveItem.classList.remove("active-section");
+		}
+		if (prevActiveSubItem) {
+			prevActiveSubItem.classList.remove("active-sub-menu");
+		}
 
-		if ( (currentPosition > sectionHome.offsetTop) &&
-			(currentPosition < sectionHome.offsetTop + sectionHome.offsetHeight) ) {
+		if ((currentPosition > sectionHome.offsetTop) &&
+			(currentPosition < sectionHome.offsetTop + sectionHome.offsetHeight)) {
 			siteNavigationItems[0].classList.add("active-section");
-		} else if ( (currentPosition > sectionAuction.offsetTop) &&
-					(currentPosition < sectionAuction.offsetTop + sectionAuction.offsetHeight) ) {
+		} else if ((currentPosition > sectionAuction.offsetTop) &&
+			(currentPosition < sectionAuction.offsetTop + sectionAuction.offsetHeight)) {
 			siteNavigationItems[1].classList.add("active-section");
 			if (currentPosition < subSectionAddNew.offsetTop) {
 				dropdownListItems[0].classList.add("active-sub-menu");
 			} else {
 				dropdownListItems[1].classList.add("active-sub-menu");
 			}
-		} else if ( (currentPosition > sectionContact.offsetTop)  ) {
+		} else if ((currentPosition > sectionContact.offsetTop)) {
 			siteNavigationItems[2].classList.add("active-section");
 		}
 
@@ -792,6 +792,7 @@ $(function() {
 
 		}
 	}
+
 	// ************************************************************************************
 
 	// ***************** REGISTER EVENT HANDLERS *******************
@@ -799,11 +800,11 @@ $(function() {
 
 	logoButton.addEventListener('click', logoButtonHandler);
 
-	for (var i = 0; i < siteNavigationItems.length; i++ ) {
+	for (var i = 0; i < siteNavigationItems.length; i++) {
 		siteNavigationItems[i].addEventListener('click', activeSectionHandler);
- 	}
+	}
 
-	for (var i = 0; i < dropdownListItems.length; i++ ) {
+	for (var i = 0; i < dropdownListItems.length; i++) {
 		dropdownListItems[i].addEventListener('click', activeSectionHandler);
 	}
 
