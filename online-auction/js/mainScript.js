@@ -75,7 +75,14 @@ $(function () {
 
 		addNewLotBtn = document.querySelector(".add-new-lot"),
 		addItemViewerContainer = document.querySelector(".add-item-viewer-cont"),
-		closeAddItemViewerBtn = document.querySelector(".add-item-viewer .close-btn");
+		closeAddItemViewerBtn = document.querySelector(".add-item-viewer .close-btn"),
+
+		addItemForm = document.querySelector(".add-item-viewer add-item-form"),
+		addItemFormTitle = addItemForm.querySelector(".item-title"),
+		addItemFormCategory = addItemForm.querySelector(".item-category"),
+		addItemFormPrice = addItemForm.querySelector(".item-price"),
+		addItemFormImageUrl = addItemForm.querySelector(".item-image-url"),
+		addItemFormAddBtn = addItemForm.querySelector(".add-btn");
 
 	var mapContainer = document.querySelector("#contact .map-cont"),
 		inputName = document.querySelector(".inputs-container .input-name"),
@@ -726,7 +733,7 @@ $(function () {
 			localStorage[currentLotId] = JSON.stringify(JsonLotsArray[currentLotId]);
 
 			// close pre-view
-			alert("The data will be sent to the server !");
+			alert("Congratulations!!! You bought this amazing lot!");
 			auctionForm.reset();
 			auctionItemViewerCont.style.display = "none";
 
@@ -736,7 +743,7 @@ $(function () {
 
 	}
 
-	function addNewLotBtnHandler() {
+	function addNewLotBtnHandler(event) {
 		addItemViewerContainer.style.opacity = "0";
 		addItemViewerContainer.style.display = "block";
 		myFadeIn(addItemViewerContainer, 3);
