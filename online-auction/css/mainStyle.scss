@@ -1028,6 +1028,8 @@ h1, h2, h3, h4, h5, h6 {
 					padding: 5px;
 					text-align: center;
 					font-size: 16px;
+					outline: none;
+					//border: 1px solid #8a8888;
 
 					@media screen and (min-width: 600px) {
 						font-size: 18px;
@@ -1053,6 +1055,10 @@ h1, h2, h3, h4, h5, h6 {
 					color: red;
 					font-size: 16px;
 				}*/
+
+				.error-border {
+					border: 2px solid red;
+				}
 
 				.add-btn {
 					@extend .extend-submit-btn;

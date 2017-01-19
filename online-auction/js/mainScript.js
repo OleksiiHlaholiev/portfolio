@@ -81,7 +81,9 @@ $(function () {
 		addItemFormTitle = addItemForm.querySelector(".item-title"),
 		addItemFormCategory = addItemForm.querySelector(".item-category"),
 		addItemFormPrice = addItemForm.querySelector(".item-price"),
+		addItemFormTime = addItemForm.querySelector(".item-time"),
 		addItemFormImageUrl = addItemForm.querySelector(".item-image-url"),
+		addItemFormDescription = addItemForm.querySelector(".item-description"),
 		addItemFormAddBtn = addItemForm.querySelector(".add-btn");
 
 	var mapContainer = document.querySelector("#contact .map-cont"),
@@ -738,7 +740,6 @@ $(function () {
 			auctionItemViewerCont.style.display = "none";
 
 			viewLots(currentCategoryGlobal, currentPageGlobal);
-
 		}
 
 	}
@@ -754,6 +755,61 @@ $(function () {
 
 		// addItemViewerContainer.style.display = "none";
 		myFadeOut(addItemViewerContainer, 3);
+	}
+
+	function checkAddItemFormInput(inputItem, regExpTemplate, minPrice) {
+		var status;
+
+		if ( !regExpTemplate.test(inputItem.value) ||
+			(inputItem == addItemFormPrice) && (+inputItem.value <= minPrice)
+		) {
+			inputItem.classList.add("error-border");
+			status = false;
+		}
+		else {
+			if (inputItem.classList.contains("error-border")) {
+				inputItem.classList.remove("error-border");
+			}
+			status = true;
+		}
+
+		return status;
+	}
+
+	// addItemForm
+	// addItemFormTitle
+	// addItemFormCategory
+	// addItemFormPrice
+	// addItemFormImageUrl
+	// addItemFormDescription
+	// addItemFormAddBtn
+
+	function addItemFormAddBtnHandler(event) {
+		event.preventDefault();
+
+		var statusTitle, statusPrice, statusTime, statusImageUrl, statusDescription;
+
+		statusTitle = checkAddItemFormInput(addItemFormTitle, /[a-zA-Z0-9]{1,30}/);
+		statusPrice = checkAddItemFormInput(addItemFormPrice, /[0-9]{1,}/, 0);
+		statusTime = checkAddItemFormInput(addItemFormTime, /[0-9]{1,}/);
+		statusImageUrl = checkAddItemFormInput(addItemFormImageUrl, /[a-zA-Z0-9]{1,15}/);
+		statusDescription = checkAddItemFormInput(addItemFormDescription, /[a-zA-Z0-9]{1,100}/);
+
+		if (statusTitle && statusPrice && statusTime && statusImageUrl && statusDescription) {
+			// save current changes
+
+			// JsonLotsArray[currentLotId].price = auctionFormBuyerPrice.value;
+			// localStorage[currentLotId] = JSON.stringify(JsonLotsArray[currentLotId]);
+			//
+			// // close pre-view
+			// alert("Congratulations!!! You bought this amazing lot!");
+			// auctionForm.reset();
+			// auctionItemViewerCont.style.display = "none";
+			//
+			// viewLots(currentCategoryGlobal, currentPageGlobal);
+
+		}
+
 	}
 
 	// ****************************************************************
@@ -940,10 +996,11 @@ $(function () {
 	}
 
 	auctionFormBuyBtn.addEventListener('click', auctionFormBuyBtnHandler);
-
 	closeAuctionViewerBtn.addEventListener('click', closeAuctionViewerBtnHandler);
+
 	addNewLotBtn.addEventListener('click', addNewLotBtnHandler);
 	closeAddItemViewerBtn.addEventListener('click', closeAddItemViewerBtnHandler);
+	addItemFormAddBtn.addEventListener('click', addItemFormAddBtnHandler);
 
 	// Enable map zooming with mouse scroll when the user clicks the map
 	mapContainer.addEventListener('click', onMapClickHandler);
@@ -957,13 +1014,6 @@ $(function () {
 
 	window.addEventListener('scroll', scrollWindowHandler);
 	window.addEventListener('resize', resizeWindowHandler);
-
-	// !!!! LOCALSTORAGE TEST !!!
-
-	// localStorage.setItem("myKey2", "myValue2");
-	// // alert(localStorage.getItem("myKey"));
-	// localStorage.clear();
-
 
 	<!--PRELOADER !!!-->
 	/*setTimeout(function() {

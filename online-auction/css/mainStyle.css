@@ -711,7 +711,8 @@ h1, h2, h3, h4, h5, h6 {
       margin: 5px 0;
       padding: 5px;
       text-align: center;
-      font-size: 16px; }
+      font-size: 16px;
+      outline: none; }
       @media screen and (min-width: 600px) {
         #auction .add-item-viewer-cont .add-item-viewer .add-item-form input[type="text"], #auction .add-item-viewer-cont .add-item-viewer .add-item-form input[type="number"], #auction .add-item-viewer-cont .add-item-viewer .add-item-form textarea, #auction .add-item-viewer-cont .add-item-viewer .add-item-form .item-category, #auction .add-item-viewer-cont .add-item-viewer .add-item-form .item-image-url {
           font-size: 18px;
@@ -720,6 +721,8 @@ h1, h2, h3, h4, h5, h6 {
     #auction .add-item-viewer-cont .add-item-viewer .add-item-form .item-category {
       color: #000;
       text-align-last: center; }
+    #auction .add-item-viewer-cont .add-item-viewer .add-item-form .error-border {
+      border: 2px solid red; }
     #auction .add-item-viewer-cont .add-item-viewer .add-item-form .add-btn:hover {
       background-color: #2ecc71; }
 
