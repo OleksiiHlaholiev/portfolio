@@ -208,6 +208,22 @@ $(function () {
 		);
 	}
 
+	function myFadeOut(elementDOM, timeStep) {
+		var tempOpacity = 100;
+		var localTimer = setInterval(
+			function () {
+				tempOpacity -= 1;
+				if (tempOpacity >= 0) {
+					elementDOM.style.opacity = String(tempOpacity / 100);
+				} else {
+					clearInterval(localTimer);
+					elementDOM.style.display = "none";
+				}
+			},
+			timeStep
+		);
+	}
+
 	function changePortfolioGalleryImgsProperties(itemsArray) {
 		for (var i = 0; i < itemsArray.length; i++) {
 			itemsArray[i].style.display = "inline-block";
@@ -226,29 +242,6 @@ $(function () {
 	}
 
 	// ******************** LOAD JSON DATA WITH LOTS **********************
-
-	/*var httpRequest = new XMLHttpRequest();
-	httpRequest.open("GET", "../online-auction/files/dataAuction.json", true);
-	httpRequest.onreadystatechange = OnRequestStateChange;
-	httpRequest.send(null);
-
-	function OnRequestStateChange() {
-		if (httpRequest.readyState != 4)
-			return;
-		if (httpRequest.status != 200)
-			return;
-		// alert(httpRequest.responseText);
-		JsonLotsArray = JSON.parse(httpRequest.responseText);
-
-		if (JsonLotsArray) {
-			var tempObj = {};
-			for (i = 0; i < JsonLotsArray.length; i++) {
-				localStorage[i] = JSON.stringify(JsonLotsArray[i]);
-			}
-		}
-
-		viewLots("all", 0);
-	}*/
 
 	function OnRequestStateChange() {
 		if (httpRequest.readyState != 4)
@@ -691,8 +684,10 @@ $(function () {
 	}
 
 	function closeAuctionViewerBtnHandler(event) {
-		auctionItemViewerCont.style.display = "none";
+		// auctionItemViewerCont.style.display = "none";
 		event.stopPropagation(); // to avoid inherit click events
+
+		myFadeOut(auctionItemViewerCont, 3);
 	}
 
 	function checkAuctionFormInput(inputItem, regExpTemplate, minPrice) {
@@ -748,8 +743,10 @@ $(function () {
 	}
 
 	function closeAddItemViewerBtnHandler(event) {
-		addItemViewerContainer.style.display = "none";
+		// addItemViewerContainer.style.display = "none";
 		event.stopPropagation(); // to avoid inherit click events
+
+		myFadeOut(addItemViewerContainer, 3);
 	}
 
 	// ****************************************************************
