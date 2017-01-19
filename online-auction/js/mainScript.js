@@ -77,7 +77,7 @@ $(function () {
 		addItemViewerContainer = document.querySelector(".add-item-viewer-cont"),
 		closeAddItemViewerBtn = document.querySelector(".add-item-viewer .close-btn"),
 
-		addItemForm = document.querySelector(".add-item-viewer add-item-form"),
+		addItemForm = document.querySelector(".add-item-viewer .add-item-form"),
 		addItemFormTitle = addItemForm.querySelector(".item-title"),
 		addItemFormCategory = addItemForm.querySelector(".item-category"),
 		addItemFormPrice = addItemForm.querySelector(".item-price"),
