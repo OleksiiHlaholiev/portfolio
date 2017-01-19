@@ -28,6 +28,7 @@ $(function () {
 
 		previousCategoryGlobal = "",
 		currentCategoryGlobal = "all",
+		currentPageGlobal = 0,
 
 		inputNameStatus = false,
 		inputEmailStatus = false,
@@ -659,7 +660,9 @@ $(function () {
 			prevActiveItem.classList.remove("active-pagination");
 			this.classList.add("active-pagination");
 
-			viewLots(currentCategoryGlobal, +this.innerText - 1);
+			// currentPageGlobal - used in auctionFormBuyBtnHandler()
+			currentPageGlobal = +this.innerText - 1;
+			viewLots(currentCategoryGlobal, currentPageGlobal);
 
 			if (!busyFlag) {
 				busyFlag = true;
@@ -741,6 +744,9 @@ $(function () {
 			alert("The data will be sent to the server !");
 			auctionForm.reset();
 			auctionItemViewerCont.style.display = "none";
+
+			viewLots(currentCategoryGlobal, currentPageGlobal);
+
 		}
 
 	}
