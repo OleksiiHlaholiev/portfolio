@@ -743,16 +743,16 @@ $(function () {
 
 	}
 
-	function addNewLotBtnHandler(event) {
+	function addNewLotBtnHandler() {
 		addItemViewerContainer.style.opacity = "0";
 		addItemViewerContainer.style.display = "block";
 		myFadeIn(addItemViewerContainer, 3);
 	}
 
 	function closeAddItemViewerBtnHandler(event) {
-		// addItemViewerContainer.style.display = "none";
 		event.stopPropagation(); // to avoid inherit click events
 
+		// addItemViewerContainer.style.display = "none";
 		myFadeOut(addItemViewerContainer, 3);
 	}
 
