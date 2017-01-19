@@ -662,6 +662,8 @@ h1, h2, h3, h4, h5, h6 {
         padding: 5px 10px;
         border: 1px solid #8a8888;
         outline: none; }
+      #auction .auction-item-viewer-cont .auction-item-viewer .right-side .auction-form .error-border {
+        border: 2px solid red; }
       #auction .auction-item-viewer-cont .auction-item-viewer .right-side .auction-form .buy-btn:hover {
         background-color: #2ecc71; }
   #auction .add-new-lot {

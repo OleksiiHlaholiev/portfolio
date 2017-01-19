@@ -23,7 +23,12 @@ $(function () {
 		sliderBusyFlag = false,
 		userActiveControlFlag = false,
 		busyFlag = false,
-		JsonLotsArray,
+
+		JsonLotsArray = [],
+
+		previousCategoryGlobal = "",
+		currentCategoryGlobal = "all",
+
 		inputNameStatus = false,
 		inputEmailStatus = false,
 		inputTextStatus = false;
@@ -55,10 +60,18 @@ $(function () {
 		auctionLotsContainer = document.querySelector(".auction-lots-container"),
 		auctionItemTemplate = document.querySelector(".auction-item-cont").cloneNode(true),
 		auctionSearch = document.querySelector(".auction-container .auction-search"),
+
 		auctionPagination = document.querySelector(".auction-container .pagination"),
 		paginationBtnTemplate = document.querySelector(".pagination .pagination-btn").cloneNode(true),
 		auctionItemViewerCont = document.querySelector(".auction-item-viewer-cont"),
 		closeAuctionViewerBtn = document.querySelector(".auction-item-viewer-cont .close-btn"),
+
+		auctionForm = document.querySelector(".auction-item-viewer-cont .auction-form"),
+		auctionFormBuyerName = auctionForm.querySelector(".input-name"),
+		auctionFormBuyerPhone = auctionForm.querySelector(".input-phone"),
+		auctionFormBuyerPrice = auctionForm.querySelector(".input-price"),
+		auctionFormBuyBtn = auctionForm.querySelector(".buy-btn"),
+
 		addNewLotBtn = document.querySelector(".add-new-lot"),
 		addItemViewerContainer = document.querySelector(".add-item-viewer-cont"),
 		closeAddItemViewerBtn = document.querySelector(".add-item-viewer .close-btn");
@@ -213,7 +226,7 @@ $(function () {
 
 	// ******************** LOAD JSON DATA WITH LOTS **********************
 
-	var httpRequest = new XMLHttpRequest();
+	/*var httpRequest = new XMLHttpRequest();
 	httpRequest.open("GET", "../online-auction/files/dataAuction.json", true);
 	httpRequest.onreadystatechange = OnRequestStateChange;
 	httpRequest.send(null);
@@ -226,8 +239,45 @@ $(function () {
 		// alert(httpRequest.responseText);
 		JsonLotsArray = JSON.parse(httpRequest.responseText);
 
+		if (JsonLotsArray) {
+			var tempObj = {};
+			for (i = 0; i < JsonLotsArray.length; i++) {
+				localStorage[i] = JSON.stringify(JsonLotsArray[i]);
+			}
+		}
+
+		viewLots("all", 0);
+	}*/
+
+	function OnRequestStateChange() {
+		if (httpRequest.readyState != 4)
+			return;
+		if (httpRequest.status != 200)
+			return;
+		// alert(httpRequest.responseText);
+		JsonLotsArray = JSON.parse(httpRequest.responseText);
+
+		if (JsonLotsArray) {
+			for (i = 0; i < JsonLotsArray.length; i++) {
+				localStorage[i] = JSON.stringify(JsonLotsArray[i]);
+			}
+		}
+
 		viewLots("all", 0);
 	}
+
+	if (!localStorage.length) {
+		var httpRequest = new XMLHttpRequest();
+		httpRequest.open("GET", "../online-auction/files/dataAuction.json", true);
+		httpRequest.onreadystatechange = OnRequestStateChange;
+		httpRequest.send(null);
+	} else {
+		for (i = 0; i < localStorage.length; i++) {
+			JsonLotsArray[i] = JSON.parse(localStorage[i]);
+		}
+		viewLots("all", 0);
+	}
+
 
 	function addPaginationBtn(value) {
 		var tempPaginationBtn = paginationBtnTemplate.cloneNode(true);
@@ -262,11 +312,15 @@ $(function () {
 	function fillItemViewer(itemObj) {
 		// this function is used in event handler "auctionItemContainersHandler"
 		auctionItemViewerCont.querySelector(".item-img").src = itemObj.srcImage;
+		auctionItemViewerCont.setAttribute("data-current-viewer-id", itemObj.id);
 		auctionItemViewerCont.querySelector(".item-id").innerText = "Lot # " + itemObj.id;
 		auctionItemViewerCont.querySelector(".item-title").innerText = itemObj.title;
 		auctionItemViewerCont.querySelector(".item-price .value").innerText = itemObj.price + " $";
-		auctionItemViewerCont.querySelector(".item-date-sell .value").innerText = itemObj.timeToSell;
+		auctionItemViewerCont.querySelector(".item-date-sell .value").innerText = itemObj.timeToSell + " days";
 		auctionItemViewerCont.querySelector(".item-description").innerText = itemObj.description;
+
+		auctionFormBuyerPrice.setAttribute("placeholder", "Price (> " + itemObj.price + ") $");
+		auctionFormBuyerPrice.setAttribute("min", itemObj.price + 1);
 	}
 
 	// additional fucntion: used to add several items
@@ -283,9 +337,6 @@ $(function () {
 			addItem(LotsArray[i]);
 		}
 	}
-
-	var previousCategoryGlobal = "";
-	var currentCategoryGlobal = "all";
 
 	function viewLots(category, pageNumber) {
 		var auctionPaginationBtns = auctionPagination.querySelectorAll(".pagination-btn"),
@@ -488,11 +539,11 @@ $(function () {
 	}
 
 	function dropdownListContOverHandler() {
-		$(this.querySelector(".dropdown-list")).slideDown("slow");
+		$(this.querySelector(".dropdown-list")).slideDown("fast");
 	}
 
 	function dropdownListContLeaveHandler() {
-		$(this.querySelector(".dropdown-list")).slideUp("slow");
+		$(this.querySelector(".dropdown-list")).slideUp("fast");
 	}
 
 	function sliderBtnLeftHandler() {
@@ -631,12 +682,67 @@ $(function () {
 		auctionItemViewerCont.style.display = "block";
 
 		// JsonLotsArray[i]
+		auctionForm.reset();
 		fillItemViewer(JsonLotsArray[+this.getAttribute("data-lot-id") - 1]);
 	}
 
 	function closeAuctionViewerBtnHandler(event) {
 		auctionItemViewerCont.style.display = "none";
 		event.stopPropagation(); // to avoid inherit click events
+	}
+
+	function checkAuctionFormInput(inputItem, regExpTemplate, minPrice) {
+		var status;
+
+		// if (!inputItem.value.length) {
+		// 	inputItem.classList.add("error-border");
+		// 	status = false;
+		// }
+		// else {
+		// 	if (inputItem.classList.contains("error-border")) {
+		// 		inputItem.classList.remove("error-border");
+		// 	}
+		// 	status = true;
+		// }
+
+		if ( !regExpTemplate.test(inputItem.value) ||
+			(inputItem == auctionFormBuyerPrice) && (+inputItem.value <= minPrice)
+		) {
+			inputItem.classList.add("error-border");
+			status = false;
+		}
+		else {
+			if (inputItem.classList.contains("error-border")) {
+				inputItem.classList.remove("error-border");
+			}
+			status = true;
+		}
+
+		return status;
+	}
+
+	function auctionFormBuyBtnHandler(event) {
+		event.preventDefault();
+
+		var currentLotId = +auctionItemViewerCont.getAttribute("data-current-viewer-id") - 1;
+		var statusName, statusPhone, statusPrice;
+
+		statusName = checkAuctionFormInput(auctionFormBuyerName, /[a-zA-Z]{1,15}/);
+		statusPhone = checkAuctionFormInput(auctionFormBuyerPhone, /[0-9]{5,10}/);
+		statusPrice = checkAuctionFormInput(auctionFormBuyerPrice, /[0-9]{1,}/, +JsonLotsArray[currentLotId].price);
+
+		if (statusName && statusPhone && statusPrice) {
+			// save current changes
+
+			JsonLotsArray[currentLotId].price = auctionFormBuyerPrice.value;
+			localStorage[currentLotId] = JSON.stringify(JsonLotsArray[currentLotId]);
+
+			// close pre-view
+			alert("The data will be sent to the server !");
+			auctionForm.reset();
+			auctionItemViewerCont.style.display = "none";
+		}
+
 	}
 
 	function addNewLotBtnHandler() {
@@ -831,7 +937,7 @@ $(function () {
 		auctionMenuItems[i].addEventListener('click', auctionMenuHandler);
 	}
 
-	// auctionPagination.querySelector(".pagination-btn").addEventListener('click', paginationBtnHandler);
+	auctionFormBuyBtn.addEventListener('click', auctionFormBuyBtnHandler);
 
 	closeAuctionViewerBtn.addEventListener('click', closeAuctionViewerBtnHandler);
 	addNewLotBtn.addEventListener('click', addNewLotBtnHandler);
@@ -849,6 +955,13 @@ $(function () {
 
 	window.addEventListener('scroll', scrollWindowHandler);
 	window.addEventListener('resize', resizeWindowHandler);
+
+	// !!!! LOCALSTORAGE TEST !!!
+
+	// localStorage.setItem("myKey2", "myValue2");
+	// // alert(localStorage.getItem("myKey"));
+	// localStorage.clear();
+
 
 	<!--PRELOADER !!!-->
 	/*setTimeout(function() {

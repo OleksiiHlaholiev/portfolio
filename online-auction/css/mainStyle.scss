@@ -947,6 +947,10 @@ h1, h2, h3, h4, h5, h6 {
 						outline: none;
 					}
 
+					.error-border {
+						border: 2px solid red;
+					}
+
 					.buy-btn {
 						@extend .extend-submit-btn;
 					}
