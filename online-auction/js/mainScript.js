@@ -682,11 +682,12 @@ $(function () {
 	}
 
 	function auctionItemContainersHandler() {
-		auctionItemViewerCont.style.display = "block";
-
-		// JsonLotsArray[i]
 		auctionForm.reset();
 		fillItemViewer(JsonLotsArray[+this.getAttribute("data-lot-id") - 1]);
+
+		auctionItemViewerCont.style.opacity = "0";
+		auctionItemViewerCont.style.display = "block";
+		myFadeIn(auctionItemViewerCont, 3);
 	}
 
 	function closeAuctionViewerBtnHandler(event) {
@@ -696,17 +697,6 @@ $(function () {
 
 	function checkAuctionFormInput(inputItem, regExpTemplate, minPrice) {
 		var status;
-
-		// if (!inputItem.value.length) {
-		// 	inputItem.classList.add("error-border");
-		// 	status = false;
-		// }
-		// else {
-		// 	if (inputItem.classList.contains("error-border")) {
-		// 		inputItem.classList.remove("error-border");
-		// 	}
-		// 	status = true;
-		// }
 
 		if ( !regExpTemplate.test(inputItem.value) ||
 			(inputItem == auctionFormBuyerPrice) && (+inputItem.value <= minPrice)
@@ -752,7 +742,9 @@ $(function () {
 	}
 
 	function addNewLotBtnHandler() {
+		addItemViewerContainer.style.opacity = "0";
 		addItemViewerContainer.style.display = "block";
+		myFadeIn(addItemViewerContainer, 3);
 	}
 
 	function closeAddItemViewerBtnHandler(event) {
