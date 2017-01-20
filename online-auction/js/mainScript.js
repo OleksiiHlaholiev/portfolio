@@ -806,11 +806,12 @@ $(function () {
 
 			// close pre-view
 			alert("You added a new lot successfully!");
-			addItemForm.reset();
 			// addItemViewerContainer.style.display = "none";
 			myFadeOut(addItemViewerContainer, 3);
 
-			viewLots("all", 0);
+			viewLots(addItemFormCategory.value, currentPageGlobal);
+
+			addItemForm.reset();
 			scrollLotsUp();
 		}
 	}
