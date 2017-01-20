@@ -332,7 +332,8 @@ $(function () {
 
 	// additional fucntion: used to add several items
 	function addSeveralItems(LotsArray, pageNumber, itemsPerPage) {
-		if (currentCategoryGlobal != previousCategoryGlobal) {
+		// if (currentCategoryGlobal != previousCategoryGlobal) {
+		if (1) {
 			if ((LotsArray.length / itemsPerPage) > 1) {
 				for (i = 1; i <= Math.ceil(LotsArray.length / itemsPerPage); i++) {
 					addPaginationBtn(i, pageNumber);
@@ -353,7 +354,8 @@ $(function () {
 			tempLotsArray = [],
 			i;
 
-		if (category != previousCategoryGlobal) {
+		// if (category != previousCategoryGlobal) {
+		if (1) {
 			// firstly remove previous items
 			tempLength = auctionPaginationBtns.length;
 			if (tempLength) {
