@@ -266,7 +266,7 @@ $(function () {
 			}
 		}
 
-		viewLots("all", 4);
+		viewLots("all", 0);
 	}
 
 	if (!localStorage.length) {
@@ -279,7 +279,7 @@ $(function () {
 		for (i = 0; i < localStorage.length; i++) {
 			JsonLotsArray[i] = JSON.parse(localStorage[i]);
 		}
-		viewLots("all", 4);
+		viewLots("all", 0);
 	}
 
 
@@ -425,6 +425,42 @@ $(function () {
 				break;
 		}
 
+	}
+
+	function scrollLotsUp() {
+		if (!busyFlag) {
+			busyFlag = true;
+
+			var stopPos = sectionAuction.offsetTop;
+			if (window.innerWidth < 768) {
+				stopPos = auctionWrapperContainer.offsetTop - sectionHeader.clientHeight;
+			}
+
+			scrollFunc(
+				pageYOffset,
+				stopPos,
+				SCROLL_STEP
+			)
+		}
+	}
+
+	function checkAuctionFormInput(inputItem, regExpTemplate, minPrice) {
+		var status;
+
+		if ( !regExpTemplate.test(inputItem.value) ||
+			( (inputItem == auctionFormBuyerPrice || inputItem == addItemFormPrice) &&
+				(+inputItem.value <= minPrice) )
+		) {
+			inputItem.classList.add("error-border");
+			status = false;
+		} else {
+			if (inputItem.classList.contains("error-border")) {
+				inputItem.classList.remove("error-border");
+			}
+			status = true;
+		}
+
+		return status;
 	}
 
 	// ****************************************************************
@@ -659,23 +695,6 @@ $(function () {
 		}
 	}
 
-	function scrollLotsUp() {
-		if (!busyFlag) {
-			busyFlag = true;
-
-			var stopPos = sectionAuction.offsetTop;
-			if (window.innerWidth < 768) {
-				stopPos = auctionWrapperContainer.offsetTop - sectionHeader.clientHeight;
-			}
-
-			scrollFunc(
-				pageYOffset,
-				stopPos,
-				SCROLL_STEP
-			)
-		}
-	}
-
 	function paginationBtnHandler() {
 		if (!this.classList.contains("active-pagination")) {
 			var prevActiveItem = document.querySelector(".active-pagination");
@@ -688,7 +707,6 @@ $(function () {
 			viewLots(currentCategoryGlobal, currentPageGlobal);
 
 			scrollLotsUp();
-
 		}
 	}
 
@@ -706,25 +724,6 @@ $(function () {
 		event.stopPropagation(); // to avoid inherit click events
 
 		myFadeOut(auctionItemViewerCont, 3);
-	}
-
-	function checkAuctionFormInput(inputItem, regExpTemplate, minPrice) {
-		var status;
-
-		if ( !regExpTemplate.test(inputItem.value) ||
-			(inputItem == auctionFormBuyerPrice) && (+inputItem.value <= minPrice)
-		) {
-			inputItem.classList.add("error-border");
-			status = false;
-		}
-		else {
-			if (inputItem.classList.contains("error-border")) {
-				inputItem.classList.remove("error-border");
-			}
-			status = true;
-		}
-
-		return status;
 	}
 
 	function auctionFormBuyBtnHandler(event) {
@@ -750,7 +749,6 @@ $(function () {
 
 			viewLots(currentCategoryGlobal, currentPageGlobal);
 		}
-
 	}
 
 	function addNewLotBtnHandler() {
@@ -768,35 +766,16 @@ $(function () {
 		myFadeOut(addItemViewerContainer, 3);
 	}
 
-	function checkAddItemFormInput(inputItem, regExpTemplate, minPrice) {
-		var status;
-
-		if ( !regExpTemplate.test(inputItem.value) ||
-			(inputItem == addItemFormPrice) && (+inputItem.value <= minPrice)
-		) {
-			inputItem.classList.add("error-border");
-			status = false;
-		}
-		else {
-			if (inputItem.classList.contains("error-border")) {
-				inputItem.classList.remove("error-border");
-			}
-			status = true;
-		}
-
-		return status;
-	}
-
 	function addItemFormAddBtnHandler(event) {
 		event.preventDefault();
 
 		var statusTitle, statusPrice, statusTime, statusImageUrl, statusDescription;
 
-		statusTitle = checkAddItemFormInput(addItemFormTitle, /[a-zA-Z0-9]{1,30}/);
-		statusPrice = checkAddItemFormInput(addItemFormPrice, /[0-9]{1,}/, 0);
-		statusTime = checkAddItemFormInput(addItemFormTime, /[0-9]{1,}/);
-		statusImageUrl = checkAddItemFormInput(addItemFormImageUrl, /[a-zA-Z0-9]{1,15}/);
-		statusDescription = checkAddItemFormInput(addItemFormDescription, /[a-zA-Z0-9]{1,100}/);
+		statusTitle = checkAuctionFormInput(addItemFormTitle, /[a-zA-Z0-9]{1,30}/);
+		statusPrice = checkAuctionFormInput(addItemFormPrice, /[0-9]{1,}/, 0);
+		statusTime = checkAuctionFormInput(addItemFormTime, /[0-9]{1,}/);
+		statusImageUrl = checkAuctionFormInput(addItemFormImageUrl, /[a-zA-Z0-9]{1,15}/);
+		statusDescription = checkAuctionFormInput(addItemFormDescription, /[a-zA-Z0-9]{1,100}/);
 
 		if (statusTitle && statusPrice && statusTime && statusImageUrl && statusDescription) {
 			// save new lot
@@ -834,7 +813,6 @@ $(function () {
 			viewLots("all", 0);
 			scrollLotsUp();
 		}
-
 	}
 
 	// ****************************************************************
@@ -865,8 +843,7 @@ $(function () {
 			inputNameStatus = false;
 			inputName.nextElementSibling.style.display = "block";
 			inputName.nextElementSibling.innerText = "No data entered !"
-		}
-		else {
+		} else {
 			// if ( (/[a-zA-Z]/.test(inputName.value[inputName.value.length - 1])) )
 			if ((/[a-zA-Z]/.test(inputName.value))) {
 				inputNameStatus = true;
@@ -961,10 +938,6 @@ $(function () {
 		} else if ((currentPosition > sectionContact.offsetTop)) {
 			siteNavigationItems[2].classList.add("active-section");
 		}
-
-		// dropdownListItems
-
-
 	}
 
 	function resizeWindowHandler() {
@@ -1010,11 +983,6 @@ $(function () {
 	for (i = 0; i < portfolioNavigationItems.length; i++) {
 		portfolioNavigationItems[i].addEventListener('click', portfolioNavigationHandler);
 	}
-
-	// this event handlers are registered in the function above
-	// for (i = 0; i < auctionItemContainers.length; i++) {
-	// 	auctionItemContainers[i].addEventListener('click', auctionItemContainersHandler)
-	// }
 
 	for (i = 0; i < auctionMenuItems.length; i++) {
 		auctionMenuItems[i].addEventListener('click', auctionMenuHandler);
