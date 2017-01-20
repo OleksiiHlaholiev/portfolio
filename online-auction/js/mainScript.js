@@ -266,11 +266,12 @@ $(function () {
 			}
 		}
 
-		viewLots("all", 0);
+		viewLots("all", 4);
 	}
 
 	if (!localStorage.length) {
 		var httpRequest = new XMLHttpRequest();
+		// Asynchronous request (async == true)
 		httpRequest.open("GET", "../online-auction/files/dataAuction.json", true);
 		httpRequest.onreadystatechange = OnRequestStateChange;
 		httpRequest.send(null);
@@ -278,14 +279,16 @@ $(function () {
 		for (i = 0; i < localStorage.length; i++) {
 			JsonLotsArray[i] = JSON.parse(localStorage[i]);
 		}
-		viewLots("all", 0);
+		viewLots("all", 4);
 	}
 
 
-	function addPaginationBtn(value) {
+	function addPaginationBtn(value, activeCurrentIndex) {
 		var tempPaginationBtn = paginationBtnTemplate.cloneNode(true);
 
-		if (tempPaginationBtn.classList.contains("active-pagination") && value != 1) {
+		if (tempPaginationBtn.classList.contains("active-pagination") &&
+			value != (activeCurrentIndex + 1)
+		) {
 			tempPaginationBtn.classList.remove("active-pagination");
 		}
 
@@ -314,6 +317,7 @@ $(function () {
 
 	function fillItemViewer(itemObj) {
 		// this function is used in event handler "auctionItemContainersHandler"
+
 		auctionItemViewerCont.querySelector(".item-img").src = itemObj.srcImage;
 		auctionItemViewerCont.setAttribute("data-current-viewer-id", itemObj.id);
 		auctionItemViewerCont.querySelector(".item-id").innerText = "Lot # " + itemObj.id;
@@ -331,7 +335,7 @@ $(function () {
 		if (currentCategoryGlobal != previousCategoryGlobal) {
 			if ((LotsArray.length / itemsPerPage) > 1) {
 				for (i = 1; i <= Math.ceil(LotsArray.length / itemsPerPage); i++) {
-					addPaginationBtn(i);
+					addPaginationBtn(i, pageNumber);
 				}
 			}
 		}
@@ -655,6 +659,23 @@ $(function () {
 		}
 	}
 
+	function scrollLotsUp() {
+		if (!busyFlag) {
+			busyFlag = true;
+
+			var stopPos = sectionAuction.offsetTop;
+			if (window.innerWidth < 768) {
+				stopPos = auctionWrapperContainer.offsetTop - sectionHeader.clientHeight;
+			}
+
+			scrollFunc(
+				pageYOffset,
+				stopPos,
+				SCROLL_STEP
+			)
+		}
+	}
+
 	function paginationBtnHandler() {
 		if (!this.classList.contains("active-pagination")) {
 			var prevActiveItem = document.querySelector(".active-pagination");
@@ -666,20 +687,8 @@ $(function () {
 			currentPageGlobal = +this.innerText - 1;
 			viewLots(currentCategoryGlobal, currentPageGlobal);
 
-			if (!busyFlag) {
-				busyFlag = true;
+			scrollLotsUp();
 
-				var stopPos = sectionAuction.offsetTop;
-				if (window.innerWidth < 768) {
-					stopPos = auctionWrapperContainer.offsetTop - sectionHeader.clientHeight;
-				}
-
-				scrollFunc(
-					pageYOffset,
-					stopPos,
-					SCROLL_STEP
-				)
-			}
 		}
 	}
 
@@ -745,6 +754,8 @@ $(function () {
 	}
 
 	function addNewLotBtnHandler() {
+		addItemForm.reset();
+
 		addItemViewerContainer.style.opacity = "0";
 		addItemViewerContainer.style.display = "block";
 		myFadeIn(addItemViewerContainer, 3);
@@ -776,14 +787,6 @@ $(function () {
 		return status;
 	}
 
-	// addItemForm
-	// addItemFormTitle
-	// addItemFormCategory
-	// addItemFormPrice
-	// addItemFormImageUrl
-	// addItemFormDescription
-	// addItemFormAddBtn
-
 	function addItemFormAddBtnHandler(event) {
 		event.preventDefault();
 
@@ -796,18 +799,40 @@ $(function () {
 		statusDescription = checkAddItemFormInput(addItemFormDescription, /[a-zA-Z0-9]{1,100}/);
 
 		if (statusTitle && statusPrice && statusTime && statusImageUrl && statusDescription) {
-			// save current changes
+			// save new lot
+			var newLot = {};
 
-			// JsonLotsArray[currentLotId].price = auctionFormBuyerPrice.value;
-			// localStorage[currentLotId] = JSON.stringify(JsonLotsArray[currentLotId]);
-			//
-			// // close pre-view
-			// alert("Congratulations!!! You bought this amazing lot!");
-			// auctionForm.reset();
-			// auctionItemViewerCont.style.display = "none";
-			//
-			// viewLots(currentCategoryGlobal, currentPageGlobal);
+			newLot.id = JsonLotsArray.length + 1;
+			newLot.title = addItemFormTitle.value;
+			newLot.category = addItemFormCategory.value;
+			newLot.price = addItemFormPrice.value;
+			newLot.timeToSell = addItemFormTime.value;
 
+			// test if the image exists
+			var xhr = new XMLHttpRequest();
+			// Synchronous request (async == false)
+			xhr.open('GET', addItemFormImageUrl.value, false);
+			xhr.send();
+
+			if (xhr.status != 200) {
+				newLot.srcImage = "images/lot_0.jpg";
+			} else {
+				newLot.srcImage = addItemFormImageUrl.value;
+			}
+
+			newLot.description = addItemFormDescription.value;
+
+			JsonLotsArray.push(newLot);
+			localStorage[localStorage.length] = JSON.stringify(newLot);
+
+			// close pre-view
+			alert("You added a new lot successfully!");
+			addItemForm.reset();
+			// addItemViewerContainer.style.display = "none";
+			myFadeOut(addItemViewerContainer, 3);
+
+			viewLots("all", 0);
+			scrollLotsUp();
 		}
 
 	}
