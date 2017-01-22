@@ -25,6 +25,7 @@ $(function () {
 		busyFlag = false,
 
 		JsonLotsArray = [],
+		priceOrderAscendingFlag = true,
 
 		previousCategoryGlobal = "",
 		currentCategoryGlobal = "all",
@@ -61,6 +62,8 @@ $(function () {
 		auctionLotsContainer = document.querySelector(".auction-lots-container"),
 		auctionItemTemplate = document.querySelector(".auction-item-cont").cloneNode(true),
 		auctionSearch = document.querySelector(".auction-container .auction-search"),
+		sortAscendingBtn = document.getElementById("ascending-btn"),
+		sortDescendingBtn = document.getElementById("descending-btn"),
 
 		auctionPagination = document.querySelector(".auction-container .pagination"),
 		paginationBtnTemplate = document.querySelector(".pagination .pagination-btn").cloneNode(true),
@@ -305,7 +308,7 @@ $(function () {
 			tempItem.setAttribute("data-lot-id", itemObj.id);
 			tempItem.querySelector(".auction-img").src = itemObj.srcImage;
 			tempItem.querySelector(".auction-title").innerText = itemObj.title;
-			tempItem.querySelector(".auction-price").innerText = itemObj.price + " $";
+			tempItem.querySelector(".auction-price").innerText = itemObj.price.toLocaleString() + " $";
 			tempItem.addEventListener('click', auctionItemContainersHandler);
 
 			tempItem.style.opacity = "0";
@@ -322,7 +325,7 @@ $(function () {
 		auctionItemViewerCont.setAttribute("data-current-viewer-id", itemObj.id);
 		auctionItemViewerCont.querySelector(".item-id").innerText = "Lot # " + itemObj.id;
 		auctionItemViewerCont.querySelector(".item-title").innerText = itemObj.title;
-		auctionItemViewerCont.querySelector(".item-price .value").innerText = itemObj.price + " $";
+		auctionItemViewerCont.querySelector(".item-price .value").innerText = itemObj.price.toLocaleString() + " $";
 		auctionItemViewerCont.querySelector(".item-date-sell .value").innerText = itemObj.timeToSell + " days";
 		auctionItemViewerCont.querySelector(".item-description").innerText = itemObj.description;
 
@@ -343,6 +346,23 @@ $(function () {
 
 		for (i = pageNumber * itemsPerPage; i < pageNumber * itemsPerPage + itemsPerPage; i++) {
 			addItem(LotsArray[i]);
+		}
+	}
+
+	function comparePriceAscending(obj1, obj2) {
+		return obj1.price - obj2.price;
+	}
+
+	function comparePriceDescending(obj1, obj2) {
+		return obj2.price - obj1.price;
+	}
+
+	function sortArrayByPrice(objectsArray, orderFlag) {
+		if (orderFlag) {
+			objectsArray.sort(comparePriceAscending);
+
+		} else {
+			objectsArray.sort(comparePriceDescending);
 		}
 	}
 
@@ -379,6 +399,7 @@ $(function () {
 				for (i = 0; i < JsonLotsArray.length; i++) {
 					tempLotsArray.push(JsonLotsArray[i]);
 				}
+				sortArrayByPrice(tempLotsArray, priceOrderAscendingFlag);
 				addSeveralItems(tempLotsArray, pageNumber, itemsPerPage);
 				previousCategoryGlobal = "all";
 				break;
@@ -388,6 +409,7 @@ $(function () {
 						tempLotsArray.push(JsonLotsArray[i]);
 					}
 				}
+				sortArrayByPrice(tempLotsArray, priceOrderAscendingFlag);
 				addSeveralItems(tempLotsArray, pageNumber, itemsPerPage);
 				previousCategoryGlobal = "auto";
 				break;
@@ -397,6 +419,7 @@ $(function () {
 						tempLotsArray.push(JsonLotsArray[i]);
 					}
 				}
+				sortArrayByPrice(tempLotsArray, priceOrderAscendingFlag);
 				addSeveralItems(tempLotsArray, pageNumber, itemsPerPage);
 				previousCategoryGlobal = "moto";
 				break;
@@ -406,6 +429,7 @@ $(function () {
 						tempLotsArray.push(JsonLotsArray[i]);
 					}
 				}
+				sortArrayByPrice(tempLotsArray, priceOrderAscendingFlag);
 				addSeveralItems(tempLotsArray, pageNumber, itemsPerPage);
 				previousCategoryGlobal = "boat";
 				break;
@@ -415,6 +439,7 @@ $(function () {
 						tempLotsArray.push(JsonLotsArray[i]);
 					}
 				}
+				sortArrayByPrice(tempLotsArray, priceOrderAscendingFlag);
 				addSeveralItems(tempLotsArray, pageNumber, itemsPerPage);
 				previousCategoryGlobal = "painting";
 				break;
@@ -422,6 +447,7 @@ $(function () {
 				for (i = 0; i < JsonLotsArray.length; i++) {
 					tempLotsArray.push(JsonLotsArray[i]);
 				}
+				sortArrayByPrice(tempLotsArray, priceOrderAscendingFlag);
 				addSeveralItems(tempLotsArray, pageNumber, itemsPerPage);
 				previousCategoryGlobal = "all";
 				break;
@@ -697,6 +723,16 @@ $(function () {
 		}
 	}
 
+	function sortAscendingBtnHandler() {
+		priceOrderAscendingFlag = true;
+		viewLots(currentCategoryGlobal, currentPageGlobal);
+	}
+
+	function sortDescendingBtnHandler() {
+		priceOrderAscendingFlag = false;
+		viewLots(currentCategoryGlobal, currentPageGlobal);
+	}
+
 	function paginationBtnHandler() {
 		if (!this.classList.contains("active-pagination")) {
 			var prevActiveItem = document.querySelector(".active-pagination");
@@ -741,7 +777,7 @@ $(function () {
 		if (statusName && statusPhone && statusPrice) {
 			// save current changes
 
-			JsonLotsArray[currentLotId].price = auctionFormBuyerPrice.value;
+			JsonLotsArray[currentLotId].price = +auctionFormBuyerPrice.value;
 			localStorage[currentLotId] = JSON.stringify(JsonLotsArray[currentLotId]);
 
 			// close pre-view
@@ -786,8 +822,8 @@ $(function () {
 			newLot.id = JsonLotsArray.length + 1;
 			newLot.title = addItemFormTitle.value;
 			newLot.category = addItemFormCategory.value;
-			newLot.price = addItemFormPrice.value;
-			newLot.timeToSell = addItemFormTime.value;
+			newLot.price = +addItemFormPrice.value;
+			newLot.timeToSell = +addItemFormTime.value;
 
 			// test if the image exists
 			var xhr = new XMLHttpRequest();
@@ -990,6 +1026,9 @@ $(function () {
 	for (i = 0; i < auctionMenuItems.length; i++) {
 		auctionMenuItems[i].addEventListener('click', auctionMenuHandler);
 	}
+
+	sortAscendingBtn.addEventListener('change', sortAscendingBtnHandler);
+	sortDescendingBtn.addEventListener('change', sortDescendingBtnHandler);
 
 	auctionFormBuyBtn.addEventListener('click', auctionFormBuyBtnHandler);
 	closeAuctionViewerBtn.addEventListener('click', closeAuctionViewerBtnHandler);

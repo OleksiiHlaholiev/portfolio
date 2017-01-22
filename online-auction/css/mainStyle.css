@@ -567,6 +567,17 @@ h1, h2, h3, h4, h5, h6 {
       transition: all 0.7s; }
     #auction .auction-container .auction-search .fa-search:hover {
       background-color: #2ecc71; }
+  #auction .auction-container .auction-sort-condition {
+    text-align: center; }
+    #auction .auction-container .auction-sort-condition span {
+      display: inline-block;
+      margin: 0 5px; }
+    #auction .auction-container .auction-sort-condition .sort-title {
+      font-size: 18px; }
+    #auction .auction-container .auction-sort-condition label {
+      cursor: pointer; }
+    #auction .auction-container .auction-sort-condition .fa {
+      color: #00bbf5; }
   #auction .auction-container .auction-item-cont {
     display: block; }
     #auction .auction-container .auction-item-cont .auction-item {

@@ -801,6 +801,27 @@ h1, h2, h3, h4, h5, h6 {
 			}
 		}
 
+		.auction-sort-condition {
+			text-align: center;
+			span {
+				display: inline-block;
+				margin: 0 5px;
+			}
+
+			.sort-title {
+				font-size: 18px;
+			}
+
+			label {
+				cursor: pointer;
+			}
+
+			.fa {
+				color: $color_blue_light;
+			}
+
+		}
+
 		.auction-item-cont {
 			display: block;
 
