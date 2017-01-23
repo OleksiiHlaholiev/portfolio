@@ -486,7 +486,6 @@ $(function () {
 
 		sortArrayByPrice(tempLotsArray, priceOrderAscendingFlag);
 		addSeveralItems(tempLotsArray, pageNumber, itemsPerPage);
-
 	}
 
 	function scrollLotsUp() {
