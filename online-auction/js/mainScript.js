@@ -630,7 +630,6 @@ window.addEventListener('load', function() {
 			sliderRotate("right");
 		}
 
-
 		userTimoutTimer = setTimeout(
 			function () {
 				launchAutoSliderTimer = setTimeout(
@@ -997,7 +996,6 @@ window.addEventListener('load', function() {
 			dropdownList.style.display = "block";
 			dropdownListCont.removeEventListener("mouseover", dropdownListContOverHandler);
 			dropdownListCont.removeEventListener("mouseleave", dropdownListContLeaveHandler);
-
 		}
 	}
 
