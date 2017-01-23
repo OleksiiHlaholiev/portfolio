@@ -573,7 +573,8 @@ h1, h2, h3, h4, h5, h6 {
       display: inline-block;
       margin: 0 5px; }
     #auction .auction-container .auction-sort-condition .sort-title {
-      font-size: 18px; }
+      font-size: 18px;
+      color: grey; }
     #auction .auction-container .auction-sort-condition label {
       cursor: pointer; }
     #auction .auction-container .auction-sort-condition .fa {
