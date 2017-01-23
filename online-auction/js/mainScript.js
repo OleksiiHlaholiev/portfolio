@@ -232,7 +232,7 @@ window.addEventListener('load', function() {
 		for (var i = 0; i < itemsArray.length; i++) {
 			itemsArray[i].style.display = "inline-block";
 			itemsArray[i].style.opacity = "0";
-			myFadeIn(itemsArray[i], 5);
+			myFadeIn(itemsArray[i], 2);
 		}
 	}
 
@@ -317,7 +317,7 @@ window.addEventListener('load', function() {
 			tempItem.addEventListener('click', auctionItemContainersHandler);
 
 			tempItem.style.opacity = "0";
-			myFadeIn(tempItem, 5);
+			myFadeIn(tempItem, 2);
 
 			auctionLotsContainer.appendChild(tempItem);
 		}
@@ -395,31 +395,28 @@ window.addEventListener('load', function() {
 		// 'i' - Perform case-insensitive matching
 		var patternSearchTitle = new RegExp(auctionSearchString.value, 'i');
 
+		function filterFunctionLocal(objItem) {
+			if (searchActiveFlag) {
+				if (auctionSearchString.value.length &&
+					objItem.title.search(patternSearchTitle) != -1) {
+					tempLotsArray.push(objItem);
+				}
+			} else {
+				tempLotsArray.push(objItem);
+			}
+		}
+
 		switch (category) {
 			case "all":
 				for (i = 0; i < JsonLotsArray.length; i++) {
-					if (searchActiveFlag) {
-						if (auctionSearchString.value.length &&
-							JsonLotsArray[i].title.search(patternSearchTitle) != -1) {
-							tempLotsArray.push(JsonLotsArray[i]);
-						}
-					} else {
-						tempLotsArray.push(JsonLotsArray[i]);
-					}
+					filterFunctionLocal(JsonLotsArray[i]);
 				}
 				previousCategoryGlobal = "all";
 				break;
 			case "auto":
 				for (i = 0; i < JsonLotsArray.length; i++) {
 					if (JsonLotsArray[i].category == "auto") {
-						if (searchActiveFlag) {
-							if (auctionSearchString.value.length &&
-								JsonLotsArray[i].title.search(patternSearchTitle) != -1) {
-								tempLotsArray.push(JsonLotsArray[i]);
-							}
-						} else {
-							tempLotsArray.push(JsonLotsArray[i]);
-						}
+						filterFunctionLocal(JsonLotsArray[i]);
 					}
 				}
 				previousCategoryGlobal = "auto";
@@ -427,14 +424,7 @@ window.addEventListener('load', function() {
 			case "moto":
 				for (i = 0; i < JsonLotsArray.length; i++) {
 					if (JsonLotsArray[i].category == "moto") {
-						if (searchActiveFlag) {
-							if (auctionSearchString.value.length &&
-								JsonLotsArray[i].title.search(patternSearchTitle) != -1) {
-								tempLotsArray.push(JsonLotsArray[i]);
-							}
-						} else {
-							tempLotsArray.push(JsonLotsArray[i]);
-						}
+						filterFunctionLocal(JsonLotsArray[i]);
 					}
 				}
 				previousCategoryGlobal = "moto";
@@ -442,14 +432,7 @@ window.addEventListener('load', function() {
 			case "boat":
 				for (i = 0; i < JsonLotsArray.length; i++) {
 					if (JsonLotsArray[i].category == "boat") {
-						if (searchActiveFlag) {
-							if (auctionSearchString.value.length &&
-								JsonLotsArray[i].title.search(patternSearchTitle) != -1) {
-								tempLotsArray.push(JsonLotsArray[i]);
-							}
-						} else {
-							tempLotsArray.push(JsonLotsArray[i]);
-						}
+						filterFunctionLocal(JsonLotsArray[i]);
 					}
 				}
 				previousCategoryGlobal = "boat";
@@ -457,28 +440,14 @@ window.addEventListener('load', function() {
 			case "painting":
 				for (i = 0; i < JsonLotsArray.length; i++) {
 					if (JsonLotsArray[i].category == "painting") {
-						if (searchActiveFlag) {
-							if (auctionSearchString.value.length &&
-								JsonLotsArray[i].title.search(patternSearchTitle) != -1) {
-								tempLotsArray.push(JsonLotsArray[i]);
-							}
-						} else {
-							tempLotsArray.push(JsonLotsArray[i]);
-						}
+						filterFunctionLocal(JsonLotsArray[i]);
 					}
 				}
 				previousCategoryGlobal = "painting";
 				break;
 			default:
 				for (i = 0; i < JsonLotsArray.length; i++) {
-					if (searchActiveFlag) {
-						if (auctionSearchString.value.length &&
-							JsonLotsArray[i].title.search(patternSearchTitle) != -1) {
-							tempLotsArray.push(JsonLotsArray[i]);
-						}
-					} else {
-						tempLotsArray.push(JsonLotsArray[i]);
-					}
+					filterFunctionLocal(JsonLotsArray[i]);
 				}
 				previousCategoryGlobal = "all";
 				break;
@@ -650,32 +619,17 @@ window.addEventListener('load', function() {
 		$(this.querySelector(".dropdown-list")).slideUp("fast");
 	}
 
-	function sliderBtnLeftHandler() {
+	function sliderBtnHandler(event) {
 		userActiveControlFlag = true;
 		clearTimeout(userTimoutTimer);
 		clearInterval(launchAutoSliderTimer);
-		sliderRotate("left");
 
-		userTimoutTimer = setTimeout(
-			function () {
-				launchAutoSliderTimer = setTimeout(
-					function readyGo() {
-						userActiveControlFlag = false;
-						sliderRotate("right");
-						launchAutoSliderTimer = setTimeout(readyGo, SLIDER_AUTO_DELAY);
-					},
-					SLIDER_AUTO_DELAY
-				);
-			},
-			SLIDER_USER_TIMEOUT
-		);
-	}
+		if (event.target.classList.contains("fa-angle-left")) {
+			sliderRotate("left");
+		} else {
+			sliderRotate("right");
+		}
 
-	function sliderBtnRightHandler() {
-		userActiveControlFlag = true;
-		clearTimeout(userTimoutTimer);
-		clearInterval(launchAutoSliderTimer);
-		sliderRotate("right");
 
 		userTimoutTimer = setTimeout(
 			function () {
@@ -799,14 +753,14 @@ window.addEventListener('load', function() {
 
 		auctionItemViewerCont.style.opacity = "0";
 		auctionItemViewerCont.style.display = "block";
-		myFadeIn(auctionItemViewerCont, 3);
+		myFadeIn(auctionItemViewerCont, 2);
 	}
 
 	function closeAuctionViewerBtnHandler(event) {
 		// auctionItemViewerCont.style.display = "none";
 		event.stopPropagation(); // to avoid inherit click events
 
-		myFadeOut(auctionItemViewerCont, 3);
+		myFadeOut(auctionItemViewerCont, 2);
 	}
 
 	function auctionFormBuyBtnHandler(event) {
@@ -839,14 +793,14 @@ window.addEventListener('load', function() {
 
 		addItemViewerContainer.style.opacity = "0";
 		addItemViewerContainer.style.display = "block";
-		myFadeIn(addItemViewerContainer, 3);
+		myFadeIn(addItemViewerContainer, 2);
 	}
 
 	function closeAddItemViewerBtnHandler(event) {
 		event.stopPropagation(); // to avoid inherit click events
 
 		// addItemViewerContainer.style.display = "none";
-		myFadeOut(addItemViewerContainer, 3);
+		myFadeOut(addItemViewerContainer, 2);
 	}
 
 	function addItemFormAddBtnHandler(event) {
@@ -898,9 +852,9 @@ window.addEventListener('load', function() {
 			// close pre-view
 			alert("You added a new lot successfully!");
 			// addItemViewerContainer.style.display = "none";
-			myFadeOut(addItemViewerContainer, 3);
+			myFadeOut(addItemViewerContainer, 2);
 
-			viewLots(addItemFormCategory.value, currentPageGlobal);
+			viewLots(addItemFormCategory.value, 0);
 
 			addItemForm.reset();
 			scrollLotsUp();
@@ -1068,8 +1022,8 @@ window.addEventListener('load', function() {
 		dropdownListCont.addEventListener("mouseleave", dropdownListContLeaveHandler);
 	}
 
-	sliderBtnLeft.addEventListener('click', sliderBtnLeftHandler);
-	sliderBtnRight.addEventListener('click', sliderBtnRightHandler);
+	sliderBtnLeft.addEventListener('click', sliderBtnHandler);
+	sliderBtnRight.addEventListener('click', sliderBtnHandler);
 
 	for (i = 0; i < portfolioNavigationItems.length; i++) {
 		portfolioNavigationItems[i].addEventListener('click', portfolioNavigationHandler);
