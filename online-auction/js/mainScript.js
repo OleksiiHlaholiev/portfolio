@@ -877,6 +877,7 @@ window.addEventListener('load', function() {
 				xhr.send();
 
 				if (xhr.status != 200) {
+					alert('Error to load image from entered URL!');
 					newLot.srcImage = "images/lot_0.jpg";
 				} else {
 					newLot.srcImage = addItemFormImageUrl.value;
@@ -884,6 +885,7 @@ window.addEventListener('load', function() {
 			} catch (error) {
 				alert('Error to load image from entered URL! Error' +
 					error.name + ":" + error.message + "\n" + error.stack);
+				newLot.srcImage = "images/lot_0.jpg";
 			}
 
 			newLot.description = addItemFormDescription.value;
