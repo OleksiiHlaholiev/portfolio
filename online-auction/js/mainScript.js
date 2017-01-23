@@ -277,7 +277,8 @@ window.addEventListener('load', function() {
 			}
 			viewLots("all", 0);
 		} catch (error) {
-			alert('Error in reading JSON data from server. Error' + e.name + ":" + e.message + "\n" + e.stack);
+			alert('Error in reading JSON data from server. Error' +
+				error.name + ":" + error.message + "\n" + error.stack);
 		}
 
 	}
