@@ -73,6 +73,19 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
+#preloader {
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 100500;
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+	/*//cdnjs.cloudflare.com/ajax/libs/file-uploader/3.7.0/processing.gif'*/
+	/*https://cdnjs.cloudflare.com/ajax/libs/file-uploader/5.11.8/all.fine-uploader/loading.gif*/
+	background: #ffffff url('../images/spinner.gif') no-repeat center center;
+}
+
 //**************** SECTION HEADER starts *****************
 #header {
 	position: fixed;
