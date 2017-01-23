@@ -1,18 +1,7 @@
 'use strict';
 
-// **** polyfills for IE
+window.addEventListener('load', function() {
 
-if (!('remove' in Element.prototype)) {
-	Element.prototype.remove = function () {
-		if (this.parentNode) {
-			this.parentNode.removeChild(this);
-		}
-	};
-}
-// ****************************************
-
-// window.addEventListener('load', function() {
-$(function () {
 	// ******************** GLOBAL VARIABLES ****************************
 	var SCROLL_STEP = 100,
 		scrollFuncTimer,
@@ -393,7 +382,8 @@ $(function () {
 			}
 		}
 
-		var patternSearchTitle = new RegExp(auctionSearchString.value, 'ig');
+		// 'i' - Perform case-insensitive matching
+		var patternSearchTitle = new RegExp(auctionSearchString.value, 'i');
 
 		switch (category) {
 			case "all":
