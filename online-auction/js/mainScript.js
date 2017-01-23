@@ -879,14 +879,14 @@ window.addEventListener('load', function() {
 				xhr.send();
 
 				if (xhr.status != 200) {
-					alert('Error to load image from entered URL! \n Template image will be used instead!');
+					alert('Error to load image from entered URL! \nTemplate image will be used instead!');
 					newLot.srcImage = "images/lot_0.jpg";
 				} else {
 					newLot.srcImage = addItemFormImageUrl.value;
 				}
 			} catch (error) {
-				alert('Error to load image from entered URL! \n Template image will be used instead! ' +
-					'Error' + error.name + ":" + error.message + "\n" + error.stack);
+				alert('Error to load image from entered URL! \nTemplate image will be used instead! ' +
+					'\nError' + error.name + ":" + error.message + "\n" + error.stack);
 				newLot.srcImage = "images/lot_0.jpg";
 			}
 
