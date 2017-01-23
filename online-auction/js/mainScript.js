@@ -29,8 +29,7 @@ window.addEventListener('load', function() {
 		sectionHome = document.getElementById("home"),
 		sectionAuction = document.getElementById("auction"),
 		subSectionAddNew = document.getElementById("add-new"),
-		sectionContact = document.getElementById("contact"),
-		sectionFooter = document.getElementById("footer");
+		sectionContact = document.getElementById("contact");
 
 	var logoButton = document.querySelector(".logo-link"),
 		siteNavigation = document.querySelector(".site-navigation"),
@@ -372,8 +371,6 @@ window.addEventListener('load', function() {
 				auctionPaginationBtns[i - 1].remove();
 			}
 		}
-		// auctionPaginationBtns[0].classList.add("active-pagination");
-
 
 		tempLength = auctionItems.length;
 		if (tempLength) {
@@ -1032,7 +1029,6 @@ window.addEventListener('load', function() {
 	// ************************************************************************************
 
 	// ***************** REGISTER EVENT HANDLERS *******************
-	var i;
 
 	logoButton.addEventListener('click', logoButtonHandler);
 
@@ -1040,7 +1036,7 @@ window.addEventListener('load', function() {
 		siteNavigationItems[i].addEventListener('click', activeSectionHandler);
 	}
 
-	for (var i = 0; i < dropdownListItems.length; i++) {
+	for (i = 0; i < dropdownListItems.length; i++) {
 		dropdownListItems[i].addEventListener('click', activeSectionHandler);
 	}
 

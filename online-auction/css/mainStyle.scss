@@ -102,10 +102,6 @@ h1, h2, h3, h4, h5, h6 {
 		padding: 9px 0;
 		text-decoration: none;
 
-		@media screen and (min-width: 768px) {
-			//padding: 30px 0;
-		}
-
 		.fa-star {
 			background-color: #737373;
 			color: #fffa29;
@@ -145,8 +141,6 @@ h1, h2, h3, h4, h5, h6 {
 		left: 0;
 		width: 100%;
 		height: calc(100vh - 80px);
-		//background-color: #d2edf5;
-
 		background: #d2edf5 url(../images/lot_0_modify.png) no-repeat left center;
 		background-size: cover;
 
@@ -237,15 +231,10 @@ h1, h2, h3, h4, h5, h6 {
 						text-transform: uppercase;
 						font-size: 18px;
 						color: $color_grey;
-
-						//@media screen and (min-width: 400px) {
-						//	font-size: 18px;
-						//}
 					}
 					a:hover, .active-section {
 						color: $color_green_light;
 					}
-
 				}
 
 				.dropdown-list-cont {
@@ -365,10 +354,6 @@ h1, h2, h3, h4, h5, h6 {
 					border: none;
 					outline: none;
 					transition: all 0.7s;
-
-					@media screen and (min-width: 992px) {
-						//margin: 0 auto;
-					}
 				}
 				.log-in-btn:hover {
 					background-color: $color_blue_light;
@@ -399,14 +384,11 @@ h1, h2, h3, h4, h5, h6 {
 			li {
 				position: absolute;
 				top: 0;
-				//left: 0;
 				display: inline-block;
 				float: left;
 				width: calc(100% / 4);
 				height: calc(100vh - 80px);
 				font-size: 35px;
-				//transition: left 1s;
-				//transition: none;
 
 				background-repeat: no-repeat;
 				background-position: center top;
@@ -422,13 +404,11 @@ h1, h2, h3, h4, h5, h6 {
 						color: #ffffff;
 					}
 					h1 {
-						//font-size: 79px;
 						font-size: 1em;
 						font-weight: 700;
 						margin: 2vh;
 					}
 					h2 {
-						//font-size: 35px;
 						font-size: 0.5em;
 						font-weight: 700;
 						padding-top: 5vh;
@@ -439,7 +419,6 @@ h1, h2, h3, h4, h5, h6 {
 
 					}
 					p {
-						//font-size: 32px;
 						font-size: 0.4em;
 						font-weight: 300;
 						margin: 0;
@@ -448,7 +427,6 @@ h1, h2, h3, h4, h5, h6 {
 						@media screen and (min-height: 600px) {
 							padding-bottom: 3vh;
 						}
-
 					}
 
 					@media screen and (min-width: 420px) {
@@ -623,8 +601,7 @@ h1, h2, h3, h4, h5, h6 {
 					//width: 100%;
 					max-width: 100%;
 					height: auto;
-					width: auto \9
-				; /* ie8 */
+					width: auto \9; /* ie8 */
 				}
 
 				.portfolio-hover-layer {
@@ -661,7 +638,6 @@ h1, h2, h3, h4, h5, h6 {
 				}
 				.portfolio-hover-layer:hover {
 					opacity: 1;
-					//border-top: 4px solid $color_green_light;
 				}
 			}
 		}
@@ -721,7 +697,7 @@ h1, h2, h3, h4, h5, h6 {
 	transition: all 0.5s;
 }
 
-// main part of section
+// main part of auction section
 #auction {
 	padding-bottom: 30px;
 	background-color: #f8fcfe;
@@ -748,7 +724,6 @@ h1, h2, h3, h4, h5, h6 {
 			padding: 0;
 			margin: 0;
 			li {
-				//color: #8a8888;
 				list-style: none;
 				font-size: 16px;
 				text-transform: uppercase;
@@ -833,7 +808,6 @@ h1, h2, h3, h4, h5, h6 {
 			.fa {
 				color: $color_blue_light;
 			}
-
 		}
 
 		.auction-item-cont {
@@ -853,7 +827,6 @@ h1, h2, h3, h4, h5, h6 {
 					padding: 10px;
 					margin: 0;
 					text-align: center;
-					//color: #717171;
 					color: #fff;
 					background-color: $color_green_light;
 					font-size: 18px;
@@ -1083,14 +1056,6 @@ h1, h2, h3, h4, h5, h6 {
 					}
 				}
 
-				/*input[type="file"] {
-					display: block;
-					width: 100%;
-					margin: 10px 0;
-					color: red;
-					font-size: 16px;
-				}*/
-
 				.error-border {
 					border: 2px solid red;
 				}
@@ -1182,10 +1147,8 @@ h1, h2, h3, h4, h5, h6 {
 					width: 100%;
 					font-size: 14px;
 					font-weight: 400;
-					//color: #8a8888;
 					color: #000;
 					background-color: #ffffff;
-					//outline: none;
 					border: 2px solid #8a8888;
 					outline: none;
 					padding: 15px 10px;
@@ -1282,6 +1245,5 @@ h1, h2, h3, h4, h5, h6 {
 			}
 		}
 	}
-
 }
 
