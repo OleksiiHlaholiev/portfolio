@@ -271,10 +271,15 @@ window.addEventListener('load', function() {
 		httpRequest.onreadystatechange = OnRequestStateChange;
 		httpRequest.send(null);
 	} else {
-		for (i = 0; i < localStorage.length; i++) {
-			JsonLotsArray[i] = JSON.parse(localStorage[i]);
+		try {
+			for (i = 0; i < localStorage.length; i++) {
+				JsonLotsArray[i] = JSON.parse(localStorage[i]);
+			}
+			viewLots("all", 0);
+		} catch (error) {
+			alert('Error in reading JSON data from server. Error' + e.name + ":" + e.message + "\n" + e.stack);
 		}
-		viewLots("all", 0);
+
 	}
 
 
