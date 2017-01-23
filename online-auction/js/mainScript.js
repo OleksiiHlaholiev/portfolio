@@ -253,7 +253,13 @@ window.addEventListener('load', function() {
 		if (httpRequest.status != 200)
 			return;
 		// alert(httpRequest.responseText);
-		JsonLotsArray = JSON.parse(httpRequest.responseText);
+
+		try {
+			JsonLotsArray = JSON.parse(httpRequest.responseText);
+		} catch (error) {
+			alert('Error in reading JSON data from server. Error' +
+				error.name + ":" + error.message + "\n" + error.stack);
+		}
 
 		if (JsonLotsArray) {
 			for (i = 0; i < JsonLotsArray.length; i++) {
@@ -280,7 +286,6 @@ window.addEventListener('load', function() {
 			alert('Error in reading JSON data from server. Error' +
 				error.name + ":" + error.message + "\n" + error.stack);
 		}
-
 	}
 
 
@@ -864,15 +869,21 @@ window.addEventListener('load', function() {
 			newLot.timeToSell = +addItemFormTime.value;
 
 			// test if the image exists
-			var xhr = new XMLHttpRequest();
-			// Synchronous request (async == false)
-			xhr.open('GET', addItemFormImageUrl.value, false);
-			xhr.send();
 
-			if (xhr.status != 200) {
-				newLot.srcImage = "images/lot_0.jpg";
-			} else {
-				newLot.srcImage = addItemFormImageUrl.value;
+			try {
+				var xhr = new XMLHttpRequest();
+				// Synchronous request (async == false)
+				xhr.open('GET', addItemFormImageUrl.value, false);
+				xhr.send();
+
+				if (xhr.status != 200) {
+					newLot.srcImage = "images/lot_0.jpg";
+				} else {
+					newLot.srcImage = addItemFormImageUrl.value;
+				}
+			} catch (error) {
+				alert('Error to load image from entered URL! Error' +
+					error.name + ":" + error.message + "\n" + error.stack);
 			}
 
 			newLot.description = addItemFormDescription.value;
