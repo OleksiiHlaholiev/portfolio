@@ -259,6 +259,7 @@ window.addEventListener('load', function() {
 		} catch (error) {
 			alert('Error in reading JSON data from server. Error' +
 				error.name + ":" + error.message + "\n" + error.stack);
+			localStorage.clear();
 		}
 
 		if (JsonLotsArray) {
@@ -285,6 +286,7 @@ window.addEventListener('load', function() {
 		} catch (error) {
 			alert('Error in reading JSON data from server. Error' +
 				error.name + ":" + error.message + "\n" + error.stack);
+			localStorage.clear();
 		}
 	}
 
