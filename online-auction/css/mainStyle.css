@@ -30,7 +30,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   text-align: center; }
 
-.verical-align {
+.verical-align, #auction .auction-container .auction-item-cont .auction-item .auction-title {
   width: 100%;
   height: 100%;
   display: -webkit-flex;
@@ -604,7 +604,9 @@ h1, h2, h3, h4, h5, h6 {
         text-align: center;
         color: #fff;
         background-color: #2ecc71;
-        font-size: 18px; }
+        font-size: 18px;
+        width: 100%;
+        height: 60px; }
       #auction .auction-container .auction-item-cont .auction-item .auction-price {
         margin: 0;
         text-align: center;

@@ -809,8 +809,8 @@ window.addEventListener('load', function() {
 
 		statusTitle = checkAuctionFormInput(addItemFormTitle, /[a-zA-Z0-9]{1,30}/);
 		statusPrice = checkAuctionFormInput(addItemFormPrice, /[0-9]{1,}/, 0);
-		statusTime = checkAuctionFormInput(addItemFormTime, /[0-9]{1,}/);
-		statusImageUrl = checkAuctionFormInput(addItemFormImageUrl, /[a-zA-Z0-9]{1,15}/);
+		statusTime = checkAuctionFormInput(addItemFormTime, /[0-9]{1,5}/);
+		statusImageUrl = checkAuctionFormInput(addItemFormImageUrl, /[a-zA-Z0-9]{1,}/);
 		statusDescription = checkAuctionFormInput(addItemFormDescription, /[a-zA-Z0-9]{1,100}/);
 
 		if (statusTitle && statusPrice && statusTime && statusImageUrl && statusDescription) {
