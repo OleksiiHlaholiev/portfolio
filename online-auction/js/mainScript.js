@@ -718,8 +718,10 @@ window.addEventListener('load', function() {
 	}
 
 	function auctionSearchBtnHandler() {
-		searchActiveFlag = true;
-		viewLots(currentCategoryGlobal, 0);
+		if (auctionSearchString.value.length) {
+			searchActiveFlag = true;
+			viewLots(currentCategoryGlobal, 0);
+		}
 	}
 
 	function sortAscendingBtnHandler() {
