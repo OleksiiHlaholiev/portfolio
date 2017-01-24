@@ -474,12 +474,13 @@ window.addEventListener('load', function() {
 		}
 	}
 
-	function checkAuctionFormInput(inputItem, regExpTemplate, minPrice) {
+	function checkAuctionFormInput(inputItem, regExpTemplate, minPrice, maxLenght) {
 		var status;
 
 		if ( !regExpTemplate.test(inputItem.value) ||
 			( (inputItem == auctionFormBuyerPrice || inputItem == addItemFormPrice) &&
-				(+inputItem.value <= minPrice) )
+				(+inputItem.value <= minPrice) ) ||
+				(inputItem.value.length > maxLenght)
 		) {
 			inputItem.classList.add("error-border");
 			status = false;
@@ -768,9 +769,9 @@ window.addEventListener('load', function() {
 		var currentLotId = +auctionItemViewerCont.getAttribute("data-current-viewer-id") - 1;
 		var statusName, statusPhone, statusPrice;
 
-		statusName = checkAuctionFormInput(auctionFormBuyerName, /[a-zA-Z]{1,15}/);
-		statusPhone = checkAuctionFormInput(auctionFormBuyerPhone, /[0-9]{5,10}/);
-		statusPrice = checkAuctionFormInput(auctionFormBuyerPrice, /[0-9]{1,}/, +JsonLotsArray[currentLotId].price);
+		statusName = checkAuctionFormInput(auctionFormBuyerName, /[a-zA-Z]{1,}/, 0, 30);
+		statusPhone = checkAuctionFormInput(auctionFormBuyerPhone, /[0-9]{5,}/, 0, 10);
+		statusPrice = checkAuctionFormInput(auctionFormBuyerPrice, /[0-9]{1,}/, +JsonLotsArray[currentLotId].price, 20);
 
 		if (statusName && statusPhone && statusPrice) {
 			// save current changes
@@ -807,11 +808,11 @@ window.addEventListener('load', function() {
 
 		var statusTitle, statusPrice, statusTime, statusImageUrl, statusDescription;
 
-		statusTitle = checkAuctionFormInput(addItemFormTitle, /[a-zA-Z0-9]{1,30}/);
-		statusPrice = checkAuctionFormInput(addItemFormPrice, /[0-9]{1,}/, 0);
-		statusTime = checkAuctionFormInput(addItemFormTime, /[0-9]{1,5}/);
-		statusImageUrl = checkAuctionFormInput(addItemFormImageUrl, /[a-zA-Z0-9]{1,}/);
-		statusDescription = checkAuctionFormInput(addItemFormDescription, /[a-zA-Z0-9]{1,100}/);
+		statusTitle = checkAuctionFormInput(addItemFormTitle, /[a-zA-Z0-9]{1,}/, 0, 30);
+		statusPrice = checkAuctionFormInput(addItemFormPrice, /[0-9]{1,}/, 0, 20);
+		statusTime = checkAuctionFormInput(addItemFormTime, /[0-9]{1,}/, 0, 5);
+		statusImageUrl = checkAuctionFormInput(addItemFormImageUrl, /[a-zA-Z0-9]{1,}/, 0, 200);
+		statusDescription = checkAuctionFormInput(addItemFormDescription, /[a-zA-Z0-9]{1,}/, 0, 100);
 
 		if (statusTitle && statusPrice && statusTime && statusImageUrl && statusDescription) {
 			// save new lot
