@@ -732,7 +732,7 @@ h1, h2, h3, h4, h5, h6 {
 				cursor: pointer;
 				color: #717171;
 				background-color: #fff;
-				transition: all 0.7s;
+				transition: all 0.3s;
 			}
 			li:hover, .active-auction-category {
 				color: #fff;
@@ -781,7 +781,7 @@ h1, h2, h3, h4, h5, h6 {
 				cursor: pointer;
 				color: #fff;
 				background-color: $color_blue_light;
-				transition: all 0.7s;
+				transition: all 0.5s;
 			}
 
 			.fa-search:hover {
@@ -1113,7 +1113,7 @@ h1, h2, h3, h4, h5, h6 {
 			text-align: center;
 			text-decoration: none;
 
-			transition: all 0.7s;
+			transition: all 0.5s;
 
 			.fa {
 				//@extend .verical-align;
@@ -1189,7 +1189,7 @@ h1, h2, h3, h4, h5, h6 {
 					background-color: $color_green_light;
 					border: none;
 					border-radius: 5px;
-					transition: background-color 0.7s;
+					transition: background-color 0.5s;
 					margin-top: 10px;
 				}
 				.submit-btn:enabled:hover {
@@ -1237,7 +1237,7 @@ h1, h2, h3, h4, h5, h6 {
 				font-size: 32px;
 				padding: 5px 11px;
 				cursor: pointer;
-				transition: all 0.7s;
+				transition: all 0.5s;
 			}
 
 			.fa-angle-up:hover {

@@ -542,7 +542,7 @@ h1, h2, h3, h4, h5, h6 {
         cursor: pointer;
         color: #717171;
         background-color: #fff;
-        transition: all 0.7s; }
+        transition: all 0.3s; }
       #auction .auction-nav .main-menu li:hover, #auction .auction-nav .main-menu .active-auction-category {
         color: #fff;
         background-color: #2ecc71; }
@@ -575,7 +575,7 @@ h1, h2, h3, h4, h5, h6 {
       cursor: pointer;
       color: #fff;
       background-color: #00bbf5;
-      transition: all 0.7s; }
+      transition: all 0.5s; }
     #auction .auction-container .auction-search .fa-search:hover {
       background-color: #2ecc71; }
   #auction .auction-container .auction-sort-condition {
@@ -772,7 +772,7 @@ h1, h2, h3, h4, h5, h6 {
       margin: 5px;
       text-align: center;
       text-decoration: none;
-      transition: all 0.7s; }
+      transition: all 0.5s; }
       #contact .social-btns-cont a .fa {
         padding: 5px 2px;
         width: 40px;
@@ -825,7 +825,7 @@ h1, h2, h3, h4, h5, h6 {
       background-color: #2ecc71;
       border: none;
       border-radius: 5px;
-      transition: background-color 0.7s;
+      transition: background-color 0.5s;
       margin-top: 10px; }
     #contact .form-cont .input-contact-content .inputs-container .submit-btn:enabled:hover {
       background-color: #00bbf5; }
@@ -857,7 +857,7 @@ h1, h2, h3, h4, h5, h6 {
       font-size: 32px;
       padding: 5px 11px;
       cursor: pointer;
-      transition: all 0.7s; }
+      transition: all 0.5s; }
     #footer .footer-cont a .fa-angle-up:hover {
       background-color: #00bbf5; }
   @media screen and (min-width: 687px) {
