@@ -851,6 +851,7 @@ hr {
         width: 100%;
         height: 100%;
         background-color: rgba(248,252,254,0.9);
+        border-top: 4px solid $color_green_light;
         //#f8fcfe
         /*z-index: 10;*/
         //cursor: pointer;
@@ -889,7 +890,6 @@ hr {
 
     .portfolio-hover-layer:hover{
         opacity: 1;
-        border-top: 4px solid $color_green_light;
     }
 
     .portfolio-hover-layer > .portfolio-img-name{

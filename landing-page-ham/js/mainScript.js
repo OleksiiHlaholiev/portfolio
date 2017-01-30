@@ -219,8 +219,7 @@ window.addEventListener('load', function() {
                         (deltaScroll < 0 && pageYOffset <= stopPos)) {
                         clearInterval(scrollFuncTimer);
                         busyFlag = false;
-                    }
-                    else {
+                    } else {
                         scrollBy(0, deltaScroll);
                     }
                 },
@@ -282,18 +281,19 @@ window.addEventListener('load', function() {
 			// window.pageYOffset == window.scrollY; // always true
 			// For cross-browser compatibility, use window.pageYOffset instead of window.scrollY.
 			// Additionally, older versions of Internet Explorer (< 9) do not support either property
-			if (stopPos == sectionHome.offsetTop)
-                scrollFunc(
+			if (stopPos == sectionHome.offsetTop) {
+				scrollFunc(
 					pageYOffset,
-                    stopPos,
-                    SCROLL_STEP
-                );
-            else
-                scrollFunc(
+					stopPos,
+					SCROLL_STEP
+				);
+            } else {
+				scrollFunc(
 					pageYOffset,
-                    stopPos - sectionHeader.clientHeight,
-                    SCROLL_STEP
-                );
+					stopPos - sectionHeader.clientHeight,
+					SCROLL_STEP
+				);
+            }
         }
     }
 
@@ -490,8 +490,7 @@ window.addEventListener('load', function() {
                 tempOpacity += 1;
                 if (tempOpacity <= 100) {
                     elementDOM.style.opacity = String(tempOpacity / 100);
-                }
-                else {
+                } else {
                     clearInterval(localTimer);
                 }
             },
@@ -571,20 +570,16 @@ window.addEventListener('load', function() {
                  myFadeIn(portfolioGalleryImgs[i], 5);
                  }*/
                 changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
-            }
-            else if (this.classList.contains("portfolio-graphic")) {
+            } else if (this.classList.contains("portfolio-graphic")) {
                 portfolioGalleryImgs = document.querySelectorAll(".graphic-img");
                 changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
-            }
-            else if (this.classList.contains("portfolio-web")) {
+            } else if (this.classList.contains("portfolio-web")) {
                 portfolioGalleryImgs = document.querySelectorAll(".web-img");
                 changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
-            }
-            else if (this.classList.contains("portfolio-landing")) {
+            } else if (this.classList.contains("portfolio-landing")) {
                 portfolioGalleryImgs = document.querySelectorAll(".landing-img");
                 changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
-            }
-            else if (this.classList.contains("portfolio-wordpress")) {
+            } else if (this.classList.contains("portfolio-wordpress")) {
                 portfolioGalleryImgs = document.querySelectorAll(".wordpress-img");
                 changePortfolioGalleryImgsProperties(portfolioGalleryImgs);
             }
@@ -611,8 +606,7 @@ window.addEventListener('load', function() {
                                 localCount = +teamGalleryItemCounters[i].dataset.teamNumber;
                                 clearInterval(countFuncTimer[i]);
                                 teamGalleryCounterBusyFlag = false;
-                            }
-                            else {
+                            } else {
                                 localCount += deltaCount;
                             }
                             localCount = Math.round(localCount);
@@ -637,8 +631,7 @@ window.addEventListener('load', function() {
     function isFormValidate(inputButton, status1, status2, status3) {
         if (status1 && status2 && status3) {
             inputButton.removeAttribute("disabled");
-        }
-        else {
+        } else {
             inputButton.setAttribute("disabled", "disabled");
             // alert("Input is INCORRECT! Please, check the input fields!");
         }
@@ -649,8 +642,7 @@ window.addEventListener('load', function() {
             inputTitleStatus = false;
             inputTitle.nextElementSibling.style.display = "block";
             inputTitle.nextElementSibling.innerText = "No title entered !"
-        }
-        else {
+        } else {
             inputTitleStatus = true;
             inputTitle.nextElementSibling.style.display = "none";
         }
@@ -662,8 +654,7 @@ window.addEventListener('load', function() {
             inputMessageStatus = false;
             inputMessage.nextElementSibling.style.display = "block";
             inputMessage.nextElementSibling.innerText = "No message entered !"
-        }
-        else {
+        } else {
             inputMessageStatus = true;
             inputMessage.nextElementSibling.style.display = "none";
         }
@@ -705,14 +696,12 @@ window.addEventListener('load', function() {
             inputNameStatus = false;
             inputName.nextElementSibling.style.display = "block";
             inputName.nextElementSibling.innerText = "No data entered !"
-        }
-        else {
+        } else {
             // if ( (/[a-zA-Z]/.test(inputName.value[inputName.value.length - 1])) )
             if ( (/[a-zA-Z]/.test(inputName.value)) ) {
                 inputNameStatus = true;
                 inputName.nextElementSibling.style.display = "none";
-            }
-            else {
+            } else {
                 inputNameStatus = false;
                 inputName.nextElementSibling.style.display = "block";
                 inputName.nextElementSibling.innerText = "Invalid character(s), only English letters !"
@@ -726,13 +715,11 @@ window.addEventListener('load', function() {
             inputEmailStatus = false;
             inputEmail.nextElementSibling.style.display = "block";
             inputEmail.nextElementSibling.innerText = "No email entered !"
-        }
-        else {
+        } else {
             if ( (/^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/.test(inputEmail.value)) ) {
                 inputEmailStatus = true;
                 inputEmail.nextElementSibling.style.display = "none";
-            }
-            else {
+            } else {
                 inputEmailStatus = false;
                 inputEmail.nextElementSibling.style.display = "block";
                 inputEmail.nextElementSibling.innerText = "Incorrect input of email !"
@@ -746,13 +733,11 @@ window.addEventListener('load', function() {
             inputTextStatus = false;
             inputText.nextElementSibling.style.display = "block";
             inputText.nextElementSibling.innerText = "No text entered !"
-        }
-        else {
+        } else {
             if ( inputText.value.length >= 20 ) {
                 inputTextStatus = true;
                 inputText.nextElementSibling.style.display = "none";
-            }
-            else {
+            } else {
                 inputTextStatus = false;
                 inputText.nextElementSibling.style.display = "block";
                 inputText.nextElementSibling.innerText = "Too short message (minimum 20 characters) !"
@@ -787,38 +772,31 @@ window.addEventListener('load', function() {
             (currentPosition < sectionHome.offsetTop + sectionHome.offsetHeight) ) {
             prevActiveItem.classList.remove("active-section");
             topMenuItems[0].classList.add("active-section");
-        }
-        else if ( (currentPosition > sectionService.offsetTop) &&
+        } else if ( (currentPosition > sectionService.offsetTop) &&
             (currentPosition < sectionService.offsetTop + sectionService.offsetHeight) ) {
             prevActiveItem.classList.remove("active-section");
             topMenuItems[1].classList.add("active-section");
-        }
-        else if ( (currentPosition > sectionAbout.offsetTop) &&
+        } else if ( (currentPosition > sectionAbout.offsetTop) &&
             (currentPosition < sectionAbout.offsetTop + sectionAbout.offsetHeight) ) {
             prevActiveItem.classList.remove("active-section");
             topMenuItems[2].classList.add("active-section");
-        }
-        else if ( (currentPosition > sectionWork.offsetTop) &&
+        } else if ( (currentPosition > sectionWork.offsetTop) &&
             (currentPosition < sectionWork.offsetTop + sectionWork.offsetHeight) ) {
             prevActiveItem.classList.remove("active-section");
             topMenuItems[3].classList.add("active-section");
-        }
-        else if ( (currentPosition > sectionTeam.offsetTop) &&
+        } else if ( (currentPosition > sectionTeam.offsetTop) &&
             (currentPosition < sectionTeam.offsetTop + sectionTeam.offsetHeight) ) {
             prevActiveItem.classList.remove("active-section");
             topMenuItems[4].classList.add("active-section");
-        }
-        else if ( (currentPosition > sectionNews.offsetTop) &&
+        } else if ( (currentPosition > sectionNews.offsetTop) &&
             (currentPosition < sectionNews.offsetTop + sectionNews.offsetHeight) ) {
             prevActiveItem.classList.remove("active-section");
             topMenuItems[5].classList.add("active-section");
-        }
-        else if ( (currentPosition > sectionFeedback.offsetTop) &&
+        } else if ( (currentPosition > sectionFeedback.offsetTop) &&
             (currentPosition < sectionFeedback.offsetTop + sectionFeedback.offsetHeight) ) {
             prevActiveItem.classList.remove("active-section");
             topMenuItems[6].classList.add("active-section");
-        }
-        else if ( (currentPosition > sectionContact.offsetTop)  ) {
+        } else if ( (currentPosition > sectionContact.offsetTop)  ) {
             prevActiveItem.classList.remove("active-section");
             topMenuItems[7].classList.add("active-section");
         }
@@ -843,8 +821,7 @@ window.addEventListener('load', function() {
     function resizeWindowHandler() {
         if (window.innerWidth >= 992) {
             topMenu.style.display = "inline-block";
-        }
-        else {
+        } else {
             topMenu.style.display = "none";
         }
     }
