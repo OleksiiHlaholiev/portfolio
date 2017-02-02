@@ -42,7 +42,7 @@ window.addEventListener('load', function() {
 				sliderWidth = slider.clientWidth,
 				temp,
 				localSliderProtectTimer,
-				sliderBorderLeft = -25,
+				sliderBorderLeft = -20,
 				sliderBorderRight = 60;
 
 			if (direction == "left") {
