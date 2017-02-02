@@ -1,36 +1,16 @@
 @charset "UTF-8";
 $containerWidth: 80%;
-
-/** {
-	box-sizing: border-box;
-}
-
-html, body {
-	padding: 0;
-	margin: 0;
-	width: 100%; // TO AVOID HORIZONTAL SCROLLING !!!
-}
-
-body {
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 400;
-	font-size: 14px;
-	color: #000000;
-	//overflow-x: hidden;
-}
-
-h1, h2, h3, h4, h5, h6 {
-	text-align: center;
-}
-
-}*/
-
+$color_green_light: #2ecc71;
 
 html, body {
 	padding: 0;
 	margin: 0;
 	width: 100%; // TO AVOID HORIZONTAL SCROLLING !!!
 	//overflow-x: hidden
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-align: center;
 }
 
 .verical-align {
@@ -43,24 +23,17 @@ html, body {
 	justify-content: center;
 }
 
+.clearfix::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
 .image_container {
 	width: 100%;
 	position: relative;
 	top: 0;
 	left: 0;
-
-	.image_container_left, .image_container_right {
-		float: left;
-		width: 50%;
-	}
-
-	.image_container_right {
-		.big_image {
-			-ms-transform: rotate(180deg); /* IE 9 */
-			-webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
-			transform: rotate(180deg);
-		}
-	}
 
 	.big_image {
 		width: 100%;
@@ -95,6 +68,109 @@ html, body {
 		@media all and (max-width: 500px) {
 			font-size: 20px;
 			top: 20%;
+		}
+	}
+}
+
+.slider-cont {
+	position: relative;
+	width: 100%;
+	height: calc(100vh - 80px);
+	background-color: #747474;
+	overflow-x: hidden;
+
+	.slider {
+		position: relative;
+		width: 500%;
+		height: calc(100vh - 80px);
+		text-align: center;
+
+		margin: 0px;
+		padding: 0px;
+		list-style-type: none;
+
+		li {
+			position: absolute;
+			top: 0;
+			display: inline-block;
+			float: left;
+			width: calc(100% / 5);
+			height: calc(100vh - 80px);
+			font-size: 35px;
+
+			background-repeat: no-repeat;
+			background-position: center top;
+			background-size: cover;
+
+		}
+		li:nth-child(1) {
+			left: -20%;
+			background-image: url(../images/КОВБАСА-1.jpg);
+		}
+		li:nth-child(2) {
+			left: 0;
+			background-image: url(../images/СЛАЙД-1.jpg);
+		}
+		li:nth-child(3) {
+			left: 20%;
+			background-image: url(../images/КОВБАСА-2.jpg);
+		}
+		li:nth-child(4) {
+			left: 40%;
+			background-image: url(../images/ИНДЕЛИКА-ВИЗ-1.jpg);
+		}
+		li:nth-child(5) {
+			left: 60%;
+			background-image: url(../images/ИНДЕЛИКА-ВИЗ-2.jpg);
+		}
+	}
+	.fa-angle-left, .fa-angle-right {
+		position: absolute;
+		color: #878787;
+		background-color: #3c4140;
+		font-size: 30px;
+		padding: 5px 15px;
+		cursor: pointer;
+		z-index: 10;
+		transition: all 0.7s;
+
+		@media screen and (min-height: 550px) {
+			font-size: 40px;
+			padding: 10px 25px;
+		}
+	}
+	.fa-angle-left {
+		bottom: 2.5%;
+		left: 7.5%;
+	}
+	.fa-angle-right {
+		bottom: 2.5%;
+		right: 7.5%;
+	}
+	.fa-angle-left:hover, .fa-angle-right:hover {
+		color: #ffffff;
+		background-color: $color_green_light;
+	}
+
+	@media screen and (min-height: 480px) {
+		.fa-angle-left {
+			bottom: 2.5%;
+			left: 25%;
+		}
+		.fa-angle-right {
+			bottom: 2.5%;
+			right: 25%;
+		}
+	}
+
+	@media screen and (min-width: 687px) {
+		.fa-angle-left {
+			bottom: 50%;
+			left: 5%;
+		}
+		.fa-angle-right {
+			bottom: 50%;
+			right: 5%;
 		}
 	}
 }
@@ -216,6 +292,13 @@ html, body {
 	font-weight: bold;
 	line-height: 1.2;
 	text-align: center;
+
+	@media all and (max-width: 1000px) {
+		padding: 100px 0;
+	}
+	@media all and (max-width: 800px) {
+		padding: 50px 0;
+	}
 }
 
 .contact_us_form {
@@ -377,10 +460,23 @@ html, body {
 		text-align: center;
 
 		.fa {
-			padding: 50px 50px;
+			padding: 50px;
 			font-size: 50px;
 			color: #fff;
 			transition: all 0.4s;
+
+			@media all and (max-width: 1000px) {
+				padding: 40px;
+				font-size: 40px;
+			}
+			@media all and (max-width: 800px) {
+				padding: 30px;
+				font-size: 30px;
+			}
+			@media all and (max-width: 600px) {
+				padding: 10px;
+				font-size: 30px;
+			}
 		}
 		.fa:hover {
 			color: rgb(138, 59, 134);
@@ -389,9 +485,8 @@ html, body {
 }
 
 
-
-
-
+// ***************************************************
+// ***************  INSERTED CODE  *******************
 // ***************************************************
 
 body, html {
@@ -464,6 +559,10 @@ a:hover {
 	height: 58px;
 	line-height: 58px;
 	text-decoration: none
+}
+
+.fixmenu {
+	position: fixed
 }
 
 header {
@@ -643,10 +742,6 @@ header .container {
 	z-index: 101
 }
 
-.fixmenu {
-	position: fixed
-}
-
 footer {
 	background-color: #2c353d;
 	padding-top: 12px
@@ -741,7 +836,8 @@ footer .icon {
 	background: #000;
 	padding: 16px 18px 21px;
 	color: #fff;
-	font-family: RobotoRegular, sans-serif
+	font-family: RobotoRegular, sans-serif;
+	border-bottom: 5px #954b97 solid;
 }
 
 .icon {
