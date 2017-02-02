@@ -140,38 +140,16 @@ h1, h2, h3, h4, h5, h6 {
 		}
 	}
 	.fa-angle-left {
-		bottom: 2.5%;
-		left: 7.5%;
+		bottom: 50%;
+		left: 5%;
 	}
 	.fa-angle-right {
-		bottom: 2.5%;
-		right: 7.5%;
+		bottom: 50%;
+		right: 5%;
 	}
 	.fa-angle-left:hover, .fa-angle-right:hover {
 		color: #ffffff;
 		background-color: $color_green_light;
-	}
-
-	@media screen and (min-height: 480px) {
-		.fa-angle-left {
-			bottom: 2.5%;
-			left: 25%;
-		}
-		.fa-angle-right {
-			bottom: 2.5%;
-			right: 25%;
-		}
-	}
-
-	@media screen and (min-width: 687px) {
-		.fa-angle-left {
-			bottom: 50%;
-			left: 5%;
-		}
-		.fa-angle-right {
-			bottom: 50%;
-			right: 5%;
-		}
 	}
 }
 
