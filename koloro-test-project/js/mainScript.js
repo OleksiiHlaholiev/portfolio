@@ -76,7 +76,14 @@ window.addEventListener('load', function() {
 			// try to fix slider bug !!!
 			if (sliderItems[0].style.left == sliderItems[1].style.left ||
 				sliderItems[0].style.left == sliderItems[2].style.left ||
-				sliderItems[1].style.left == sliderItems[2].style.left) {
+				sliderItems[0].style.left == sliderItems[3].style.left ||
+				sliderItems[0].style.left == sliderItems[4].style.left ||
+				sliderItems[1].style.left == sliderItems[2].style.left ||
+				sliderItems[1].style.left == sliderItems[3].style.left ||
+				sliderItems[1].style.left == sliderItems[4].style.left ||
+				sliderItems[2].style.left == sliderItems[3].style.left ||
+				sliderItems[2].style.left == sliderItems[4].style.left ||
+				sliderItems[3].style.left == sliderItems[4].style.left) {
 				// set initial positions
 				// alert("This is slider bug!!!");
 				sliderItems[0].style.left = "-20%";
