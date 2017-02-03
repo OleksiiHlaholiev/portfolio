@@ -259,22 +259,29 @@ window.addEventListener('load', function() {
 	function sliderPaginationBtnHandler(event) {
 
 		if (!this.classList.contains("active")) {
-			var prevActivePaginationBtn = document.querySelector(".slider-nav-list li .active");
+			var prevActivePaginationBtn = document.querySelector(".slider-nav-list li .active"),
+				targetSliderIndex = +this.getAttribute("data-current-index"),
+				tempDirection;
 
 			if (prevActivePaginationBtn.classList.contains("active")) {
 				prevActivePaginationBtn.classList.remove("active");
 			}
-
 			this.classList.add("active");
-			var targetSliderIndex = +this.getAttribute("data-current-index");
 
 			userActiveControlFlag = true;
 			clearTimeout(userTimoutTimer);
 			clearTimeout(launchAutoSliderTimer);
 
+			if (+this.getAttribute("data-current-index") >
+				+prevActivePaginationBtn.getAttribute("data-current-index")) {
+				tempDirection = "right";
+			} else {
+				tempDirection = "left";
+			}
+
 			launchAutoSliderTimer = setTimeout(
 				function readyGo() {
-					sliderRotate("right");
+					sliderRotate(tempDirection);
 					launchAutoSliderTimer = setTimeout(readyGo, SLIDER_PROTECT_DELAY);
 					if (sliderItems[targetSliderIndex].style.left == "0%") {
 						clearTimeout(launchAutoSliderTimer);
