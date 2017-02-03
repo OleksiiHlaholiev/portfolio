@@ -37,7 +37,7 @@ window.addEventListener('load', function() {
 	// initial call
 	var launchAutoSliderTimer = setTimeout(
 		function readyGo() {
-			sliderRotate("right");
+			sliderRotate("right", 1);
 			launchAutoSliderTimer = setTimeout(readyGo, SLIDER_AUTO_DELAY);
 		},
 		SLIDER_AUTO_DELAY
@@ -112,7 +112,7 @@ window.addEventListener('load', function() {
 		sliderPaginationBtns[indexCurActive].classList.add("active");
 	}
 
-	function sliderRotate(direction) {
+	function sliderRotate(direction, transitionTimeS) {
 		if (!sliderBusyFlag) {
 			sliderBusyFlag = true;
 			var deltaX,
@@ -134,7 +134,7 @@ window.addEventListener('load', function() {
 			for (var i = 0; i < sliderItems.length; i++) {
 				temp = getComputedStyle(sliderItems[i]).left;
 				temp = Number(temp.replace("px", "")) * 100 / sliderWidth + deltaX;
-				sliderItems[i].style.transition = "all 1s";
+				sliderItems[i].style.transition = "all " + transitionTimeS + "s";
 				if (!Math.round(temp)) {
 					temp = 0;
 				}
@@ -181,7 +181,7 @@ window.addEventListener('load', function() {
 				function () {
 					sliderBusyFlag = false;
 				},
-				SLIDER_PROTECT_DELAY
+				transitionTimeS * 1000
 			);
 		}
 	}
@@ -232,7 +232,7 @@ window.addEventListener('load', function() {
 				launchAutoSliderTimer = setTimeout(
 					function readyGo() {
 						userActiveControlFlag = false;
-						sliderRotate("right");
+						sliderRotate("right", 1);
 						launchAutoSliderTimer = setTimeout(readyGo, SLIDER_AUTO_DELAY);
 					},
 					SLIDER_AUTO_DELAY
@@ -248,9 +248,9 @@ window.addEventListener('load', function() {
 		clearTimeout(launchAutoSliderTimer);
 
 		if (event.target.classList.contains("fa-angle-left")) {
-			sliderRotate("left");
+			sliderRotate("left", 1);
 		} else {
-			sliderRotate("right");
+			sliderRotate("right", 1);
 		}
 
 		launchFiniteStateMachine();
@@ -281,8 +281,8 @@ window.addEventListener('load', function() {
 
 			launchAutoSliderTimer = setTimeout(
 				function readyGo() {
-					sliderRotate(tempDirection);
-					launchAutoSliderTimer = setTimeout(readyGo, SLIDER_PROTECT_DELAY);
+					sliderRotate(tempDirection, 0.5);
+					launchAutoSliderTimer = setTimeout(readyGo, 500);
 					if (sliderItems[targetSliderIndex].style.left == "0%") {
 						clearTimeout(launchAutoSliderTimer);
 						// launch finite-state-machine again
