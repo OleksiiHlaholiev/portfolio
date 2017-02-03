@@ -281,8 +281,8 @@ window.addEventListener('load', function() {
 
 			launchAutoSliderTimer = setTimeout(
 				function readyGo() {
-					sliderRotate(tempDirection, 0.5);
-					launchAutoSliderTimer = setTimeout(readyGo, 500);
+					sliderRotate(tempDirection, 0.2);
+					launchAutoSliderTimer = setTimeout(readyGo, 200);
 					if (sliderItems[targetSliderIndex].style.left == "0%") {
 						clearTimeout(launchAutoSliderTimer);
 						// launch finite-state-machine again
