@@ -103,7 +103,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 5px 15px;
     cursor: pointer;
     z-index: 10;
-    transition: all 0.7s; }
+    transition: all 0.4s; }
     @media screen and (min-height: 550px) {
       .slider-cont .fa-angle-left, .slider-cont .fa-angle-right {
         font-size: 40px;
@@ -172,7 +172,15 @@ h1, h2, h3, h4, h5, h6 {
   margin-left: -55px;
   border: 55px solid transparent;
   border-top-color: #e7e7e7;
-  z-index: 1; }
+  z-index: 2; }
+  @media all and (max-width: 800px) {
+    .concepts_info::before {
+      margin-left: -40px;
+      border-width: 40px; } }
+  @media all and (max-width: 600px) {
+    .concepts_info::before {
+      margin-left: -30px;
+      border-width: 30px; } }
 
 .concepts_info {
   position: relative;
@@ -348,7 +356,8 @@ h1, h2, h3, h4, h5, h6 {
           padding: 10px;
           font-size: 30px; } }
     .social_btns_container .container .fa:hover {
-      color: #8a3b86; }
+      color: #5ddaca;
+      transform: rotate(360deg); }
 
 body, html {
   overflow-x: hidden; }
@@ -628,7 +637,7 @@ footer .one_column:last-child .name_column {
   line-height: 1; }
 
 footer .icon {
-  vertical-align: bottom;
+  vertical-align: middle;
   margin-right: 5px; }
 
 .copy_right {
@@ -640,7 +649,33 @@ footer .icon {
   border-bottom: 5px #954b97 solid; }
 
 .icon {
-  display: inline-block; }
+  display: inline-block;
+  width: 21px;
+  height: 21px; }
+
+.icon-tel-footer {
+  background-image: url("../images/tel-footer.jpg"); }
+
+.icon-tel-mts {
+  background-image: url("../images/tel-footer2.jpg"); }
+
+.icon-tel-russian {
+  width: 21px;
+  height: 19px;
+  background-image: url("../images/russian.jpg"); }
+
+.icon-tel-calback {
+  width: 32px;
+  height: 31px;
+  margin: 7px;
+  background-image: url("../images/tel-icon-foot.jpg");
+  transform: rotate(-30deg);
+  transition: all 0.2s; }
+
+#call:hover {
+  text-decoration: underline; }
+  #call:hover .icon-tel-calback {
+    transform: rotate(-5deg); }
 
 .hidden_arrow {
   display: none; }
@@ -881,23 +916,17 @@ footer .icon {
 .back_to_top {
   z-index: 100500;
   bottom: 100px;
-  right: 0;
-  display: none;
+  right: 15px;
+  display: block;
   background-color: rgba(163, 70, 153, 0.7);
+  color: #fff;
   position: fixed;
-  height: 80px;
-  width: 100px;
   cursor: pointer;
   -webkit-transition: all .35s ease;
-  transition: all 0.35s ease; }
-
-.back_to_top i {
-  margin: auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0; }
+  transition: all .35s ease; }
+  .back_to_top .fa-angle-up {
+    font-size: 60px;
+    padding: 0 11px 2px 11px; }
 
 .back_to_top:hover {
   background-color: #a34699; }
