@@ -245,36 +245,34 @@ window.addEventListener('load', function() {
 			}
 
 			this.classList.add("active");
+
+			/*userActiveControlFlag = true;
+			clearTimeout(userTimoutTimer);
+			clearInterval(launchAutoSliderTimer);
+
+			if (event.target.classList.contains("fa-angle-left")) {
+				sliderRotate("left");
+			} else {
+				sliderRotate("right");
+			}
+
+
+			userTimoutTimer = setTimeout(
+				function () {
+					launchAutoSliderTimer = setTimeout(
+						function readyGo() {
+							userActiveControlFlag = false;
+							sliderRotate("right");
+							launchAutoSliderTimer = setTimeout(readyGo, SLIDER_AUTO_DELAY);
+						},
+						SLIDER_AUTO_DELAY
+					);
+				},
+				SLIDER_USER_TIMEOUT
+			);*/
+
 		}
 
-
-
-
-		/*userActiveControlFlag = true;
-		clearTimeout(userTimoutTimer);
-		clearInterval(launchAutoSliderTimer);
-
-		if (event.target.classList.contains("fa-angle-left")) {
-			sliderRotate("left");
-		} else {
-			sliderRotate("right");
-		}
-
-
-
-		userTimoutTimer = setTimeout(
-			function () {
-				launchAutoSliderTimer = setTimeout(
-					function readyGo() {
-						userActiveControlFlag = false;
-						sliderRotate("right");
-						launchAutoSliderTimer = setTimeout(readyGo, SLIDER_AUTO_DELAY);
-					},
-					SLIDER_AUTO_DELAY
-				);
-			},
-			SLIDER_USER_TIMEOUT
-		);*/
 	}
 
 	// ************************************************************************************

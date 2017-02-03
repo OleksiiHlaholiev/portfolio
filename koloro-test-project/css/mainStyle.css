@@ -127,8 +127,7 @@ h1, h2, h3, h4, h5, h6 {
     bottom: 50%;
     right: 5%; }
   .slider-cont .fa-angle-left:hover, .slider-cont .fa-angle-right:hover {
-    color: #ffffff;
-    background-color: #2ecc71; }
+    color: #2ecc71; }
   .slider-cont .slider-nav {
     position: absolute;
     bottom: 10%;
