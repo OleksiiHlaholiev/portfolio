@@ -625,14 +625,27 @@ header {
 	width: 100%;
 	z-index: 97;
 	-webkit-transition: all .4s ease, background .4s ease, opacity .4s ease;
-	transition: all .4s ease, background .4s ease, opacity .4s ease
-}
+	transition: all .4s ease, background .4s ease, opacity .4s ease;
 
-header .container {
-	width: 100%;
-	max-width: 1920px;
-	padding-left: 30px;
-	padding-right: 30px
+	.container {
+		width: 100%;
+		max-width: 1920px;
+		padding-left: 30px;
+		padding-right: 30px;
+
+		.logo_link {
+			.logo{
+				width: 166px;
+				height: 51px;
+			}
+			.white_logo {
+
+			}
+			.color_logo {
+				display: none;
+			}
+		}
+	}
 }
 
 .main_menu {

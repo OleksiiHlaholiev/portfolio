@@ -462,13 +462,17 @@ header {
   width: 100%;
   z-index: 97;
   -webkit-transition: all .4s ease, background .4s ease, opacity .4s ease;
-  transition: all 0.4s ease, background 0.4s ease, opacity 0.4s ease; }
-
-header .container {
-  width: 100%;
-  max-width: 1920px;
-  padding-left: 30px;
-  padding-right: 30px; }
+  transition: all .4s ease, background .4s ease, opacity .4s ease; }
+  header .container {
+    width: 100%;
+    max-width: 1920px;
+    padding-left: 30px;
+    padding-right: 30px; }
+    header .container .logo_link .logo {
+      width: 166px;
+      height: 51px; }
+    header .container .logo_link .color_logo {
+      display: none; }
 
 .main_menu {
   float: right; }
