@@ -18,11 +18,11 @@
 </head>
 <body>
     <!--<h1>This is KOLORO test project</h1>-->
-    <a href="index.html"  class="back_to_top">
+    <a href="index.html" class="back_to_top">
         <i class="fa fa-angle-up" aria-hidden="true"></i>
     </a>
 
-    <header class="fixmenu">
+    <header id="header" class="fixmenu">
         <!-- begin container -->
         <div class="container">
             <a href="index.html" class="logo_link">
@@ -45,7 +45,6 @@
                     <li><a href="index.html">блог</a></li>
                     <li><a href="index.html">компания</a></li>
                     <li><a href="index.html">контакты</a></li>
-
                 </ul>
                 <a href="index.html" class="btn_calculate">расчитать проект</a>
                 <div class="languge">
@@ -68,6 +67,7 @@
         <!--class="portfolio_block"-->
         <div class="container">
             <div class="image_container">
+                <div class="dark-mask"></div>
                 <img src="images/ИНДЕЛИКА-ВИЗ-1.jpg" alt="photo_image" class="big_image">
                 <h1>Інделіка </br> "Продукт із м'яса індички"</h1>
             </div>
@@ -153,14 +153,58 @@
         <!--**************** SLIDER **********************-->
         <div class="slider-cont">
             <ul class="slider">
-                <li class="slider-item active-slide-item"></li>
-                <li class="slider-item"></li>
-                <li class="slider-item"></li>
-                <li class="slider-item"></li>
-                <li class="slider-item"></li>
+                <li class="slider-item active-slide-item">
+                    <div class="slider-dark-mask"></div>
+                </li>
+                <li class="slider-item">
+                    <div class="slider-dark-mask"></div>
+                </li>
+                <li class="slider-item">
+                    <div class="slider-dark-mask"></div>
+                </li>
+                <li class="slider-item">
+                    <div class="slider-dark-mask"></div>
+                </li>
+                <li class="slider-item">
+                    <div class="slider-dark-mask"></div>
+                </li>
             </ul>
             <i class="fa fa-angle-left" aria-hidden="true"></i>
             <i class="fa fa-angle-right" aria-hidden="true"></i>
+            <nav class="slider-nav">
+                <ul class="slider-nav-list">
+                    <li>
+                        <span class="fa-stack fa-lg pagination-btn active" data-current-index="0">
+                            <i class="fa fa-circle-thin fa-stack-1x"></i>
+                            <i class="fa fa-circle fa-stack-1x"></i>
+                         </span>
+                    </li>
+                    <li>
+                        <span class="fa-stack fa-lg pagination-btn" data-current-index="1">
+                            <i class="fa fa-circle-thin fa-stack-1x"></i>
+                            <i class="fa fa-circle fa-stack-1x"></i>
+                         </span>
+                    </li>
+                    <li>
+                        <span class="fa-stack fa-lg pagination-btn" data-current-index="2">
+                            <i class="fa fa-circle-thin fa-stack-1x"></i>
+                            <i class="fa fa-circle fa-stack-1x"></i>
+                         </span>
+                    </li>
+                    <li>
+                        <span class="fa-stack fa-lg pagination-btn" data-current-index="3">
+                            <i class="fa fa-circle-thin fa-stack-1x"></i>
+                            <i class="fa fa-circle fa-stack-1x"></i>
+                         </span>
+                    </li>
+                    <li>
+                        <span class="fa-stack fa-lg pagination-btn" data-current-index="4">
+                            <i class="fa fa-circle-thin fa-stack-1x"></i>
+                            <i class="fa fa-circle fa-stack-1x"></i>
+                         </span>
+                    </li>
+                </ul>
+            </nav>
         </div>
 
         <!--<div class="container">-->

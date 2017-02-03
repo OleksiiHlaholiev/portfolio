@@ -35,6 +35,15 @@ h1, h2, h3, h4, h5, h6 {
 	top: 0;
 	left: 0;
 
+	.dark-mask {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(60, 60, 60, 0.5);
+	}
+
 	.big_image {
 		width: 100%;
 		//height: auto;
@@ -75,14 +84,14 @@ h1, h2, h3, h4, h5, h6 {
 .slider-cont {
 	position: relative;
 	width: 100%;
-	height: calc(100vh - 80px);
+	height: calc(100vh - 10px);
 	background-color: #747474;
 	overflow-x: hidden;
 
 	.slider {
 		position: relative;
 		width: 500%;
-		height: calc(100vh - 80px);
+		height: calc(100vh - 10px);
 		text-align: center;
 
 		margin: 0px;
@@ -95,12 +104,19 @@ h1, h2, h3, h4, h5, h6 {
 			display: inline-block;
 			float: left;
 			width: calc(100% / 5);
-			height: calc(100vh - 80px);
+			height: calc(100vh - 10px);
 			font-size: 35px;
 
 			background-repeat: no-repeat;
 			background-position: center top;
 			background-size: cover;
+
+			.slider-dark-mask {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(60, 60, 60, 0.5);
+			}
 
 		}
 		li:nth-child(1) {
@@ -126,16 +142,18 @@ h1, h2, h3, h4, h5, h6 {
 	}
 	.fa-angle-left, .fa-angle-right {
 		position: absolute;
-		color: #878787;
-		background-color: #3c4140;
-		font-size: 30px;
+		//color: #878787;
+		//background-color: #3c4140;
+		color: #fff;
+		background-color: transparent;
+		font-size: 80px;
 		padding: 5px 15px;
 		cursor: pointer;
 		z-index: 10;
 		transition: all 0.4s;
 
 		@media screen and (min-height: 550px) {
-			font-size: 40px;
+			font-size: 150px;
 			padding: 10px 25px;
 		}
 	}
@@ -150,6 +168,47 @@ h1, h2, h3, h4, h5, h6 {
 	.fa-angle-left:hover, .fa-angle-right:hover {
 		color: #ffffff;
 		background-color: $color_green_light;
+	}
+
+	.slider-nav {
+		position: absolute;
+		bottom: 10%;
+		left: 50%;
+		margin-left: -129px;
+		z-index: 10;
+
+		.slider-nav-list{
+			li {
+				display: inline-block;
+				padding: 10px;
+				position: relative;
+
+				.pagination-btn {
+					.fa {
+						color: #fff;
+						//color: rgba(46, 204, 96, 1);
+						cursor: pointer;
+
+					}
+					.fa-circle-thin {
+						font-size: 30px;
+					}
+					.fa-circle {
+						font-size: 15px;
+						//display: none;
+						opacity: 0;
+						transition: all 0.3s;
+					}
+				}
+				.active, .pagination-btn:hover {
+					.fa-circle {
+						//display: block;
+						opacity: 1;
+					}
+				}
+			}
+
+		}
 	}
 }
 
@@ -446,29 +505,35 @@ h1, h2, h3, h4, h5, h6 {
 
 		text-align: center;
 
-		.fa {
-			padding: 50px;
-			font-size: 50px;
-			color: #fff;
-			transition: all 0.4s;
+		a {
+			display: inline-block;
+			text-decoration: none;
 
-			@media all and (max-width: 1000px) {
-				padding: 40px;
-				font-size: 40px;
+			.fa {
+				padding: 50px;
+				font-size: 50px;
+				color: #fff;
+				transition: all 0.4s;
+
+				@media all and (max-width: 1000px) {
+					padding: 40px;
+					font-size: 40px;
+				}
+				@media all and (max-width: 800px) {
+					padding: 30px;
+					font-size: 30px;
+				}
+				@media all and (max-width: 600px) {
+					padding: 10px;
+					font-size: 30px;
+				}
 			}
-			@media all and (max-width: 800px) {
-				padding: 30px;
-				font-size: 30px;
-			}
-			@media all and (max-width: 600px) {
-				padding: 10px;
-				font-size: 30px;
+			.fa:hover {
+				color: #5ddaca;
+				transform: rotate(360deg);
 			}
 		}
-		.fa:hover {
-			color: #5ddaca;
-			transform: rotate(360deg);
-		}
+
 	}
 }
 
@@ -1163,7 +1228,7 @@ footer .icon {
 
 .back_to_top {
 	z-index: 100500;
-	bottom: 100px;
+	bottom: 10%;
 	right: 15px;
 	display: block;
 	background-color: rgba(163, 70, 153, .7);
@@ -1172,10 +1237,16 @@ footer .icon {
 	cursor: pointer;
 	-webkit-transition: all .35s ease;
 	transition: all .35s ease;
+	opacity: 0;
 
 	.fa-angle-up {
 		font-size: 60px;
 		padding: 0 11px 2px 11px;
+
+		@media screen and (max-width: 600px) {
+			font-size: 40px;
+			padding: 0 10px;
+		}
 	}
 }
 
@@ -1185,5 +1256,6 @@ footer .icon {
 }
 
 .back_to_top_visible {
-	display: block
+	//display: block;
+	opacity: 1;
 }
