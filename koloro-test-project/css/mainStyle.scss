@@ -30,8 +30,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #portfolio {
-	position: relative;
-	margin-top: 50px;
+	//position: relative;
+	//margin-top: 50px;
 
 	.image_container {
 		width: 100%;
@@ -80,7 +80,7 @@ h1, h2, h3, h4, h5, h6 {
 			}
 			@media all and (max-width: 500px) {
 				font-size: 20px;
-				top: 20%;
+				top: 30%;
 			}
 		}
 	}
@@ -624,7 +624,7 @@ a:hover {
 }
 
 header {
-	background-color: grey;
+	background-color: transparent;
 	position: absolute;
 	top: 0;
 	//position: relative;
@@ -652,6 +652,10 @@ header {
 			}
 		}
 	}
+}
+
+.header-grey-bg {
+	background-color: grey;
 }
 
 .main_menu {

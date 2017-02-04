@@ -21,373 +21,370 @@ h1, h2, h3, h4, h5, h6 {
   display: table;
   clear: both; }
 
-#portfolio {
+#portfolio .image_container {
+  width: 100%;
   position: relative;
-  margin-top: 50px; }
-  #portfolio .image_container {
-    width: 100%;
-    position: relative;
+  top: 0;
+  left: 0; }
+  #portfolio .image_container .dark-mask {
+    position: absolute;
     top: 0;
-    left: 0; }
-    #portfolio .image_container .dark-mask {
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(60, 60, 60, 0.5); }
+  #portfolio .image_container .big_image {
+    width: 100%; }
+  #portfolio .image_container h1 {
+    font-size: 80px;
+    font-family: "Segoe UI";
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: center;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.004);
+    position: absolute;
+    left: 0;
+    top: 30%;
+    z-index: 60;
+    width: 100%; }
+    @media all and (max-width: 1000px) {
+      #portfolio .image_container h1 {
+        font-size: 60px;
+        top: 15%; } }
+    @media all and (max-width: 700px) {
+      #portfolio .image_container h1 {
+        font-size: 40px;
+        top: 30%; } }
+    @media all and (max-width: 500px) {
+      #portfolio .image_container h1 {
+        font-size: 20px;
+        top: 30%; } }
+#portfolio .slider-cont {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 10px);
+  background-color: #747474;
+  overflow-x: hidden; }
+  #portfolio .slider-cont .slider {
+    position: relative;
+    width: 500%;
+    height: calc(100vh - 10px);
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none; }
+    #portfolio .slider-cont .slider li {
       position: absolute;
       top: 0;
+      display: inline-block;
+      float: left;
+      width: calc(100% / 5);
+      height: calc(100vh - 10px);
+      font-size: 35px;
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: cover; }
+      #portfolio .slider-cont .slider li .slider-dark-mask {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(60, 60, 60, 0.5); }
+    #portfolio .slider-cont .slider li:nth-child(1) {
+      left: -20%;
+      background-image: url(../images/КОВБАСА-1.jpg); }
+    #portfolio .slider-cont .slider li:nth-child(2) {
       left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(60, 60, 60, 0.5); }
-    #portfolio .image_container .big_image {
-      width: 100%; }
-    #portfolio .image_container h1 {
-      font-size: 80px;
+      background-image: url(../images/СЛАЙД-1.jpg); }
+    #portfolio .slider-cont .slider li:nth-child(3) {
+      left: 20%;
+      background-image: url(../images/КОВБАСА-2.jpg); }
+    #portfolio .slider-cont .slider li:nth-child(4) {
+      left: 40%;
+      background-image: url(../images/ИНДЕЛИКА-ВИЗ-1.jpg); }
+    #portfolio .slider-cont .slider li:nth-child(5) {
+      left: 60%;
+      background-image: url(../images/ИНДЕЛИКА-ВИЗ-2.jpg); }
+  #portfolio .slider-cont .fa-angle-left, #portfolio .slider-cont .fa-angle-right {
+    position: absolute;
+    color: #fff;
+    background-color: transparent;
+    font-size: 80px;
+    padding: 5px 15px;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.4s; }
+    @media screen and (min-height: 550px) {
+      #portfolio .slider-cont .fa-angle-left, #portfolio .slider-cont .fa-angle-right {
+        font-size: 150px;
+        padding: 10px 25px; } }
+  #portfolio .slider-cont .fa-angle-left {
+    bottom: 50%;
+    left: 5%; }
+  #portfolio .slider-cont .fa-angle-right {
+    bottom: 50%;
+    right: 5%; }
+  #portfolio .slider-cont .fa-angle-left:hover, #portfolio .slider-cont .fa-angle-right:hover {
+    color: #2ecc71; }
+  #portfolio .slider-cont .slider-nav {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    margin-left: -129px;
+    z-index: 10; }
+    #portfolio .slider-cont .slider-nav .slider-nav-list li {
+      display: inline-block;
+      padding: 10px;
+      position: relative; }
+      #portfolio .slider-cont .slider-nav .slider-nav-list li .pagination-btn .fa {
+        color: #fff;
+        cursor: pointer; }
+      #portfolio .slider-cont .slider-nav .slider-nav-list li .pagination-btn .fa-circle-thin {
+        font-size: 30px; }
+      #portfolio .slider-cont .slider-nav .slider-nav-list li .pagination-btn .fa-circle {
+        font-size: 15px;
+        opacity: 0;
+        transition: all 0.3s; }
+      #portfolio .slider-cont .slider-nav .slider-nav-list li .active .fa-circle, #portfolio .slider-cont .slider-nav .slider-nav-list li .pagination-btn:hover .fa-circle {
+        opacity: 1; }
+#portfolio .info_block_container .container {
+  width: 80%;
+  margin: 60px auto; }
+  #portfolio .info_block_container .container .info_left {
+    width: 50%;
+    float: left; }
+    #portfolio .info_block_container .container .info_left h2 {
+      font-size: 36px;
       font-family: "Segoe UI";
-      color: white;
+      color: black;
       font-weight: bold;
-      text-transform: uppercase;
       line-height: 1.2;
       text-align: center;
-      text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.004);
-      position: absolute;
-      left: 0;
-      top: 30%;
-      z-index: 60;
-      width: 100%; }
-      @media all and (max-width: 1000px) {
-        #portfolio .image_container h1 {
-          font-size: 60px;
-          top: 15%; } }
-      @media all and (max-width: 700px) {
-        #portfolio .image_container h1 {
-          font-size: 40px;
-          top: 30%; } }
-      @media all and (max-width: 500px) {
-        #portfolio .image_container h1 {
-          font-size: 20px;
-          top: 20%; } }
-  #portfolio .slider-cont {
-    position: relative;
-    width: 100%;
-    height: calc(100vh - 10px);
-    background-color: #747474;
-    overflow-x: hidden; }
-    #portfolio .slider-cont .slider {
-      position: relative;
-      width: 500%;
-      height: calc(100vh - 10px);
+      margin-bottom: 20px; }
+    @media all and (max-width: 800px) {
+      #portfolio .info_block_container .container .info_left {
+        width: 100%;
+        float: none;
+        margin: 0 auto; } }
+  #portfolio .info_block_container .container .info_right {
+    width: 50%;
+    float: left; }
+    #portfolio .info_block_container .container .info_right p {
+      font-size: 24px;
+      font-family: "Segoe UI";
+      color: #969696;
+      line-height: 1.2;
+      text-align: justify;
+      text-indent: 40px; }
+    #portfolio .info_block_container .container .info_right .read_more_btn {
+      display: inline-block;
+      font-size: 30px;
+      font-family: "Segoe UI";
+      color: #f0cf16;
+      text-decoration: underline;
+      line-height: 1.2;
       text-align: center;
-      margin: 0px;
-      padding: 0px;
-      list-style-type: none; }
-      #portfolio .slider-cont .slider li {
-        position: absolute;
-        top: 0;
-        display: inline-block;
-        float: left;
-        width: calc(100% / 5);
-        height: calc(100vh - 10px);
-        font-size: 35px;
-        background-repeat: no-repeat;
-        background-position: center top;
-        background-size: cover; }
-        #portfolio .slider-cont .slider li .slider-dark-mask {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(60, 60, 60, 0.5); }
-      #portfolio .slider-cont .slider li:nth-child(1) {
-        left: -20%;
-        background-image: url(../images/КОВБАСА-1.jpg); }
-      #portfolio .slider-cont .slider li:nth-child(2) {
-        left: 0;
-        background-image: url(../images/СЛАЙД-1.jpg); }
-      #portfolio .slider-cont .slider li:nth-child(3) {
-        left: 20%;
-        background-image: url(../images/КОВБАСА-2.jpg); }
-      #portfolio .slider-cont .slider li:nth-child(4) {
-        left: 40%;
-        background-image: url(../images/ИНДЕЛИКА-ВИЗ-1.jpg); }
-      #portfolio .slider-cont .slider li:nth-child(5) {
-        left: 60%;
-        background-image: url(../images/ИНДЕЛИКА-ВИЗ-2.jpg); }
-    #portfolio .slider-cont .fa-angle-left, #portfolio .slider-cont .fa-angle-right {
-      position: absolute;
-      color: #fff;
-      background-color: transparent;
-      font-size: 80px;
-      padding: 5px 15px;
-      cursor: pointer;
-      z-index: 10;
-      transition: all 0.4s; }
-      @media screen and (min-height: 550px) {
-        #portfolio .slider-cont .fa-angle-left, #portfolio .slider-cont .fa-angle-right {
-          font-size: 150px;
-          padding: 10px 25px; } }
-    #portfolio .slider-cont .fa-angle-left {
-      bottom: 50%;
-      left: 5%; }
-    #portfolio .slider-cont .fa-angle-right {
-      bottom: 50%;
-      right: 5%; }
-    #portfolio .slider-cont .fa-angle-left:hover, #portfolio .slider-cont .fa-angle-right:hover {
-      color: #2ecc71; }
-    #portfolio .slider-cont .slider-nav {
-      position: absolute;
-      bottom: 10%;
-      left: 50%;
-      margin-left: -129px;
-      z-index: 10; }
-      #portfolio .slider-cont .slider-nav .slider-nav-list li {
-        display: inline-block;
-        padding: 10px;
-        position: relative; }
-        #portfolio .slider-cont .slider-nav .slider-nav-list li .pagination-btn .fa {
-          color: #fff;
-          cursor: pointer; }
-        #portfolio .slider-cont .slider-nav .slider-nav-list li .pagination-btn .fa-circle-thin {
-          font-size: 30px; }
-        #portfolio .slider-cont .slider-nav .slider-nav-list li .pagination-btn .fa-circle {
-          font-size: 15px;
-          opacity: 0;
-          transition: all 0.3s; }
-        #portfolio .slider-cont .slider-nav .slider-nav-list li .active .fa-circle, #portfolio .slider-cont .slider-nav .slider-nav-list li .pagination-btn:hover .fa-circle {
-          opacity: 1; }
-  #portfolio .info_block_container .container {
+      margin: 30px 0 10px 0; }
+    @media all and (max-width: 800px) {
+      #portfolio .info_block_container .container .info_right {
+        width: 100%;
+        float: none;
+        margin: 0 auto; }
+        #portfolio .info_block_container .container .info_right .read_more_btn {
+          display: block; } }
+#portfolio .concepts_info::before {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -55px;
+  border: 55px solid transparent;
+  border-top-color: #e7e7e7;
+  z-index: 2; }
+  @media all and (max-width: 800px) {
+    #portfolio .concepts_info::before {
+      margin-left: -40px;
+      border-width: 40px; } }
+  @media all and (max-width: 600px) {
+    #portfolio .concepts_info::before {
+      margin-left: -30px;
+      border-width: 30px; } }
+#portfolio .concepts_info {
+  position: relative;
+  background-color: #e7e7e7;
+  padding-bottom: 140px; }
+  #portfolio .concepts_info .container {
     width: 80%;
-    margin: 60px auto; }
-    #portfolio .info_block_container .container .info_left {
-      width: 50%;
-      float: left; }
-      #portfolio .info_block_container .container .info_left h2 {
-        font-size: 36px;
+    margin: 0 auto; }
+    #portfolio .concepts_info .container h2 {
+      padding: 60px 0;
+      font-size: 60px;
+      font-family: "Segoe UI";
+      color: black;
+      font-weight: bold;
+      line-height: 1.2;
+      text-align: center; }
+      @media all and (max-width: 800px) {
+        #portfolio .concepts_info .container h2 {
+          font-size: 36px; } }
+    #portfolio .concepts_info .container p {
+      font-size: 24px;
+      font-family: "Segoe UI";
+      color: black;
+      line-height: 1.2;
+      text-align: justify; }
+#portfolio .summary_header {
+  padding: 150px 0;
+  font-size: 36px;
+  font-family: "Segoe UI";
+  color: black;
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: center; }
+  @media all and (max-width: 1000px) {
+    #portfolio .summary_header {
+      padding: 100px 0; } }
+  @media all and (max-width: 800px) {
+    #portfolio .summary_header {
+      padding: 50px 0; } }
+#portfolio .contact_us_form .container {
+  width: 80%;
+  margin: 0 auto; }
+  #portfolio .contact_us_form .container h1 {
+    padding: 70px 0;
+    font-size: 60px;
+    font-family: "Roboto";
+    color: #8a3b86;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: center; }
+    @media all and (max-width: 800px) {
+      #portfolio .contact_us_form .container h1 {
+        font-size: 30px; } }
+  #portfolio .contact_us_form .container p {
+    font-size: 30px;
+    font-family: "Roboto";
+    color: black;
+    line-height: 1.6;
+    text-align: justify; }
+    #portfolio .contact_us_form .container p span {
+      color: #8a3b86;
+      font-size: 30px;
+      font-weight: bold; }
+    #portfolio .contact_us_form .container p input {
+      display: inline-block;
+      width: 300px;
+      font-size: 30px;
+      font-family: "Roboto";
+      text-align: center;
+      color: black;
+      outline: none;
+      border: none;
+      border-bottom: 2px solid #000; }
+      @media all and (max-width: 800px) {
+        #portfolio .contact_us_form .container p input {
+          width: 200px; } }
+  #portfolio .contact_us_form .container button {
+    display: block;
+    margin: 90px auto 70px auto;
+    padding: 25px 82px;
+    font-size: 27px;
+    font-family: "MuseoSansCyrl";
+    font-weight: 900;
+    color: #8a3b86;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: center;
+    background-color: #ffcc00;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.4s; }
+    @media all and (max-width: 600px) {
+      #portfolio .contact_us_form .container button {
+        padding: 15px 40px; } }
+  #portfolio .contact_us_form .container button:hover {
+    color: #fff;
+    background-color: #8a3b86; }
+#portfolio .get_result_container {
+  background-color: #a44699;
+  padding: 40px 0; }
+  #portfolio .get_result_container .container {
+    width: 80%;
+    margin: 0 auto; }
+    #portfolio .get_result_container .container .result_left {
+      width: 70%;
+      float: left;
+      text-align: center; }
+      #portfolio .get_result_container .container .result_left h2 {
+        padding-top: 10px;
+        font-size: 30px;
         font-family: "Segoe UI";
-        color: black;
+        color: white;
         font-weight: bold;
         line-height: 1.2;
-        text-align: center;
-        margin-bottom: 20px; }
-      @media all and (max-width: 800px) {
-        #portfolio .info_block_container .container .info_left {
+        text-align: center; }
+      @media all and (max-width: 1000px) {
+        #portfolio .get_result_container .container .result_left {
           width: 100%;
           float: none;
           margin: 0 auto; } }
-    #portfolio .info_block_container .container .info_right {
-      width: 50%;
-      float: left; }
-      #portfolio .info_block_container .container .info_right p {
-        font-size: 24px;
+    #portfolio .get_result_container .container .result_right {
+      width: 30%;
+      float: left;
+      text-align: center; }
+      #portfolio .get_result_container .container .result_right button {
+        padding: 20px 15px;
+        font-size: 20px;
         font-family: "Segoe UI";
-        color: #969696;
-        line-height: 1.2;
-        text-align: justify;
-        text-indent: 40px; }
-      #portfolio .info_block_container .container .info_right .read_more_btn {
-        display: inline-block;
-        font-size: 30px;
-        font-family: "Segoe UI";
-        color: #f0cf16;
-        text-decoration: underline;
+        color: #a44699;
+        background-color: #f0cf16;
+        font-weight: bold;
+        text-transform: uppercase;
         line-height: 1.2;
         text-align: center;
-        margin: 30px 0 10px 0; }
-      @media all and (max-width: 800px) {
-        #portfolio .info_block_container .container .info_right {
+        border: none;
+        outline: none;
+        cursor: pointer;
+        transition: all 0.4s; }
+      #portfolio .get_result_container .container .result_right button:hover {
+        background-color: #fff689; }
+      @media all and (max-width: 1000px) {
+        #portfolio .get_result_container .container .result_right {
           width: 100%;
           float: none;
-          margin: 0 auto; }
-          #portfolio .info_block_container .container .info_right .read_more_btn {
-            display: block; } }
-  #portfolio .concepts_info::before {
-    content: " ";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -55px;
-    border: 55px solid transparent;
-    border-top-color: #e7e7e7;
-    z-index: 2; }
-    @media all and (max-width: 800px) {
-      #portfolio .concepts_info::before {
-        margin-left: -40px;
-        border-width: 40px; } }
-    @media all and (max-width: 600px) {
-      #portfolio .concepts_info::before {
-        margin-left: -30px;
-        border-width: 30px; } }
-  #portfolio .concepts_info {
-    position: relative;
-    background-color: #e7e7e7;
-    padding-bottom: 140px; }
-    #portfolio .concepts_info .container {
-      width: 80%;
-      margin: 0 auto; }
-      #portfolio .concepts_info .container h2 {
-        padding: 60px 0;
-        font-size: 60px;
-        font-family: "Segoe UI";
-        color: black;
-        font-weight: bold;
-        line-height: 1.2;
-        text-align: center; }
-        @media all and (max-width: 800px) {
-          #portfolio .concepts_info .container h2 {
-            font-size: 36px; } }
-      #portfolio .concepts_info .container p {
-        font-size: 24px;
-        font-family: "Segoe UI";
-        color: black;
-        line-height: 1.2;
-        text-align: justify; }
-  #portfolio .summary_header {
-    padding: 150px 0;
-    font-size: 36px;
-    font-family: "Segoe UI";
-    color: black;
-    font-weight: bold;
-    line-height: 1.2;
-    text-align: center; }
-    @media all and (max-width: 1000px) {
-      #portfolio .summary_header {
-        padding: 100px 0; } }
-    @media all and (max-width: 800px) {
-      #portfolio .summary_header {
-        padding: 50px 0; } }
-  #portfolio .contact_us_form .container {
+          margin: 30px auto 0 auto; } }
+#portfolio .social_btns_container {
+  background-color: #000; }
+  #portfolio .social_btns_container .container {
     width: 80%;
-    margin: 0 auto; }
-    #portfolio .contact_us_form .container h1 {
-      padding: 70px 0;
-      font-size: 60px;
-      font-family: "Roboto";
-      color: #8a3b86;
-      font-weight: bold;
-      text-transform: uppercase;
-      line-height: 1.2;
-      text-align: center; }
-      @media all and (max-width: 800px) {
-        #portfolio .contact_us_form .container h1 {
-          font-size: 30px; } }
-    #portfolio .contact_us_form .container p {
-      font-size: 30px;
-      font-family: "Roboto";
-      color: black;
-      line-height: 1.6;
-      text-align: justify; }
-      #portfolio .contact_us_form .container p span {
-        color: #8a3b86;
-        font-size: 30px;
-        font-weight: bold; }
-      #portfolio .contact_us_form .container p input {
-        display: inline-block;
-        width: 300px;
-        font-size: 30px;
-        font-family: "Roboto";
-        text-align: center;
-        color: black;
-        outline: none;
-        border: none;
-        border-bottom: 2px solid #000; }
+    margin: 0 auto;
+    text-align: center; }
+    #portfolio .social_btns_container .container a {
+      display: inline-block;
+      text-decoration: none; }
+      #portfolio .social_btns_container .container a .fa {
+        padding: 50px;
+        font-size: 50px;
+        color: #fff;
+        transition: all 0.4s; }
+        @media all and (max-width: 1000px) {
+          #portfolio .social_btns_container .container a .fa {
+            padding: 40px;
+            font-size: 40px; } }
         @media all and (max-width: 800px) {
-          #portfolio .contact_us_form .container p input {
-            width: 200px; } }
-    #portfolio .contact_us_form .container button {
-      display: block;
-      margin: 90px auto 70px auto;
-      padding: 25px 82px;
-      font-size: 27px;
-      font-family: "MuseoSansCyrl";
-      font-weight: 900;
-      color: #8a3b86;
-      text-transform: uppercase;
-      line-height: 1.2;
-      text-align: center;
-      background-color: #ffcc00;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      transition: all 0.4s; }
-      @media all and (max-width: 600px) {
-        #portfolio .contact_us_form .container button {
-          padding: 15px 40px; } }
-    #portfolio .contact_us_form .container button:hover {
-      color: #fff;
-      background-color: #8a3b86; }
-  #portfolio .get_result_container {
-    background-color: #a44699;
-    padding: 40px 0; }
-    #portfolio .get_result_container .container {
-      width: 80%;
-      margin: 0 auto; }
-      #portfolio .get_result_container .container .result_left {
-        width: 70%;
-        float: left;
-        text-align: center; }
-        #portfolio .get_result_container .container .result_left h2 {
-          padding-top: 10px;
-          font-size: 30px;
-          font-family: "Segoe UI";
-          color: white;
-          font-weight: bold;
-          line-height: 1.2;
-          text-align: center; }
-        @media all and (max-width: 1000px) {
-          #portfolio .get_result_container .container .result_left {
-            width: 100%;
-            float: none;
-            margin: 0 auto; } }
-      #portfolio .get_result_container .container .result_right {
-        width: 30%;
-        float: left;
-        text-align: center; }
-        #portfolio .get_result_container .container .result_right button {
-          padding: 20px 15px;
-          font-size: 20px;
-          font-family: "Segoe UI";
-          color: #a44699;
-          background-color: #f0cf16;
-          font-weight: bold;
-          text-transform: uppercase;
-          line-height: 1.2;
-          text-align: center;
-          border: none;
-          outline: none;
-          cursor: pointer;
-          transition: all 0.4s; }
-        #portfolio .get_result_container .container .result_right button:hover {
-          background-color: #fff689; }
-        @media all and (max-width: 1000px) {
-          #portfolio .get_result_container .container .result_right {
-            width: 100%;
-            float: none;
-            margin: 30px auto 0 auto; } }
-  #portfolio .social_btns_container {
-    background-color: #000; }
-    #portfolio .social_btns_container .container {
-      width: 80%;
-      margin: 0 auto;
-      text-align: center; }
-      #portfolio .social_btns_container .container a {
-        display: inline-block;
-        text-decoration: none; }
-        #portfolio .social_btns_container .container a .fa {
-          padding: 50px;
-          font-size: 50px;
-          color: #fff;
-          transition: all 0.4s; }
-          @media all and (max-width: 1000px) {
-            #portfolio .social_btns_container .container a .fa {
-              padding: 40px;
-              font-size: 40px; } }
-          @media all and (max-width: 800px) {
-            #portfolio .social_btns_container .container a .fa {
-              padding: 30px;
-              font-size: 30px; } }
-          @media all and (max-width: 600px) {
-            #portfolio .social_btns_container .container a .fa {
-              padding: 10px;
-              font-size: 30px; } }
-        #portfolio .social_btns_container .container a .fa:hover {
-          color: #5ddaca;
-          transform: rotate(360deg); }
+          #portfolio .social_btns_container .container a .fa {
+            padding: 30px;
+            font-size: 30px; } }
+        @media all and (max-width: 600px) {
+          #portfolio .social_btns_container .container a .fa {
+            padding: 10px;
+            font-size: 30px; } }
+      #portfolio .social_btns_container .container a .fa:hover {
+        color: #5ddaca;
+        transform: rotate(360deg); }
 
 body, html {
   overflow-x: hidden; }
@@ -451,7 +448,7 @@ a:hover {
   position: fixed; }
 
 header {
-  background-color: grey;
+  background-color: transparent;
   position: absolute;
   top: 0;
   width: 100%;
@@ -468,6 +465,9 @@ header {
       height: 51px; }
     header .container .logo_link .color_logo {
       display: none; }
+
+.header-grey-bg {
+  background-color: grey; }
 
 .main_menu {
   float: right; }

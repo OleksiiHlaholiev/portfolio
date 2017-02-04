@@ -196,6 +196,19 @@ window.addEventListener('load', function() {
 								(document.body.scrollTop + tempOffset) :
 								(document.documentElement.scrollTop + tempOffset);
 
+		// sectionHeader background: turn on / turn off
+		if (currentPosition > sectionPortfolio.offsetTop + subSectionCompanyAims.offsetTop) {
+			if (!sectionHeader.classList.contains("header-grey-bg")) {
+				sectionHeader.classList.add("header-grey-bg");
+			}
+
+		} else {
+			if (sectionHeader.classList.contains("header-grey-bg")) {
+				sectionHeader.classList.remove("header-grey-bg");
+			}
+		}
+
+		// backToTopBtn: turn on / turn off
 		if (currentPosition > sectionPortfolio.offsetTop + subSectionCompanyAims.offsetTop) {
 			if (!backToTopBtn.classList.contains("back_to_top_visible")) {
 				backToTopBtn.classList.add("back_to_top_visible");
