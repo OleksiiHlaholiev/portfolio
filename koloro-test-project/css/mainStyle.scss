@@ -590,35 +590,54 @@ h1, h2, h3, h4, h5, h6 {
 
 			text-align: center;
 
-			a {
-				display: inline-block;
-				text-decoration: none;
+			.like {
+				margin: 0 auto;
+				max-width: 60%;
 
-				.fa {
-					padding: 50px;
-					font-size: 50px;
-					color: #fff;
-					transition: all 0.4s;
+				@media only screen and (max-width: 767px) {
+					max-width: 100%;
+				}
 
-					@media all and (max-width: 1000px) {
-						padding: 40px;
-						font-size: 40px;
-					}
-					@media all and (max-width: 800px) {
-						padding: 30px;
-						font-size: 30px;
-					}
-					@media all and (max-width: 600px) {
-						padding: 10px;
-						font-size: 30px;
+				a {
+					float: left;
+					text-align: center;
+					width: 20%;
+					background-color: #000;
+					-webkit-transition: all 0.35s ease;
+					-moz-transition: all 0.35s ease;
+					-o-transition: all 0.35s ease;
+					transition: all 0.35s ease;
+
+					img {
+						display: block;
+						width: 100%;
+						max-width: 100%;
+						height: auto;
+						transition: all 0.5s;
 					}
 				}
-				.fa:hover {
-					color: #5ddaca;
-					transform: rotate(360deg);
+				a:hover {
+					img {
+						transform: rotate(360deg);
+					}
+				}
+				.fb:hover {
+					background-color: #6578C6;
+
+				}
+				.gp:hover {
+					background-color: #DC4A33;
+				}
+				.in:hover{
+					background-color: #017EB4;
+				}
+				.tw:hover {
+					background-color: #49C8F5;
+				}
+				.ig:hover {
+					background-color: #3E739D;
 				}
 			}
-
 		}
 	}
 }

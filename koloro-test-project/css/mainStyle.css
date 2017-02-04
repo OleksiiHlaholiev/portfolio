@@ -433,29 +433,39 @@ h1, h2, h3, h4, h5, h6 {
     width: 80%;
     margin: 0 auto;
     text-align: center; }
-    #portfolio .social_btns_container .container a {
-      display: inline-block;
-      text-decoration: none; }
-      #portfolio .social_btns_container .container a .fa {
-        padding: 50px;
-        font-size: 50px;
-        color: #fff;
-        transition: all 0.4s; }
-        @media all and (max-width: 1000px) {
-          #portfolio .social_btns_container .container a .fa {
-            padding: 40px;
-            font-size: 40px; } }
-        @media all and (max-width: 800px) {
-          #portfolio .social_btns_container .container a .fa {
-            padding: 30px;
-            font-size: 30px; } }
-        @media all and (max-width: 600px) {
-          #portfolio .social_btns_container .container a .fa {
-            padding: 10px;
-            font-size: 30px; } }
-      #portfolio .social_btns_container .container a .fa:hover {
-        color: #5ddaca;
+    #portfolio .social_btns_container .container .like {
+      margin: 0 auto;
+      max-width: 60%; }
+      @media only screen and (max-width: 767px) {
+        #portfolio .social_btns_container .container .like {
+          max-width: 100%; } }
+      #portfolio .social_btns_container .container .like a {
+        float: left;
+        text-align: center;
+        width: 20%;
+        background-color: #000;
+        -webkit-transition: all 0.35s ease;
+        -moz-transition: all 0.35s ease;
+        -o-transition: all 0.35s ease;
+        transition: all 0.35s ease; }
+        #portfolio .social_btns_container .container .like a img {
+          display: block;
+          width: 100%;
+          max-width: 100%;
+          height: auto;
+          transition: all 0.5s; }
+      #portfolio .social_btns_container .container .like a:hover img {
         transform: rotate(360deg); }
+      #portfolio .social_btns_container .container .like .fb:hover {
+        background-color: #6578C6; }
+      #portfolio .social_btns_container .container .like .gp:hover {
+        background-color: #DC4A33; }
+      #portfolio .social_btns_container .container .like .in:hover {
+        background-color: #017EB4; }
+      #portfolio .social_btns_container .container .like .tw:hover {
+        background-color: #49C8F5; }
+      #portfolio .social_btns_container .container .like .ig:hover {
+        background-color: #3E739D; }
 
 body, html {
   overflow-x: hidden; }
