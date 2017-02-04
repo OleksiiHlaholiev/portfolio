@@ -151,6 +151,9 @@ h1, h2, h3, h4, h5, h6 {
 #portfolio .info_block_container .container {
   width: 80%;
   margin: 60px auto; }
+  @media all and (max-width: 600px) {
+    #portfolio .info_block_container .container {
+      margin: 20px auto; } }
   #portfolio .info_block_container .container .info_left {
     width: 50%;
     float: left; }
@@ -342,7 +345,7 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
     margin: 90px auto 70px auto;
     padding: 25px 82px;
-    font-size: 27px;
+    font-size: 26px;
     font-family: "MuseoSansCyrl";
     font-weight: 900;
     color: #8a3b86;
@@ -361,7 +364,8 @@ h1, h2, h3, h4, h5, h6 {
     @media all and (max-width: 600px) {
       #portfolio .contact_us_form .container button {
         padding: 15px 40px;
-        margin: 20px auto; } }
+        margin: 20px auto;
+        font-size: 20px; } }
   #portfolio .contact_us_form .container button:hover {
     color: #fff;
     background-color: #8a3b86; }
@@ -412,6 +416,10 @@ h1, h2, h3, h4, h5, h6 {
         outline: none;
         cursor: pointer;
         transition: all 0.4s; }
+        @media all and (max-width: 600px) {
+          #portfolio .get_result_container .container .result_right button {
+            padding: 15px 10px;
+            font-size: 16px; } }
       #portfolio .get_result_container .container .result_right button:hover {
         background-color: #fff689; }
       @media all and (max-width: 1000px) {

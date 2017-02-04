@@ -221,6 +221,10 @@ h1, h2, h3, h4, h5, h6 {
 			width: $containerWidth;
 			margin: 60px auto;
 
+			@media all and (max-width: 600px) {
+				margin: 20px auto;
+			}
+
 			.info_left {
 				width: 50%;
 				float: left;
@@ -465,7 +469,7 @@ h1, h2, h3, h4, h5, h6 {
 				margin: 90px auto 70px auto;
 				padding: 25px 82px;
 
-				font-size: 27px;
+				font-size: 26px;
 				font-family: "MuseoSansCyrl";
 				font-weight: 900;
 				color: rgb(138, 59, 134);
@@ -486,6 +490,7 @@ h1, h2, h3, h4, h5, h6 {
 				@media all and (max-width: 600px){
 					padding: 15px 40px;
 					margin: 20px auto;
+					font-size: 20px;
 				}
 			}
 			button:hover {
@@ -556,6 +561,11 @@ h1, h2, h3, h4, h5, h6 {
 					cursor: pointer;
 
 					transition: all 0.4s;
+
+					@media all and (max-width: 600px) {
+						padding: 15px 10px;
+						font-size: 16px;
+					}
 				}
 				button:hover {
 					background-color: #fff689;
