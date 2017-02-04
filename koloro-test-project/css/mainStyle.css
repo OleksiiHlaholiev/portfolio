@@ -21,6 +21,11 @@ h1, h2, h3, h4, h5, h6 {
   display: table;
   clear: both; }
 
+.main-wrapper {
+  position: relative;
+  margin: 0 auto;
+  max-width: 1920px; }
+
 #portfolio .image_container {
   width: 100%;
   position: relative;
@@ -430,7 +435,7 @@ h1, h2, h3, h4, h5, h6 {
 #portfolio .social_btns_container {
   background-color: #000; }
   #portfolio .social_btns_container .container {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     text-align: center; }
     #portfolio .social_btns_container .container .like {
@@ -453,7 +458,7 @@ h1, h2, h3, h4, h5, h6 {
           width: 100%;
           max-width: 100%;
           height: auto;
-          transition: all 0.5s; }
+          transition: all 0.35s; }
       #portfolio .social_btns_container .container .like a:hover img {
         transform: rotate(360deg); }
       #portfolio .social_btns_container .container .like .fb:hover {
@@ -498,7 +503,7 @@ li, p, span, table {
 
 .container {
   width: 100%;
-  max-width: 1500px;
+  max-width: 1920px;
   margin: auto; }
 
 .container_small {
