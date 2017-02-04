@@ -14,12 +14,20 @@ window.addEventListener('load', function() {
 		SLIDER_USER_TIMEOUT = 2000,
 		sliderBusyFlag = false,
 		userActiveControlFlag = false,
-		busyFlag = false;
+		busyFlag = false,
+		firstTypingFlag = true;
 
 	var backToTopBtn = document.querySelector(".back_to_top"),
 		sectionHeader = document.getElementById("header"),
 		sectionPortfolio = document.getElementById("portfolio"),
 		subSectionCompanyAims = document.querySelector(".company_aims");
+
+	var topImage = document.querySelector(".top_image"),
+		topTitle = document.querySelector(".top_title");
+
+	var infoHistory = document.querySelector(".info_history"),
+		infoAim = document.querySelector(".info_aim"),
+		infoSolution = document.querySelector(".info_solution");
 
 	var mainMenu = document.querySelector(".main_menu"),
 		menuTrigerBtn = document.querySelector(".menu_triger");
@@ -186,6 +194,23 @@ window.addEventListener('load', function() {
 		}
 	}
 
+
+
+	function textTyping(textElement) {
+		var tempTextStr = textElement.innerText,
+			tempStr = "",
+			i = 0;
+		var textTypingTimer = setInterval(
+			function () {
+				tempStr += tempTextStr[i];
+				textElement.innerText = tempStr;
+				i++;
+				if (i == tempTextStr.length) {
+					clearInterval(textTypingTimer);
+				}
+			}, 50);
+	}
+
 	// ****************************************************************
 
 	// **********************  EVENT HANDLERS *************************
@@ -195,6 +220,22 @@ window.addEventListener('load', function() {
 			currentPosition = document.body.scrollTop ?
 								(document.body.scrollTop + tempOffset) :
 								(document.documentElement.scrollTop + tempOffset);
+
+		if ( (currentPosition > sectionPortfolio.offsetTop) &&
+			(currentPosition < sectionPortfolio.offsetTop + subSectionCompanyAims.offsetTop)
+		) {
+			topImage.classList.add("animate_top_image");
+			topTitle.classList.add("animate_top_title");
+		}
+
+		// infoHistory.classList.add("css-typing");
+		if (firstTypingFlag) {
+			textTyping(infoHistory);
+			textTyping(infoAim);
+			textTyping(infoSolution);
+		}
+		firstTypingFlag = false;
+
 
 		// sectionHeader background: turn on / turn off
 		if (currentPosition > sectionPortfolio.offsetTop + subSectionCompanyAims.offsetTop) {
