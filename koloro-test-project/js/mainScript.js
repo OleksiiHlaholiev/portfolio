@@ -20,7 +20,7 @@ window.addEventListener('load', function() {
 		infoAimFirstTypingFlag = true,
 		infoSolutionFirstTypingFlag = true,
 
-		SYMBOL_TYPING_SPEED_MS = 25;
+		SYMBOL_TYPING_SPEED_MS = 15;
 
 	var backToTopBtn = document.querySelector(".back_to_top"),
 		sectionHeader = document.getElementById("header"),
@@ -234,8 +234,8 @@ window.addEventListener('load', function() {
 			topTitle.classList.add("animate_top_title");
 		}
 
-		if ( (currentPosition > infoHistory.offsetTop - 5 * tempOffset) &&
-				(currentPosition < infoAim.offsetTop) ) {
+		if ( (currentPosition > (infoHistory.offsetTop - 5 * tempOffset)) &&
+				(currentPosition < (infoHistory.offsetTop + infoHistory.clientHeight)) ) {
 			if (infoHistoryFirstTypingFlag) {
 				infoHistory.querySelector("h2").classList.add("animate_info_title");
 				infoHistory.querySelector("p").classList.add("animate_info_text");
@@ -243,8 +243,8 @@ window.addEventListener('load', function() {
 
 				infoHistoryFirstTypingFlag = false;
 			}
-		}	else if ((currentPosition > infoAim.offsetTop - 5 * tempOffset) &&
-					(currentPosition < infoSolution.offsetTop) ) {
+		}	else if ((currentPosition > (infoAim.offsetTop - 5 * tempOffset)) &&
+					(currentPosition < (infoAim.offsetTop + infoAim.clientHeight)) ) {
 				if (infoAimFirstTypingFlag) {
 					infoAim.querySelector("h2").classList.add("animate_info_title");
 					infoAim.querySelector("p").classList.add("animate_info_text");
@@ -252,8 +252,8 @@ window.addEventListener('load', function() {
 
 					infoAimFirstTypingFlag = false;
 				}
-		}	else if ((currentPosition > infoSolution.offsetTop - 5 * tempOffset) &&
-			(currentPosition < infoSolution.offsetTop + infoSolution.clientHeight) ) {
+		}	else if ((currentPosition > (infoSolution.offsetTop - 5 * tempOffset)) &&
+			(currentPosition < (infoSolution.offsetTop + infoSolution.clientHeight)) ) {
 				if (infoSolutionFirstTypingFlag) {
 					infoSolution.querySelector("h2").classList.add("animate_info_title");
 					infoSolution.querySelector("p").classList.add("animate_info_text");
