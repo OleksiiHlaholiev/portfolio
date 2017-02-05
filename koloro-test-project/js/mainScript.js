@@ -255,14 +255,17 @@ window.addEventListener('load', function() {
 	// **********************  EVENT HANDLERS *************************
 
 	function scrollWindowHandler(event) {
-		var	tempOffset = 3 * sectionHeader.clientHeight,
-			currentPosition = document.body.scrollTop ?
-								(document.body.scrollTop + tempOffset) :
-								(document.documentElement.scrollTop + tempOffset);
 
+		var	tempOffset;
 		if (window.innerHeight >= 600) {
-			tempOffset = 6 * sectionHeader.clientHeight;
+			tempOffset = (6 * sectionHeader.clientHeight);
+		} else {
+			tempOffset = (3 * sectionHeader.clientHeight);
 		}
+
+		var	currentPosition = document.body.scrollTop ?
+			(document.body.scrollTop + tempOffset) :
+			(document.documentElement.scrollTop + tempOffset);
 
 		if ( ((currentPosition) >= sectionPortfolio.offsetTop) &&
 			((currentPosition) < sectionPortfolio.offsetTop + topImage.clientHeight)
