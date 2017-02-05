@@ -183,10 +183,17 @@ h1, h2, h3, h4, h5, h6 {
       font-weight: bold;
       line-height: 1.2;
       text-align: center;
-      margin-bottom: 20px; }
+      margin-bottom: 20px;
+      position: relative;
+      left: -100%;
+      opacity: 0;
+      transition: all 1s; }
       @media all and (max-width: 600px) {
         #portfolio .info_block_container .container .info_left h2 {
           font-size: 20px; } }
+    #portfolio .info_block_container .container .info_left .animate_info_title {
+      left: 0;
+      opacity: 1; }
     @media all and (max-width: 800px) {
       #portfolio .info_block_container .container .info_left {
         width: 100%;
@@ -201,24 +208,12 @@ h1, h2, h3, h4, h5, h6 {
       color: #969696;
       line-height: 1.2;
       text-align: justify;
-      text-indent: 40px; }
+      text-indent: 40px;
+      opacity: 0;
+      transition: all 1s; }
       @media all and (max-width: 600px) {
         #portfolio .info_block_container .container .info_right p {
           font-size: 16px; } }
-    #portfolio .info_block_container .container .info_right .animate_info {
-      opacity: 1; }
-    #portfolio .info_block_container .container .info_right .css-typing {
-      width: calc(100%);
-      white-space: nowrap;
-      overflow: hidden;
-      -webkit-animation: type 5s steps(50, end);
-      animation: type 5s steps(50, end); }
-@keyframes type {
-  from {
-    width: 0; } }
-@-webkit-keyframes type {
-  from {
-    width: 0; } }
     #portfolio .info_block_container .container .info_right .read_more_btn {
       display: inline-block;
       font-size: 30px;
@@ -227,11 +222,15 @@ h1, h2, h3, h4, h5, h6 {
       text-decoration: underline;
       line-height: 1.2;
       text-align: center;
-      margin: 30px 0 10px 0; }
+      margin: 30px 0 10px 0;
+      opacity: 0;
+      transition: all 1s; }
       @media all and (max-width: 600px) {
         #portfolio .info_block_container .container .info_right .read_more_btn {
           font-size: 20px;
           margin: 10px 0 0 0; } }
+    #portfolio .info_block_container .container .info_right .animate_info_text {
+      opacity: 1; }
     @media all and (max-width: 800px) {
       #portfolio .info_block_container .container .info_right {
         width: 100%;

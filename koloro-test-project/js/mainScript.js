@@ -15,7 +15,12 @@ window.addEventListener('load', function() {
 		sliderBusyFlag = false,
 		userActiveControlFlag = false,
 		busyFlag = false,
-		firstTypingFlag = true;
+
+		infoHistoryFirstTypingFlag = true,
+		infoAimFirstTypingFlag = true,
+		infoSolutionFirstTypingFlag = true,
+
+		SYMBOL_TYPING_SPEED_MS = 25;
 
 	var backToTopBtn = document.querySelector(".back_to_top"),
 		sectionHeader = document.getElementById("header"),
@@ -196,7 +201,7 @@ window.addEventListener('load', function() {
 
 
 
-	function textTyping(textElement) {
+	function textTyping(textElement, buttonElement) {
 		var tempTextStr = textElement.innerText,
 			tempStr = "",
 			i = 0;
@@ -207,8 +212,9 @@ window.addEventListener('load', function() {
 				i++;
 				if (i == tempTextStr.length) {
 					clearInterval(textTypingTimer);
+					buttonElement.classList.add("animate_info_text");
 				}
-			}, 50);
+			}, SYMBOL_TYPING_SPEED_MS);
 	}
 
 	// ****************************************************************
@@ -228,13 +234,37 @@ window.addEventListener('load', function() {
 			topTitle.classList.add("animate_top_title");
 		}
 
-		// infoHistory.classList.add("css-typing");
-		if (firstTypingFlag) {
-			textTyping(infoHistory);
-			textTyping(infoAim);
-			textTyping(infoSolution);
+		if ( (currentPosition > infoHistory.offsetTop - 5 * tempOffset) &&
+				(currentPosition < infoAim.offsetTop) ) {
+			if (infoHistoryFirstTypingFlag) {
+				infoHistory.querySelector("h2").classList.add("animate_info_title");
+				infoHistory.querySelector("p").classList.add("animate_info_text");
+				textTyping(infoHistory.querySelector("p"), infoHistory.querySelector(".read_more_btn"));
+
+				infoHistoryFirstTypingFlag = false;
+			}
+		}	else if ((currentPosition > infoAim.offsetTop - 5 * tempOffset) &&
+					(currentPosition < infoSolution.offsetTop) ) {
+				if (infoAimFirstTypingFlag) {
+					infoAim.querySelector("h2").classList.add("animate_info_title");
+					infoAim.querySelector("p").classList.add("animate_info_text");
+					textTyping(infoAim.querySelector("p"), infoAim.querySelector(".read_more_btn"));
+
+					infoAimFirstTypingFlag = false;
+				}
+		}	else if ((currentPosition > infoSolution.offsetTop - 5 * tempOffset) &&
+			(currentPosition < infoSolution.offsetTop + infoSolution.clientHeight) ) {
+				if (infoSolutionFirstTypingFlag) {
+					infoSolution.querySelector("h2").classList.add("animate_info_title");
+					infoSolution.querySelector("p").classList.add("animate_info_text");
+					textTyping(infoSolution.querySelector("p"), infoSolution.querySelector(".read_more_btn"));
+
+					infoSolutionFirstTypingFlag = false;
+				}
 		}
-		firstTypingFlag = false;
+
+
+
 
 
 		// sectionHeader background: turn on / turn off
