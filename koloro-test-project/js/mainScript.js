@@ -265,7 +265,7 @@ window.addEventListener('load', function() {
 		} else if (window.innerHeight < 900) {
 			tempOffset = (6 * sectionHeader.clientHeight);
 		} else {
-			tempOffset = (10 * sectionHeader.clientHeight);
+			tempOffset = (8 * sectionHeader.clientHeight);
 		}
 
 		var	currentPosition = document.body.scrollTop ?
