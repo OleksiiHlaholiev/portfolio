@@ -164,7 +164,7 @@ window.addEventListener('load', function() {
 			for (var i = 0; i < sliderItems.length; i++) {
 				temp = getComputedStyle(sliderItems[i]).left;
 				temp = Number(temp.replace("px", "")) * 100 / sliderWidth + deltaX;
-				sliderItems[i].style.transition = "all " + transitionTimeS + "s";
+				sliderItems[i].style.transition = "all " + transitionTimeS + "s linear";
 				if (!Math.round(temp)) {
 					temp = 0;
 				}
@@ -381,7 +381,6 @@ window.addEventListener('load', function() {
 			if (!sectionHeader.classList.contains("header-grey-bg")) {
 				sectionHeader.classList.add("header-grey-bg");
 			}
-
 		} else {
 			if (sectionHeader.classList.contains("header-grey-bg")) {
 				sectionHeader.classList.remove("header-grey-bg");
