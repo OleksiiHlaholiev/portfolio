@@ -262,11 +262,13 @@ window.addEventListener('load', function() {
 
 		var	tempOffset;
 		if (window.innerHeight < 600) {
-			tempOffset = (3 * sectionHeader.clientHeight);
+			tempOffset = 3 * sectionHeader.clientHeight;
 		} else if (window.innerHeight < 900) {
-			tempOffset = (6 * sectionHeader.clientHeight);
+			tempOffset = 6 * sectionHeader.clientHeight;
+		} else if (window.innerHeight < 1200){
+			tempOffset = 10 * sectionHeader.clientHeight;
 		} else {
-			tempOffset = (8 * sectionHeader.clientHeight);
+			tempOffset = 15 * sectionHeader.clientHeight;
 		}
 
 		var	currentPosition = document.body.scrollTop ?
