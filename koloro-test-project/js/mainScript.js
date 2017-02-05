@@ -164,7 +164,8 @@ window.addEventListener('load', function() {
 			for (var i = 0; i < sliderItems.length; i++) {
 				temp = getComputedStyle(sliderItems[i]).left;
 				temp = Number(temp.replace("px", "")) * 100 / sliderWidth + deltaX;
-				sliderItems[i].style.transition = "all " + transitionTimeS + "s linear";
+				sliderItems[i].style.transition = "all " + transitionTimeS + "s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
+
 				if (!Math.round(temp)) {
 					temp = 0;
 				}
