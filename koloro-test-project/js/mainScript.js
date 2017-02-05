@@ -222,7 +222,7 @@ window.addEventListener('load', function() {
 	// **********************  EVENT HANDLERS *************************
 
 	function scrollWindowHandler(event) {
-		var	tempOffset = 2 * sectionHeader.clientHeight,
+		var	tempOffset = 5 * sectionHeader.clientHeight,
 			currentPosition = document.body.scrollTop ?
 								(document.body.scrollTop + tempOffset) :
 								(document.documentElement.scrollTop + tempOffset);
@@ -234,7 +234,7 @@ window.addEventListener('load', function() {
 			topTitle.classList.add("animate_top_title");
 		}
 
-		if ( (currentPosition > (infoHistory.offsetTop - 5 * tempOffset)) &&
+		if ( (currentPosition > (infoHistory.offsetTop - tempOffset)) &&
 				(currentPosition < (infoHistory.offsetTop + infoHistory.clientHeight)) ) {
 			if (infoHistoryFirstTypingFlag) {
 				infoHistory.querySelector("h2").classList.add("animate_info_title");
@@ -243,7 +243,7 @@ window.addEventListener('load', function() {
 
 				infoHistoryFirstTypingFlag = false;
 			}
-		}	else if ((currentPosition > (infoAim.offsetTop - 5 * tempOffset)) &&
+		}	else if ((currentPosition > (infoAim.offsetTop - tempOffset)) &&
 					(currentPosition < (infoAim.offsetTop + infoAim.clientHeight)) ) {
 				if (infoAimFirstTypingFlag) {
 					infoAim.querySelector("h2").classList.add("animate_info_title");
@@ -252,7 +252,7 @@ window.addEventListener('load', function() {
 
 					infoAimFirstTypingFlag = false;
 				}
-		}	else if ((currentPosition > (infoSolution.offsetTop - 5 * tempOffset)) &&
+		}	else if ((currentPosition > (infoSolution.offsetTop - tempOffset)) &&
 			(currentPosition < (infoSolution.offsetTop + infoSolution.clientHeight)) ) {
 				if (infoSolutionFirstTypingFlag) {
 					infoSolution.querySelector("h2").classList.add("animate_info_title");
