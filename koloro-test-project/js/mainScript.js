@@ -216,10 +216,13 @@ window.addEventListener('load', function() {
 		}
 	}
 
-	function textTyping(textElement, buttonElement) {
+	function textTyping(textElement, buttonElement, speedTyping) {
 		var tempTextStr = textElement.innerText,
 			tempStr = "",
 			i = 0;
+
+		textElement.style.height = getComputedStyle(textElement).height;
+
 		var textTypingTimer = setInterval(
 			function () {
 				tempStr += tempTextStr[i];
@@ -231,7 +234,7 @@ window.addEventListener('load', function() {
 						buttonElement.classList.add("animate_info_text");
 					}
 				}
-			}, SYMBOL_TYPING_SPEED_MS);
+			}, speedTyping);
 	}
 
 	function launchFiniteStateMachine() {
@@ -281,7 +284,7 @@ window.addEventListener('load', function() {
 			if (infoHistoryFirstTypingFlag) {
 				infoHistory.querySelector("h2").classList.add("animate_info_title");
 				infoHistory.querySelector("p").classList.add("animate_info_text");
-				textTyping(infoHistory.querySelector("p"), infoHistory.querySelector(".read_more_btn"));
+				textTyping(infoHistory.querySelector("p"), infoHistory.querySelector(".read_more_btn"), SYMBOL_TYPING_SPEED_MS);
 
 				infoHistoryFirstTypingFlag = false;
 			}
@@ -290,7 +293,7 @@ window.addEventListener('load', function() {
 				if (infoAimFirstTypingFlag) {
 					infoAim.querySelector("h2").classList.add("animate_info_title");
 					infoAim.querySelector("p").classList.add("animate_info_text");
-					textTyping(infoAim.querySelector("p"), infoAim.querySelector(".read_more_btn"));
+					textTyping(infoAim.querySelector("p"), infoAim.querySelector(".read_more_btn"), SYMBOL_TYPING_SPEED_MS);
 
 					infoAimFirstTypingFlag = false;
 				}
@@ -299,7 +302,7 @@ window.addEventListener('load', function() {
 				if (infoSolutionFirstTypingFlag) {
 					infoSolution.querySelector("h2").classList.add("animate_info_title");
 					infoSolution.querySelector("p").classList.add("animate_info_text");
-					textTyping(infoSolution.querySelector("p"), infoSolution.querySelector(".read_more_btn"));
+					textTyping(infoSolution.querySelector("p"), infoSolution.querySelector(".read_more_btn"), SYMBOL_TYPING_SPEED_MS);
 
 					infoSolutionFirstTypingFlag = false;
 				}
@@ -322,7 +325,7 @@ window.addEventListener('load', function() {
 			if (conceptsInfoFirstTypingFlag) {
 				conceptsInfo.querySelector("h2").classList.add("animate_concepts_info_title");
 				conceptsInfo.querySelector("p").classList.add("animate_concepts_info_text");
-				textTyping(conceptsInfo.querySelector("p"));
+				textTyping(conceptsInfo.querySelector("p", null, SYMBOL_TYPING_SPEED_MS));
 
 				conceptsInfoFirstTypingFlag = false;
 			}
@@ -331,7 +334,7 @@ window.addEventListener('load', function() {
 			if (infoAverageFirstTypingFlag) {
 				infoAverage.querySelector("h2").classList.add("animate_info_title");
 				infoAverage.querySelector("p").classList.add("animate_info_text");
-				textTyping(infoAverage.querySelector("p"), infoAverage.querySelector(".read_more_btn"));
+				textTyping(infoAverage.querySelector("p"), infoAverage.querySelector(".read_more_btn"), SYMBOL_TYPING_SPEED_MS);
 
 				infoAverageFirstTypingFlag = false;
 			}
@@ -346,7 +349,7 @@ window.addEventListener('load', function() {
 			(currentPosition < (summaryHeader.parentNode.offsetTop + summaryHeader.parentNode.clientHeight)) ) {
 			if (summaryHeaderFirstTypingFlag) {
 				summaryHeader.classList.add("animate_summary_header");
-				textTyping(summaryHeader);
+				textTyping(summaryHeader, null, 50);
 
 				summaryHeaderFirstTypingFlag = false;
 			}
@@ -355,7 +358,7 @@ window.addEventListener('load', function() {
 			if (infoResultFirstTypingFlag) {
 				infoResult.querySelector("h2").classList.add("animate_info_title");
 				infoResult.querySelector("p").classList.add("animate_info_text");
-				textTyping(infoResult.querySelector("p"), infoResult.querySelector(".read_more_btn"));
+				textTyping(infoResult.querySelector("p"), infoResult.querySelector(".read_more_btn"), SYMBOL_TYPING_SPEED_MS);
 
 				infoResultFirstTypingFlag = false;
 			}
@@ -363,7 +366,7 @@ window.addEventListener('load', function() {
 			(currentPosition < (contactUsForm.offsetTop + contactUsForm.clientHeight)) ) {
 			if (contactUsFormFirstTypingFlag) {
 				contactUsForm.querySelector("h1").classList.add("animate_contact_us_header");
-				textTyping(contactUsForm.querySelector("h1"));
+				textTyping(contactUsForm.querySelector("h1"), null, SYMBOL_TYPING_SPEED_MS);
 
 				contactUsFormFirstTypingFlag = false;
 			}
