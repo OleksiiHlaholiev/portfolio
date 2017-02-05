@@ -372,8 +372,6 @@ window.addEventListener('load', function() {
 			}
 		}
 
-
-
 		// sectionHeader background: turn on / turn off
 		if (currentPosition > sectionPortfolio.offsetTop + subSectionCompanyAims.offsetTop) {
 			if (!sectionHeader.classList.contains("header-grey-bg")) {
@@ -392,7 +390,6 @@ window.addEventListener('load', function() {
 				backToTopBtn.classList.add("back_to_top_visible");
 				// backToTopBtn.style.display = "block";
 			}
-
 		} else {
 			if (backToTopBtn.classList.contains("back_to_top_visible")) {
 				backToTopBtn.classList.remove("back_to_top_visible");
