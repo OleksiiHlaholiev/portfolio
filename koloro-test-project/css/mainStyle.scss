@@ -44,6 +44,7 @@ h1, h2, h3, h4, h5, h6 {
 		position: relative;
 		top: 0;
 		left: 0;
+		//background-color: grey; // TEMP
 
 		.dark-mask {
 			position: absolute;
@@ -62,6 +63,27 @@ h1, h2, h3, h4, h5, h6 {
 		.top_image {
 			position: relative;
 			left: 100%;
+			opacity: 0;
+			transition: all 2s;
+		}
+
+		.second_image {
+			position: relative;
+			left: -100%;
+			opacity: 0;
+			transition: all 2s;
+		}
+
+		.third_image {
+			position: relative;
+			left: 100%;
+			opacity: 0;
+			transition: all 2s;
+		}
+
+		.fourth_image {
+			position: relative;
+			left: -100%;
 			opacity: 0;
 			transition: all 2s;
 		}
@@ -100,7 +122,7 @@ h1, h2, h3, h4, h5, h6 {
 				top: 30%;
 			}
 		}
-		.animate_top_image {
+		.animate_image {
 			opacity: 1;
 			left: 0;
 		}
@@ -388,6 +410,11 @@ h1, h2, h3, h4, h5, h6 {
 				line-height: 1.2;
 				text-align: center;
 
+				position: relative;
+				//left: -100%;
+				opacity: 0;
+				transition: all 1s;
+
 				@media all and (max-width: 800px){
 					font-size: 36px;
 					padding: 40px 0;
@@ -398,6 +425,11 @@ h1, h2, h3, h4, h5, h6 {
 				}
 			}
 
+			.animate_concepts_info_title {
+				//left: 0;
+				opacity: 1;
+			}
+
 			p {
 				font-size: 24px;
 				font-family: "Segoe UI";
@@ -405,9 +437,16 @@ h1, h2, h3, h4, h5, h6 {
 				line-height: 1.2;
 				text-align: justify;
 
+				opacity: 0;
+				transition: all 1s;
+
 				@media all and (max-width: 600px){
 					font-size: 16px;
 				}
+			}
+
+			.animate_concepts_info_text {
+				opacity: 1;
 			}
 		}
 	}
@@ -421,6 +460,10 @@ h1, h2, h3, h4, h5, h6 {
 		line-height: 1.2;
 		text-align: center;
 
+		opacity: 0;
+		left: -100%;
+		transition: all 2s;
+
 		@media all and (max-width: 1000px) {
 			padding: 100px 0;
 		}
@@ -432,6 +475,10 @@ h1, h2, h3, h4, h5, h6 {
 			font-size: 20px;
 			padding: 20px 0;
 		}
+	}
+	.animate_summary_header {
+		opacity: 1;
+		left: 0;
 	}
 
 	.contact_us_form {
@@ -449,6 +496,10 @@ h1, h2, h3, h4, h5, h6 {
 				line-height: 1.2;
 				text-align: center;
 
+				opacity: 0;
+				left: -100%;
+				transition: all 2s;
+
 				@media all and (max-width: 800px){
 					font-size: 30px;
 					padding: 30px 0;
@@ -457,6 +508,10 @@ h1, h2, h3, h4, h5, h6 {
 					font-size: 24px;
 					padding: 20px 0;
 				}
+			}
+			.animate_contact_us_header {
+				opacity: 1;
+				left: 0;
 			}
 
 			p {

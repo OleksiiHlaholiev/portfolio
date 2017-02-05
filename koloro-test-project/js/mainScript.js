@@ -19,6 +19,14 @@ window.addEventListener('load', function() {
 		infoHistoryFirstTypingFlag = true,
 		infoAimFirstTypingFlag = true,
 		infoSolutionFirstTypingFlag = true,
+		secondImageFirstScrollFlag = true,
+		thirdImageFirstScrollFlag = true,
+		fourthImageFirstScrollFlag = true,
+		conceptsInfoFirstTypingFlag = true,
+		infoAverageFirstTypingFlag = true,
+		infoResultFirstTypingFlag = true,
+		summaryHeaderFirstTypingFlag = true,
+		contactUsFormFirstTypingFlag = true,
 
 		SYMBOL_TYPING_SPEED_MS = 15;
 
@@ -28,11 +36,19 @@ window.addEventListener('load', function() {
 		subSectionCompanyAims = document.querySelector(".company_aims");
 
 	var topImage = document.querySelector(".top_image"),
-		topTitle = document.querySelector(".top_title");
+		topTitle = document.querySelector(".top_title"),
+		secondImage = document.querySelector(".second_image"),
+		thirdImage = document.querySelector(".third_image"),
+		fourthImage = document.querySelector(".fourth_image");
 
 	var infoHistory = document.querySelector(".info_history"),
 		infoAim = document.querySelector(".info_aim"),
-		infoSolution = document.querySelector(".info_solution");
+		infoSolution = document.querySelector(".info_solution"),
+		conceptsInfo = document.querySelector(".concepts_info"),
+		infoAverage = document.querySelector(".info_average"),
+		infoResult = document.querySelector(".info_result"),
+		summaryHeader = document.querySelector(".summary_header"),
+		contactUsForm = document.querySelector(".contact_us_form");
 
 	var mainMenu = document.querySelector(".main_menu"),
 		menuTrigerBtn = document.querySelector(".menu_triger");
@@ -212,7 +228,9 @@ window.addEventListener('load', function() {
 				i++;
 				if (i == tempTextStr.length) {
 					clearInterval(textTypingTimer);
-					buttonElement.classList.add("animate_info_text");
+					if (buttonElement) {
+						buttonElement.classList.add("animate_info_text");
+					}
 				}
 			}, SYMBOL_TYPING_SPEED_MS);
 	}
@@ -222,7 +240,7 @@ window.addEventListener('load', function() {
 	// **********************  EVENT HANDLERS *************************
 
 	function scrollWindowHandler(event) {
-		var	tempOffset = 5 * sectionHeader.clientHeight,
+		var	tempOffset = 6 * sectionHeader.clientHeight,
 			currentPosition = document.body.scrollTop ?
 								(document.body.scrollTop + tempOffset) :
 								(document.documentElement.scrollTop + tempOffset);
@@ -230,7 +248,7 @@ window.addEventListener('load', function() {
 		if ( (currentPosition > sectionPortfolio.offsetTop) &&
 			(currentPosition < sectionPortfolio.offsetTop + subSectionCompanyAims.offsetTop)
 		) {
-			topImage.classList.add("animate_top_image");
+			topImage.classList.add("animate_image");
 			topTitle.classList.add("animate_top_title");
 		}
 
@@ -243,7 +261,7 @@ window.addEventListener('load', function() {
 
 				infoHistoryFirstTypingFlag = false;
 			}
-		}	else if ((currentPosition > (infoAim.offsetTop - tempOffset)) &&
+		} else if ((currentPosition > (infoAim.offsetTop - tempOffset)) &&
 					(currentPosition < (infoAim.offsetTop + infoAim.clientHeight)) ) {
 				if (infoAimFirstTypingFlag) {
 					infoAim.querySelector("h2").classList.add("animate_info_title");
@@ -252,7 +270,7 @@ window.addEventListener('load', function() {
 
 					infoAimFirstTypingFlag = false;
 				}
-		}	else if ((currentPosition > (infoSolution.offsetTop - tempOffset)) &&
+		} else if ((currentPosition > (infoSolution.offsetTop - tempOffset)) &&
 			(currentPosition < (infoSolution.offsetTop + infoSolution.clientHeight)) ) {
 				if (infoSolutionFirstTypingFlag) {
 					infoSolution.querySelector("h2").classList.add("animate_info_title");
@@ -261,9 +279,71 @@ window.addEventListener('load', function() {
 
 					infoSolutionFirstTypingFlag = false;
 				}
+		} else if ((currentPosition > (secondImage.parentNode.parentNode.offsetTop - tempOffset)) &&
+			(currentPosition < (secondImage.parentNode.parentNode.offsetTop + secondImage.parentNode.parentNode.clientHeight)) ) {
+				if (secondImageFirstScrollFlag) {
+					secondImage.classList.add("animate_image");
+
+					secondImageFirstScrollFlag = false;
+				}
+		} else if ((currentPosition > (thirdImage.parentNode.parentNode.offsetTop - tempOffset)) &&
+			(currentPosition < (thirdImage.parentNode.parentNode.offsetTop + thirdImage.parentNode.parentNode.clientHeight)) ) {
+			if (thirdImageFirstScrollFlag) {
+				thirdImage.classList.add("animate_image");
+
+				thirdImageFirstScrollFlag = false;
+			}
+		} else if ((currentPosition > (conceptsInfo.offsetTop - tempOffset)) &&
+			(currentPosition < (conceptsInfo.offsetTop + conceptsInfo.clientHeight)) ) {
+			if (conceptsInfoFirstTypingFlag) {
+				conceptsInfo.querySelector("h2").classList.add("animate_concepts_info_title");
+				conceptsInfo.querySelector("p").classList.add("animate_concepts_info_text");
+				textTyping(conceptsInfo.querySelector("p"));
+
+				conceptsInfoFirstTypingFlag = false;
+			}
+		} else if ((currentPosition > (infoAverage.offsetTop - tempOffset)) &&
+			(currentPosition < (infoAverage.offsetTop + infoAverage.clientHeight)) ) {
+			if (infoAverageFirstTypingFlag) {
+				infoAverage.querySelector("h2").classList.add("animate_info_title");
+				infoAverage.querySelector("p").classList.add("animate_info_text");
+				textTyping(infoAverage.querySelector("p"), infoAverage.querySelector(".read_more_btn"));
+
+				infoAverageFirstTypingFlag = false;
+			}
+		} else if ((currentPosition > (fourthImage.parentNode.parentNode.offsetTop - tempOffset)) &&
+			(currentPosition < (fourthImage.parentNode.parentNode.offsetTop + fourthImage.parentNode.parentNode.clientHeight)) ) {
+			if (fourthImageFirstScrollFlag) {
+				fourthImage.classList.add("animate_image");
+
+				fourthImageFirstScrollFlag = false;
+			}
+		} else if ((currentPosition > (summaryHeader.parentNode.offsetTop - tempOffset)) &&
+			(currentPosition < (summaryHeader.parentNode.offsetTop + summaryHeader.parentNode.clientHeight)) ) {
+			if (summaryHeaderFirstTypingFlag) {
+				summaryHeader.classList.add("animate_summary_header");
+				textTyping(summaryHeader);
+
+				summaryHeaderFirstTypingFlag = false;
+			}
+		} else if ((currentPosition > (infoResult.offsetTop - tempOffset)) &&
+			(currentPosition < (infoResult.offsetTop + infoResult.clientHeight)) ) {
+			if (infoResultFirstTypingFlag) {
+				infoResult.querySelector("h2").classList.add("animate_info_title");
+				infoResult.querySelector("p").classList.add("animate_info_text");
+				textTyping(infoResult.querySelector("p"), infoResult.querySelector(".read_more_btn"));
+
+				infoResultFirstTypingFlag = false;
+			}
+		} else if ((currentPosition > (contactUsForm.offsetTop - tempOffset)) &&
+			(currentPosition < (contactUsForm.offsetTop + contactUsForm.clientHeight)) ) {
+			if (contactUsFormFirstTypingFlag) {
+				contactUsForm.querySelector("h1").classList.add("animate_contact_us_header");
+				textTyping(contactUsForm.querySelector("h1"));
+
+				contactUsFormFirstTypingFlag = false;
+			}
 		}
-
-
 
 
 

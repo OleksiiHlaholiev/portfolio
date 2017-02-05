@@ -46,6 +46,21 @@ h1, h2, h3, h4, h5, h6 {
     left: 100%;
     opacity: 0;
     transition: all 2s; }
+  #portfolio .image_container .second_image {
+    position: relative;
+    left: -100%;
+    opacity: 0;
+    transition: all 2s; }
+  #portfolio .image_container .third_image {
+    position: relative;
+    left: 100%;
+    opacity: 0;
+    transition: all 2s; }
+  #portfolio .image_container .fourth_image {
+    position: relative;
+    left: -100%;
+    opacity: 0;
+    transition: all 2s; }
   #portfolio .image_container h1 {
     font-size: 80px;
     font-family: "Segoe UI";
@@ -74,7 +89,7 @@ h1, h2, h3, h4, h5, h6 {
       #portfolio .image_container h1 {
         font-size: 20px;
         top: 30%; } }
-  #portfolio .image_container .animate_top_image {
+  #portfolio .image_container .animate_image {
     opacity: 1;
     left: 0; }
   #portfolio .image_container .animate_top_title {
@@ -275,7 +290,10 @@ h1, h2, h3, h4, h5, h6 {
       color: black;
       font-weight: bold;
       line-height: 1.2;
-      text-align: center; }
+      text-align: center;
+      position: relative;
+      opacity: 0;
+      transition: all 1s; }
       @media all and (max-width: 800px) {
         #portfolio .concepts_info .container h2 {
           font-size: 36px;
@@ -284,15 +302,21 @@ h1, h2, h3, h4, h5, h6 {
         #portfolio .concepts_info .container h2 {
           font-size: 20px;
           padding: 20px 0; } }
+    #portfolio .concepts_info .container .animate_concepts_info_title {
+      opacity: 1; }
     #portfolio .concepts_info .container p {
       font-size: 24px;
       font-family: "Segoe UI";
       color: black;
       line-height: 1.2;
-      text-align: justify; }
+      text-align: justify;
+      opacity: 0;
+      transition: all 1s; }
       @media all and (max-width: 600px) {
         #portfolio .concepts_info .container p {
           font-size: 16px; } }
+    #portfolio .concepts_info .container .animate_concepts_info_text {
+      opacity: 1; }
 #portfolio .summary_header {
   padding: 150px 0;
   font-size: 36px;
@@ -300,7 +324,10 @@ h1, h2, h3, h4, h5, h6 {
   color: black;
   font-weight: bold;
   line-height: 1.2;
-  text-align: center; }
+  text-align: center;
+  opacity: 0;
+  left: -100%;
+  transition: all 2s; }
   @media all and (max-width: 1000px) {
     #portfolio .summary_header {
       padding: 100px 0; } }
@@ -312,6 +339,9 @@ h1, h2, h3, h4, h5, h6 {
     #portfolio .summary_header {
       font-size: 20px;
       padding: 20px 0; } }
+#portfolio .animate_summary_header {
+  opacity: 1;
+  left: 0; }
 #portfolio .contact_us_form .container {
   width: 80%;
   margin: 0 auto; }
@@ -323,7 +353,10 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
     text-transform: uppercase;
     line-height: 1.2;
-    text-align: center; }
+    text-align: center;
+    opacity: 0;
+    left: -100%;
+    transition: all 2s; }
     @media all and (max-width: 800px) {
       #portfolio .contact_us_form .container h1 {
         font-size: 30px;
@@ -332,6 +365,9 @@ h1, h2, h3, h4, h5, h6 {
       #portfolio .contact_us_form .container h1 {
         font-size: 24px;
         padding: 20px 0; } }
+  #portfolio .contact_us_form .container .animate_contact_us_header {
+    opacity: 1;
+    left: 0; }
   #portfolio .contact_us_form .container p {
     font-size: 30px;
     font-family: "Roboto";
