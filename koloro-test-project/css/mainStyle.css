@@ -366,6 +366,7 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
     line-height: 1.2;
     text-align: center;
+    position: relative;
     opacity: 0;
     left: -100%;
     transition: all 2s; }
@@ -385,7 +386,11 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Roboto";
     color: black;
     line-height: 1.6;
-    text-align: justify; }
+    text-align: justify;
+    position: relative;
+    opacity: 0;
+    left: 100%;
+    transition: all 2s; }
     @media all and (max-width: 800px) {
       #portfolio .contact_us_form .container p {
         font-size: 20px;
@@ -421,6 +426,9 @@ h1, h2, h3, h4, h5, h6 {
       @media all and (max-width: 600px) {
         #portfolio .contact_us_form .container p input {
           font-size: 16px; } }
+  #portfolio .contact_us_form .container .animate_contact_us_content {
+    opacity: 1;
+    left: 0; }
   #portfolio .contact_us_form .container button {
     display: block;
     margin: 90px auto 70px auto;
@@ -436,7 +444,9 @@ h1, h2, h3, h4, h5, h6 {
     border: none;
     outline: none;
     cursor: pointer;
-    transition: all 0.4s; }
+    transition: all 0.4s;
+    opacity: 0;
+    transition: opacity 1s; }
     @media all and (max-width: 800px) {
       #portfolio .contact_us_form .container button {
         padding: 15px 40px;
@@ -446,9 +456,11 @@ h1, h2, h3, h4, h5, h6 {
         padding: 15px 40px;
         margin: 20px auto;
         font-size: 20px; } }
+  #portfolio .contact_us_form .container .animate_submit_btn {
+    opacity: 1; }
   #portfolio .contact_us_form .container button:hover {
     color: #fff;
-    background-color: #8a3b86; }
+    background-color: #2ecc71; }
 #portfolio .get_result_container {
   background-color: #a44699;
   padding: 40px 0; }

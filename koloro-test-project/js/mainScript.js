@@ -369,6 +369,8 @@ window.addEventListener('load', function() {
 			if (contactUsFormFirstTypingFlag) {
 				contactUsForm.querySelector("h1").classList.add("animate_contact_us_header");
 				textTyping(contactUsForm.querySelector("h1"), null, SYMBOL_TYPING_SPEED_MS);
+				contactUsForm.querySelector("p").classList.add("animate_contact_us_content");
+				contactUsForm.querySelector("button").classList.add("animate_submit_btn");
 
 				contactUsFormFirstTypingFlag = false;
 			}

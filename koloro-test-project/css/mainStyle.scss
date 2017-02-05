@@ -509,6 +509,7 @@ h1, h2, h3, h4, h5, h6 {
 				line-height: 1.2;
 				text-align: center;
 
+				position: relative;
 				opacity: 0;
 				left: -100%;
 				transition: all 2s;
@@ -533,6 +534,11 @@ h1, h2, h3, h4, h5, h6 {
 				color: rgb(0, 0, 0);
 				line-height: 1.6;
 				text-align: justify;
+
+				position: relative;
+				opacity: 0;
+				left: 100%;
+				transition: all 2s;
 
 				@media all and (max-width: 800px){
 					font-size: 20px;
@@ -578,6 +584,11 @@ h1, h2, h3, h4, h5, h6 {
 				}
 			}
 
+			.animate_contact_us_content {
+				opacity: 1;
+				left: 0;
+			}
+
 			button {
 				display: block;
 				margin: 90px auto 70px auto;
@@ -597,6 +608,9 @@ h1, h2, h3, h4, h5, h6 {
 				cursor: pointer;
 				transition: all 0.4s;
 
+				opacity: 0;
+				transition: opacity 1s;
+
 				@media all and (max-width: 800px){
 					padding: 15px 40px;
 					margin: 40px auto;
@@ -607,9 +621,12 @@ h1, h2, h3, h4, h5, h6 {
 					font-size: 20px;
 				}
 			}
+			.animate_submit_btn {
+				opacity: 1;
+			}
 			button:hover {
 				color: #fff;
-				background-color: rgb(138, 59, 134);
+				background-color: $color_green_light;
 			}
 		}
 
