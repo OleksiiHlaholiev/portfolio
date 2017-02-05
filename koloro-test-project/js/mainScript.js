@@ -260,9 +260,9 @@ window.addEventListener('load', function() {
 
 	function scrollWindowHandler(event) {
 
-		var	tempOffset = window.innerHeight / 3;
+		var	tempOffset;
 
-		if (window.innerHeight < 900) {
+		if (window.innerWidth < 800) {
 			tempOffset = window.innerHeight / 3;
 		} else {
 			tempOffset = window.innerHeight / 2;
