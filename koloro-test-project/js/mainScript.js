@@ -260,7 +260,7 @@ window.addEventListener('load', function() {
 								(document.body.scrollTop + tempOffset) :
 								(document.documentElement.scrollTop + tempOffset);
 
-		if (window.innerWidth >= 800) {
+		if (window.innerHeight >= 600) {
 			tempOffset = 6 * sectionHeader.clientHeight;
 		}
 
