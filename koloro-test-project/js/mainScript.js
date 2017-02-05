@@ -216,8 +216,6 @@ window.addEventListener('load', function() {
 		}
 	}
 
-
-
 	function textTyping(textElement, buttonElement) {
 		var tempTextStr = textElement.innerText,
 			tempStr = "",
@@ -236,27 +234,46 @@ window.addEventListener('load', function() {
 			}, SYMBOL_TYPING_SPEED_MS);
 	}
 
+	function launchFiniteStateMachine() {
+		userTimoutTimer = setTimeout(
+			function () {
+				launchAutoSliderTimer = setTimeout(
+					function readyGo() {
+						userActiveControlFlag = false;
+						sliderRotate("right", 1);
+						launchAutoSliderTimer = setTimeout(readyGo, SLIDER_AUTO_DELAY);
+					},
+					SLIDER_AUTO_DELAY
+				);
+			},
+			SLIDER_USER_TIMEOUT
+		);
+	}
+
 	// ****************************************************************
 
 	// **********************  EVENT HANDLERS *************************
 
 	function scrollWindowHandler(event) {
-		var	tempOffset = 7 * sectionHeader.clientHeight,
+		var	tempOffset = 3 * sectionHeader.clientHeight,
 			currentPosition = document.body.scrollTop ?
 								(document.body.scrollTop + tempOffset) :
 								(document.documentElement.scrollTop + tempOffset);
 
-		if ( (currentPosition > sectionPortfolio.offsetTop) &&
-			(currentPosition < sectionPortfolio.offsetTop + subSectionCompanyAims.offsetTop)
+		if (window.innerWidth >= 800) {
+			tempOffset = 6 * sectionHeader.clientHeight;
+		}
+
+		if ( ((currentPosition) >= sectionPortfolio.offsetTop) &&
+			((currentPosition) < sectionPortfolio.offsetTop + topImage.clientHeight)
 		) {
 			if (topImageFirstTypingFlag) {
 				topImage.classList.add("animate_image");
 				topTitle.classList.add("animate_top_title");
-			}
-			topImageFirstTypingFlag = false;
-		}
 
-		if ( (currentPosition > (infoHistory.offsetTop - tempOffset)) &&
+				topImageFirstTypingFlag = false;
+			}
+		} else if ( (currentPosition > (infoHistory.offsetTop - tempOffset)) &&
 				(currentPosition < (infoHistory.offsetTop + infoHistory.clientHeight)) ) {
 			if (infoHistoryFirstTypingFlag) {
 				infoHistory.querySelector("h2").classList.add("animate_info_title");
@@ -392,22 +409,6 @@ window.addEventListener('load', function() {
 				SCROLL_STEP
 			)
 		}
-	}
-
-	function launchFiniteStateMachine() {
-		userTimoutTimer = setTimeout(
-			function () {
-				launchAutoSliderTimer = setTimeout(
-					function readyGo() {
-						userActiveControlFlag = false;
-						sliderRotate("right", 1);
-						launchAutoSliderTimer = setTimeout(readyGo, SLIDER_AUTO_DELAY);
-					},
-					SLIDER_AUTO_DELAY
-				);
-			},
-			SLIDER_USER_TIMEOUT
-		);
 	}
 
 	function sliderBtnHandler(event) {
