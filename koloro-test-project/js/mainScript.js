@@ -29,7 +29,7 @@ window.addEventListener('load', function() {
 		summaryHeaderFirstTypingFlag = true,
 		contactUsFormFirstTypingFlag = true,
 
-		SYMBOL_TYPING_SPEED_MS = 15;
+		SYMBOL_TYPING_SPEED_MS = 5;
 
 	var backToTopBtn = document.querySelector(".back_to_top"),
 		sectionHeader = document.getElementById("header"),
