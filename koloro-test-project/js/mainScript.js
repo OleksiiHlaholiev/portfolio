@@ -260,10 +260,12 @@ window.addEventListener('load', function() {
 	function scrollWindowHandler(event) {
 
 		var	tempOffset;
-		if (window.innerHeight >= 600) {
+		if (window.innerHeight < 600) {
+			tempOffset = (3 * sectionHeader.clientHeight);
+		} else if (window.innerHeight < 900) {
 			tempOffset = (6 * sectionHeader.clientHeight);
 		} else {
-			tempOffset = (3 * sectionHeader.clientHeight);
+			tempOffset = (10 * sectionHeader.clientHeight);
 		}
 
 		var	currentPosition = document.body.scrollTop ?
