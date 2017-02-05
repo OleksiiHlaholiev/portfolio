@@ -16,6 +16,7 @@ window.addEventListener('load', function() {
 		userActiveControlFlag = false,
 		busyFlag = false,
 
+		topImageFirstTypingFlag = true,
 		infoHistoryFirstTypingFlag = true,
 		infoAimFirstTypingFlag = true,
 		infoSolutionFirstTypingFlag = true,
@@ -240,7 +241,7 @@ window.addEventListener('load', function() {
 	// **********************  EVENT HANDLERS *************************
 
 	function scrollWindowHandler(event) {
-		var	tempOffset = 6 * sectionHeader.clientHeight,
+		var	tempOffset = 7 * sectionHeader.clientHeight,
 			currentPosition = document.body.scrollTop ?
 								(document.body.scrollTop + tempOffset) :
 								(document.documentElement.scrollTop + tempOffset);
@@ -248,8 +249,11 @@ window.addEventListener('load', function() {
 		if ( (currentPosition > sectionPortfolio.offsetTop) &&
 			(currentPosition < sectionPortfolio.offsetTop + subSectionCompanyAims.offsetTop)
 		) {
-			topImage.classList.add("animate_image");
-			topTitle.classList.add("animate_top_title");
+			if (topImageFirstTypingFlag) {
+				topImage.classList.add("animate_image");
+				topTitle.classList.add("animate_top_title");
+			}
+			topImageFirstTypingFlag = false;
 		}
 
 		if ( (currentPosition > (infoHistory.offsetTop - tempOffset)) &&
@@ -475,5 +479,9 @@ window.addEventListener('load', function() {
 
 	window.addEventListener('scroll', scrollWindowHandler);
 
+	<!--PRELOADER !!!-->
+	setTimeout(function() {
+		$('#preloader').fadeOut('slow');
+	}, 500);
 
 });
