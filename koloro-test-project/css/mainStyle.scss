@@ -50,7 +50,7 @@ h1, h2, h3, h4, h5, h6 {
 	//position: relative;
 	//margin-top: 50px;
 
-	.image_container {
+	.image-container {
 		width: 100%;
 		position: relative;
 		top: 0;
@@ -67,37 +67,42 @@ h1, h2, h3, h4, h5, h6 {
 			z-index: 2;
 		}
 
-		.big_image {
+		.big-image {
 			width: 100%;
 			//height: auto;
 		}
-		.top_image {
+		.top-image-animate {
 			position: relative;
 			left: 100%;
 			opacity: 0;
 			transition: all 2s;
 		}
 
-		.second_image {
+		.second-image-animate {
 			position: relative;
 			left: -100%;
 			opacity: 0;
 			transition: all 2s;
 		}
 
-		.third_image {
+		.third-image-animate {
 			position: relative;
 			left: 100%;
 			opacity: 0;
 			transition: all 2s;
 		}
 
-		.fourth_image {
+		.fourth-image-animate {
 			position: relative;
 			left: -100%;
 			opacity: 0;
 			transition: all 2s;
 		}
+
+        .image-animate-active {
+            opacity: 1;
+            left: 0;
+        }
 
 		h1 {
 			font-size: 80px;
@@ -116,10 +121,6 @@ h1, h2, h3, h4, h5, h6 {
 
 			width: 100%;
 
-			opacity: 0;
-			left: -100%;
-			transition: all 2s;
-
 			@media all and (max-width: 1000px) {
 				font-size: 60px;
 				top: 15%;
@@ -133,14 +134,15 @@ h1, h2, h3, h4, h5, h6 {
 				top: 30%;
 			}
 		}
-		.animate_image {
-			opacity: 1;
-			left: 0;
+		.top-title-animate {
+			opacity: 0;
+			left: -100%;
+			transition: all 2s;
 		}
-		.animate_top_title {
-			opacity: 1;
-			left: 0;
-		}
+        .top-title-animate-active {
+            opacity: 1;
+            left: 0;
+        }
 	}
 
 	.slider-cont {
@@ -274,7 +276,7 @@ h1, h2, h3, h4, h5, h6 {
 		}
 	}
 
-	.info_block_container {
+	.info-block-container {
 		.container {
 			width: $containerWidth;
 			margin: 60px auto;
@@ -283,7 +285,7 @@ h1, h2, h3, h4, h5, h6 {
 				margin: 20px auto;
 			}
 
-			.info_left {
+			.info-left {
 				width: 50%;
 				float: left;
 
@@ -296,17 +298,19 @@ h1, h2, h3, h4, h5, h6 {
 					text-align: center;
 					margin-bottom: 20px;
 
-					position: relative;
-					left: -100%;
-					opacity: 0;
-					transition: all 1s;
-
 					@media all and (max-width: 600px) {
 						font-size: 20px;
 					}
 				}
 
-				.animate_info_title {
+                .info-title-animate {
+                    position: relative;
+                    left: -100%;
+                    opacity: 0;
+                    transition: all 1s;
+                }
+
+				.info-title-animate-active {
 					left: 0;
 					opacity: 1;
 				}
@@ -318,7 +322,7 @@ h1, h2, h3, h4, h5, h6 {
 				}
 			}
 
-			.info_right {
+			.info-right {
 				width: 50%;
 				float: left;
 
@@ -330,8 +334,7 @@ h1, h2, h3, h4, h5, h6 {
 					text-align: justify;
 					text-indent: 40px;
 
-					opacity: 0;
-					transition: all 1s;
+					opacity: 1;
 
 					//padding-bottom: 30px;
 					@media all and (max-width: 600px) {
@@ -339,7 +342,7 @@ h1, h2, h3, h4, h5, h6 {
 					}
 				}
 
-				.read_more_btn {
+				.read-more-btn {
 					display: inline-block;
 					font-size: 30px;
 					font-family: "Segoe UI";
@@ -349,16 +352,17 @@ h1, h2, h3, h4, h5, h6 {
 					text-align: center;
 					margin: 30px 0 10px 0;
 
-					opacity: 0;
-					transition: all 1s;
-
 					@media all and (max-width: 600px) {
 						font-size: 20px;
 						margin: 10px 0 0 0;
 					}
 				}
 
-				.animate_info_text {
+                .info-text-animate {
+                    opacity: 0;
+                    transition: all 1s;
+                }
+				.info-text-animate-active {
 					opacity: 1;
 				}
 
@@ -367,7 +371,7 @@ h1, h2, h3, h4, h5, h6 {
 					float: none;
 					margin: 0 auto;
 
-					.read_more_btn {
+					.read-more-btn {
 						display: block;
 					}
 				}
@@ -376,7 +380,7 @@ h1, h2, h3, h4, h5, h6 {
 
 	}
 
-	.concepts_info::before {
+	.concepts-info::before {
 		content: " ";
 		position: absolute;
 		top: 100%;
@@ -396,7 +400,7 @@ h1, h2, h3, h4, h5, h6 {
 		}
 	}
 
-	.concepts_info {
+	.concepts-info {
 		position: relative;
 		background-color: rgb(231, 231, 231);
 		padding-bottom: 140px;
@@ -421,11 +425,6 @@ h1, h2, h3, h4, h5, h6 {
 				line-height: 1.2;
 				text-align: center;
 
-				position: relative;
-				//left: -100%;
-				opacity: 0;
-				transition: all 1s;
-
 				@media all and (max-width: 800px){
 					font-size: 36px;
 					padding: 40px 0;
@@ -436,7 +435,13 @@ h1, h2, h3, h4, h5, h6 {
 				}
 			}
 
-			.animate_concepts_info_title {
+            .concepts-info-title-animate {
+                position: relative;
+                //left: -100%;
+                opacity: 0;
+                transition: all 1s;
+            }
+			.concepts-info-title-animate-active {
 				//left: 0;
 				opacity: 1;
 			}
@@ -448,21 +453,22 @@ h1, h2, h3, h4, h5, h6 {
 				line-height: 1.2;
 				text-align: justify;
 
-				opacity: 0;
-				transition: all 1s;
-
 				@media all and (max-width: 600px){
 					font-size: 16px;
 				}
 			}
 
-			.animate_concepts_info_text {
+            .concepts-info-text-animate {
+                opacity: 0;
+                transition: all 1s;
+            }
+			.concepts-info-text-animate-active {
 				opacity: 1;
 			}
 		}
 	}
 
-	.summary_header {
+	.summary-header {
 		padding: 150px 0;
 		font-size: 36px;
 		font-family: "Segoe UI";
@@ -470,10 +476,6 @@ h1, h2, h3, h4, h5, h6 {
 		font-weight: bold;
 		line-height: 1.2;
 		text-align: center;
-
-		opacity: 0;
-		left: -100%;
-		transition: all 2s;
 
 		@media all and (max-width: 1000px) {
 			padding: 100px 0;
@@ -487,12 +489,17 @@ h1, h2, h3, h4, h5, h6 {
 			padding: 20px 0;
 		}
 	}
-	.animate_summary_header {
+    .summary-header-animate {
+        opacity: 0;
+        left: -100%;
+        transition: all 2s;
+    }
+	.summary-header-animate-active {
 		opacity: 1;
 		left: 0;
 	}
 
-	.contact_us_form {
+	.contact-us-form {
 		.container {
 			width: $containerWidth;
 			margin: 0 auto;
@@ -507,11 +514,6 @@ h1, h2, h3, h4, h5, h6 {
 				line-height: 1.2;
 				text-align: center;
 
-				position: relative;
-				opacity: 0;
-				left: -100%;
-				transition: all 2s;
-
 				@media all and (max-width: 800px){
 					font-size: 30px;
 					padding: 30px 0;
@@ -521,7 +523,13 @@ h1, h2, h3, h4, h5, h6 {
 					padding: 20px 0;
 				}
 			}
-			.animate_contact_us_header {
+            .contact-us-header-animate {
+                position: relative;
+                opacity: 0;
+                left: -100%;
+                transition: all 2s;
+            }
+			.contact-us-header-animate-active {
 				opacity: 1;
 				left: 0;
 			}
@@ -532,11 +540,6 @@ h1, h2, h3, h4, h5, h6 {
 				color: rgb(0, 0, 0);
 				line-height: 1.6;
 				text-align: justify;
-
-				position: relative;
-				opacity: 0;
-				left: 100%;
-				transition: all 2s;
 
 				@media all and (max-width: 800px){
 					font-size: 20px;
@@ -582,7 +585,13 @@ h1, h2, h3, h4, h5, h6 {
 				}
 			}
 
-			.animate_contact_us_content {
+            .contact-us-content-animate {
+                position: relative;
+                opacity: 0;
+                left: 100%;
+                transition: all 2s;
+            }
+			.contact-us-content-animate-active {
 				opacity: 1;
 				left: 0;
 			}
@@ -606,9 +615,6 @@ h1, h2, h3, h4, h5, h6 {
 				cursor: pointer;
 				transition: all 0.4s;
 
-				opacity: 0;
-				transition: opacity 1s;
-
 				@media all and (max-width: 800px){
 					padding: 15px 40px;
 					margin: 40px auto;
@@ -619,7 +625,11 @@ h1, h2, h3, h4, h5, h6 {
 					font-size: 20px;
 				}
 			}
-			.animate_submit_btn {
+            .submit-btn-animate {
+                opacity: 0;
+                transition: opacity 1s;
+            }
+			.submit-btn-animate-active {
 				opacity: 1;
 			}
 			button:hover {
@@ -630,7 +640,7 @@ h1, h2, h3, h4, h5, h6 {
 
 	}
 
-	.get_result_container {
+	.get-result-container {
 		background-color: rgb(164, 70, 153);
 		padding: 40px 0;
 
@@ -642,7 +652,7 @@ h1, h2, h3, h4, h5, h6 {
 			width: $containerWidth;
 			margin: 0 auto;
 
-			.result_left {
+			.result-left {
 				width: 70%;
 				float: left;
 				text-align: center;
@@ -668,7 +678,7 @@ h1, h2, h3, h4, h5, h6 {
 				}
 			}
 
-			.result_right {
+			.result-right {
 				width: 30%;
 				float: left;
 				text-align: center;
@@ -711,7 +721,7 @@ h1, h2, h3, h4, h5, h6 {
 		}
 	}
 
-	.social_btns_container {
+	.social-btns-container {
 		background-color: #000;
 		.container {
 			width: 100%;
@@ -1478,7 +1488,7 @@ footer .icon {
 	opacity: 0
 }
 
-.back_to_top {
+.back-to-top {
 	z-index: 100500;
 	bottom: 10%;
 	right: 15px;
@@ -1503,11 +1513,11 @@ footer .icon {
 }
 
 
-.back_to_top:hover {
+.back-to-top:hover {
 	background-color: #a34699
 }
 
-.back_to_top_visible {
+.back-to-top-visible {
 	//display: block;
 	opacity: 1;
 }

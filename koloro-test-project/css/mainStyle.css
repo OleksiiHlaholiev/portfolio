@@ -36,12 +36,12 @@ h1, h2, h3, h4, h5, h6 {
   overflow: visible;
   background: #ffffff url("../images/spinner.gif") no-repeat center center; }
 
-#portfolio .image_container {
+#portfolio .image-container {
   width: 100%;
   position: relative;
   top: 0;
   left: 0; }
-  #portfolio .image_container .dark-mask {
+  #portfolio .image-container .dark-mask {
     position: absolute;
     top: 0;
     left: 0;
@@ -49,29 +49,32 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
     background-color: rgba(60, 60, 60, 0.5);
     z-index: 2; }
-  #portfolio .image_container .big_image {
+  #portfolio .image-container .big-image {
     width: 100%; }
-  #portfolio .image_container .top_image {
+  #portfolio .image-container .top-image-animate {
     position: relative;
     left: 100%;
     opacity: 0;
     transition: all 2s; }
-  #portfolio .image_container .second_image {
+  #portfolio .image-container .second-image-animate {
     position: relative;
     left: -100%;
     opacity: 0;
     transition: all 2s; }
-  #portfolio .image_container .third_image {
+  #portfolio .image-container .third-image-animate {
     position: relative;
     left: 100%;
     opacity: 0;
     transition: all 2s; }
-  #portfolio .image_container .fourth_image {
+  #portfolio .image-container .fourth-image-animate {
     position: relative;
     left: -100%;
     opacity: 0;
     transition: all 2s; }
-  #portfolio .image_container h1 {
+  #portfolio .image-container .image-animate-active {
+    opacity: 1;
+    left: 0; }
+  #portfolio .image-container h1 {
     font-size: 80px;
     font-family: "Segoe UI";
     color: white;
@@ -83,26 +86,24 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     top: 30%;
     z-index: 60;
-    width: 100%;
-    opacity: 0;
-    left: -100%;
-    transition: all 2s; }
+    width: 100%; }
     @media all and (max-width: 1000px) {
-      #portfolio .image_container h1 {
+      #portfolio .image-container h1 {
         font-size: 60px;
         top: 15%; } }
     @media all and (max-width: 700px) {
-      #portfolio .image_container h1 {
+      #portfolio .image-container h1 {
         font-size: 40px;
         top: 30%; } }
     @media all and (max-width: 500px) {
-      #portfolio .image_container h1 {
+      #portfolio .image-container h1 {
         font-size: 20px;
         top: 30%; } }
-  #portfolio .image_container .animate_image {
-    opacity: 1;
-    left: 0; }
-  #portfolio .image_container .animate_top_title {
+  #portfolio .image-container .top-title-animate {
+    opacity: 0;
+    left: -100%;
+    transition: all 2s; }
+  #portfolio .image-container .top-title-animate-active {
     opacity: 1;
     left: 0; }
 #portfolio .slider-cont {
@@ -192,54 +193,54 @@ h1, h2, h3, h4, h5, h6 {
         transition: all 0.3s; }
       #portfolio .slider-cont .slider-nav .slider-nav-list li .active .fa-circle, #portfolio .slider-cont .slider-nav .slider-nav-list li .pagination-btn:hover .fa-circle {
         opacity: 1; }
-#portfolio .info_block_container .container {
+#portfolio .info-block-container .container {
   width: 80%;
   margin: 60px auto; }
   @media all and (max-width: 600px) {
-    #portfolio .info_block_container .container {
+    #portfolio .info-block-container .container {
       margin: 20px auto; } }
-  #portfolio .info_block_container .container .info_left {
+  #portfolio .info-block-container .container .info-left {
     width: 50%;
     float: left; }
-    #portfolio .info_block_container .container .info_left h2 {
+    #portfolio .info-block-container .container .info-left h2 {
       font-size: 36px;
       font-family: "Segoe UI";
       color: black;
       font-weight: bold;
       line-height: 1.2;
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 20px; }
+      @media all and (max-width: 600px) {
+        #portfolio .info-block-container .container .info-left h2 {
+          font-size: 20px; } }
+    #portfolio .info-block-container .container .info-left .info-title-animate {
       position: relative;
       left: -100%;
       opacity: 0;
       transition: all 1s; }
-      @media all and (max-width: 600px) {
-        #portfolio .info_block_container .container .info_left h2 {
-          font-size: 20px; } }
-    #portfolio .info_block_container .container .info_left .animate_info_title {
+    #portfolio .info-block-container .container .info-left .info-title-animate-active {
       left: 0;
       opacity: 1; }
     @media all and (max-width: 800px) {
-      #portfolio .info_block_container .container .info_left {
+      #portfolio .info-block-container .container .info-left {
         width: 100%;
         float: none;
         margin: 0 auto; } }
-  #portfolio .info_block_container .container .info_right {
+  #portfolio .info-block-container .container .info-right {
     width: 50%;
     float: left; }
-    #portfolio .info_block_container .container .info_right p {
+    #portfolio .info-block-container .container .info-right p {
       font-size: 24px;
       font-family: "Segoe UI";
       color: #969696;
       line-height: 1.2;
       text-align: justify;
       text-indent: 40px;
-      opacity: 0;
-      transition: all 1s; }
+      opacity: 1; }
       @media all and (max-width: 600px) {
-        #portfolio .info_block_container .container .info_right p {
+        #portfolio .info-block-container .container .info-right p {
           font-size: 16px; } }
-    #portfolio .info_block_container .container .info_right .read_more_btn {
+    #portfolio .info-block-container .container .info-right .read-more-btn {
       display: inline-block;
       font-size: 30px;
       font-family: "Segoe UI";
@@ -247,23 +248,24 @@ h1, h2, h3, h4, h5, h6 {
       text-decoration: underline;
       line-height: 1.2;
       text-align: center;
-      margin: 30px 0 10px 0;
-      opacity: 0;
-      transition: all 1s; }
+      margin: 30px 0 10px 0; }
       @media all and (max-width: 600px) {
-        #portfolio .info_block_container .container .info_right .read_more_btn {
+        #portfolio .info-block-container .container .info-right .read-more-btn {
           font-size: 20px;
           margin: 10px 0 0 0; } }
-    #portfolio .info_block_container .container .info_right .animate_info_text {
+    #portfolio .info-block-container .container .info-right .info-text-animate {
+      opacity: 0;
+      transition: all 1s; }
+    #portfolio .info-block-container .container .info-right .info-text-animate-active {
       opacity: 1; }
     @media all and (max-width: 800px) {
-      #portfolio .info_block_container .container .info_right {
+      #portfolio .info-block-container .container .info-right {
         width: 100%;
         float: none;
         margin: 0 auto; }
-        #portfolio .info_block_container .container .info_right .read_more_btn {
+        #portfolio .info-block-container .container .info-right .read-more-btn {
           display: block; } }
-#portfolio .concepts_info::before {
+#portfolio .concepts-info::before {
   content: " ";
   position: absolute;
   top: 100%;
@@ -273,89 +275,92 @@ h1, h2, h3, h4, h5, h6 {
   border-top-color: #e7e7e7;
   z-index: 2; }
   @media all and (max-width: 800px) {
-    #portfolio .concepts_info::before {
+    #portfolio .concepts-info::before {
       margin-left: -40px;
       border-width: 40px; } }
   @media all and (max-width: 600px) {
-    #portfolio .concepts_info::before {
+    #portfolio .concepts-info::before {
       margin-left: -30px;
       border-width: 30px; } }
-#portfolio .concepts_info {
+#portfolio .concepts-info {
   position: relative;
   background-color: #e7e7e7;
   padding-bottom: 140px; }
   @media all and (max-width: 800px) {
-    #portfolio .concepts_info {
+    #portfolio .concepts-info {
       padding-bottom: 70px; } }
   @media all and (max-width: 600px) {
-    #portfolio .concepts_info {
+    #portfolio .concepts-info {
       padding-bottom: 30px; } }
-  #portfolio .concepts_info .container {
+  #portfolio .concepts-info .container {
     width: 80%;
     margin: 0 auto; }
-    #portfolio .concepts_info .container h2 {
+    #portfolio .concepts-info .container h2 {
       padding: 60px 0;
       font-size: 60px;
       font-family: "Segoe UI";
       color: black;
       font-weight: bold;
       line-height: 1.2;
-      text-align: center;
-      position: relative;
-      opacity: 0;
-      transition: all 1s; }
+      text-align: center; }
       @media all and (max-width: 800px) {
-        #portfolio .concepts_info .container h2 {
+        #portfolio .concepts-info .container h2 {
           font-size: 36px;
           padding: 40px 0; } }
       @media all and (max-width: 600px) {
-        #portfolio .concepts_info .container h2 {
+        #portfolio .concepts-info .container h2 {
           font-size: 20px;
           padding: 20px 0; } }
-    #portfolio .concepts_info .container .animate_concepts_info_title {
+    #portfolio .concepts-info .container .concepts-info-title-animate {
+      position: relative;
+      opacity: 0;
+      transition: all 1s; }
+    #portfolio .concepts-info .container .concepts-info-title-animate-active {
       opacity: 1; }
-    #portfolio .concepts_info .container p {
+    #portfolio .concepts-info .container p {
       font-size: 24px;
       font-family: "Segoe UI";
       color: black;
       line-height: 1.2;
-      text-align: justify;
+      text-align: justify; }
+      @media all and (max-width: 600px) {
+        #portfolio .concepts-info .container p {
+          font-size: 16px; } }
+    #portfolio .concepts-info .container .concepts-info-text-animate {
       opacity: 0;
       transition: all 1s; }
-      @media all and (max-width: 600px) {
-        #portfolio .concepts_info .container p {
-          font-size: 16px; } }
-    #portfolio .concepts_info .container .animate_concepts_info_text {
+    #portfolio .concepts-info .container .concepts-info-text-animate-active {
       opacity: 1; }
-#portfolio .summary_header {
+#portfolio .summary-header {
   padding: 150px 0;
   font-size: 36px;
   font-family: "Segoe UI";
   color: black;
   font-weight: bold;
   line-height: 1.2;
-  text-align: center;
-  opacity: 0;
-  left: -100%;
-  transition: all 2s; }
+  text-align: center; }
   @media all and (max-width: 1000px) {
-    #portfolio .summary_header {
+    #portfolio .summary-header {
       padding: 100px 0; } }
   @media all and (max-width: 800px) {
-    #portfolio .summary_header {
+    #portfolio .summary-header {
       font-size: 24px;
       padding: 50px 0; } }
   @media all and (max-width: 600px) {
-    #portfolio .summary_header {
+    #portfolio .summary-header {
       font-size: 20px;
       padding: 20px 0; } }
-#portfolio .animate_summary_header {
+#portfolio .summary-header-animate {
+  opacity: 0;
+  left: -100%;
+  transition: all 2s; }
+#portfolio .summary-header-animate-active {
   opacity: 1;
   left: 0; }
-#portfolio .contact_us_form .container {
+#portfolio .contact-us-form .container {
   width: 80%;
   margin: 0 auto; }
-  #portfolio .contact_us_form .container h1 {
+  #portfolio .contact-us-form .container h1 {
     padding: 70px 0;
     font-size: 60px;
     font-family: "Roboto";
@@ -363,51 +368,48 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
     text-transform: uppercase;
     line-height: 1.2;
-    text-align: center;
+    text-align: center; }
+    @media all and (max-width: 800px) {
+      #portfolio .contact-us-form .container h1 {
+        font-size: 30px;
+        padding: 30px 0; } }
+    @media all and (max-width: 600px) {
+      #portfolio .contact-us-form .container h1 {
+        font-size: 24px;
+        padding: 20px 0; } }
+  #portfolio .contact-us-form .container .contact-us-header-animate {
     position: relative;
     opacity: 0;
     left: -100%;
     transition: all 2s; }
-    @media all and (max-width: 800px) {
-      #portfolio .contact_us_form .container h1 {
-        font-size: 30px;
-        padding: 30px 0; } }
-    @media all and (max-width: 600px) {
-      #portfolio .contact_us_form .container h1 {
-        font-size: 24px;
-        padding: 20px 0; } }
-  #portfolio .contact_us_form .container .animate_contact_us_header {
+  #portfolio .contact-us-form .container .contact-us-header-animate-active {
     opacity: 1;
     left: 0; }
-  #portfolio .contact_us_form .container p {
+  #portfolio .contact-us-form .container p {
     font-size: 30px;
     font-family: "Roboto";
     color: black;
     line-height: 1.6;
-    text-align: justify;
-    position: relative;
-    opacity: 0;
-    left: 100%;
-    transition: all 2s; }
+    text-align: justify; }
     @media all and (max-width: 800px) {
-      #portfolio .contact_us_form .container p {
+      #portfolio .contact-us-form .container p {
         font-size: 20px;
         line-height: 1.2; } }
     @media all and (max-width: 600px) {
-      #portfolio .contact_us_form .container p {
+      #portfolio .contact-us-form .container p {
         font-size: 16px;
         line-height: 1.0; } }
-    #portfolio .contact_us_form .container p span {
+    #portfolio .contact-us-form .container p span {
       color: #8a3b86;
       font-size: 30px;
       font-weight: bold; }
       @media all and (max-width: 800px) {
-        #portfolio .contact_us_form .container p span {
+        #portfolio .contact-us-form .container p span {
           font-size: 20px; } }
       @media all and (max-width: 600px) {
-        #portfolio .contact_us_form .container p span {
+        #portfolio .contact-us-form .container p span {
           font-size: 16px; } }
-    #portfolio .contact_us_form .container p input {
+    #portfolio .contact-us-form .container p input {
       display: inline-block;
       width: 300px;
       font-size: 30px;
@@ -418,16 +420,21 @@ h1, h2, h3, h4, h5, h6 {
       border: none;
       border-bottom: 2px solid #000; }
       @media all and (max-width: 800px) {
-        #portfolio .contact_us_form .container p input {
+        #portfolio .contact-us-form .container p input {
           width: 200px;
           font-size: 20px; } }
       @media all and (max-width: 600px) {
-        #portfolio .contact_us_form .container p input {
+        #portfolio .contact-us-form .container p input {
           font-size: 16px; } }
-  #portfolio .contact_us_form .container .animate_contact_us_content {
+  #portfolio .contact-us-form .container .contact-us-content-animate {
+    position: relative;
+    opacity: 0;
+    left: 100%;
+    transition: all 2s; }
+  #portfolio .contact-us-form .container .contact-us-content-animate-active {
     opacity: 1;
     left: 0; }
-  #portfolio .contact_us_form .container button {
+  #portfolio .contact-us-form .container button {
     display: block;
     margin: 90px auto 70px auto;
     padding: 25px 82px;
@@ -442,37 +449,38 @@ h1, h2, h3, h4, h5, h6 {
     border: none;
     outline: none;
     cursor: pointer;
-    transition: all 0.4s;
-    opacity: 0;
-    transition: opacity 1s; }
+    transition: all 0.4s; }
     @media all and (max-width: 800px) {
-      #portfolio .contact_us_form .container button {
+      #portfolio .contact-us-form .container button {
         padding: 15px 40px;
         margin: 40px auto; } }
     @media all and (max-width: 600px) {
-      #portfolio .contact_us_form .container button {
+      #portfolio .contact-us-form .container button {
         padding: 15px 40px;
         margin: 20px auto;
         font-size: 20px; } }
-  #portfolio .contact_us_form .container .animate_submit_btn {
+  #portfolio .contact-us-form .container .submit-btn-animate {
+    opacity: 0;
+    transition: opacity 1s; }
+  #portfolio .contact-us-form .container .submit-btn-animate-active {
     opacity: 1; }
-  #portfolio .contact_us_form .container button:hover {
+  #portfolio .contact-us-form .container button:hover {
     color: #fff;
     background-color: #2ecc71; }
-#portfolio .get_result_container {
+#portfolio .get-result-container {
   background-color: #a44699;
   padding: 40px 0; }
   @media all and (max-width: 600px) {
-    #portfolio .get_result_container {
+    #portfolio .get-result-container {
       padding: 20px 0; } }
-  #portfolio .get_result_container .container {
+  #portfolio .get-result-container .container {
     width: 80%;
     margin: 0 auto; }
-    #portfolio .get_result_container .container .result_left {
+    #portfolio .get-result-container .container .result-left {
       width: 70%;
       float: left;
       text-align: center; }
-      #portfolio .get_result_container .container .result_left h2 {
+      #portfolio .get-result-container .container .result-left h2 {
         padding-top: 10px;
         font-size: 30px;
         font-family: "Segoe UI";
@@ -481,18 +489,18 @@ h1, h2, h3, h4, h5, h6 {
         line-height: 1.2;
         text-align: center; }
         @media all and (max-width: 600px) {
-          #portfolio .get_result_container .container .result_left h2 {
+          #portfolio .get-result-container .container .result-left h2 {
             font-size: 20px; } }
       @media all and (max-width: 1000px) {
-        #portfolio .get_result_container .container .result_left {
+        #portfolio .get-result-container .container .result-left {
           width: 100%;
           float: none;
           margin: 0 auto; } }
-    #portfolio .get_result_container .container .result_right {
+    #portfolio .get-result-container .container .result-right {
       width: 30%;
       float: left;
       text-align: center; }
-      #portfolio .get_result_container .container .result_right button {
+      #portfolio .get-result-container .container .result-right button {
         padding: 20px 15px;
         font-size: 20px;
         font-family: "Segoe UI";
@@ -507,29 +515,29 @@ h1, h2, h3, h4, h5, h6 {
         cursor: pointer;
         transition: all 0.4s; }
         @media all and (max-width: 600px) {
-          #portfolio .get_result_container .container .result_right button {
+          #portfolio .get-result-container .container .result-right button {
             padding: 15px 10px;
             font-size: 16px; } }
-      #portfolio .get_result_container .container .result_right button:hover {
+      #portfolio .get-result-container .container .result-right button:hover {
         background-color: #fff689; }
       @media all and (max-width: 1000px) {
-        #portfolio .get_result_container .container .result_right {
+        #portfolio .get-result-container .container .result-right {
           width: 100%;
           float: none;
           margin: 30px auto 0 auto; } }
-#portfolio .social_btns_container {
+#portfolio .social-btns-container {
   background-color: #000; }
-  #portfolio .social_btns_container .container {
+  #portfolio .social-btns-container .container {
     width: 100%;
     margin: 0 auto;
     text-align: center; }
-    #portfolio .social_btns_container .container .like {
+    #portfolio .social-btns-container .container .like {
       margin: 0 auto;
       max-width: 60%; }
       @media only screen and (max-width: 767px) {
-        #portfolio .social_btns_container .container .like {
+        #portfolio .social-btns-container .container .like {
           max-width: 100%; } }
-      #portfolio .social_btns_container .container .like a {
+      #portfolio .social-btns-container .container .like a {
         float: left;
         text-align: center;
         width: 20%;
@@ -538,23 +546,23 @@ h1, h2, h3, h4, h5, h6 {
         -moz-transition: all 0.35s ease;
         -o-transition: all 0.35s ease;
         transition: all 0.35s ease; }
-        #portfolio .social_btns_container .container .like a img {
+        #portfolio .social-btns-container .container .like a img {
           display: block;
           width: 100%;
           max-width: 100%;
           height: auto;
           transition: all 0.35s; }
-      #portfolio .social_btns_container .container .like a:hover img {
+      #portfolio .social-btns-container .container .like a:hover img {
         transform: rotate(360deg); }
-      #portfolio .social_btns_container .container .like .fb:hover {
+      #portfolio .social-btns-container .container .like .fb:hover {
         background-color: #6578C6; }
-      #portfolio .social_btns_container .container .like .gp:hover {
+      #portfolio .social-btns-container .container .like .gp:hover {
         background-color: #DC4A33; }
-      #portfolio .social_btns_container .container .like .in:hover {
+      #portfolio .social-btns-container .container .like .in:hover {
         background-color: #017EB4; }
-      #portfolio .social_btns_container .container .like .tw:hover {
+      #portfolio .social-btns-container .container .like .tw:hover {
         background-color: #49C8F5; }
-      #portfolio .social_btns_container .container .like .ig:hover {
+      #portfolio .social-btns-container .container .like .ig:hover {
         background-color: #3E739D; }
 
 body, html {
@@ -1118,7 +1126,7 @@ footer .icon {
 .transparent {
   opacity: 0; }
 
-.back_to_top {
+.back-to-top {
   z-index: 100500;
   bottom: 10%;
   right: 15px;
@@ -1130,18 +1138,18 @@ footer .icon {
   -webkit-transition: all .35s ease;
   transition: all .35s ease;
   opacity: 0; }
-  .back_to_top .fa-angle-up {
+  .back-to-top .fa-angle-up {
     font-size: 60px;
     padding: 0 11px 2px 11px; }
     @media screen and (max-width: 600px) {
-      .back_to_top .fa-angle-up {
+      .back-to-top .fa-angle-up {
         font-size: 40px;
         padding: 0 10px; } }
 
-.back_to_top:hover {
+.back-to-top:hover {
   background-color: #a34699; }
 
-.back_to_top_visible {
+.back-to-top-visible {
   opacity: 1; }
 
 /*# sourceMappingURL=mainStyle.css.map */
