@@ -15,6 +15,7 @@ window.addEventListener('load', function() {
 		sliderBusyFlag = false,
 		userActiveControlFlag = false,
 		busyFlag = false,
+		mobileViewWidth = 768,
 
 		pageFirstLoadingFlag = true,
         isMobileViewFlag = true,
@@ -142,7 +143,7 @@ window.addEventListener('load', function() {
     }
 
     if (pageFirstLoadingFlag) {
-        if (window.innerWidth > 600) {
+        if (window.innerWidth > mobileViewWidth) {
             animatesTurnOn();
 
             isMobileViewFlag = false;
@@ -348,7 +349,7 @@ window.addEventListener('load', function() {
 	// **********************  EVENT HANDLERS *************************
 
     function resizeWindowHandler(event) {
-        if (window.innerWidth < 600) {
+        if (window.innerWidth < mobileViewWidth) {
             isMobileViewFlag = true;
         } else {
             isMobileViewFlag = false;
@@ -359,7 +360,7 @@ window.addEventListener('load', function() {
 
 		var	tempOffset;
 
-		if (window.innerWidth < 800) {
+		if (window.innerWidth < mobileViewWidth) {
 			tempOffset = window.innerHeight / 3;
 		} else {
 			tempOffset = window.innerHeight / 2;
