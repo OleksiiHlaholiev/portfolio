@@ -417,15 +417,15 @@ window.addEventListener('load', function() {
 
                     infoSolutionFirstTypingFlag = false;
                 }
-            } else if ((currentPosition > (secondImage.parentNode.parentNode.offsetTop - tempOffset)) &&
-                (currentPosition < (secondImage.parentNode.parentNode.offsetTop + secondImage.parentNode.parentNode.clientHeight)) ) {
+            } else if ((currentPosition > (secondImage.parentNode.offsetTop - tempOffset)) &&
+                (currentPosition < (secondImage.parentNode.offsetTop + secondImage.parentNode.clientHeight)) ) {
                 if (secondImageFirstScrollFlag) {
                     secondImage.classList.add("image-animate-active");
 
                     secondImageFirstScrollFlag = false;
                 }
-            } else if ((currentPosition > (thirdImageBlock.parentNode.parentNode.offsetTop - tempOffset)) &&
-                (currentPosition < (thirdImageBlock.parentNode.parentNode.offsetTop + thirdImageBlock.parentNode.parentNode.clientHeight)) ) {
+            } else if ((currentPosition > (thirdImageBlock.parentNode.offsetTop - tempOffset)) &&
+                (currentPosition < (thirdImageBlock.parentNode.offsetTop + thirdImageBlock.parentNode.clientHeight)) ) {
                 if (thirdImageFirstScrollFlag) {
                     thirdImageLeft.classList.add("image-animate-active");
                     thirdImageRight.classList.add("image-animate-active");
@@ -450,8 +450,8 @@ window.addEventListener('load', function() {
 
                     infoAverageFirstTypingFlag = false;
                 }
-            } else if ((currentPosition > (fourthImage.parentNode.parentNode.offsetTop - tempOffset)) &&
-                (currentPosition < (fourthImage.parentNode.parentNode.offsetTop + fourthImage.parentNode.parentNode.clientHeight)) ) {
+            } else if ((currentPosition > (fourthImage.parentNode.offsetTop - tempOffset)) &&
+                (currentPosition < (fourthImage.parentNode.offsetTop + fourthImage.parentNode.clientHeight)) ) {
                 if (fourthImageFirstScrollFlag) {
                     fourthImage.classList.add("image-animate-active");
 
