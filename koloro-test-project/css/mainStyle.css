@@ -53,27 +53,22 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%; }
   #portfolio .image-container .top-image-animate {
     position: relative;
-    left: 100%;
     opacity: 0;
     transition: all 2s; }
   #portfolio .image-container .second-image-animate {
     position: relative;
-    left: -100%;
     opacity: 0;
     transition: all 2s; }
   #portfolio .image-container .third-image-animate {
     position: relative;
-    left: 100%;
     opacity: 0;
     transition: all 2s; }
   #portfolio .image-container .fourth-image-animate {
     position: relative;
-    left: -100%;
     opacity: 0;
     transition: all 2s; }
   #portfolio .image-container .image-animate-active {
-    opacity: 1;
-    left: 0; }
+    opacity: 1; }
   #portfolio .image-container h1 {
     font-size: 80px;
     font-family: "Segoe UI";
@@ -101,11 +96,9 @@ h1, h2, h3, h4, h5, h6 {
         top: 30%; } }
   #portfolio .image-container .top-title-animate {
     opacity: 0;
-    left: -100%;
     transition: all 2s; }
   #portfolio .image-container .top-title-animate-active {
-    opacity: 1;
-    left: 0; }
+    opacity: 1; }
 #portfolio .slider-cont {
   position: relative;
   width: 100%;
@@ -215,11 +208,9 @@ h1, h2, h3, h4, h5, h6 {
           font-size: 20px; } }
     #portfolio .info-block-container .container .info-left .info-title-animate {
       position: relative;
-      left: -100%;
       opacity: 0;
       transition: all 1s; }
     #portfolio .info-block-container .container .info-left .info-title-animate-active {
-      left: 0;
       opacity: 1; }
     @media all and (max-width: 800px) {
       #portfolio .info-block-container .container .info-left {
@@ -352,11 +343,9 @@ h1, h2, h3, h4, h5, h6 {
       padding: 20px 0; } }
 #portfolio .summary-header-animate {
   opacity: 0;
-  left: -100%;
   transition: all 2s; }
 #portfolio .summary-header-animate-active {
-  opacity: 1;
-  left: 0; }
+  opacity: 1; }
 #portfolio .contact-us-form .container {
   width: 80%;
   margin: 0 auto; }
@@ -380,11 +369,9 @@ h1, h2, h3, h4, h5, h6 {
   #portfolio .contact-us-form .container .contact-us-header-animate {
     position: relative;
     opacity: 0;
-    left: -100%;
     transition: all 2s; }
   #portfolio .contact-us-form .container .contact-us-header-animate-active {
-    opacity: 1;
-    left: 0; }
+    opacity: 1; }
   #portfolio .contact-us-form .container p {
     font-size: 30px;
     font-family: "Roboto";
@@ -429,11 +416,9 @@ h1, h2, h3, h4, h5, h6 {
   #portfolio .contact-us-form .container .contact-us-content-animate {
     position: relative;
     opacity: 0;
-    left: 100%;
     transition: all 2s; }
   #portfolio .contact-us-form .container .contact-us-content-animate-active {
-    opacity: 1;
-    left: 0; }
+    opacity: 1; }
   #portfolio .contact-us-form .container button {
     display: block;
     margin: 90px auto 70px auto;

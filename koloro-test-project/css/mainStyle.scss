@@ -73,35 +73,35 @@ h1, h2, h3, h4, h5, h6 {
 		}
 		.top-image-animate {
 			position: relative;
-			left: 100%;
+			//left: 100%;
 			opacity: 0;
 			transition: all 2s;
 		}
 
 		.second-image-animate {
 			position: relative;
-			left: -100%;
+			//left: -100%;
 			opacity: 0;
 			transition: all 2s;
 		}
 
 		.third-image-animate {
 			position: relative;
-			left: 100%;
+			//left: 100%;
 			opacity: 0;
 			transition: all 2s;
 		}
 
 		.fourth-image-animate {
 			position: relative;
-			left: -100%;
+			//left: -100%;
 			opacity: 0;
 			transition: all 2s;
 		}
 
         .image-animate-active {
             opacity: 1;
-            left: 0;
+            //left: 0;
         }
 
 		h1 {
@@ -136,12 +136,12 @@ h1, h2, h3, h4, h5, h6 {
 		}
 		.top-title-animate {
 			opacity: 0;
-			left: -100%;
+			//left: -100%;
 			transition: all 2s;
 		}
         .top-title-animate-active {
             opacity: 1;
-            left: 0;
+            //left: 0;
         }
 	}
 
@@ -305,13 +305,13 @@ h1, h2, h3, h4, h5, h6 {
 
                 .info-title-animate {
                     position: relative;
-                    left: -100%;
+                    //left: -100%;
                     opacity: 0;
                     transition: all 1s;
                 }
 
 				.info-title-animate-active {
-					left: 0;
+					//left: 0;
 					opacity: 1;
 				}
 
@@ -491,12 +491,12 @@ h1, h2, h3, h4, h5, h6 {
 	}
     .summary-header-animate {
         opacity: 0;
-        left: -100%;
+        //left: -100%;
         transition: all 2s;
     }
 	.summary-header-animate-active {
 		opacity: 1;
-		left: 0;
+		//left: 0;
 	}
 
 	.contact-us-form {
@@ -526,12 +526,12 @@ h1, h2, h3, h4, h5, h6 {
             .contact-us-header-animate {
                 position: relative;
                 opacity: 0;
-                left: -100%;
+                //left: -100%;
                 transition: all 2s;
             }
 			.contact-us-header-animate-active {
 				opacity: 1;
-				left: 0;
+				//left: 0;
 			}
 
 			p {
@@ -588,12 +588,12 @@ h1, h2, h3, h4, h5, h6 {
             .contact-us-content-animate {
                 position: relative;
                 opacity: 0;
-                left: 100%;
+                //left: 100%;
                 transition: all 2s;
             }
 			.contact-us-content-animate-active {
 				opacity: 1;
-				left: 0;
+				//left: 0;
 			}
 
 			button {
