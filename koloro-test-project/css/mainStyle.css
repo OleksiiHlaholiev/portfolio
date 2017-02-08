@@ -50,25 +50,38 @@ h1, h2, h3, h4, h5, h6 {
     background-color: rgba(60, 60, 60, 0.5);
     z-index: 2; }
   #portfolio .image-container .big-image {
-    width: 100%; }
+    width: 100%;
+    position: relative; }
+  #portfolio .image-container .third-image .image-cont-left {
+    display: inline-block;
+    width: 50%; }
+    #portfolio .image-container .third-image .image-cont-left .image-left {
+      vertical-align: bottom; }
+    #portfolio .image-container .third-image .image-cont-left .image-left-animate {
+      opacity: 0;
+      left: -100%;
+      transition: all 1s; }
+  #portfolio .image-container .third-image .image-cont-right {
+    display: inline-block;
+    width: 50%; }
+    #portfolio .image-container .third-image .image-cont-right .image-right {
+      vertical-align: bottom; }
+    #portfolio .image-container .third-image .image-cont-right .image-right-animate {
+      opacity: 0;
+      left: 100%;
+      transition: all 1.5s; }
   #portfolio .image-container .top-image-animate {
-    position: relative;
     opacity: 0;
     transition: all 2s; }
   #portfolio .image-container .second-image-animate {
-    position: relative;
-    opacity: 0;
-    transition: all 2s; }
-  #portfolio .image-container .third-image-animate {
-    position: relative;
     opacity: 0;
     transition: all 2s; }
   #portfolio .image-container .fourth-image-animate {
-    position: relative;
     opacity: 0;
     transition: all 2s; }
   #portfolio .image-container .image-animate-active {
-    opacity: 1; }
+    opacity: 1 !important;
+    left: 0 !important; }
   #portfolio .image-container h1 {
     font-size: 80px;
     font-family: "Segoe UI";
@@ -131,19 +144,19 @@ h1, h2, h3, h4, h5, h6 {
         background-color: rgba(60, 60, 60, 0.5); }
     #portfolio .slider-cont .slider li:nth-child(1) {
       left: -20%;
-      background-image: url(../images/КОВБАСА-1.jpg); }
+      background-image: url(../images/КОВБАСА-СБОРКА.jpg); }
     #portfolio .slider-cont .slider li:nth-child(2) {
       left: 0;
-      background-image: url(../images/СЛАЙД-1.jpg); }
+      background-image: url(../images/SLIDEMAIN.jpg); }
     #portfolio .slider-cont .slider li:nth-child(3) {
       left: 20%;
-      background-image: url(../images/КОВБАСА-2.jpg); }
+      background-image: url(../images/ИНДЕЛИКА-ВИЗ-2.jpg); }
     #portfolio .slider-cont .slider li:nth-child(4) {
       left: 40%;
-      background-image: url(../images/ИНДЕЛИКА-ВИЗ-1.jpg); }
+      background-image: url(../images/ИНДЕЛИКА-ВИЗ-3.jpg); }
     #portfolio .slider-cont .slider li:nth-child(5) {
       left: 60%;
-      background-image: url(../images/ИНДЕЛИКА-ВИЗ-2.jpg); }
+      background-image: url(../images/ИНДЕЛИКА-ВИЗ-4.jpg); }
   #portfolio .slider-cont .fa-angle-left, #portfolio .slider-cont .fa-angle-right {
     position: absolute;
     color: #fff;

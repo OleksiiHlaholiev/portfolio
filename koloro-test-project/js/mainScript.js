@@ -41,7 +41,9 @@ window.addEventListener('load', function() {
 	var topImage = document.querySelector(".top-image"),
 		topTitle = document.querySelector(".top-title"),
 		secondImage = document.querySelector(".second-image"),
-		thirdImage = document.querySelector(".third-image"),
+        thirdImageBlock = document.querySelector(".third-image"),
+		thirdImageLeft = document.querySelector(".image-left"),
+        thirdImageRight = document.querySelector(".image-right"),
 		fourthImage = document.querySelector(".fourth-image");
 
 	var infoHistory = document.querySelector(".info-history"),
@@ -68,7 +70,8 @@ window.addEventListener('load', function() {
         topImage.classList.add("top-image-animate");
         topTitle.classList.add("top-title-animate");
         secondImage.classList.add("second-image-animate");
-        thirdImage.classList.add("third-image-animate");
+        thirdImageLeft.classList.add("image-left-animate");
+        thirdImageRight.classList.add("image-right-animate");
         fourthImage.classList.add("fourth-image-animate");
 
         infoHistory.querySelector("h2").classList.add("info-title-animate");
@@ -420,10 +423,11 @@ window.addEventListener('load', function() {
 
                     secondImageFirstScrollFlag = false;
                 }
-            } else if ((currentPosition > (thirdImage.parentNode.parentNode.offsetTop - tempOffset)) &&
-                (currentPosition < (thirdImage.parentNode.parentNode.offsetTop + thirdImage.parentNode.parentNode.clientHeight)) ) {
+            } else if ((currentPosition > (thirdImageBlock.parentNode.parentNode.offsetTop - tempOffset)) &&
+                (currentPosition < (thirdImageBlock.parentNode.parentNode.offsetTop + thirdImageBlock.parentNode.parentNode.clientHeight)) ) {
                 if (thirdImageFirstScrollFlag) {
-                    thirdImage.classList.add("image-animate-active");
+                    thirdImageLeft.classList.add("image-animate-active");
+                    thirdImageRight.classList.add("image-animate-active");
 
                     thirdImageFirstScrollFlag = false;
                 }
