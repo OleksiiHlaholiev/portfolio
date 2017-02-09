@@ -8,6 +8,7 @@ window.addEventListener('load', function() {
 	// ******************** GLOBAL VARIABLES ****************************
 	var SCROLL_STEP = 100,
 		scrollFuncTimer,
+		scrollPreviousPosition = 0,
 		userTimoutTimer,
 		SLIDER_PROTECT_DELAY = 1000,
 		SLIDER_AUTO_DELAY = 3000,
@@ -487,26 +488,26 @@ window.addEventListener('load', function() {
             }
         }
 
-
-		// sectionHeader background: turn on / turn off
-		// if (currentPosition > sectionPortfolio.offsetTop + subSectionCompanyAims.offsetTop) {
-		// 	if (!sectionHeader.classList.contains("header-grey-bg")) {
-		// 		sectionHeader.classList.add("header-grey-bg");
-		// 	}
-		// } else {
-		// 	if (sectionHeader.classList.contains("header-grey-bg")) {
-		// 		sectionHeader.classList.remove("header-grey-bg");
-		// 	}
-		// }
+        sectionHeader.classList.add("change_color");
+        sectionHeader.classList.add("hide_menu");
+        sectionHeader.classList.add("menu_visible");
 
         if (currentPosition > sectionPortfolio.offsetTop + subSectionCompanyAims.offsetTop) {
-            sectionHeader.classList.add("hide_menu");
-            sectionHeader.classList.add("menu_visible");
+            if (currentPosition < scrollPreviousPosition) {
+                // move up
+                sectionHeader.classList.add("change_color");
+                sectionHeader.classList.add("hide_menu");
+                sectionHeader.classList.add("menu_visible");
+            } else {
+                // move down
+                sectionHeader.classList.remove("menu_visible");
+            }
         } else {
-
+            sectionHeader.classList.remove("change_color");
             sectionHeader.classList.remove("hide_menu");
             sectionHeader.classList.remove("menu_visible");
         }
+        scrollPreviousPosition = currentPosition;
 
 
 
