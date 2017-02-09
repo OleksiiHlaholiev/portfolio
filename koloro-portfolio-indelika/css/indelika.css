@@ -34,14 +34,59 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100%;
   overflow: visible;
-  background: #ffffff url("../images/spinner.gif") no-repeat center center; }
+  background: #ffffff url("../images/preloader.gif") no-repeat center center; }
 
-#portfolio .image-container {
+.left-btn, .right-btn {
+  position: fixed;
+  top: 30vh;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.749); }
+  .left-btn .fa, .right-btn .fa {
+    color: #a34699;
+    font-size: 100px; }
+
+.left-btn {
+  left: 0.1%; }
+  .left-btn .fa {
+    padding: 15px 15px 15px 10px; }
+
+.right-btn {
+  right: 0.1%; }
+  .right-btn .fa {
+    padding: 15px 10px 15px 15px; }
+
+.back-to-top {
+  z-index: 100500;
+  bottom: 10%;
+  right: 15px;
+  display: block;
+  background-color: rgba(163, 70, 153, 0.7);
+  color: #fff;
+  position: fixed;
+  cursor: pointer;
+  -webkit-transition: all .35s ease;
+  transition: all .35s ease;
+  opacity: 0; }
+  .back-to-top .fa-angle-up {
+    font-size: 60px;
+    padding: 0 11px 2px 11px; }
+    @media screen and (max-width: 600px) {
+      .back-to-top .fa-angle-up {
+        font-size: 40px;
+        padding: 0 10px; } }
+
+.back-to-top:hover {
+  background-color: #a34699; }
+
+.back-to-top-visible {
+  opacity: 1; }
+
+#indelika .image-container {
   width: 100%;
   position: relative;
   top: 0;
   left: 0; }
-  #portfolio .image-container .dark-mask {
+  #indelika .image-container .dark-mask {
     position: absolute;
     top: 0;
     left: 0;
@@ -49,40 +94,40 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
     background-color: rgba(60, 60, 60, 0.5);
     z-index: 2; }
-  #portfolio .image-container .big-image {
+  #indelika .image-container .big-image {
     width: 100%;
     position: relative; }
-  #portfolio .image-container .third-image .image-cont-left {
+  #indelika .image-container .third-image .image-cont-left {
     display: inline-block;
     width: 50%; }
-    #portfolio .image-container .third-image .image-cont-left .image-left {
+    #indelika .image-container .third-image .image-cont-left .image-left {
       vertical-align: bottom; }
-    #portfolio .image-container .third-image .image-cont-left .image-left-animate {
+    #indelika .image-container .third-image .image-cont-left .image-left-animate {
       opacity: 0;
       left: -100%;
       transition: all 1s; }
-  #portfolio .image-container .third-image .image-cont-right {
+  #indelika .image-container .third-image .image-cont-right {
     display: inline-block;
     width: 50%; }
-    #portfolio .image-container .third-image .image-cont-right .image-right {
+    #indelika .image-container .third-image .image-cont-right .image-right {
       vertical-align: bottom; }
-    #portfolio .image-container .third-image .image-cont-right .image-right-animate {
+    #indelika .image-container .third-image .image-cont-right .image-right-animate {
       opacity: 0;
       left: 100%;
       transition: all 1.5s; }
-  #portfolio .image-container .top-image-animate {
+  #indelika .image-container .top-image-animate {
     opacity: 0;
     transition: all 2s; }
-  #portfolio .image-container .second-image-animate {
+  #indelika .image-container .second-image-animate {
     opacity: 0;
     transition: all 2s; }
-  #portfolio .image-container .fourth-image-animate {
+  #indelika .image-container .fourth-image-animate {
     opacity: 0;
     transition: all 2s; }
-  #portfolio .image-container .image-animate-active {
+  #indelika .image-container .image-animate-active {
     opacity: 1 !important;
     left: 0 !important; }
-  #portfolio .image-container h1 {
+  #indelika .image-container h1 {
     font-size: 80px;
     font-family: "Segoe UI";
     color: white;
@@ -96,29 +141,29 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 60;
     width: 100%; }
     @media all and (max-width: 1000px) {
-      #portfolio .image-container h1 {
+      #indelika .image-container h1 {
         font-size: 60px;
         top: 15%; } }
     @media all and (max-width: 700px) {
-      #portfolio .image-container h1 {
+      #indelika .image-container h1 {
         font-size: 40px;
         top: 30%; } }
     @media all and (max-width: 500px) {
-      #portfolio .image-container h1 {
+      #indelika .image-container h1 {
         font-size: 20px;
         top: 30%; } }
-  #portfolio .image-container .top-title-animate {
+  #indelika .image-container .top-title-animate {
     opacity: 0;
     transition: all 2s; }
-  #portfolio .image-container .top-title-animate-active {
+  #indelika .image-container .top-title-animate-active {
     opacity: 1; }
-#portfolio .slider-cont {
+#indelika .slider-cont {
   position: relative;
   width: 100%;
   height: calc(100vh - 10px);
   background-color: #747474;
   overflow-x: hidden; }
-  #portfolio .slider-cont .slider {
+  #indelika .slider-cont .slider {
     position: relative;
     width: 500%;
     height: calc(100vh - 10px);
@@ -126,7 +171,7 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0px;
     padding: 0px;
     list-style-type: none; }
-    #portfolio .slider-cont .slider li {
+    #indelika .slider-cont .slider li {
       position: absolute;
       top: 0;
       display: inline-block;
@@ -137,27 +182,27 @@ h1, h2, h3, h4, h5, h6 {
       background-repeat: no-repeat;
       background-position: center top;
       background-size: cover; }
-      #portfolio .slider-cont .slider li .slider-dark-mask {
+      #indelika .slider-cont .slider li .slider-dark-mask {
         position: relative;
         width: 100%;
         height: 100%;
         background-color: rgba(60, 60, 60, 0.5); }
-    #portfolio .slider-cont .slider li:nth-child(1) {
+    #indelika .slider-cont .slider li:nth-child(1) {
       left: -20%;
       background-image: url(../images/КОВБАСА-СБОРКА.jpg); }
-    #portfolio .slider-cont .slider li:nth-child(2) {
+    #indelika .slider-cont .slider li:nth-child(2) {
       left: 0;
       background-image: url(../images/SLIDEMAIN.jpg); }
-    #portfolio .slider-cont .slider li:nth-child(3) {
+    #indelika .slider-cont .slider li:nth-child(3) {
       left: 20%;
       background-image: url(../images/ИНДЕЛИКА-ВИЗ-2.jpg); }
-    #portfolio .slider-cont .slider li:nth-child(4) {
+    #indelika .slider-cont .slider li:nth-child(4) {
       left: 40%;
       background-image: url(../images/ИНДЕЛИКА-ВИЗ-3.jpg); }
-    #portfolio .slider-cont .slider li:nth-child(5) {
+    #indelika .slider-cont .slider li:nth-child(5) {
       left: 60%;
       background-image: url(../images/ИНДЕЛИКА-ВИЗ-4.jpg); }
-  #portfolio .slider-cont .fa-angle-left, #portfolio .slider-cont .fa-angle-right {
+  #indelika .slider-cont .fa-angle-left, #indelika .slider-cont .fa-angle-right {
     position: absolute;
     color: #fff;
     background-color: transparent;
@@ -167,48 +212,48 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 10;
     transition: all 0.4s; }
     @media screen and (min-height: 550px) {
-      #portfolio .slider-cont .fa-angle-left, #portfolio .slider-cont .fa-angle-right {
+      #indelika .slider-cont .fa-angle-left, #indelika .slider-cont .fa-angle-right {
         font-size: 150px;
         padding: 10px 25px; } }
-  #portfolio .slider-cont .fa-angle-left {
+  #indelika .slider-cont .fa-angle-left {
     bottom: 50%;
     left: 5%; }
-  #portfolio .slider-cont .fa-angle-right {
+  #indelika .slider-cont .fa-angle-right {
     bottom: 50%;
     right: 5%; }
-  #portfolio .slider-cont .fa-angle-left:hover, #portfolio .slider-cont .fa-angle-right:hover {
+  #indelika .slider-cont .fa-angle-left:hover, #indelika .slider-cont .fa-angle-right:hover {
     color: #2ecc71; }
-  #portfolio .slider-cont .slider-nav {
+  #indelika .slider-cont .slider-nav {
     position: absolute;
     bottom: 10%;
     left: 50%;
     margin-left: -129px;
     z-index: 10; }
-    #portfolio .slider-cont .slider-nav .slider-nav-list li {
+    #indelika .slider-cont .slider-nav .slider-nav-list li {
       display: inline-block;
       padding: 10px;
       position: relative; }
-      #portfolio .slider-cont .slider-nav .slider-nav-list li .pagination-btn .fa {
+      #indelika .slider-cont .slider-nav .slider-nav-list li .pagination-btn .fa {
         color: #fff;
         cursor: pointer; }
-      #portfolio .slider-cont .slider-nav .slider-nav-list li .pagination-btn .fa-circle-thin {
+      #indelika .slider-cont .slider-nav .slider-nav-list li .pagination-btn .fa-circle-thin {
         font-size: 30px; }
-      #portfolio .slider-cont .slider-nav .slider-nav-list li .pagination-btn .fa-circle {
+      #indelika .slider-cont .slider-nav .slider-nav-list li .pagination-btn .fa-circle {
         font-size: 15px;
         opacity: 0;
         transition: all 0.3s; }
-      #portfolio .slider-cont .slider-nav .slider-nav-list li .active .fa-circle, #portfolio .slider-cont .slider-nav .slider-nav-list li .pagination-btn:hover .fa-circle {
+      #indelika .slider-cont .slider-nav .slider-nav-list li .active .fa-circle, #indelika .slider-cont .slider-nav .slider-nav-list li .pagination-btn:hover .fa-circle {
         opacity: 1; }
-#portfolio .info-block-container .container {
+#indelika .info-block-container .container {
   width: 80%;
   margin: 60px auto; }
   @media all and (max-width: 600px) {
-    #portfolio .info-block-container .container {
+    #indelika .info-block-container .container {
       margin: 20px auto; } }
-  #portfolio .info-block-container .container .info-left {
+  #indelika .info-block-container .container .info-left {
     width: 50%;
     float: left; }
-    #portfolio .info-block-container .container .info-left h2 {
+    #indelika .info-block-container .container .info-left h2 {
       font-size: 36px;
       font-family: "Segoe UI";
       color: black;
@@ -217,23 +262,23 @@ h1, h2, h3, h4, h5, h6 {
       text-align: center;
       margin-bottom: 20px; }
       @media all and (max-width: 600px) {
-        #portfolio .info-block-container .container .info-left h2 {
+        #indelika .info-block-container .container .info-left h2 {
           font-size: 20px; } }
-    #portfolio .info-block-container .container .info-left .info-title-animate {
+    #indelika .info-block-container .container .info-left .info-title-animate {
       position: relative;
       opacity: 0;
       transition: all 1s; }
-    #portfolio .info-block-container .container .info-left .info-title-animate-active {
+    #indelika .info-block-container .container .info-left .info-title-animate-active {
       opacity: 1; }
     @media all and (max-width: 800px) {
-      #portfolio .info-block-container .container .info-left {
+      #indelika .info-block-container .container .info-left {
         width: 100%;
         float: none;
         margin: 0 auto; } }
-  #portfolio .info-block-container .container .info-right {
+  #indelika .info-block-container .container .info-right {
     width: 50%;
     float: left; }
-    #portfolio .info-block-container .container .info-right p {
+    #indelika .info-block-container .container .info-right p {
       font-size: 24px;
       font-family: "Segoe UI";
       color: #969696;
@@ -242,9 +287,13 @@ h1, h2, h3, h4, h5, h6 {
       text-indent: 40px;
       opacity: 1; }
       @media all and (max-width: 600px) {
-        #portfolio .info-block-container .container .info-right p {
+        #indelika .info-block-container .container .info-right p {
           font-size: 16px; } }
-    #portfolio .info-block-container .container .info-right .read-more-btn {
+    #indelika .info-block-container .container .info-right .for-read-more {
+      display: none; }
+    #indelika .info-block-container .container .info-right .for-read-more-visible {
+      display: block; }
+    #indelika .info-block-container .container .info-right .read-more-btn {
       display: inline-block;
       font-size: 30px;
       font-family: "Segoe UI";
@@ -254,22 +303,22 @@ h1, h2, h3, h4, h5, h6 {
       text-align: center;
       margin: 30px 0 10px 0; }
       @media all and (max-width: 600px) {
-        #portfolio .info-block-container .container .info-right .read-more-btn {
+        #indelika .info-block-container .container .info-right .read-more-btn {
           font-size: 20px;
           margin: 10px 0 0 0; } }
-    #portfolio .info-block-container .container .info-right .info-text-animate {
+    #indelika .info-block-container .container .info-right .info-text-animate {
       opacity: 0;
       transition: all 1s; }
-    #portfolio .info-block-container .container .info-right .info-text-animate-active {
+    #indelika .info-block-container .container .info-right .info-text-animate-active {
       opacity: 1; }
     @media all and (max-width: 800px) {
-      #portfolio .info-block-container .container .info-right {
+      #indelika .info-block-container .container .info-right {
         width: 100%;
         float: none;
         margin: 0 auto; }
-        #portfolio .info-block-container .container .info-right .read-more-btn {
+        #indelika .info-block-container .container .info-right .read-more-btn {
           display: block; } }
-#portfolio .concepts-info::before {
+#indelika .concepts-info::before {
   content: " ";
   position: absolute;
   top: 100%;
@@ -279,27 +328,27 @@ h1, h2, h3, h4, h5, h6 {
   border-top-color: #e7e7e7;
   z-index: 2; }
   @media all and (max-width: 800px) {
-    #portfolio .concepts-info::before {
+    #indelika .concepts-info::before {
       margin-left: -40px;
       border-width: 40px; } }
   @media all and (max-width: 600px) {
-    #portfolio .concepts-info::before {
+    #indelika .concepts-info::before {
       margin-left: -30px;
       border-width: 30px; } }
-#portfolio .concepts-info {
+#indelika .concepts-info {
   position: relative;
   background-color: #e7e7e7;
   padding-bottom: 140px; }
   @media all and (max-width: 800px) {
-    #portfolio .concepts-info {
+    #indelika .concepts-info {
       padding-bottom: 70px; } }
   @media all and (max-width: 600px) {
-    #portfolio .concepts-info {
+    #indelika .concepts-info {
       padding-bottom: 30px; } }
-  #portfolio .concepts-info .container {
+  #indelika .concepts-info .container {
     width: 80%;
     margin: 0 auto; }
-    #portfolio .concepts-info .container h2 {
+    #indelika .concepts-info .container h2 {
       padding: 60px 0;
       font-size: 60px;
       font-family: "Segoe UI";
@@ -308,34 +357,34 @@ h1, h2, h3, h4, h5, h6 {
       line-height: 1.2;
       text-align: center; }
       @media all and (max-width: 800px) {
-        #portfolio .concepts-info .container h2 {
+        #indelika .concepts-info .container h2 {
           font-size: 36px;
           padding: 40px 0; } }
       @media all and (max-width: 600px) {
-        #portfolio .concepts-info .container h2 {
+        #indelika .concepts-info .container h2 {
           font-size: 20px;
           padding: 20px 0; } }
-    #portfolio .concepts-info .container .concepts-info-title-animate {
+    #indelika .concepts-info .container .concepts-info-title-animate {
       position: relative;
       opacity: 0;
       transition: all 1s; }
-    #portfolio .concepts-info .container .concepts-info-title-animate-active {
+    #indelika .concepts-info .container .concepts-info-title-animate-active {
       opacity: 1; }
-    #portfolio .concepts-info .container p {
+    #indelika .concepts-info .container p {
       font-size: 24px;
       font-family: "Segoe UI";
       color: black;
       line-height: 1.2;
       text-align: justify; }
       @media all and (max-width: 600px) {
-        #portfolio .concepts-info .container p {
+        #indelika .concepts-info .container p {
           font-size: 16px; } }
-    #portfolio .concepts-info .container .concepts-info-text-animate {
+    #indelika .concepts-info .container .concepts-info-text-animate {
       opacity: 0;
       transition: all 1s; }
-    #portfolio .concepts-info .container .concepts-info-text-animate-active {
+    #indelika .concepts-info .container .concepts-info-text-animate-active {
       opacity: 1; }
-#portfolio .summary-header {
+#indelika .summary-header {
   padding: 150px 0;
   font-size: 36px;
   font-family: "Segoe UI";
@@ -344,25 +393,25 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
   text-align: center; }
   @media all and (max-width: 1000px) {
-    #portfolio .summary-header {
+    #indelika .summary-header {
       padding: 100px 0; } }
   @media all and (max-width: 800px) {
-    #portfolio .summary-header {
+    #indelika .summary-header {
       font-size: 24px;
       padding: 50px 0; } }
   @media all and (max-width: 600px) {
-    #portfolio .summary-header {
+    #indelika .summary-header {
       font-size: 20px;
       padding: 20px 0; } }
-#portfolio .summary-header-animate {
+#indelika .summary-header-animate {
   opacity: 0;
   transition: all 2s; }
-#portfolio .summary-header-animate-active {
+#indelika .summary-header-animate-active {
   opacity: 1; }
-#portfolio .contact-us-form .container {
+#indelika .contact-us-form .container {
   width: 80%;
   margin: 0 auto; }
-  #portfolio .contact-us-form .container h1 {
+  #indelika .contact-us-form .container h1 {
     padding: 70px 0;
     font-size: 60px;
     font-family: "Roboto";
@@ -372,44 +421,44 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.2;
     text-align: center; }
     @media all and (max-width: 800px) {
-      #portfolio .contact-us-form .container h1 {
+      #indelika .contact-us-form .container h1 {
         font-size: 30px;
         padding: 30px 0; } }
     @media all and (max-width: 600px) {
-      #portfolio .contact-us-form .container h1 {
+      #indelika .contact-us-form .container h1 {
         font-size: 24px;
         padding: 20px 0; } }
-  #portfolio .contact-us-form .container .contact-us-header-animate {
+  #indelika .contact-us-form .container .contact-us-header-animate {
     position: relative;
     opacity: 0;
     transition: all 2s; }
-  #portfolio .contact-us-form .container .contact-us-header-animate-active {
+  #indelika .contact-us-form .container .contact-us-header-animate-active {
     opacity: 1; }
-  #portfolio .contact-us-form .container p {
+  #indelika .contact-us-form .container p {
     font-size: 30px;
     font-family: "Roboto";
     color: black;
     line-height: 1.6;
     text-align: justify; }
     @media all and (max-width: 800px) {
-      #portfolio .contact-us-form .container p {
+      #indelika .contact-us-form .container p {
         font-size: 20px;
         line-height: 1.2; } }
     @media all and (max-width: 600px) {
-      #portfolio .contact-us-form .container p {
+      #indelika .contact-us-form .container p {
         font-size: 16px;
         line-height: 1.0; } }
-    #portfolio .contact-us-form .container p span {
+    #indelika .contact-us-form .container p span {
       color: #8a3b86;
       font-size: 30px;
       font-weight: bold; }
       @media all and (max-width: 800px) {
-        #portfolio .contact-us-form .container p span {
+        #indelika .contact-us-form .container p span {
           font-size: 20px; } }
       @media all and (max-width: 600px) {
-        #portfolio .contact-us-form .container p span {
+        #indelika .contact-us-form .container p span {
           font-size: 16px; } }
-    #portfolio .contact-us-form .container p input {
+    #indelika .contact-us-form .container p input {
       display: inline-block;
       width: 300px;
       font-size: 30px;
@@ -420,19 +469,19 @@ h1, h2, h3, h4, h5, h6 {
       border: none;
       border-bottom: 2px solid #000; }
       @media all and (max-width: 800px) {
-        #portfolio .contact-us-form .container p input {
+        #indelika .contact-us-form .container p input {
           width: 200px;
           font-size: 20px; } }
       @media all and (max-width: 600px) {
-        #portfolio .contact-us-form .container p input {
+        #indelika .contact-us-form .container p input {
           font-size: 16px; } }
-  #portfolio .contact-us-form .container .contact-us-content-animate {
+  #indelika .contact-us-form .container .contact-us-content-animate {
     position: relative;
     opacity: 0;
     transition: all 2s; }
-  #portfolio .contact-us-form .container .contact-us-content-animate-active {
+  #indelika .contact-us-form .container .contact-us-content-animate-active {
     opacity: 1; }
-  #portfolio .contact-us-form .container button {
+  #indelika .contact-us-form .container button {
     display: block;
     margin: 90px auto 70px auto;
     padding: 25px 82px;
@@ -449,36 +498,36 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
     transition: all 0.4s; }
     @media all and (max-width: 800px) {
-      #portfolio .contact-us-form .container button {
+      #indelika .contact-us-form .container button {
         padding: 15px 40px;
         margin: 40px auto; } }
     @media all and (max-width: 600px) {
-      #portfolio .contact-us-form .container button {
+      #indelika .contact-us-form .container button {
         padding: 15px 40px;
         margin: 20px auto;
         font-size: 20px; } }
-  #portfolio .contact-us-form .container .submit-btn-animate {
+  #indelika .contact-us-form .container .submit-btn-animate {
     opacity: 0;
     transition: opacity 1s; }
-  #portfolio .contact-us-form .container .submit-btn-animate-active {
+  #indelika .contact-us-form .container .submit-btn-animate-active {
     opacity: 1; }
-  #portfolio .contact-us-form .container button:hover {
+  #indelika .contact-us-form .container button:hover {
     color: #fff;
     background-color: #2ecc71; }
-#portfolio .get-result-container {
+#indelika .get-result-container {
   background-color: #a44699;
   padding: 40px 0; }
   @media all and (max-width: 600px) {
-    #portfolio .get-result-container {
+    #indelika .get-result-container {
       padding: 20px 0; } }
-  #portfolio .get-result-container .container {
+  #indelika .get-result-container .container {
     width: 80%;
     margin: 0 auto; }
-    #portfolio .get-result-container .container .result-left {
+    #indelika .get-result-container .container .result-left {
       width: 70%;
       float: left;
       text-align: center; }
-      #portfolio .get-result-container .container .result-left h2 {
+      #indelika .get-result-container .container .result-left h2 {
         padding-top: 10px;
         font-size: 30px;
         font-family: "Segoe UI";
@@ -487,18 +536,18 @@ h1, h2, h3, h4, h5, h6 {
         line-height: 1.2;
         text-align: center; }
         @media all and (max-width: 600px) {
-          #portfolio .get-result-container .container .result-left h2 {
+          #indelika .get-result-container .container .result-left h2 {
             font-size: 20px; } }
       @media all and (max-width: 1000px) {
-        #portfolio .get-result-container .container .result-left {
+        #indelika .get-result-container .container .result-left {
           width: 100%;
           float: none;
           margin: 0 auto; } }
-    #portfolio .get-result-container .container .result-right {
+    #indelika .get-result-container .container .result-right {
       width: 30%;
       float: left;
       text-align: center; }
-      #portfolio .get-result-container .container .result-right button {
+      #indelika .get-result-container .container .result-right button {
         padding: 20px 15px;
         font-size: 20px;
         font-family: "Segoe UI";
@@ -513,29 +562,29 @@ h1, h2, h3, h4, h5, h6 {
         cursor: pointer;
         transition: all 0.4s; }
         @media all and (max-width: 600px) {
-          #portfolio .get-result-container .container .result-right button {
+          #indelika .get-result-container .container .result-right button {
             padding: 15px 10px;
             font-size: 16px; } }
-      #portfolio .get-result-container .container .result-right button:hover {
+      #indelika .get-result-container .container .result-right button:hover {
         background-color: #fff689; }
       @media all and (max-width: 1000px) {
-        #portfolio .get-result-container .container .result-right {
+        #indelika .get-result-container .container .result-right {
           width: 100%;
           float: none;
           margin: 30px auto 0 auto; } }
-#portfolio .social-btns-container {
+#indelika .social-btns-container {
   background-color: #000; }
-  #portfolio .social-btns-container .container {
+  #indelika .social-btns-container .container {
     width: 100%;
     margin: 0 auto;
     text-align: center; }
-    #portfolio .social-btns-container .container .like {
+    #indelika .social-btns-container .container .like {
       margin: 0 auto;
       max-width: 60%; }
       @media only screen and (max-width: 767px) {
-        #portfolio .social-btns-container .container .like {
+        #indelika .social-btns-container .container .like {
           max-width: 100%; } }
-      #portfolio .social-btns-container .container .like a {
+      #indelika .social-btns-container .container .like a {
         float: left;
         text-align: center;
         width: 20%;
@@ -544,23 +593,23 @@ h1, h2, h3, h4, h5, h6 {
         -moz-transition: all 0.35s ease;
         -o-transition: all 0.35s ease;
         transition: all 0.35s ease; }
-        #portfolio .social-btns-container .container .like a img {
+        #indelika .social-btns-container .container .like a img {
           display: block;
           width: 100%;
           max-width: 100%;
           height: auto;
           transition: all 0.35s; }
-      #portfolio .social-btns-container .container .like a:hover img {
+      #indelika .social-btns-container .container .like a:hover img {
         transform: rotate(360deg); }
-      #portfolio .social-btns-container .container .like .fb:hover {
+      #indelika .social-btns-container .container .like .fb:hover {
         background-color: #6578C6; }
-      #portfolio .social-btns-container .container .like .gp:hover {
+      #indelika .social-btns-container .container .like .gp:hover {
         background-color: #DC4A33; }
-      #portfolio .social-btns-container .container .like .in:hover {
+      #indelika .social-btns-container .container .like .in:hover {
         background-color: #017EB4; }
-      #portfolio .social-btns-container .container .like .tw:hover {
+      #indelika .social-btns-container .container .like .tw:hover {
         background-color: #49C8F5; }
-      #portfolio .social-btns-container .container .like .ig:hover {
+      #indelika .social-btns-container .container .like .ig:hover {
         background-color: #3E739D; }
 
 body, html {
@@ -1120,31 +1169,5 @@ footer .icon {
     text-align: left; } }
 .transparent {
   opacity: 0; }
-
-.back-to-top {
-  z-index: 100500;
-  bottom: 10%;
-  right: 15px;
-  display: block;
-  background-color: rgba(163, 70, 153, 0.7);
-  color: #fff;
-  position: fixed;
-  cursor: pointer;
-  -webkit-transition: all .35s ease;
-  transition: all .35s ease;
-  opacity: 0; }
-  .back-to-top .fa-angle-up {
-    font-size: 60px;
-    padding: 0 11px 2px 11px; }
-    @media screen and (max-width: 600px) {
-      .back-to-top .fa-angle-up {
-        font-size: 40px;
-        padding: 0 10px; } }
-
-.back-to-top:hover {
-  background-color: #a34699; }
-
-.back-to-top-visible {
-  opacity: 1; }
 
 /*# sourceMappingURL=indelika.css.map */

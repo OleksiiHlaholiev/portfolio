@@ -36,7 +36,7 @@ window.addEventListener('load', function() {
 
 	var backToTopBtn = document.querySelector(".back-to-top"),
 		sectionHeader = document.getElementById("header"),
-		sectionPortfolio = document.getElementById("portfolio"),
+		sectionPortfolio = document.getElementById("indelika"),
 		subSectionCompanyAims = document.querySelector(".company-aims");
 
 	var topImage = document.querySelector(".top-image"),
@@ -60,8 +60,8 @@ window.addEventListener('load', function() {
 		menuTrigerBtn = document.querySelector(".menu_triger");
 
 	var slider = document.querySelector(".slider"),
-		sliderBtnLeft = document.querySelector(".fa-angle-left"),
-		sliderBtnRight = document.querySelector(".fa-angle-right"),
+		sliderBtnLeft = document.querySelector(".slider-cont .fa-angle-left"),
+		sliderBtnRight = document.querySelector(".slider-cont .fa-angle-right"),
 		sliderItems = document.querySelectorAll(".slider-item"),
 		sliderPaginationBtns = document.querySelectorAll(".pagination-btn");
 
