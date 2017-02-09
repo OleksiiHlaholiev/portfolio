@@ -40,10 +40,17 @@ h1, h2, h3, h4, h5, h6 {
   position: fixed;
   top: 30vh;
   z-index: 100;
-  background-color: rgba(255, 255, 255, 0.749); }
+  background-color: rgba(255, 255, 255, 0.749);
+  transition: all 0.4s; }
   .left-btn .fa, .right-btn .fa {
     color: #a34699;
-    font-size: 100px; }
+    font-size: 100px;
+    transition: all 0.4s; }
+
+.left-btn:hover, .right-btn:hover {
+  background-color: #a34699; }
+  .left-btn:hover .fa, .right-btn:hover .fa {
+    color: #fff; }
 
 .left-btn {
   left: 0; }
