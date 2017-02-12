@@ -372,7 +372,7 @@ window.addEventListener('load', function() {
 		var auctionPaginationBtns = auctionPagination.querySelectorAll(".pagination-btn"),
 			auctionItems = auctionLotsContainer.querySelectorAll(".auction-item-cont"),
 			tempLength,
-			itemsPerPage = 10,
+			itemsPerPage = 9,
 			tempLotsArray = [],
 			i;
 
