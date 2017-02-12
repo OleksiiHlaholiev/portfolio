@@ -873,7 +873,7 @@ window.addEventListener('load', function() {
     <!--PRELOADER !!!-->
     setTimeout(function() {
         $('#preloader').fadeOut('slow', function() {});
-    }, 2000);
+    }, 500);
 
 });
 
