@@ -1,0 +1,126 @@
+@font-face {
+  font-family: PTSansRegular;
+  /* name */
+  src: url("../fonts/PT_Sans/PT_Sans-Web-Regular.ttf");
+  /* path */ }
+@font-face {
+  font-family: PTSansItalic;
+  /* name */
+  src: url("../fonts/PT_Sans/PT_Sans-Web-Italic.ttf");
+  /* path */ }
+@font-face {
+  font-family: PTSansBoldItalic;
+  /* name */
+  src: url("../fonts/PT_Sans/PT_Sans-Web-BoldItalic.ttf");
+  /* path */ }
+@font-face {
+  font-family: PTSansBold;
+  /* name */
+  src: url("../fonts/PT_Sans/PT_Sans-Web-Bold.ttf");
+  /* path */ }
+* {
+  box-sizing: border-box; }
+
+html, body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  font-family: "PTSansRegular", "sans-serif"; }
+
+a, a:hover {
+  text-decoration: none; }
+
+header .top-header-cont {
+  font-size: 0; }
+  header .top-header-cont .logo-cont {
+    display: inline-block; }
+    header .top-header-cont .logo-cont a {
+      display: inline-block;
+      cursor: pointer; }
+      header .top-header-cont .logo-cont a img {
+        width: 193px; }
+  header .top-header-cont .header-cont {
+    display: inline-block;
+    width: calc(100% - 193px - 162.75px - 68.47px);
+    vertical-align: middle; }
+    header .top-header-cont .header-cont h1 {
+      margin: 0;
+      padding: 0 20px;
+      font-size: 25px;
+      font-family: "PTSansRegular", "sans-serif";
+      color: #1e2025;
+      text-transform: uppercase;
+      line-height: 1.2;
+      text-align: center; }
+  header .top-header-cont .detailed-search, header .top-header-cont .log-in {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    font-size: 0;
+    cursor: pointer;
+    transition: all 0.4s; }
+    header .top-header-cont .detailed-search .img-cont, header .top-header-cont .log-in .img-cont {
+      text-align: center; }
+      header .top-header-cont .detailed-search .img-cont img, header .top-header-cont .log-in .img-cont img {
+        padding-bottom: 7px;
+        width: 21px; }
+    header .top-header-cont .detailed-search p, header .top-header-cont .log-in p {
+      margin: 0;
+      font-size: 12px;
+      font-family: "Arial", "sans-serif";
+      color: #1e2025;
+      line-height: 1;
+      text-align: center; }
+  header .top-header-cont .detailed-search {
+    padding: 11.5px 30px;
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc; }
+  header .top-header-cont .log-in {
+    padding: 11.5px 20px;
+    border-right: 1px solid #cccccc; }
+  header .top-header-cont .detailed-search:hover, header .top-header-cont .log-in:hover {
+    background-color: #2aabd2; }
+header .menu-wrapper {
+  background-color: #1e2025;
+  text-align: center; }
+  header .menu-wrapper .main-nav-menu {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0; }
+    header .menu-wrapper .main-nav-menu ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: circle; }
+      header .menu-wrapper .main-nav-menu ul li {
+        display: inline-block;
+        position: relative; }
+        header .menu-wrapper .main-nav-menu ul li a {
+          display: inline-block;
+          vertical-align: middle;
+          padding: 12px 12px;
+          font-size: 18px;
+          font-family: "PTSansRegular","sans-serif";
+          color: white;
+          text-transform: uppercase;
+          line-height: 1.2;
+          text-align: left; }
+        header .menu-wrapper .main-nav-menu ul li a:hover {
+          color: yellow;
+          transition: all 0.4s; }
+      header .menu-wrapper .main-nav-menu ul li:before {
+        content: url("../images/list-style-dot.png");
+        display: inline-block;
+        width: 3px;
+        height: 3px;
+        position: absolute;
+        left: 0;
+        top: calc(50% - 1.5px); }
+      header .menu-wrapper .main-nav-menu ul li:last-child a:after {
+        content: url("../images/brazzers.png");
+        display: inline-block;
+        vertical-align: middle;
+        padding: 0 5px;
+        width: 109px;
+        height: 22px; }
+
+/*# sourceMappingURL=main.css.map */
