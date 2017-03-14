@@ -138,16 +138,22 @@ header {
 						transition: all 0.4s;
 					}
 				}
-				li:before {
+				li:before, li:last-child:after {
 					content: url("../images/list-style-dot.png");
 					display: inline-block;
 					width: 3px;
 					height: 3px;
 					position: absolute;
-					left: 0;
 					top: calc(50% - 1.5px);
 				}
+				li:before {
+					left: 0;
+				}
+				li:last-child:after {
+					right: 0;
+				}
 				li:last-child {
+					padding-right: 5px;
 					a:after {
 						content: url("../images/brazzers.png");
 						display: inline-block;
@@ -161,4 +167,244 @@ header {
 		}
 	}
 }
+
+.search-wrapper {
+	background-color: rgb(255, 161, 0);
+	margin: 20px 0;
+	padding: 20px;
+
+	.search-title {
+		font-size: 24px;
+		font-family: "PTSansBold", "sans-serif";
+		color: rgb(30, 32, 37);
+		font-weight: bold;
+		text-transform: uppercase;
+		line-height: 1.2;
+		text-align: center;
+	}
+
+	.quick-search-form {
+		font-size: 0;
+		.quick-search-cont {
+			display: inline-block;
+			width: calc(100% - 100px);
+			line-height: 20px;
+
+			input[type="search"] {
+				display: inline-block;
+				width: 100%;
+				height: 40px;
+				padding: 0 20px;
+
+				outline: none;
+				border: 1px solid rgb(153, 153, 153);
+				border-top-left-radius: 5px;
+				border-bottom-left-radius: 5px;
+
+				text-overflow: ellipsis;
+
+				font-size: 16px;
+				font-family: "Arial", "sans-serif";
+				color: rgb(0, 0, 0);
+				line-height: 1.2;
+				text-align: left;
+			}
+			input[type="search"]::-moz-placeholder,
+			input[type="search"]::-webkit-input-placeholder,
+			input[type="search"]:-ms-input-placeholder {
+				color: rgb(153, 153, 153);
+			}
+		}
+
+		.quick-search-btn-cont {
+			display: inline-block;
+			width: 100px;
+
+			input[type="submit"] {
+				height: 40px;
+
+				border-top-right-radius: 5px;
+				border-bottom-right-radius: 5px;
+			}
+		}
+	}
+
+	hr {
+		border-top: 1px solid #fff;
+		position: relative;
+		margin: 30px 0;
+	}
+	hr::before {
+		content: " ";
+		position: absolute;
+		top: 0;
+		margin-left: -10px;
+		border: 10px solid transparent;
+		border-top-color: #fff;
+	}
+	.separator-line-1::before {
+		right: 10%;
+	}
+	.separator-line-2::before {
+		left: 10%;
+	}
+	//.separator-line-1::before, .separator-line-1::after {
+	//	content: " ";
+	//	position: absolute;
+	//	top: 0;
+	//	right: 10%;
+	//}
+	//.separator-line-1::before {
+	//	margin-left: -11px;
+	//	margin-bottom: -5px;
+	//	border: 11px solid transparent;
+	//	border-top-color: #ffffff;
+	//}
+	//
+	//.separator-line-1::after {
+	//	margin-left: -8px;
+	//	margin-bottom: -5px;
+	//	border: 8px solid transparent;
+	//	border-top-color: rgb(255, 161, 0);
+	//}
+
+	.advanced-search-form {
+		input, select{
+			display: inline-block;
+			height: 30px;
+			padding-left: 10px;
+			outline: 0;
+			border: 1px solid rgb(153, 153, 153);
+
+			font-size: 16px;
+			font-family: "Arial", "sans-serif";
+			color: rgb(51, 51, 51);
+			line-height: 1.2;
+			text-align: left;
+		}
+		select {
+			cursor: pointer;
+		}
+
+		.advanced-search-title {
+			display: inline-block;
+			padding-right: 5px;
+			font-size: 18px;
+			font-family: "PTSansRegular", "sans-serif";
+			color: rgb(51, 51, 51);
+			line-height: 1.2;
+			text-align: left;
+		}
+
+		.advanced-search-price {
+			display: inline-block;
+			font-size: 0;
+
+			.car-price-min {
+				width: 110px;
+				border-right-width: 0.5px;
+			}
+			.car-price-max {
+				width: 125px;
+				border-left-width: 0.5px;
+			}
+
+			input::-moz-placeholder,
+			input::-webkit-input-placeholder,
+			input:-ms-input-placeholder {
+				color: rgb(51, 51, 51);
+			}
+		}
+		.advanced-search-price::after {
+			content: ";";
+			color: #000;
+		}
+
+		.advanced-search-currency {
+			display: inline-block;
+		}
+
+		.advanced-search-car {
+			display: inline-block;
+			font-size: 0;
+
+			select {
+				padding-right: 30px;
+			}
+		}
+
+		.advanced-search-year {
+			display: inline-block;
+			font-size: 0;
+		}
+
+		.advanced-search-btn-cont {
+			display: block;
+			width: 250px;
+			margin: 35px auto 20px auto;
+
+			input[type="submit"] {
+				height: 55px;
+				font-size: 24px;
+				border-radius: 5px;
+
+			}
+		}
+
+	}
+
+	input[type="submit"] {
+		display: inline-block;
+		width: 100%;
+		height: 40px;
+		background-color: rgb(0, 115, 204);
+
+		outline: none;
+		border: none;
+
+		font-size: 18px;
+		font-family: "PTSansBold", "sans-serif";
+		color: rgb(255, 255, 255);
+		font-weight: bold;
+		line-height: 1.2;
+		text-align: center;
+	}
+
+	.super-search {
+		p {
+			font-size: 18px;
+			font-family: "PTSansRegular", "sans-serif";
+			color: rgb(51, 51, 51);
+			line-height: 1.2;
+			text-align: center;
+
+			a {
+				font-size: inherit;
+				color: #fff;
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.client-advert-block {
+		//height: 125px;
+		background-color: rgb(231, 135, 6);
+		box-shadow: inset 1px 1.732px 2px 0px rgba(0, 0, 0, 0.15);
+
+		p {
+			padding: 50px 0;
+			margin: 0;
+
+			font-size: 18px;
+			font-family: "PTSansRegular";
+			color: rgb(255, 245, 181);
+			font-weight: bold;
+			text-transform: uppercase;
+			line-height: 1.2;
+			text-align: center;
+			text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+		}
+	}
+}
+
 

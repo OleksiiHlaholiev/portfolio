@@ -61,6 +61,88 @@
                 </div>
             </div>
         </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="search-wrapper">
+                        <h2 class="search-title">Быстрый поиск авто</h2>
+                        <form action="" class="quick-search-form">
+                            <div class="quick-search-cont">
+                                <input type="search" required="required"
+                                       name="car-name" placeholder="Какую машину искать?">
+                            </div>
+                            <div class="quick-search-btn-cont">
+                                <input type="submit" value="Найти">
+                            </div>
+                        </form>
+                        <hr class="separator-line-1">
+                        <form action="" class="advanced-search-form">
+                            <div class="advanced-search-price">
+                                <span class="advanced-search-title">Цена</span>
+                                <!--min="0" max="999999"-->
+                                <input type="number" required="required" class="car-price-min"
+                                       name="car-price-min" placeholder="от 0">
+                                <input type="number" required="required" class="car-price-max"
+                                       name="car-price-max" placeholder="до 999 999">
+                            </div>
+                            <div class="advanced-search-currency">
+                                <span class="advanced-search-title">Валюта</span>
+                                <!--min="0" max="999999"-->
+                                <select size="1" name="currency" required class="currency-list">
+                                    <!--<option disabled value="">Select currency</option>-->
+                                    <option selected value="hrivna">гривна</option>
+                                    <option value="dolllar">доллар</option>
+                                    <option value="evro">евро</option>
+                                </select>
+                            </div>
+                            <hr class="separator-line-2">
+                            <div class="advanced-search-car">
+                                <select size="1" name="car-mark" required class="car-mark">
+                                    <option selected disabled value="">Марка авто</option>
+                                    <option value="mark1">mark1</option>
+                                    <option value="mark3">mark2</option>
+                                    <option value="mark2">mark3</option>
+                                </select>
+                                <select size="1" name="car-model" required class="car-model">
+                                    <option selected disabled value="">Модель авто</option>
+                                    <option value="model1">model1</option>
+                                    <option value="model2">model2</option>
+                                    <option value="model3">model2</option>
+                                </select>
+                            </div>
+                            <div class="advanced-search-year">
+                                <select size="1" name="car-year-min" required class="car-year-min">
+                                    <option selected disabled value="">От 1960г.</option>
+                                    <option value="year1960">1960</option>
+                                    <option value="year2000">2000</option>
+                                    <option value="year2017">2017</option>
+                                </select>
+                                <select size="1" name="car-year-max" required class="car-year-max">
+                                    <option selected disabled value="">До 2017г.</option>
+                                    <option value="year1960">1960</option>
+                                    <option value="year2000">2000</option>
+                                    <option value="year2017">2017</option>
+                                </select>
+                            </div>
+                            <div class="advanced-search-btn-cont">
+                                <input type="submit" value="Найти">
+                            </div>
+                        </form>
+                        <div class="super-search">
+                            <p>
+                                Расширенный поиск —
+                                <a href="#">открыть</a>
+                            </p>
+                        </div>
+                        <div class="client-advert-block">
+                            <p>тут будет ваша реклама</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </header>
 </body>
 </html>

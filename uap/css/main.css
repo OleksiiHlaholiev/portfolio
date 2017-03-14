@@ -107,20 +107,177 @@ header .menu-wrapper {
         header .menu-wrapper .main-nav-menu ul li a:hover {
           color: yellow;
           transition: all 0.4s; }
-      header .menu-wrapper .main-nav-menu ul li:before {
+      header .menu-wrapper .main-nav-menu ul li:before, header .menu-wrapper .main-nav-menu ul li:last-child:after {
         content: url("../images/list-style-dot.png");
         display: inline-block;
         width: 3px;
         height: 3px;
         position: absolute;
-        left: 0;
         top: calc(50% - 1.5px); }
-      header .menu-wrapper .main-nav-menu ul li:last-child a:after {
-        content: url("../images/brazzers.png");
+      header .menu-wrapper .main-nav-menu ul li:before {
+        left: 0; }
+      header .menu-wrapper .main-nav-menu ul li:last-child:after {
+        right: 0; }
+      header .menu-wrapper .main-nav-menu ul li:last-child {
+        padding-right: 5px; }
+        header .menu-wrapper .main-nav-menu ul li:last-child a:after {
+          content: url("../images/brazzers.png");
+          display: inline-block;
+          vertical-align: middle;
+          padding: 0 5px;
+          width: 109px;
+          height: 22px; }
+
+.search-wrapper {
+  background-color: #ffa100;
+  margin: 20px 0;
+  padding: 20px; }
+  .search-wrapper .search-title {
+    font-size: 24px;
+    font-family: "PTSansBold", "sans-serif";
+    color: #1e2025;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: center; }
+  .search-wrapper .quick-search-form {
+    font-size: 0; }
+    .search-wrapper .quick-search-form .quick-search-cont {
+      display: inline-block;
+      width: calc(100% - 100px);
+      line-height: 20px; }
+      .search-wrapper .quick-search-form .quick-search-cont input[type="search"] {
         display: inline-block;
-        vertical-align: middle;
-        padding: 0 5px;
-        width: 109px;
-        height: 22px; }
+        width: 100%;
+        height: 40px;
+        padding: 0 20px;
+        outline: none;
+        border: 1px solid #999999;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        text-overflow: ellipsis;
+        font-size: 16px;
+        font-family: "Arial", "sans-serif";
+        color: black;
+        line-height: 1.2;
+        text-align: left; }
+      .search-wrapper .quick-search-form .quick-search-cont input[type="search"]::-moz-placeholder,
+      .search-wrapper .quick-search-form .quick-search-cont input[type="search"]::-webkit-input-placeholder,
+      .search-wrapper .quick-search-form .quick-search-cont input[type="search"]:-ms-input-placeholder {
+        color: #999999; }
+    .search-wrapper .quick-search-form .quick-search-btn-cont {
+      display: inline-block;
+      width: 100px; }
+      .search-wrapper .quick-search-form .quick-search-btn-cont input[type="submit"] {
+        height: 40px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px; }
+  .search-wrapper hr {
+    border-top: 1px solid #fff;
+    position: relative;
+    margin: 30px 0; }
+  .search-wrapper hr::before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    margin-left: -10px;
+    border: 10px solid transparent;
+    border-top-color: #fff; }
+  .search-wrapper .separator-line-1::before {
+    right: 10%; }
+  .search-wrapper .separator-line-2::before {
+    left: 10%; }
+  .search-wrapper .advanced-search-form input, .search-wrapper .advanced-search-form select {
+    display: inline-block;
+    height: 30px;
+    padding-left: 10px;
+    outline: 0;
+    border: 1px solid #999999;
+    font-size: 16px;
+    font-family: "Arial", "sans-serif";
+    color: #333333;
+    line-height: 1.2;
+    text-align: left; }
+  .search-wrapper .advanced-search-form select {
+    cursor: pointer; }
+  .search-wrapper .advanced-search-form .advanced-search-title {
+    display: inline-block;
+    padding-right: 5px;
+    font-size: 18px;
+    font-family: "PTSansRegular", "sans-serif";
+    color: #333333;
+    line-height: 1.2;
+    text-align: left; }
+  .search-wrapper .advanced-search-form .advanced-search-price {
+    display: inline-block;
+    font-size: 0; }
+    .search-wrapper .advanced-search-form .advanced-search-price .car-price-min {
+      width: 110px;
+      border-right-width: 0.5px; }
+    .search-wrapper .advanced-search-form .advanced-search-price .car-price-max {
+      width: 125px;
+      border-left-width: 0.5px; }
+    .search-wrapper .advanced-search-form .advanced-search-price input::-moz-placeholder,
+    .search-wrapper .advanced-search-form .advanced-search-price input::-webkit-input-placeholder,
+    .search-wrapper .advanced-search-form .advanced-search-price input:-ms-input-placeholder {
+      color: #333333; }
+  .search-wrapper .advanced-search-form .advanced-search-price::after {
+    content: ";";
+    color: #000; }
+  .search-wrapper .advanced-search-form .advanced-search-currency {
+    display: inline-block; }
+  .search-wrapper .advanced-search-form .advanced-search-car {
+    display: inline-block;
+    font-size: 0; }
+    .search-wrapper .advanced-search-form .advanced-search-car select {
+      padding-right: 30px; }
+  .search-wrapper .advanced-search-form .advanced-search-year {
+    display: inline-block;
+    font-size: 0; }
+  .search-wrapper .advanced-search-form .advanced-search-btn-cont {
+    display: block;
+    width: 250px;
+    margin: 35px auto 20px auto; }
+    .search-wrapper .advanced-search-form .advanced-search-btn-cont input[type="submit"] {
+      height: 55px;
+      font-size: 24px;
+      border-radius: 5px; }
+  .search-wrapper input[type="submit"] {
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+    background-color: #0073cc;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    font-family: "PTSansBold", "sans-serif";
+    color: white;
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: center; }
+  .search-wrapper .super-search p {
+    font-size: 18px;
+    font-family: "PTSansRegular", "sans-serif";
+    color: #333333;
+    line-height: 1.2;
+    text-align: center; }
+    .search-wrapper .super-search p a {
+      font-size: inherit;
+      color: #fff;
+      text-decoration: underline; }
+  .search-wrapper .client-advert-block {
+    background-color: #e78706;
+    box-shadow: inset 1px 1.732px 2px 0px rgba(0, 0, 0, 0.15); }
+    .search-wrapper .client-advert-block p {
+      padding: 50px 0;
+      margin: 0;
+      font-size: 18px;
+      font-family: "PTSansRegular";
+      color: #fff5b5;
+      font-weight: bold;
+      text-transform: uppercase;
+      line-height: 1.2;
+      text-align: center;
+      text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2); }
 
 /*# sourceMappingURL=main.css.map */
