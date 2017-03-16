@@ -187,61 +187,80 @@ header .menu-wrapper {
     right: 10%; }
   .search-wrapper .separator-line-2::before {
     left: 10%; }
-  .search-wrapper .advanced-search-form input, .search-wrapper .advanced-search-form select {
+  .search-wrapper .left-cont, .search-wrapper .middle-cont, .search-wrapper .right-cont {
     display: inline-block;
-    height: 30px;
-    padding-left: 10px;
-    outline: 0;
-    border: 1px solid #999999;
-    font-size: 16px;
-    font-family: "Arial", "sans-serif";
-    color: #333333;
-    line-height: 1.2;
+    font-size: 18px; }
+  .search-wrapper .left-cont {
+    width: 60%;
     text-align: left; }
-  .search-wrapper .advanced-search-form select {
-    cursor: pointer; }
-  .search-wrapper .advanced-search-form .advanced-search-title {
-    display: inline-block;
-    padding-right: 5px;
-    font-size: 18px;
-    font-family: "PTSansRegular", "sans-serif";
-    color: #333333;
-    line-height: 1.2;
-    text-align: left; }
-  .search-wrapper .advanced-search-form .advanced-search-price {
-    display: inline-block;
+  .search-wrapper .middle-cont {
+    width: 5%;
+    text-align: center; }
+    .search-wrapper .middle-cont .arrow-right {
+      max-width: 6px; }
+  .search-wrapper .right-cont {
+    width: 35%;
+    text-align: right; }
+  .search-wrapper .advanced-search-form {
     font-size: 0; }
-    .search-wrapper .advanced-search-form .advanced-search-price .car-price-min {
-      width: 110px;
-      border-right-width: 0.5px; }
-    .search-wrapper .advanced-search-form .advanced-search-price .car-price-max {
-      width: 125px;
-      border-left-width: 0.5px; }
-    .search-wrapper .advanced-search-form .advanced-search-price input::-moz-placeholder,
-    .search-wrapper .advanced-search-form .advanced-search-price input::-webkit-input-placeholder,
-    .search-wrapper .advanced-search-form .advanced-search-price input:-ms-input-placeholder {
-      color: #333333; }
-  .search-wrapper .advanced-search-form .advanced-search-price::after {
-    content: ";";
-    color: #000; }
-  .search-wrapper .advanced-search-form .advanced-search-currency {
-    display: inline-block; }
-  .search-wrapper .advanced-search-form .advanced-search-car {
-    display: inline-block;
-    font-size: 0; }
-    .search-wrapper .advanced-search-form .advanced-search-car select {
-      padding-right: 30px; }
-  .search-wrapper .advanced-search-form .advanced-search-year {
-    display: inline-block;
-    font-size: 0; }
-  .search-wrapper .advanced-search-form .advanced-search-btn-cont {
-    display: block;
-    width: 250px;
-    margin: 35px auto 20px auto; }
-    .search-wrapper .advanced-search-form .advanced-search-btn-cont input[type="submit"] {
-      height: 55px;
-      font-size: 24px;
-      border-radius: 5px; }
+    .search-wrapper .advanced-search-form input, .search-wrapper .advanced-search-form select {
+      display: inline-block;
+      height: 30px;
+      padding-left: 10px;
+      outline: 0;
+      border: 1px solid #999999;
+      font-size: 16px;
+      font-family: "Arial", "sans-serif";
+      color: #333333;
+      line-height: 1.2;
+      text-align: left; }
+    .search-wrapper .advanced-search-form select {
+      cursor: pointer; }
+    .search-wrapper .advanced-search-form .advanced-search-title {
+      display: inline-block;
+      padding-right: 5px;
+      font-size: 18px;
+      font-family: "PTSansRegular", "sans-serif";
+      color: #333333;
+      line-height: 1.2;
+      text-align: left; }
+    .search-wrapper .advanced-search-form .advanced-search-price {
+      display: inline-block;
+      font-size: 0; }
+      .search-wrapper .advanced-search-form .advanced-search-price .car-price-min {
+        width: 110px;
+        border-right-width: 0.5px; }
+      .search-wrapper .advanced-search-form .advanced-search-price .car-price-max {
+        width: 125px;
+        border-left-width: 0.5px; }
+      .search-wrapper .advanced-search-form .advanced-search-price input::-moz-placeholder,
+      .search-wrapper .advanced-search-form .advanced-search-price input::-webkit-input-placeholder,
+      .search-wrapper .advanced-search-form .advanced-search-price input:-ms-input-placeholder {
+        color: #333333; }
+    .search-wrapper .advanced-search-form .advanced-search-price::after {
+      content: ";";
+      color: #000;
+      font-size: 16px;
+      font-weight: bold;
+      padding-left: 5px; }
+    .search-wrapper .advanced-search-form .advanced-search-currency {
+      display: inline-block; }
+    .search-wrapper .advanced-search-form .advanced-search-car {
+      display: inline-block;
+      font-size: 0; }
+      .search-wrapper .advanced-search-form .advanced-search-car select {
+        padding-right: 30px; }
+    .search-wrapper .advanced-search-form .advanced-search-year {
+      display: inline-block;
+      font-size: 0; }
+    .search-wrapper .advanced-search-form .advanced-search-btn-cont {
+      display: block;
+      width: 250px;
+      margin: 35px auto 20px auto; }
+      .search-wrapper .advanced-search-form .advanced-search-btn-cont input[type="submit"] {
+        height: 55px;
+        font-size: 24px;
+        border-radius: 5px; }
   .search-wrapper input[type="submit"] {
     display: inline-block;
     width: 100%;

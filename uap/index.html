@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" type="image/png" href="images/logo_yellow.png">
+    <link rel="icon" type="image/png" href="images/logo-yellow.png">
 
     <!-- Bootstrap 4 -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -20,7 +20,7 @@
                 <div class="top-header-cont">
                     <div class="logo-cont">
                         <a href="#">
-                            <img src="images/logo_yellow.png" alt="logo-img">
+                            <img src="images/logo-yellow.png" alt="logo-img">
                         </a>
                     </div>
                     <div class="header-cont">
@@ -28,14 +28,14 @@
                     </div>
                     <div class="detailed-search">
                         <div class="img-cont">
-                            <img src="images/search_icon.png" alt="search_icon">
+                            <img src="images/search-icon.png" alt="search-icon">
                         </div>
                         <!--<p>Подробный <br> поиск</p>-->
                         <p>Подробный поиск</p>
                     </div>
                     <div class="log-in">
                         <div class="img-cont">
-                            <img src="images/user_icon.png" alt="user_icon">
+                            <img src="images/user-icon.png" alt="user-icon">
                         </div>
                         <p>Вход</p>
                     </div>
@@ -78,53 +78,74 @@
                         </form>
                         <hr class="separator-line-1">
                         <form action="" class="advanced-search-form">
-                            <div class="advanced-search-price">
-                                <span class="advanced-search-title">Цена</span>
-                                <!--min="0" max="999999"-->
-                                <input type="number" required="required" class="car-price-min"
-                                       name="car-price-min" placeholder="от 0">
-                                <input type="number" required="required" class="car-price-max"
-                                       name="car-price-max" placeholder="до 999 999">
+                            <div class="left-cont">
+                                <div class="advanced-search-price">
+                                    <span class="advanced-search-title">Цена</span>
+                                    <!--min="0" max="999999"-->
+                                    <input type="number" required="required" class="car-price-min"
+                                           name="car-price-min" placeholder="от 0">
+                                    <input type="number" required="required" class="car-price-max"
+                                           name="car-price-max" placeholder="до 999 999">
+                                </div>
                             </div>
-                            <div class="advanced-search-currency">
-                                <span class="advanced-search-title">Валюта</span>
-                                <!--min="0" max="999999"-->
-                                <select size="1" name="currency" required class="currency-list">
-                                    <!--<option disabled value="">Select currency</option>-->
-                                    <option selected value="hrivna">гривна</option>
-                                    <option value="dolllar">доллар</option>
-                                    <option value="evro">евро</option>
-                                </select>
+                            <div class="middle-cont">
+                                <div class="img-cont">
+                                    <img src="images/arrow-right.png" alt="arrow-img" class="arrow-right">
+                                </div>
                             </div>
+                            <div class="right-cont">
+                                <div class="advanced-search-currency">
+                                    <span class="advanced-search-title">Валюта</span>
+                                    <!--min="0" max="999999"-->
+                                    <select size="1" name="currency" required class="currency-list">
+                                        <!--<option disabled value="">Select currency</option>-->
+                                        <option selected value="hrivna">гривна</option>
+                                        <option value="dolllar">доллар</option>
+                                        <option value="evro">евро</option>
+                                    </select>
+                                </div>
+                            </div>
+
                             <hr class="separator-line-2">
-                            <div class="advanced-search-car">
-                                <select size="1" name="car-mark" required class="car-mark">
-                                    <option selected disabled value="">Марка авто</option>
-                                    <option value="mark1">mark1</option>
-                                    <option value="mark3">mark2</option>
-                                    <option value="mark2">mark3</option>
-                                </select>
-                                <select size="1" name="car-model" required class="car-model">
-                                    <option selected disabled value="">Модель авто</option>
-                                    <option value="model1">model1</option>
-                                    <option value="model2">model2</option>
-                                    <option value="model3">model2</option>
-                                </select>
+                            <div class="left-cont">
+                                <div class="advanced-search-car">
+                                    <select size="1" name="car-mark" required class="car-mark">
+                                        <option selected disabled value="">Марка авто</option>
+                                        <option value="mark1">mark1</option>
+                                        <option value="mark3">mark2</option>
+                                        <option value="mark2">mark3</option>
+                                    </select>
+                                    <select size="1" name="car-model" required class="car-model">
+                                        <option selected disabled value="">Модель авто</option>
+                                        <option value="model1">model1</option>
+                                        <option value="model2">model2</option>
+                                        <option value="model3">model2</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="advanced-search-year">
-                                <select size="1" name="car-year-min" required class="car-year-min">
-                                    <option selected disabled value="">От 1960г.</option>
-                                    <option value="year1960">1960</option>
-                                    <option value="year2000">2000</option>
-                                    <option value="year2017">2017</option>
-                                </select>
-                                <select size="1" name="car-year-max" required class="car-year-max">
-                                    <option selected disabled value="">До 2017г.</option>
-                                    <option value="year1960">1960</option>
-                                    <option value="year2000">2000</option>
-                                    <option value="year2017">2017</option>
-                                </select>
+                            <div class="middle-cont">
+                                <div class="img-cont">
+                                    <img src="images/arrow-right.png" alt="arrow-img" class="arrow-right">
+                                </div>
                             </div>
+                            <div class="right-cont">
+                                <div class="advanced-search-year">
+                                    <span class="advanced-search-title">Год</span>
+                                    <select size="1" name="car-year-min" required class="car-year-min">
+                                        <option selected disabled value="">От 1960г.</option>
+                                        <option value="year1960">1960</option>
+                                        <option value="year2000">2000</option>
+                                        <option value="year2017">2017</option>
+                                    </select>
+                                    <select size="1" name="car-year-max" required class="car-year-max">
+                                        <option selected disabled value="">До 2017г.</option>
+                                        <option value="year1960">1960</option>
+                                        <option value="year2000">2000</option>
+                                        <option value="year2017">2017</option>
+                                    </select>
+                                </div>
+                            </div>
+
                             <div class="advanced-search-btn-cont">
                                 <input type="submit" value="Найти">
                             </div>

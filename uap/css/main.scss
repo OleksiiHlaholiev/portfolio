@@ -266,9 +266,32 @@ header {
 	//	margin-bottom: -5px;
 	//	border: 8px solid transparent;
 	//	border-top-color: rgb(255, 161, 0);
-	//}
+	//}]
+
+	.left-cont, .middle-cont, .right-cont {
+		display: inline-block;
+		font-size: 18px;
+		//float: left;
+	}
+	.left-cont {
+		width: 60%;
+		text-align: left;
+	}
+	.middle-cont {
+		width: 5%;
+		text-align: center;
+
+		.arrow-right {
+			max-width: 6px;
+		}
+	}
+	.right-cont {
+		width: 35%;
+		text-align: right;
+	}
 
 	.advanced-search-form {
+		font-size: 0;
 		input, select{
 			display: inline-block;
 			height: 30px;
@@ -318,6 +341,9 @@ header {
 		.advanced-search-price::after {
 			content: ";";
 			color: #000;
+			font-size: 16px;
+			font-weight: bold;
+			padding-left: 5px;
 		}
 
 		.advanced-search-currency {
